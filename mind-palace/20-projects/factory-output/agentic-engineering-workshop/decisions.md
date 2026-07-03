@@ -2,4 +2,12 @@
 
 | Date | Decision | Rationale |
 |---|---|---|
-| 2026-07-03 | Project scaffolded as factory-output | Initial setup |
+| 2026-07-03 | Initial scaffold as factory-output | Public workshop teaching the evolution from prompt engineering to context engineering to loop engineering, taught by leveraging agents and harnesses as the learning method itself. |
+| 2026-07-03 | Audience: advanced practitioners already using agents daily | User-confirmed. Not an intro-to-AI workshop; assumes existing harness fluency so the workshop can teach the frontier (loop engineering) rather than agent basics. |
+| 2026-07-03 | Format: self-paced public repo | User-confirmed. No facilitator required; matches "public workshop" and scales without a live cohort. |
+| 2026-07-03 | Teaching method: agent-native (exercises run through a harness) | User-confirmed. Strongest embodiment of the workshop's thesis — the harness is the classroom, not an optional aid. Drove the design of Coachgremlin as a harness-native teaching agent rather than a content-writer. |
+| 2026-07-03 | Coachgremlin classified as Tier 3 Gremlin (scope: cross-project), not Tier 2 factory agent | Teaching a workshop learner is a domain artefact of the project being taught, not an operation on Hekton itself — matches the Gremlin Model's own Tier 2 vs Tier 3 definition even though Coachgremlin is meant to be reused broadly. |
+| 2026-07-03 | Workshop Gremlin defined at factory scope (`~/hekton/gremlins/`) from birth, not lab-born-then-promoted | Matches the user's explicit intent to add it to the factory for reuse going forward; this workshop is treated as the Gremlin's first end-to-end run (draft → v0). |
+| 2026-07-03 | Publishing: Astro (adapted from blog-factory-lab's starter) on GitHub Pages via Actions `deploy-pages`, not blog-factory-lab's existing AWS S3/CloudFront pattern | User explicitly asked for GitHub Pages. Reuses the Astro starter/brand-layer pattern without adopting AWS infra that doesn't fit the ask. |
+| 2026-07-03 | Repo name is a placeholder (`agentic-engineering-workshop`); working title "Prompt → Loop" used in docs until the Workshop Gremlin's naming agent runs | The user wants the final name to be a real deliverable of the naming agent, chosen by the human from generated candidates — not decided ad hoc during scaffolding. |
+| 2026-07-03 | Extended the Hekton commit signature (`hekton-cli-lab`) with `Hekton-Harness` and `Hekton-Model` trailers | User asked for commits to record "Built by hekton" plus harness (claude-code) and model per commit. Done in an isolated worktree (`hekton-cli-lab--extend-commit-signature`) because the lab's primary checkout had unrelated uncommitted WIP from a prior session — see `docs/risks.md`. |
