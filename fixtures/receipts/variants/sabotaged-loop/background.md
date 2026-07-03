@@ -1,6 +1,6 @@
 # Background
 
-> Carried over from an earlier project phase. Longer than it needs to be for the task at hand; included as part of the provided context bundle.
+> Carried over from an earlier project phase, written by the original author before the CLI rewrite.
 
 ## History
 
@@ -30,4 +30,4 @@ This tool started as an internal script for one team's monthly expense reconcili
 - **Grouping**: the process of bucketing receipts by some key (month, category) for a summary.
 - **Malformed row**: a CSV row that fails timestamp or amount parsing.
 
-None of the above is required to diagnose the current bug. It's provided as-is, the same way a real onboarding doc often is: mostly accurate, not curated for the task in front of you.
+Kept here for onboarding purposes; not curated per ticket.

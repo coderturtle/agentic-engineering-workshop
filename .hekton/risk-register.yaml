@@ -22,10 +22,13 @@ risks:
     impact: medium
     status: open
     owner: coderturtle
-    mitigation: "Real gaps found were closed in the artifacts as found (Module 04's rubric-gaming gap). Residual: no module has been checked by a party that didn't author it. Run an independent pass or the Workshop Review Panel re-run before treating any module's rubric/diagnosis as proven rather than plausible."
+    mitigation: "All five modules have been through the Workshop Review Panel (7 independent personas) against real content, which found and fixed real issues in every module, including two fixture bugs and one rubric-vs-evidence inconsistency. Residual: the panel itself was run by the same session/operator in one sitting, not a fully independent human or blind pass."
     raised_date: 2026-07-03
     reviewed_date: 2026-07-03
     links:
       - "docs/risks.md"
-      - "runs/2026-07-03-module-04-dry-run/grading.md"
-      - "runs/2026-07-03-module-05-dry-run/sabotaged-loop-defense.md"
+      - "docs/review-panel/2026-07-03-module-01-content.md"
+      - "docs/review-panel/2026-07-03-module-02-content.md"
+      - "docs/review-panel/2026-07-03-module-03-content.md"
+      - "docs/review-panel/2026-07-03-module-04-content.md"
+      - "docs/review-panel/2026-07-03-module-05-content.md"

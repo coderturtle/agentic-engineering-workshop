@@ -60,8 +60,7 @@ def build_readme() -> str:
     lines = [
         "# Receipts: Enterprise Expense Intelligence Platform",
         "",
-        "> This README predates the current CLI-focused direction and was never",
-        "> trimmed down. Kept here as historical bloat for Module 02.",
+        "> Last substantially revised for the v2 platform pitch deck.",
         "",
         "## Overview",
         "",
@@ -71,11 +70,10 @@ def build_readme() -> str:
             f"### Overview section {i}",
             "",
             (
-                f"Paragraph {i} of general platform framing, repeated with minor "
-                "variation across historical README revisions. Describes the "
-                "product vision, market positioning, and competitive landscape "
-                "in language that has not been updated to match the current "
-                "small CLI tool this repository actually ships."
+                f"Paragraph {i} of platform framing: product vision, market "
+                "positioning, and competitive landscape, written for a "
+                "stakeholder audience evaluating the roadmap rather than a "
+                "developer trying to ship a fix this week."
             ),
             "",
         ]
@@ -85,9 +83,8 @@ def build_readme() -> str:
             f"### {i}. {feat.capitalize()}",
             "",
             (
-                f"Description of {feat}: a planned or historical feature not "
-                "implemented by anything in this repository. Included here "
-                "purely as README bloat."
+                f"{feat.capitalize()} is on the roadmap for the enterprise tier, "
+                "targeted for a future release once the core CLI stabilizes."
             ),
             "",
         ]
@@ -98,13 +95,11 @@ def build_readme() -> str:
         lines += [
             f"### {platform}",
             "",
-            f"Step-by-step instructions for installing on {platform}, none of "
-            "which apply to the actual stdlib-only Python fixture in this "
-            "directory.",
+            f"Step-by-step instructions for installing the full platform on {platform}.",
             "",
             "```bash",
-            f"# placeholder install commands for {platform}",
-            "echo 'not a real install path'",
+            f"curl -fsSL https://get.receipts-platform.example/{platform.split()[0].lower()} | sh",
+            "receipts-platform init --license-key $RECEIPTS_LICENSE_KEY",
             "```",
             "",
         ]
@@ -132,17 +127,16 @@ def build_changelog() -> str:
         for minor in range(20, 0, -1):
             lines += [f"## v{major}.{minor}.0 - 2024-{(minor % 12) + 1:02d}-{(major * minor) % 28 + 1:02d}", ""]
             for j in range(1, 6):
-                lines.append(f"- {['Fixed', 'Added', 'Changed', 'Removed', 'Deprecated'][j % 5]} item {j} in this release, unrelated to the receipts CLI's current scope.")
+                lines.append(f"- {['Fixed', 'Added', 'Changed', 'Removed', 'Deprecated'][j % 5]} item {j} in this release.")
             lines.append("")
     return "\n".join(lines)
 
 
 def build_legacy_export() -> str:
     lines = [
-        '"""legacy_export.py: unrelated legacy export pipeline, kept for',
-        'historical reasons. Nothing in receipts/grouping.py imports this.',
-        'A red herring by inclusion, not by content: it looks like it might',
-        'matter to a nervous reader and does not."""',
+        '"""legacy_export.py: the pre-CLI export pipeline, superseded by the',
+        'current summary output but kept around for the finance team\'s old',
+        'automation until they migrate off it."""',
         "",
         "from __future__ import annotations",
         "",
@@ -173,16 +167,15 @@ def build_legacy_export() -> str:
 
 
 def build_stale_doc(title: str, n_paragraphs: int) -> str:
-    lines = [f"# {title}", "", "> Stale, predates the current CLI. Not maintained.", ""]
+    lines = [f"# {title}", ""]
     for i in range(n_paragraphs):
         lines += [
             f"## Section {i + 1}",
             "",
             (
                 f"Paragraph describing an architectural decision or API design "
-                f"from an earlier version of this project, section {i + 1}. "
-                "None of this reflects the current receipts/grouping.py "
-                "implementation."
+                f"reached during design review, section {i + 1}. Covers the "
+                "tradeoffs considered and the reasoning behind the choice made."
             ),
             "",
         ]
@@ -200,8 +193,8 @@ def build_tax_rates_yaml() -> str:
     lines = [
         "# tax_rates.yaml",
         "#",
-        "# Red herring: per-state tax rate tables. Looks like it could matter",
-        "# to expense totals; group_expenses_by_month never reads this file.",
+        "# Per-state tax rate reference table, sourced from the finance team's",
+        "# quarterly filing worksheet. Update when rates change.",
         "",
         "tax_rates:",
     ]

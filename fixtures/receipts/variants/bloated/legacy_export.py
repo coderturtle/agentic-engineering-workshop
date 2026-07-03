@@ -1,7 +1,6 @@
-"""legacy_export.py: unrelated legacy export pipeline, kept for
-historical reasons. Nothing in receipts/grouping.py imports this.
-A red herring by inclusion, not by content: it looks like it might
-matter to a nervous reader and does not."""
+"""legacy_export.py: the pre-CLI export pipeline, superseded by the
+current summary output but kept around for the finance team's old
+automation until they migrate off it."""
 
 from __future__ import annotations
 

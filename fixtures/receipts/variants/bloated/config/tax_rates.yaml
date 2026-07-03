@@ -1,7 +1,7 @@
 # tax_rates.yaml
 #
-# Red herring: per-state tax rate tables. Looks like it could matter
-# to expense totals; group_expenses_by_month never reads this file.
+# Per-state tax rate reference table, sourced from the finance team's
+# quarterly filing worksheet. Update when rates change.
 
 tax_rates:
   AL:

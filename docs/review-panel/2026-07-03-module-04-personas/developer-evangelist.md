@@ -1,0 +1,11 @@
+# Persona: Developer Evangelist — Module 04 — 2026-07-03
+
+**Verdict: the citation-leak defect from Modules 01-03 is still here, and it's worse than a single instance, it's threaded through the whole page.**
+
+Count them: an early section cites `docs/workshop-design.md`'s "loop taxonomy"; the Loop taxonomy section drops "flagged by the Workshop Review Panel (AI/ML Practitioner and Security-Conscious Reviewer both caught the same gap independently; see `docs/review-panel/2026-07-03-initial-design.md`)", a named-persona internal review note sitting in learner-facing prose; the Rubric points to `runs/2026-07-03-module-04-dry-run/grading.md` "the dry-run attempt this rule was written to catch"; and the closing blockquote cites `docs/coachgremlin-implementation-plan.md` §2 and §6 by section number, plus "Coachgremlin's first real dry run." A colleague opening this page for the first time hits internal production metadata before they hit the exercise. It reads like someone forgot to strip the workshop's own build notes before publishing.
+
+**The hook is buried.** Four header sections — Where it sits, Learning objectives, Loop taxonomy, Exercise material — separate the title from the actual task. That's roughly 30 lines of curriculum scaffolding and cross-references before "here's what you build." The strongest line on the whole page — "Not a trick question. The bug is real, it lives in one function, and the fix is two lines once you find them. Everything interesting about this exercise is whether you actually verify that, or just talk yourself into it." — is stranded well past the fold on any reasonable viewport. That sentence *is* the pitch; it should be near the top, not the reward for scrolling past a taxonomy table pointer.
+
+**Redundancy confirmed, triple not double.** The terminal-state framing appears in the Exercise's imperative box, again verbatim-ish in "Required to advance," and again in "Stop condition," plus it's restated as Rubric criteria 1-2. One clear statement would land harder than three.
+
+**One bright spot for this lens**: Takeaway doesn't spoil the fix, it stays at the "generalize your template" level, unlike the spoiler pattern flagged elsewhere. I would not share this page as-is; I'd share the exercise paragraph, screenshotted, with everything above it cropped out.

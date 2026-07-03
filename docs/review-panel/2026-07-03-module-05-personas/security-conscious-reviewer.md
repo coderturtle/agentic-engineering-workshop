@@ -1,0 +1,9 @@
+# Persona: Security-Conscious Reviewer — Module 05 — 2026-07-03
+
+**Finding: the method has no step that checks a fix for new problems, only that it makes the original symptom go away.**
+
+The SKILL's step 6 ("Apply the minimal fix to the diagnosed layer only") and the README's gate 5 ("Fix works... TERMINAL STATE: SUCCESS, independently reproducible") together define "done" as: the one isolating test now passes. Neither the checklist nor the quick-reference table asks whether the fix could introduce a new failure mode. This is a real gap for two of the four fixes specifically: "widen scope to exactly what's needed" (harness) has no accompanying check that the widened scope doesn't now expose more than intended; "fix the verification step's actual check" (loop) has no check that the corrected check isn't now *too* lenient, i.e., that in fixing a false-negative you haven't created a false-positive. A learner who internalizes "isolate, fix, confirm terminal state flips to SUCCESS, done" has no prompt anywhere to ask "does this fix create a new problem" before shipping.
+
+**Finding: the method offers no posture for ambiguous evidence.** Step 4 is framed as a clean binary, "if the failure clears, that layer was load-bearing; if it doesn't, it wasn't." There's no branch for partial clearance, an isolating test that's inconclusive, or two layers that both appear load-bearing. The rubric's gate 1 ("correct layer identified") and the whole exercise structure assume a single correct, discoverable answer, which is true of the fixture but trains no fallback behavior, flag uncertainty, escalate, or gather more evidence, for when a real system doesn't cooperate.
+
+Both gaps are training-shape issues, not fixture bugs, and worth a line in the Skill before it's presented as reusable-in-the-wild.

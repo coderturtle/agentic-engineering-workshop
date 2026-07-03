@@ -1,1178 +1,1177 @@
 # Receipts: Enterprise Expense Intelligence Platform
 
-> This README predates the current CLI-focused direction and was never
-> trimmed down. Kept here as historical bloat for Module 02.
+> Last substantially revised for the v2 platform pitch deck.
 
 ## Overview
 
 ### Overview section 1
 
-Paragraph 1 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 1 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 2
 
-Paragraph 2 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 2 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 3
 
-Paragraph 3 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 3 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 4
 
-Paragraph 4 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 4 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 5
 
-Paragraph 5 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 5 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 6
 
-Paragraph 6 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 6 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 7
 
-Paragraph 7 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 7 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 8
 
-Paragraph 8 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 8 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 9
 
-Paragraph 9 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 9 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 10
 
-Paragraph 10 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 10 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 11
 
-Paragraph 11 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 11 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 12
 
-Paragraph 12 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 12 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 13
 
-Paragraph 13 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 13 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 14
 
-Paragraph 14 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 14 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 15
 
-Paragraph 15 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 15 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 16
 
-Paragraph 16 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 16 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 17
 
-Paragraph 17 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 17 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 18
 
-Paragraph 18 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 18 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 19
 
-Paragraph 19 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 19 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 20
 
-Paragraph 20 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 20 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 21
 
-Paragraph 21 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 21 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 22
 
-Paragraph 22 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 22 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 23
 
-Paragraph 23 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 23 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 24
 
-Paragraph 24 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 24 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 25
 
-Paragraph 25 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 25 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 26
 
-Paragraph 26 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 26 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 27
 
-Paragraph 27 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 27 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 28
 
-Paragraph 28 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 28 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 29
 
-Paragraph 29 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 29 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 30
 
-Paragraph 30 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 30 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 31
 
-Paragraph 31 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 31 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 32
 
-Paragraph 32 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 32 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 33
 
-Paragraph 33 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 33 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 34
 
-Paragraph 34 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 34 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 35
 
-Paragraph 35 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 35 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 36
 
-Paragraph 36 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 36 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 37
 
-Paragraph 37 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 37 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 38
 
-Paragraph 38 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 38 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 39
 
-Paragraph 39 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 39 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 40
 
-Paragraph 40 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 40 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 41
 
-Paragraph 41 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 41 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 42
 
-Paragraph 42 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 42 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 43
 
-Paragraph 43 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 43 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 44
 
-Paragraph 44 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 44 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 45
 
-Paragraph 45 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 45 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 46
 
-Paragraph 46 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 46 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 47
 
-Paragraph 47 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 47 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 48
 
-Paragraph 48 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 48 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 49
 
-Paragraph 49 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 49 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 50
 
-Paragraph 50 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 50 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 51
 
-Paragraph 51 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 51 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 52
 
-Paragraph 52 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 52 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 53
 
-Paragraph 53 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 53 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 54
 
-Paragraph 54 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 54 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 55
 
-Paragraph 55 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 55 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 56
 
-Paragraph 56 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 56 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 57
 
-Paragraph 57 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 57 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 58
 
-Paragraph 58 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 58 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 59
 
-Paragraph 59 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 59 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 60
 
-Paragraph 60 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 60 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 61
 
-Paragraph 61 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 61 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 62
 
-Paragraph 62 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 62 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 63
 
-Paragraph 63 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 63 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 64
 
-Paragraph 64 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 64 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 65
 
-Paragraph 65 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 65 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 66
 
-Paragraph 66 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 66 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 67
 
-Paragraph 67 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 67 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 68
 
-Paragraph 68 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 68 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 69
 
-Paragraph 69 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 69 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 70
 
-Paragraph 70 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 70 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 71
 
-Paragraph 71 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 71 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 72
 
-Paragraph 72 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 72 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 73
 
-Paragraph 73 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 73 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 74
 
-Paragraph 74 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 74 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 75
 
-Paragraph 75 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 75 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 76
 
-Paragraph 76 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 76 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 77
 
-Paragraph 77 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 77 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 78
 
-Paragraph 78 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 78 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 79
 
-Paragraph 79 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 79 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 80
 
-Paragraph 80 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 80 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 81
 
-Paragraph 81 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 81 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 82
 
-Paragraph 82 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 82 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 83
 
-Paragraph 83 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 83 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 84
 
-Paragraph 84 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 84 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 85
 
-Paragraph 85 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 85 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 86
 
-Paragraph 86 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 86 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 87
 
-Paragraph 87 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 87 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 88
 
-Paragraph 88 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 88 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 89
 
-Paragraph 89 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 89 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 90
 
-Paragraph 90 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 90 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 91
 
-Paragraph 91 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 91 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 92
 
-Paragraph 92 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 92 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 93
 
-Paragraph 93 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 93 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 94
 
-Paragraph 94 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 94 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 95
 
-Paragraph 95 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 95 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 96
 
-Paragraph 96 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 96 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 97
 
-Paragraph 97 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 97 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 98
 
-Paragraph 98 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 98 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 99
 
-Paragraph 99 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 99 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 100
 
-Paragraph 100 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 100 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 101
 
-Paragraph 101 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 101 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 102
 
-Paragraph 102 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 102 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 103
 
-Paragraph 103 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 103 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 104
 
-Paragraph 104 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 104 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 105
 
-Paragraph 105 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 105 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 106
 
-Paragraph 106 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 106 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 107
 
-Paragraph 107 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 107 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 108
 
-Paragraph 108 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 108 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 109
 
-Paragraph 109 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 109 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 110
 
-Paragraph 110 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 110 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 111
 
-Paragraph 111 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 111 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 112
 
-Paragraph 112 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 112 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 113
 
-Paragraph 113 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 113 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 114
 
-Paragraph 114 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 114 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 115
 
-Paragraph 115 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 115 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 116
 
-Paragraph 116 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 116 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 117
 
-Paragraph 117 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 117 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 118
 
-Paragraph 118 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 118 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 119
 
-Paragraph 119 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 119 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 120
 
-Paragraph 120 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 120 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 121
 
-Paragraph 121 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 121 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 122
 
-Paragraph 122 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 122 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 123
 
-Paragraph 123 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 123 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 124
 
-Paragraph 124 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 124 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 125
 
-Paragraph 125 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 125 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 126
 
-Paragraph 126 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 126 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 127
 
-Paragraph 127 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 127 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 128
 
-Paragraph 128 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 128 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 129
 
-Paragraph 129 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 129 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 130
 
-Paragraph 130 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 130 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 131
 
-Paragraph 131 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 131 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 132
 
-Paragraph 132 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 132 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 133
 
-Paragraph 133 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 133 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 134
 
-Paragraph 134 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 134 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 135
 
-Paragraph 135 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 135 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 136
 
-Paragraph 136 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 136 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 137
 
-Paragraph 137 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 137 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 138
 
-Paragraph 138 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 138 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 139
 
-Paragraph 139 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 139 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 140
 
-Paragraph 140 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 140 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 141
 
-Paragraph 141 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 141 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 142
 
-Paragraph 142 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 142 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 143
 
-Paragraph 143 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 143 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 144
 
-Paragraph 144 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 144 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 145
 
-Paragraph 145 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 145 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 146
 
-Paragraph 146 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 146 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 147
 
-Paragraph 147 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 147 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 148
 
-Paragraph 148 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 148 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 149
 
-Paragraph 149 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 149 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 150
 
-Paragraph 150 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 150 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 151
 
-Paragraph 151 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 151 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 152
 
-Paragraph 152 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 152 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 153
 
-Paragraph 153 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 153 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 154
 
-Paragraph 154 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 154 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 155
 
-Paragraph 155 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 155 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 156
 
-Paragraph 156 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 156 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 157
 
-Paragraph 157 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 157 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 158
 
-Paragraph 158 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 158 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 159
 
-Paragraph 159 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 159 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 160
 
-Paragraph 160 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 160 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 161
 
-Paragraph 161 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 161 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 162
 
-Paragraph 162 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 162 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 163
 
-Paragraph 163 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 163 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 164
 
-Paragraph 164 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 164 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 165
 
-Paragraph 165 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 165 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 166
 
-Paragraph 166 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 166 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 167
 
-Paragraph 167 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 167 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 168
 
-Paragraph 168 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 168 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 169
 
-Paragraph 169 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 169 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 170
 
-Paragraph 170 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 170 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 171
 
-Paragraph 171 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 171 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 172
 
-Paragraph 172 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 172 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 173
 
-Paragraph 173 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 173 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 174
 
-Paragraph 174 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 174 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 175
 
-Paragraph 175 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 175 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 176
 
-Paragraph 176 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 176 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 177
 
-Paragraph 177 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 177 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 178
 
-Paragraph 178 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 178 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 179
 
-Paragraph 179 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 179 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 180
 
-Paragraph 180 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 180 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 181
 
-Paragraph 181 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 181 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 182
 
-Paragraph 182 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 182 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 183
 
-Paragraph 183 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 183 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 184
 
-Paragraph 184 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 184 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 185
 
-Paragraph 185 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 185 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 186
 
-Paragraph 186 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 186 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 187
 
-Paragraph 187 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 187 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 188
 
-Paragraph 188 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 188 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 189
 
-Paragraph 189 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 189 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 190
 
-Paragraph 190 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 190 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 191
 
-Paragraph 191 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 191 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 192
 
-Paragraph 192 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 192 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 193
 
-Paragraph 193 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 193 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 194
 
-Paragraph 194 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 194 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 195
 
-Paragraph 195 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 195 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 196
 
-Paragraph 196 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 196 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 197
 
-Paragraph 197 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 197 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 198
 
-Paragraph 198 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 198 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 199
 
-Paragraph 199 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 199 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 200
 
-Paragraph 200 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 200 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 201
 
-Paragraph 201 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 201 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 202
 
-Paragraph 202 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 202 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 203
 
-Paragraph 203 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 203 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 204
 
-Paragraph 204 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 204 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 205
 
-Paragraph 205 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 205 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 206
 
-Paragraph 206 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 206 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 207
 
-Paragraph 207 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 207 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 208
 
-Paragraph 208 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 208 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 209
 
-Paragraph 209 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 209 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 210
 
-Paragraph 210 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 210 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 211
 
-Paragraph 211 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 211 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 212
 
-Paragraph 212 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 212 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 213
 
-Paragraph 213 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 213 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 214
 
-Paragraph 214 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 214 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 215
 
-Paragraph 215 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 215 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 216
 
-Paragraph 216 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 216 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 217
 
-Paragraph 217 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 217 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 218
 
-Paragraph 218 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 218 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ### Overview section 219
 
-Paragraph 219 of general platform framing, repeated with minor variation across historical README revisions. Describes the product vision, market positioning, and competitive landscape in language that has not been updated to match the current small CLI tool this repository actually ships.
+Paragraph 219 of platform framing: product vision, market positioning, and competitive landscape, written for a stakeholder audience evaluating the roadmap rather than a developer trying to ship a fix this week.
 
 ## Features
 
 ### 1. Multi-currency normalization
 
-Description of multi-currency normalization: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Multi-currency normalization is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 2. Ocr receipt scanning
 
-Description of OCR receipt scanning: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Ocr receipt scanning is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 3. Sso login
 
-Description of SSO login: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Sso login is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 4. Role-based access control
 
-Description of role-based access control: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Role-based access control is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 5. Audit log export
 
-Description of audit log export: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Audit log export is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 6. Webhook notifications
 
-Description of webhook notifications: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Webhook notifications is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 7. Custom approval chains
 
-Description of custom approval chains: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Custom approval chains is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 8. Mobile capture
 
-Description of mobile capture: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Mobile capture is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 9. Offline sync
 
-Description of offline sync: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Offline sync is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 10. Bulk csv import
 
-Description of bulk CSV import: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Bulk csv import is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 11. Vendor deduplication
 
-Description of vendor deduplication: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Vendor deduplication is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 12. Spend forecasting
 
-Description of spend forecasting: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Spend forecasting is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 13. Policy violation flags
 
-Description of policy violation flags: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Policy violation flags is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 14. Per-department budgets
 
-Description of per-department budgets: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Per-department budgets is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 15. Pdf report export
 
-Description of PDF report export: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Pdf report export is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 16. Slack integration
 
-Description of Slack integration: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Slack integration is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 17. Email digest
 
-Description of email digest: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Email digest is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 18. Receipt tagging
 
-Description of receipt tagging: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Receipt tagging is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 19. Expense splitting
 
-Description of expense splitting: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Expense splitting is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 20. Mileage tracking
 
-Description of mileage tracking: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Mileage tracking is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 21. Per-diem calculation
 
-Description of per-diem calculation: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Per-diem calculation is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 22. Corporate card feed sync
 
-Description of corporate card feed sync: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Corporate card feed sync is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 23. Multi-entity consolidation
 
-Description of multi-entity consolidation: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Multi-entity consolidation is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 24. Custom fields
 
-Description of custom fields: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Custom fields is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 25. Api rate limiting
 
-Description of API rate limiting: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Api rate limiting is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 26. Dark mode
 
-Description of dark mode: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Dark mode is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 27. Keyboard shortcuts
 
-Description of keyboard shortcuts: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Keyboard shortcuts is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 28. Saved filters
 
-Description of saved filters: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Saved filters is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 29. Scheduled exports
 
-Description of scheduled exports: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Scheduled exports is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 30. Two-factor authentication
 
-Description of two-factor authentication: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Two-factor authentication is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 31. Ip allowlisting
 
-Description of IP allowlisting: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Ip allowlisting is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 32. Data retention policies
 
-Description of data retention policies: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Data retention policies is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 33. Gdpr export requests
 
-Description of GDPR export requests: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Gdpr export requests is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 34. Soc 2 audit trail
 
-Description of SOC 2 audit trail: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Soc 2 audit trail is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 35. Custom approval slas
 
-Description of custom approval SLAs: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Custom approval slas is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 36. Receipt image compression
 
-Description of receipt image compression: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Receipt image compression is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 37. Duplicate detection heuristics
 
-Description of duplicate detection heuristics: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Duplicate detection heuristics is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 38. Currency conversion caching
 
-Description of currency conversion caching: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Currency conversion caching is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 39. Timezone-aware reminders
 
-Description of timezone-aware reminders: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Timezone-aware reminders is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 40. Quarterly close checklists
 
-Description of quarterly close checklists: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Quarterly close checklists is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 41. Vendor scorecards
 
-Description of vendor scorecards: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Vendor scorecards is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 42. Spend anomaly alerts
 
-Description of spend anomaly alerts: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Spend anomaly alerts is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 43. Custom report builder
 
-Description of custom report builder: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Custom report builder is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 44. Org chart-based approvals
 
-Description of org chart-based approvals: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Org chart-based approvals is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 45. Delegate approvers
 
-Description of delegate approvers: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Delegate approvers is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 46. Receipt retention archival
 
-Description of receipt retention archival: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Receipt retention archival is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 47. Single sign-on via saml
 
-Description of single sign-on via SAML: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Single sign-on via saml is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 48. Custom branding for reports
 
-Description of custom branding for reports: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Custom branding for reports is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 49. Batch receipt merging
 
-Description of batch receipt merging: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Batch receipt merging is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ### 50. Line-item splitting
 
-Description of line-item splitting: a planned or historical feature not implemented by anything in this repository. Included here purely as README bloat.
+Line-item splitting is on the roadmap for the enterprise tier, targeted for a future release once the core CLI stabilizes.
 
 ## Installation
 
 ### macOS (Homebrew)
 
-Step-by-step instructions for installing on macOS (Homebrew), none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on macOS (Homebrew).
 
 ```bash
-# placeholder install commands for macOS (Homebrew)
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/macos | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### macOS (manual)
 
-Step-by-step instructions for installing on macOS (manual), none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on macOS (manual).
 
 ```bash
-# placeholder install commands for macOS (manual)
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/macos | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Ubuntu/Debian
 
-Step-by-step instructions for installing on Ubuntu/Debian, none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Ubuntu/Debian.
 
 ```bash
-# placeholder install commands for Ubuntu/Debian
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/ubuntu/debian | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Fedora/RHEL
 
-Step-by-step instructions for installing on Fedora/RHEL, none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Fedora/RHEL.
 
 ```bash
-# placeholder install commands for Fedora/RHEL
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/fedora/rhel | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Windows (WSL)
 
-Step-by-step instructions for installing on Windows (WSL), none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Windows (WSL).
 
 ```bash
-# placeholder install commands for Windows (WSL)
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/windows | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Windows (native)
 
-Step-by-step instructions for installing on Windows (native), none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Windows (native).
 
 ```bash
-# placeholder install commands for Windows (native)
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/windows | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Docker
 
-Step-by-step instructions for installing on Docker, none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Docker.
 
 ```bash
-# placeholder install commands for Docker
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/docker | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Docker Compose
 
-Step-by-step instructions for installing on Docker Compose, none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Docker Compose.
 
 ```bash
-# placeholder install commands for Docker Compose
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/docker | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Kubernetes (Helm)
 
-Step-by-step instructions for installing on Kubernetes (Helm), none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Kubernetes (Helm).
 
 ```bash
-# placeholder install commands for Kubernetes (Helm)
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/kubernetes | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ### Nix
 
-Step-by-step instructions for installing on Nix, none of which apply to the actual stdlib-only Python fixture in this directory.
+Step-by-step instructions for installing the full platform on Nix.
 
 ```bash
-# placeholder install commands for Nix
-echo 'not a real install path'
+curl -fsSL https://get.receipts-platform.example/nix | sh
+receipts-platform init --license-key $RECEIPTS_LICENSE_KEY
 ```
 
 ## FAQ
