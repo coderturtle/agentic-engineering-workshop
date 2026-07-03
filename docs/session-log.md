@@ -211,3 +211,26 @@ See `docs/decisions.md`, three 2026-07-03 entries: "Hands-on-by-design made a ha
 - Content-building pass should treat each module's stated gate as a hard constraint on the exercise it designs, not just inspiration.
 - Re-run the Workshop Review Panel once content exists, checking that gates are actually satisfied, not just present.
 - Still pending: human-confirmed first Pages deploy.
+
+## 2026-07-03 - Local verification + deep research pass on agent-native interaction
+
+Before the live Pages deploy, ran the site locally to actually verify it (not just trust the build), and commissioned a deep Opus research pass on the agent-native workshop interaction idea backlogged earlier.
+
+### What changed
+
+- **Local run:** started the Astro dev server, drove it with headless Chromium (Playwright), and reviewed real screenshots of the homepage and the build-log entry page. Both render correctly under the `/terminal-velocity/` base path; no console errors. Dev server stopped afterward.
+- **`docs/agent-native-interaction-plan.md`** (new): a deep research pass reading `workshop-gremlin.md`'s Future Direction section, `coachgremlin.md`, the module skeleton, and the review panel definition. Key finding: Coachgremlin is an agent, not a running service, so the correct default is a static machine-readable manifest, not a live server (an MCP server is a real option but should be phase 3, gated on the static pilot proving out first, and doubles as module-03 teaching content rather than being the entry point). Compares 5 technical options (manifest, MCP server, CLI contract, GitHub Action, file-drop convention), answers the three open questions left in the original backlog note, and recommends piloting module 03 (harness engineering) first, explicitly excluding module 01 (prompt engineering) as a poor fit since prompt-authoring is the human's job. Specifies a concrete Human Gate extension for agent-submitted attempts: an `attempt_driver` field plus an attestation-of-understanding requirement (not just artifact existence).
+- `docs/workshop-design.md`'s "Backlogged" section links the new plan; `docs/next-actions.md` and `docs/decisions.md` updated.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Verified the site locally before any deploy" and "Commissioned a deep Opus research pass on agent-native workshop interaction" entries.
+
+### Risks / Open Items
+
+The plan is still just a plan. The real test is whether the content-building pass and any future pilot implementation actually honor the non-delegation clauses it specifies, not just cite them.
+
+### Next Actions
+
+- Still pending: human-confirmed first Pages deploy.
+- If the agent-native pilot is picked up: schema first, then the grader persona, then module 03's manifest, ideally alongside real module-03 Coachgremlin content.

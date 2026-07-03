@@ -22,3 +22,5 @@
 | 2026-07-03 | Hands-on-by-design made a hard requirement for every module | Non-negotiable, factory-wide now (see `~/hekton/gremlins/workshop/workshop-gremlin.md`). All 5 module READMEs gained a "Required to advance" gate. See `docs/decisions.md`. |
 | 2026-07-03 | Backlogged (not scoped): agent-native workshop interaction | An agent/harness interacting with the workshop directly, or a learner connecting via their own agent. Not built. See `docs/decisions.md`. |
 | 2026-07-03 | Fixed a pre-existing em-dash violation in `modules/` and `README.md` | Written before `docs/brand.md`'s hard rules existed; caught by a self-check, not the review panel. |
+| 2026-07-03 | Verified the site locally before any deploy | `npm run dev` + headless Chromium; real screenshots reviewed, not just build success. |
+| 2026-07-03 | Opus research pass on agent-native workshop interaction | `docs/agent-native-interaction-plan.md`. Static manifest, not a live server, is the correct default. Recommends piloting module 03. See `docs/decisions.md`. |
