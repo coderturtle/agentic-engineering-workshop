@@ -16,3 +16,30 @@ Project scaffolded as **factory-output**. Purpose: Public workshop teaching the 
 - Define brief and first phase plan
 - Add first implementation
 - Record initial decisions
+
+## 2026-07-03 - Two-track design pass (Workshop Gremlin + this workshop)
+
+Ran two design/interview tracks per the project's founding intent: (A) the reusable Workshop Gremlin + Coachgremlin, (B) this specific workshop's content/format/name.
+
+### What changed
+
+- `docs/workshop-gremlin-design.md` (new) — Track A output: Workshop Gremlin + Coachgremlin decisions and rationale.
+- `docs/workshop-design.md` (new) — Track B output: audience, format, agent-native teaching method, three-part module arc + synthesis capstone, working title.
+- `~/hekton/gremlins/workshop/workshop-gremlin.md` (new, in `~/hekton`) — Tier 3 Type B Gremlin definition, draft.
+- `~/hekton/gremlins/coaching/coachgremlin.md` (new, in `~/hekton`) — Tier 3 Type A Gremlin definition, draft.
+- `~/hekton/agents/index.md` — registered both under a new "Cross-Project Gremlins" section.
+- `labs/hekton-cli-lab` — extended the Hekton commit signature with `Hekton-Harness`/`Hekton-Model` trailers (done in an isolated worktree; see Decisions and Risks).
+- README, `docs/next-actions.md`, `docs/decisions.md` updated from scaffold placeholders to real content.
+
+### Decisions Made
+
+See `docs/decisions.md` for the full list (audience, format, teaching method, Coachgremlin tier, Gremlin home, publishing approach, naming-as-deliverable, commit signature extension).
+
+### Risks / Open Items
+
+- GitHub push still blocked on a credential mismatch (see `docs/risks.md`) — repo is local-only.
+- `hekton-cli-lab`'s primary checkout has unrelated pre-existing uncommitted WIP from another session; the commit-signature change was made in an isolated git worktree instead, to avoid touching that dirty tree.
+
+### Next Actions
+
+- See `docs/next-actions.md` — naming pass, deliverables/branding, build-log/Pages publisher, then Coachgremlin content-building.

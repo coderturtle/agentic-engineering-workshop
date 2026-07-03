@@ -7,9 +7,17 @@
 
 > Public workshop teaching the evolution from prompt engineering to context engineering to loop engineering, taught by leveraging agents and harnesses as the learning method itself.
 
+This repo has two goals:
+
+1. **Ship a workshop** teaching how prompt engineering, context engineering, and loop engineering fit together as of today — for practitioners already using coding agents daily — taught by running every exercise through a real harness (Claude Code, Codex, etc.) rather than reading about it.
+2. **Extract the reusable machinery** for building future workshops: a **Workshop Gremlin** (deterministic scaffolding, naming, deliverables/branding, build-log publishing) and **Coachgremlin** (the reusable, harness-native teaching agent), both added to the Hekton factory (`~/hekton/gremlins/`) for reuse beyond this one workshop.
+
+Working title while the Workshop Gremlin's naming agent runs: **"Prompt → Loop"**.
+
 ## Implementation Status
 
-- Scaffolded 2026-07-03 — initial setup in progress.
+- 2026-07-03 — Scaffolded as factory-output. Both design tracks complete: see [Workshop Design](docs/workshop-design.md) (the workshop itself) and [Workshop Gremlin Design](docs/workshop-gremlin-design.md) (the reusable machinery). Gremlin definitions live at `~/hekton/gremlins/workshop/workshop-gremlin.md` and `~/hekton/gremlins/coaching/coachgremlin.md`.
+- Next: naming pass, deliverables/branding, and the build-log/Pages site skeleton (see `docs/next-actions.md`).
 
 ## Documentation Contract
 
@@ -25,6 +33,8 @@ Vault mutation is not allowed by default. The repo-local `mind-palace/` folder i
 
 ## Key Docs
 
+- [Workshop Design](docs/workshop-design.md) — audience, format, teaching method, module arc
+- [Workshop Gremlin Design](docs/workshop-gremlin-design.md) — reusable Gremlin/Coachgremlin decisions
 - [Session Log](docs/session-log.md)
 - [Decisions](docs/decisions.md)
 - [Risks](docs/risks.md)

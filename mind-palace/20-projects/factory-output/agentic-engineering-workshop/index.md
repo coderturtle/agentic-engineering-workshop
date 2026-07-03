@@ -24,7 +24,7 @@ version: ""
 
 ## Current Status
 
-Active — scaffolded 2026-07-03
+Active — scaffolded 2026-07-03; two-track design pass (workshop + reusable Workshop Gremlin/Coachgremlin) complete same day. Working title: "Prompt → Loop".
 
 ## Project Notes
 
@@ -36,6 +36,10 @@ Active — scaffolded 2026-07-03
 - [[next-actions]]
 - [[session-log]]
 
+## Repo Docs (source of truth, not mirrored)
+
+- `docs/workshop-design.md` — the workshop itself: audience, format, teaching method, module arc
+- `docs/workshop-gremlin-design.md` — the reusable Workshop Gremlin + Coachgremlin design
 
 ## Factory Repo
 
