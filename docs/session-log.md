@@ -554,3 +554,42 @@ See `docs/decisions.md`, 2026-07-03 "Planned next session's priorities; no deep-
 ### Next Actions
 
 See `docs/next-actions.md`'s new "Next session: priorities" section directly; it supersedes scanning the full historical list for what to do next.
+
+## 2026-07-03 - Merged PR #1: main now has the real project for the first time
+
+coderturtle asked to merge the PR, then close the session. `main` had sat at the initial scaffold commit (one commit, `9e77357`) for the entire life of this project; every real thing built, the naming pass, the brand layer, the site, all five modules, every fixture and dry run, all seven Workshop Review Panel runs, lived on `agent/claude/workshop-design-docs` until this merge.
+
+### What changed
+
+- Verified the PR was clean before merging: `mergeable: MERGEABLE`, `mergeStateStatus: CLEAN`, no required status checks, no pending review requirement.
+- Merged with a regular merge commit (`gh pr merge 1 --merge`), not a squash, deliberately: the 19 commits on the branch each document a distinct, real piece of work with commit messages that are themselves part of this project's audit trail; squashing would have thrown that away. Branch not deleted (repo default; may still be the working branch for the next-session items already queued).
+- Merge commit `d6b8788` on `origin/main`, confirmed via `gh pr view` (`state: MERGED`) and `git fetch` + `git log origin/main`.
+- Updated `docs/next-actions.md`'s "Next session: priorities" section to note the merge and that the Pages-deploy item is now more pressing (there's finally a real site on `main` to deploy, not just the scaffold).
+
+### Decisions Made
+
+Merged via a regular merge, not squash or rebase, to preserve individual commit history as part of this project's documentation trail. Recorded in this entry rather than a separate `docs/decisions.md` row; the decision is procedural (how to merge), not a project-design decision.
+
+### Assumptions
+
+- The user's "merge the PR" was explicit, direct authorization for this specific merge, not a standing permission for future merges; each future merge should get its own confirmation.
+- Left the feature branch (`agent/claude/workshop-design-docs`) undeleted since the queued next-session work references it implicitly and deleting it wasn't asked for.
+
+### Risks
+
+- `main` has never been deployed; the Pages workflow is still `workflow_dispatch`-only pending human confirmation (`docs/next-actions.md` #1). First deploy should be watched closely, per the existing standing note.
+- Every module's rubric/diagnosis and every review-panel finding this session produced is still self-validated in the sense `docs/risks.md` RISK-0004 describes (the same overall session authored, attempted, and reviewed all of it). That risk doesn't change by merging; it's still open.
+- No CI/status checks are configured on this repo yet, so the merge went through on `mergeStateStatus: CLEAN` with zero automated verification beyond what this session ran locally (`scripts/verify-project.sh`, `scripts/check-brand-lint.sh`, `scripts/check-mirror-drift.sh`, `astro check`, `npm run build`, and the fixture test suites), all of which were clean at merge time.
+
+### Next Actions
+
+See `docs/next-actions.md`'s "Next session: priorities" section, now updated to reflect the merge.
+
+### Validation
+
+- `gh pr view 1` post-merge: `state: MERGED`, `mergedAt` populated, `mergeCommit.oid` matches `origin/main`'s new HEAD.
+- `git fetch origin` + `git log origin/main --oneline`: confirms `d6b8788` (merge) sitting on top of the 19 branch commits, with `9e77357` (the original scaffold) as their common ancestor.
+
+### Mind-palace updated
+
+No — the repo-local mirror (`mind-palace/20-projects/factory-output/terminal-velocity/`) is current as of this session's last `check-mirror-drift.sh` pass, but the live Obsidian vault card was not touched this session (`vault_mutation_allowed: false`; no explicit authorization was given or needed, since nothing this session required a live-vault write). Proposed for a future session if the project's live vault card should reflect the "first real merge to main" milestone.
