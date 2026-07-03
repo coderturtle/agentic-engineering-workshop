@@ -1,0 +1,82 @@
+diff -ru --ex /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/cli.py
+--- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py	2026-07-03 19:26:32
++++ /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/cli.py	2026-07-03 20:41:54
+@@ -6,7 +6,7 @@
+ import csv
+ import sys
+ 
+-from receipts.grouping import group_expenses_by_month
++from receipts.grouping import group_expenses_by_category, group_expenses_by_month
+ 
+ 
+ def main(argv=None) -> int:
+@@ -20,16 +20,24 @@
+         default="UTC",
+         help="IANA timezone the month grouping is computed in (default: UTC)",
+     )
++    parser.add_argument(
++        "--by-category",
++        action="store_true",
++        help="group receipts by category instead of by calendar month",
++    )
+     args = parser.parse_args(argv)
+ 
+     with open(args.csv_path, newline="", encoding="utf-8") as f:
+         rows = list(csv.DictReader(f))
+ 
+-    result = group_expenses_by_month(rows, tz=args.tz)
++    if args.by_category:
++        result = group_expenses_by_category(rows)
++    else:
++        result = group_expenses_by_month(rows, tz=args.tz)
+ 
+-    for month in sorted(result.months):
+-        summary = result.months[month]
+-        print(f"{month}: {summary.count} receipt(s), total ${summary.total:.2f}")
++    for key in sorted(result.months):
++        summary = result.months[key]
++        print(f"{key}: {summary.count} receipt(s), total ${summary.total:.2f}")
+ 
+     if result.errors:
+         print(f"\n{len(result.errors)} row(s) skipped:", file=sys.stderr)
+diff -ru --ex /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/grouping.py
+--- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py	2026-07-03 20:26:36
++++ /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/grouping.py	2026-07-03 20:28:09
+@@ -88,12 +88,30 @@
+ 
+ 
+ def group_expenses_by_category(rows) -> GroupResult:
+-    """Module 03 target: not yet implemented.
++    """Group expense rows by `category` instead of calendar month.
+ 
+-    Same shape as group_expenses_by_month, keyed by `category` instead of
+-    calendar month (the `months` field on GroupResult is reused as a
+-    generic bucket-by-key dict; the name is a little off for this case,
+-    left as-is rather than renamed to avoid touching group_expenses_by_month's
+-    callers). Reuse `_parse_row` the same way group_expenses_by_month does.
++    Same shape as group_expenses_by_month, keyed by `category` (the
++    `months` field on GroupResult is reused as a generic bucket-by-key
++    dict; the name is a little off for this case, left as-is rather than
++    renamed to avoid touching group_expenses_by_month's callers). Reuses
++    `_parse_row` the same way group_expenses_by_month does, so the same
++    error handling and edge-case behavior (empty input, duplicate
++    timestamps, malformed rows going to `errors`) applies here too.
+     """
+-    raise NotImplementedError("group_expenses_by_category: not yet wired up")
++    categories: dict[str, MonthSummary] = defaultdict(MonthSummary)
++    errors: list[RowError] = []
++
++    for row in rows:
++        parsed, err = _parse_row(row)
++        if err is not None:
++            errors.append(err)
++            continue
++        receipt_id, ts, amount = parsed
++        key = row.get("category", "")
++
++        summary = categories[key]
++        summary.total += amount
++        summary.count += 1
++        summary.receipt_ids.append(receipt_id)
++
++    return GroupResult(months=dict(categories), errors=errors)

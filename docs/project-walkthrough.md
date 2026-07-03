@@ -17,8 +17,9 @@ Practitioners who already use agents daily plateau on "get a plausible answer on
 - The five-module arc (prompt, context, harness, loop, synthesis capstone), the brand voice and hard rules, and a published Astro site scaffold (not yet live).
 - Two purpose-built teaching agents: Workshop Gremlin (builds a workshop, runs a handful of times) and Coachgremlin (teaches a learner through it, runs continuously per learner). They stay separate by design; see `~/hekton/gremlins/workshop/workshop-lifecycle.md`.
 - A shared, deliberately-broken practice tool (`fixtures/receipts/`, a small command-line expense summarizer with one seeded bug) that every module's exercise runs against, so a learner isn't relearning a new toy problem five times.
-- Module 04 (loop engineering)'s real exercise, checklist, and stop condition, the first of the five modules to move past a placeholder.
+- All five modules now have a real exercise, checklist, stop condition, and packaged takeaway, not a placeholder. Loop engineering (04) went first, as Coachgremlin's actual first real run; prompt, context, harness, and the capstone followed the same day.
 - Coachgremlin's first real, end-to-end run (2026-07-03): built a real good-faith attempt and a real cheating attempt at Module 04's exercise, graded both, found and fixed a real hole in the grading checklist, and packaged a reusable takeaway (a loop template) validated against an unrelated second bug. See `runs/2026-07-03-module-04-dry-run/`.
+- Each of the other four modules got its own real, independently-verified attempt: Module 01's prompt passed three separate clean-session tries; Module 02's curated context was rerun and still worked; Module 03's bounded assistant survived a real memory-wipe-and-resume; Module 05's two broken scenarios were each correctly diagnosed with real supporting evidence, not a guess. See `runs/2026-07-03-module-0{1,2,3,5}-dry-run/`.
 
 ## How the pieces fit together
 
@@ -26,8 +27,9 @@ The learner works through modules 01 to 04 in order (each assumes the skill befo
 
 ## What is deliberately not automated yet
 
-- Four of the five modules (01, 02, 03, 05) still have placeholder content; only 04's core is real.
-- Module 04's three optional extensions (a deeper verification pass, an event-triggered version, and a "the loop improves its own instructions" version) are deferred until Module 03's harness exists to run them inside.
+- Module 04's three optional extensions (a deeper verification pass, an event-triggered version, and a "the loop improves its own instructions" version) are built now that Module 03's harness exists, but not yet exercised.
+- Module 05's capstone ships two of a planned two-to-four broken scenarios; two more (a bad-prompt case and a bad-context case) are designed but not yet built.
+- The agent-native manifest for Module 03 (a machine-readable version of the harness config, so an AI, not just a human, could attempt the module) is researched but not built.
 - The site is built and verified locally but not deployed; the deploy workflow requires a human to manually trigger it once before it can auto-publish.
 - Whether an AI agent (not a human) could attempt a module on a learner's behalf is researched (`docs/agent-native-interaction-plan.md`) but not built.
 
@@ -37,13 +39,13 @@ Both teaching agents (Workshop Gremlin and Coachgremlin) are defined at the fact
 
 ## Current confidence level
 
-Medium. The overall teaching mechanism (frame, checklist, observe, grade, feedback, package) has now been proven once, for real, on one module, including a genuine attempt to break it, which very nearly worked. Four of five modules are still unbuilt, and this session's own grading wasn't independently checked, so "the checklist can't be gamed" is evidenced once, not proven broadly.
+Medium. All five modules now have a real, attempted, independently re-checked exercise behind them, not a description. What's still missing is anyone other than the session that built each one trying it: every rubric and every diagnosis so far has been judged by its own author, which is a real, named, open risk (`docs/risks.md` RISK-0004), not a hidden one.
 
 ## Open questions
 
-- Does the same grading discipline (check what actually changed, not just whether it reports success) hold up on the other four modules' very different exercise shapes (a single prompt, a context budget, a harness config, a four-way diagnosis)?
-- Would an independent, blind grading pass agree with this session's own grading of its own constructed attempts?
+- Does the same grading discipline (check what actually changed, not just whether it reports success) hold up when someone other than this session tries any of the five exercises?
+- Would an independent, blind grading pass agree with this session's own grading and diagnosis of its own constructed attempts?
 
 ## Next recommended session
 
-Human review of `runs/2026-07-03-module-04-dry-run/retro.md`, then author Module 01 next, per `docs/coachgremlin-implementation-plan.md`'s sequencing (§6).
+Human review of all five modules' evidence (`runs/2026-07-03-module-0{1,2,3,4,5}-dry-run/`), then the Workshop Review Panel re-run against real content, per `docs/coachgremlin-implementation-plan.md`'s sequencing (§6, step 7).

@@ -44,6 +44,9 @@ SCOPE_FILES=()
 [[ -f docs/sample-attempt-preview.md ]] && SCOPE_FILES+=("docs/sample-attempt-preview.md")
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find modules -name '*.md' -print0 2>/dev/null)
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find docs/build-log -name '*.md' -print0 2>/dev/null)
+# Takeaway artifacts: learner-facing (dropped into their own harness), not internal scaffolding.
+while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find .claude/commands -name '*.md' -print0 2>/dev/null)
+while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find .claude/skills -name '*.md' -print0 2>/dev/null)
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find site/src -type f \( -name '*.astro' -o -name '*.mdx' \) -print0 2>/dev/null)
 
 echo "-- Brand lint (published content only) ----------------------------------"
