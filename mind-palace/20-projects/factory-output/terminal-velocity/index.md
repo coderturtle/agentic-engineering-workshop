@@ -4,9 +4,9 @@ classification: factory-output
 status: active
 lifecycle_stage: active
 created: 2026-07-03
-project: agentic-engineering-workshop
-title: Agentic Engineering Workshop
-mind_palace_path: 20-projects/factory-output/agentic-engineering-workshop
+project: terminal-velocity
+title: Terminal Velocity
+mind_palace_path: 20-projects/factory-output/terminal-velocity
 owner: coderturtle
 promotion_target: none
 privacy_boundary: public
@@ -14,7 +14,7 @@ vault_mutation_allowed: false
 version: ""
 ---
 
-# Agentic Engineering Workshop
+# Terminal Velocity
 
 > Public workshop teaching the evolution from prompt engineering to context engineering to loop engineering, taught by leveraging agents and harnesses as the learning method itself.
 
@@ -43,4 +43,4 @@ Active — scaffolded 2026-07-03; two-track design pass (workshop + reusable Wor
 
 ## Factory Repo
 
-`/Users/hekton/Development/hekton/factory-output/agentic-engineering-workshop`
+`/Users/hekton/Development/hekton/factory-output/terminal-velocity`

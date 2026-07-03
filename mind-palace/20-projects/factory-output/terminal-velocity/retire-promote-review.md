@@ -1,4 +1,4 @@
-# Retire / Promote Review: Agentic Engineering Workshop
+# Retire / Promote Review: Terminal Velocity
 
 Review default: factory output does not automatically promote to platform, but learnings may become templates or platform backlog.
 

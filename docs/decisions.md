@@ -1,4 +1,6 @@
-# Decisions: Agentic Engineering Workshop
+# Decisions: Terminal Velocity
+
+> Renamed from "Agentic Engineering Workshop" on 2026-07-03. Rows below dated before the rename refer to the project by its working name at the time — left as-is for historical accuracy.
 
 ## ADR Log
 
@@ -15,3 +17,4 @@
 | 2026-07-03 | Extended the Hekton commit signature (`hekton-cli-lab`) with `Hekton-Harness` and `Hekton-Model` trailers | User asked for commits to record "Built by hekton" plus harness (claude-code) and model per commit. Done in an isolated worktree (`hekton-cli-lab--extend-commit-signature`) because the lab's primary checkout had unrelated uncommitted WIP from a prior session — see `docs/risks.md`. |
 | 2026-07-03 | Split the arc from three modules to four: prompt → context → **harness engineering** → loop engineering, plus synthesis capstone | User-directed, after reviewing three external accounts of loop engineering (Forward Future, LangChain, CodeRabbit) which surfaced harness engineering as a distinct, teachable stage rather than folding it into loop engineering. Our synthesis (not copied from any one source): harness engineering answers "what can it reach and how is work organized" (structural, static); loop engineering answers "when does it stop, is it right, how does it improve" (behavioral, runtime). See `docs/workshop-design.md` for the full framing, loop taxonomy, and sourced exercise material. |
 | 2026-07-03 | Produced `docs/implementation-plan.md` for the deliverables/branding + build-log/Pages-publisher phase via an Opus-run planning pass | User asked for this specific phase to be planned with Opus rather than the default execution model, given its architectural surface (module skeleton, brand layer, Astro-on-Pages adaptation, deploy workflow). Plan is rename-safe by design (name/slug quarantined to a few flagged spots) and stops at "ready to deploy" per the Human Gate — no live Pages deploy without explicit confirmation. |
+| 2026-07-03 | Naming pass complete: final name is **Terminal Velocity** (slug `terminal-velocity`) | Chosen by coderturtle from naming-agent candidates (Terminal Velocity, Loop Native, Bounded Autonomy, Prompt → Loop). Double meaning of "terminal" (CLI + a loop's terminal/stop state) plus "velocity" (pace of the frontier) — most memorable for the target audience. GitHub repo renamed (old URL redirects), local dir/mind-palace mirror renamed, `.hekton/project.yaml` and all current-state docs updated in place; historical rows above deliberately left under the old name. |

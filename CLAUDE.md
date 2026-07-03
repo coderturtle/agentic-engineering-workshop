@@ -1,12 +1,12 @@
-# CLAUDE.md — Agentic Engineering Workshop
+# CLAUDE.md — Terminal Velocity
 
 ## Project Classification
 
 - **Type:** factory-output
-- **Name:** agentic-engineering-workshop
-- **Title:** Agentic Engineering Workshop
-- **Local repo:** /Users/hekton/Development/hekton/factory-output/agentic-engineering-workshop
-- **Vault control plane:** /Users/hekton/vaults/hekton-mind-palace/20-projects/factory-output/agentic-engineering-workshop
+- **Name:** terminal-velocity
+- **Title:** Terminal Velocity
+- **Local repo:** /Users/hekton/Development/hekton/factory-output/terminal-velocity
+- **Vault control plane:** /Users/hekton/vaults/hekton-mind-palace/20-projects/factory-output/terminal-velocity
 - **Lifecycle stage:** active
 - **Promotion target:** none
 - **Privacy boundary:** public
@@ -20,7 +20,7 @@ Follow all rules in `~/hekton/CLAUDE.md` — including the **Hekton Repository T
 Specific to this project:
 - Classification is **factory-output** — respect the corresponding naming and path conventions
 - Inspect `.hekton/project.yaml` before making structural changes
-- Do not create files outside `/Users/hekton/Development/hekton/factory-output/agentic-engineering-workshop` without confirmation
+- Do not create files outside `/Users/hekton/Development/hekton/factory-output/terminal-velocity` without confirmation
 - Do not write to the vault without explicit authorisation (`vault_mutation_allowed: false`)
 - Record all design decisions in `docs/decisions.md`
 - Keep risks current in `docs/risks.md` and `.hekton/risk-register.yaml`

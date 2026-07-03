@@ -2,7 +2,7 @@
 
 > Produced by an Opus-run planning pass (2026-07-03), reviewing `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`, the canonical `~/hekton/gremlins/workshop/workshop-gremlin.md` definition, and `blog-factory-lab`'s Astro starter. Scope: the Workshop Gremlin's **Deliverables & branding** and **Build-log / Pages publisher** steps. Produces a real, buildable skeleton up to "ready to deploy." Out of scope (do not do here): the final workshop name (separate naming pass), module *content*/exercises/rubrics (later Coachgremlin runs), and the first live Pages deploy (human-confirmed gate).
 >
-> **Rename-safety rule threaded throughout:** nothing below hard-codes the final workshop name in a load-bearing way. The placeholder "Prompt → Loop" and repo slug `agentic-engineering-workshop` are used only where a value is required, and every such spot is flagged as rename-dependent so the pending naming pass is never blocked and the later rename is a mechanical find-replace.
+> **Rename-safety note:** this plan was written before the naming pass, using the working title "Prompt → Loop" and a placeholder slug. The naming pass has since completed — the final name is **Terminal Velocity** (`terminal-velocity`) — and this file's rename-dependent spots (flagged inline as `RENAME-DEPENDENT`, e.g. the Astro `site`/`base` config in §4d) have been mechanically updated to the real slug. The quarantine discipline below is what made that a same-day find-replace instead of a scramble.
 
 ---
 
@@ -130,7 +130,7 @@ New file `.github/workflows/deploy-pages.yml`.
 ### 4d. Astro config for Pages (rename-dependent, flag clearly)
 
 GitHub project pages serve under `https://<user>.github.io/<repo>/`, so:
-- `site: "https://coderturtle.github.io"` and `base: "/agentic-engineering-workshop/"` in `astro.config.mjs`, with an inline comment: `// RENAME-DEPENDENT: base must match the final repo slug; update after the naming pass renames the repo.`
+- `site: "https://coderturtle.github.io"` and `base: "/terminal-velocity/"` in `astro.config.mjs`, with an inline comment: `// RENAME-DEPENDENT: base must match the final repo slug; update after the naming pass renames the repo.`
 - All internal links use Astro's `base`-aware helpers / root-relative `import.meta.env.BASE_URL` prefixing rather than bare `/build-log/...`, so the rename only touches the one config line, not every link. Call this out explicitly — it's the single most common Pages-project breakage.
 - If a custom domain is chosen later, `base` returns to `/` and a `public/CNAME` is added; note as a future option, not this phase.
 
@@ -164,10 +164,10 @@ Per step, all read-only/local until the human-gated deploy:
 - **Module skeleton (§1):** `find modules -name README.md` lists 6 files; each stub contains its "question this module answers" line matching `docs/workshop-design.md`; `modules/README.md` lists all five in arc order. Markdown lint/preview renders.
 - **README (§2):** manual read for the learner-first sections (prerequisites, how-to-start, arc); confirm internal Hekton framing fully relocated to `docs/maintainers.md` and no dead links (`grep` for `docs/` links, confirm targets exist).
 - **Brand layer (§3):** confirm name/slug are the only rename-dependent fields (single quarantined block); banned-language list present; `grep` the new README and `site/` for any em dash or banned term to prove the layer is actually applied.
-- **Site build (§4):** in `site/`, `npm ci` then `npm run build` exits 0 and emits `site/dist/` with the homepage + the seeded build-log entry rendered. `npx astro check` passes (types clean after the collection-schema swap). `npm run dev` spot-check that `/agentic-engineering-workshop/` base-pathed links resolve.
+- **Site build (§4):** in `site/`, `npm ci` then `npm run build` exits 0 and emits `site/dist/` with the homepage + the seeded build-log entry rendered. `npx astro check` passes (types clean after the collection-schema swap). `npm run dev` spot-check that `/terminal-velocity/` base-pathed links resolve.
 - **Build-log wiring (§4b):** the seeded `docs/build-log/2026-07-03-*.md` appears on the built homepage and at its `build-log/<slug>/` route — proving the glob loader reads `docs/build-log/` in place (no duplicated copy in `src/`).
 - **Workflow (§4c):** YAML validity via `actionlint` (or `python -c 'import yaml,sys; yaml.safe_load(open(...))'`); confirm permissions block is `pages: write` + `id-token: write`, trigger is `workflow_dispatch`-only with `push` commented, and artifact path is `site/dist`. No live run until the human gate.
-- **Mirror drift (house rule):** after adding decisions/session-log entries for this phase, `scripts/check-mirror-drift.sh --check` must exit 0 — i.e. update the repo-local mirror at `mind-palace/20-projects/factory-output/agentic-engineering-workshop/` (`decisions.md`, `session-log.md`, `index.md`) to match new `docs/` rows. This is the repo-local mirror (not the live vault), so it's writable under `vault_mutation_allowed: false`.
+- **Mirror drift (house rule):** after adding decisions/session-log entries for this phase, `scripts/check-mirror-drift.sh --check` must exit 0 — i.e. update the repo-local mirror at `mind-palace/20-projects/factory-output/terminal-velocity/` (`decisions.md`, `session-log.md`, `index.md`) to match new `docs/` rows. This is the repo-local mirror (not the live vault), so it's writable under `vault_mutation_allowed: false`.
 - **Project scaffold integrity:** `scripts/verify-project.sh` still passes after the new top-level `modules/`, `site/`, and `.github/` directories are added.
 
 ## Critical files referenced

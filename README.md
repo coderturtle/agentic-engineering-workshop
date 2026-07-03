@@ -1,4 +1,4 @@
-# Agentic Engineering Workshop
+# Terminal Velocity
 
 **Classification:** factory-output
 **Lifecycle:** active

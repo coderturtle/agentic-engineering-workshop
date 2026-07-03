@@ -1,4 +1,4 @@
-# Operating Model: Agentic Engineering Workshop
+# Operating Model: Terminal Velocity
 
 ## Classification
 

@@ -1,7 +1,7 @@
 # Walkthrough: {Session Title}
 
 **Date:** YYYY-MM-DD
-**Project:** Agentic Engineering Workshop
+**Project:** Terminal Velocity
 **Prompt / Session:** N
 
 ## What changed in plain English
@@ -10,7 +10,7 @@
 
 ## The simple analogy
 
-## How this ties to Agentic Engineering Workshop
+## How this ties to Terminal Velocity
 
 ## How this ties to the Hekton factory vision
 

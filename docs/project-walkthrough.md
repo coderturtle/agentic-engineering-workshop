@@ -1,4 +1,4 @@
-# Agentic Engineering Workshop — Plain-English Project Walkthrough
+# Terminal Velocity — Plain-English Project Walkthrough
 
 ## What this project is in one paragraph
 

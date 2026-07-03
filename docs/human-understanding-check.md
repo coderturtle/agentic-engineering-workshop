@@ -1,4 +1,4 @@
-# Human Understanding Check: Agentic Engineering Workshop
+# Human Understanding Check: Terminal Velocity
 
 ## Human Understanding Check
 

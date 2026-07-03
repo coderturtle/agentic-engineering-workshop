@@ -1,4 +1,6 @@
-# Decisions: Agentic Engineering Workshop
+# Decisions: Terminal Velocity
+
+> Renamed from "Agentic Engineering Workshop" on 2026-07-03. Rows below dated before the rename refer to the project by its working name at the time.
 
 | Date | Decision | Rationale |
 |---|---|---|
@@ -13,3 +15,4 @@
 | 2026-07-03 | Extended the Hekton commit signature (`hekton-cli-lab`) with `Hekton-Harness` and `Hekton-Model` trailers | User asked for commits to record "Built by hekton" plus harness (claude-code) and model per commit. Done in an isolated worktree (`hekton-cli-lab--extend-commit-signature`) because the lab's primary checkout had unrelated uncommitted WIP from a prior session — see `docs/risks.md`. |
 | 2026-07-03 | Split the arc from three modules to four: prompt → context → **harness engineering** → loop engineering, plus synthesis capstone | User-directed, after reviewing three external accounts of loop engineering (Forward Future, LangChain, CodeRabbit). Our synthesis: harness engineering is structural ("what can it reach"), loop engineering is behavioral ("when does it stop, how does it improve"). See `docs/workshop-design.md`. |
 | 2026-07-03 | Produced `docs/implementation-plan.md` via an Opus-run planning pass | Deliverables/branding + build-log/Pages-publisher phase planned before executing; rename-safe by design; stops at "ready to deploy" per the Human Gate. |
+| 2026-07-03 | Naming pass complete: final name is **Terminal Velocity** (slug `terminal-velocity`) | Chosen by coderturtle from naming-agent candidates. GitHub repo, local dir, and mind-palace mirror renamed; live vault card left under old path pending vault-mutation authorisation. |

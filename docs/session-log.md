@@ -1,4 +1,6 @@
-# Session Log: Agentic Engineering Workshop
+# Session Log: Terminal Velocity
+
+> Renamed from "Agentic Engineering Workshop" on 2026-07-03. Entries dated before the rename refer to the project by its working name at the time — left as-is for historical accuracy.
 
 ## 2026-07-03 - Initial scaffold
 
@@ -79,3 +81,29 @@ See `docs/decisions.md`, 2026-07-03 "Produced docs/implementation-plan.md" entry
 
 - Execute `docs/implementation-plan.md` §1-§5 (module skeleton, brand layer, README rework, site adaptation, deploy workflow), verify per §6.
 - Naming pass (Workshop Gremlin naming agent) — next up.
+
+## 2026-07-03 - Naming pass: renamed to Terminal Velocity
+
+Ran the naming pass: generated candidates (Terminal Velocity, Loop Native, Bounded Autonomy, Prompt → Loop), checked slug availability under `coderturtle` via `gh api`, presented to coderturtle who chose **Terminal Velocity**.
+
+### What changed
+
+- GitHub repo renamed `agentic-engineering-workshop` → `terminal-velocity` (`gh repo rename`; old URL auto-redirects, PR #1 and issues intact).
+- Local directory renamed to match; git remote `origin` updated to `git@github.com-coderturtle:coderturtle/terminal-velocity.git`; `git fetch` confirmed clean.
+- Repo-local mind-palace mirror folder renamed (`mind-palace/20-projects/factory-output/terminal-velocity/`).
+- `.hekton/project.yaml`, `CLAUDE.md`, `CODEX.md`, `AGENTS.md`, `README.md`, and all current-state docs/scaffold files updated to the new name via a scoped find-replace (excluding `docs/decisions.md`/`docs/session-log.md` and their mirrors, which keep historical rows under the old name and got a title-line + new-entry treatment instead).
+- `docs/implementation-plan.md`'s rename-dependent spots (Astro `site`/`base` config) updated to the real slug.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Naming pass complete" entry.
+
+### Risks / Open Items
+
+- The **live** Obsidian vault card (`~/vaults/hekton-mind-palace/20-projects/factory-output/agentic-engineering-workshop/`) still exists under the old path — vault mutation is not authorised in this session, so it was not moved/renamed. This mirrors a known prior pattern in this factory (the PulseGremlin rename, 2026-06-21, per `~/hekton/docs/decisions.md`) where a rename's vault mirror was left to drift. Flagging explicitly here so it doesn't repeat silently — see `docs/next-actions.md`.
+- `~/hekton`'s `scripts/pm/brain-registry.json` entry and `~/hekton/gremlins/workshop/workshop-gremlin.md`'s "First Run" section still reference the old project name/paths — updating those in the same session (see `~/hekton` session log / decisions for that repo).
+
+### Next Actions
+
+- Human-authorize a vault card move/rename for the live Obsidian vault (out of session scope until then).
+- Proceed to executing `docs/implementation-plan.md`.

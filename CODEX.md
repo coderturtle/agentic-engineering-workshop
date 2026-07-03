@@ -1,11 +1,11 @@
-# CODEX.md — Agentic Engineering Workshop
+# CODEX.md — Terminal Velocity
 
 ## Project Classification
 
 - **Type:** factory-output
-- **Name:** agentic-engineering-workshop
-- **Local repo:** /Users/hekton/Development/hekton/factory-output/agentic-engineering-workshop
-- **Vault control plane:** /Users/hekton/vaults/hekton-mind-palace/20-projects/factory-output/agentic-engineering-workshop
+- **Name:** terminal-velocity
+- **Local repo:** /Users/hekton/Development/hekton/factory-output/terminal-velocity
+- **Vault control plane:** /Users/hekton/vaults/hekton-mind-palace/20-projects/factory-output/terminal-velocity
 - **Lifecycle stage:** active
 - **Promotion target:** none
 - **Privacy boundary:** public

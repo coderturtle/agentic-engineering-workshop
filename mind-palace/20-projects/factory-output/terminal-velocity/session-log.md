@@ -1,4 +1,6 @@
-# Session Log: Agentic Engineering Workshop
+# Session Log: Terminal Velocity
+
+> Renamed from "Agentic Engineering Workshop" on 2026-07-03.
 
 ## 2026-07-03 - Initial scaffold
 
@@ -15,3 +17,7 @@ Reviewed three external sources on loop engineering; split the module arc into f
 ## 2026-07-03 - Implementation plan for deliverables/branding + Pages publisher (Opus)
 
 Produced `docs/implementation-plan.md` via an Opus-run planning pass covering module skeleton, brand layer, README rework, and the Astro-on-GitHub-Pages build-log site. Full detail in the repo's `docs/session-log.md` and `docs/decisions.md`.
+
+## 2026-07-03 - Naming pass: renamed to Terminal Velocity
+
+Naming pass complete; renamed GitHub repo, local dir, and this mirror to **Terminal Velocity** (`terminal-velocity`). Live vault card left under the old path pending vault-mutation authorisation. Full detail in the repo's `docs/session-log.md` and `docs/decisions.md`.
