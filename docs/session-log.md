@@ -183,3 +183,31 @@ See `docs/decisions.md`, 2026-07-03 "Executed docs/implementation-plan.md §1-§
 - Human-confirm the first Pages deploy (enable Pages in repo Settings, run the `workflow_dispatch` workflow), then uncomment the `push` trigger.
 - Content-building run with Coachgremlin, one concept at a time.
 - Triage the `site/` dependency vulnerabilities before the first real deploy.
+
+## 2026-07-03 - Hands-on-by-design made a hard requirement; agent-native interaction backlogged
+
+Before the first Pages deploy, coderturtle set a core principle: every workshop this factory produces must be hands-on, requiring the learner to produce or demonstrate something concrete to advance, never passive reading. Also raised a genuinely novel backlog idea: workshop content structured for direct agent/harness interaction, not just human-in-a-harness reading.
+
+### What changed
+
+- All 5 module READMEs and `modules/README.md`'s arc table gained an explicit "Required to advance" element, even at skeleton stage (e.g. module 01: "a working prompt that gets a hard task right first try," not "read this section").
+- `docs/workshop-design.md`'s teaching-method section states the hands-on requirement as a hard requirement, not aspiration, and gained a new "Backlogged" section for the agent-native interaction idea.
+- `~/hekton/gremlins/workshop/workshop-gremlin.md`: new "Design Principles for Every Workshop" section (hands-on by design is now factory-wide, not this-workshop-specific); the module-README template gained a required 7th part (the gate); a new "Future Direction: Agent-Native Workshop Interaction" section captures the backlog idea without committing to build it.
+- `~/hekton/gremlins/coaching/coachgremlin.md`: cross-referenced both, since Coachgremlin's existing "no passive reading" stance was the model for the new factory-wide principle, and its Workflow is the most likely place agent-native interaction would eventually plug in if that's ever built.
+- `~/hekton/gremlins/workshop/workshop-review-panel.md`: the Instructional Designer persona now explicitly checks whether every module states a real gate, not just plausible-sounding objectives.
+- Caught and fixed a real, pre-existing em-dash violation across `modules/` and `README.md` (written before `docs/brand.md`'s hard rules existed) during this same consistency pass — not a review-panel finding this time, a self-check.
+
+### Decisions Made
+
+See `docs/decisions.md`, three 2026-07-03 entries: "Hands-on-by-design made a hard, non-negotiable requirement," "Backlogged (not scoped): agent-native workshop interaction," and "Fixed a pre-existing em-dash violation."
+
+### Risks / Open Items
+
+- The required gates are still placeholders (e.g. "rubric TBD by Coachgremlin") — the real test is whether the content-building pass actually produces exercises that satisfy them, not just states them.
+- Agent-native interaction is explicitly unscoped. Whoever picks it up should resolve whether it dilutes or strengthens the "harness is the classroom" thesis before building anything.
+
+### Next Actions
+
+- Content-building pass should treat each module's stated gate as a hard constraint on the exercise it designs, not just inspiration.
+- Re-run the Workshop Review Panel once content exists, checking that gates are actually satisfied, not just present.
+- Still pending: human-confirmed first Pages deploy.

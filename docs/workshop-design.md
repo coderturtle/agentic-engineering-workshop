@@ -25,6 +25,8 @@ The workshop's core bet is that you learn agentic engineering *by doing it insid
 - **Coachgremlin** (see `docs/workshop-gremlin-design.md`) frames each exercise, sets the rubric up front, and gives feedback against the learner's actual attempt — it does not lecture and does not hand over the solution.
 - Our working hypothesis, not a proven finding: the harness *is* the classroom. We don't yet have data or a prior pilot showing this teaches better than a well-structured written guide — it's the workshop's central bet and the reason it can't just be a written guide, but it should be read as a hypothesis this workshop is testing, not a settled claim.
 
+**Hard requirement, not aspiration:** every module has a required gate, an artifact produced or an action observed, checked against a rubric. A module whose only "exercise" is reading is a design defect, not a lighter-touch module. This applies to the workshop's own skeleton from the moment it exists (see `modules/README.md`'s arc table), not just once content is written, and it's now a standing principle for every workshop the Workshop Gremlin produces, not just this one (`~/hekton/gremlins/workshop/workshop-gremlin.md`'s Design Principles, added 2026-07-03).
+
 ## The four-module arc (+ synthesis capstone)
 
 Harness engineering was originally folded into the loop-engineering module. After reviewing three external accounts of loop engineering (see Sources, below), we split it into its own module — the distinction is real and teachable, not cosmetic. The workshop's spine is the evolution of practice, in order, with an explicit "how they fit together" synthesis at the end rather than treating the parts as unrelated topics.
@@ -79,6 +81,10 @@ The build of this workshop itself is published as a dated build-log/journal via 
 - Exact number of exercises per module (one deep exercise vs. several short ones)?
 - Whether the capstone is graded/certified in any way, or purely self-assessed (leaning self-assessed, given no facilitator and no external credential currently planned).
 - Whether to explicitly cite/engage the external framings below inside the module content (e.g. "here's one industry account, here's ours, argue with both") or fold them in silently as background research. Given the audience is advanced practitioners, an explicit "here's a live disagreement in the field" framing may teach better than a tidy consensus narrative.
+
+## Backlogged: agent-native workshop interaction
+
+Not designed, not scoped. Raised 2026-07-03 alongside the hands-on-by-design principle above. Today, "hands-on" means a human drives their own harness through an exercise. A further step past that: the workshop itself could be structured so an agent or harness can interact with it directly, not just be the tool a human happens to use, either via a machine-readable module/exercise/rubric spec an agent could act on, or by a learner connecting through their own agent as the primary interface (the agent fetches the module, runs the exercise, submits for grading, with the human directing and reviewing). Thematically fitting for a workshop about harness engineering. Full framing and open questions: `~/hekton/gremlins/workshop/workshop-gremlin.md`'s "Future Direction: Agent-Native Workshop Interaction."
 
 ## Sources reviewed (2026-07-03)
 
