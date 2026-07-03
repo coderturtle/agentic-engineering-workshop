@@ -32,3 +32,4 @@
 | 2026-07-03 | Built the shared `receipts` fixture (stdlib-only Python) | One seeded, isolated bug in `group_expenses_by_month`. See `docs/decisions.md`. |
 | 2026-07-03 | Authored Module 04's core exercise content | Real exercise, rubric, stop condition, replacing placeholders. See `docs/decisions.md`. |
 | 2026-07-03 | Ran Coachgremlin's first real dry run (Module 04 core); go | Found and closed a rubric-gaming gap in both the module and `coachgremlin.md`. `human_confirmed: false`. See `docs/decisions.md` and `runs/2026-07-03-module-04-dry-run/`. |
+| 2026-07-03 | Added a filtered real-transcript preview for prospective learners | `scripts/render-transcript-preview.py` + `docs/sample-attempt-preview.md`, linked from README's new "See it in action". Real evidence, not a manufactured tutorial. See `docs/decisions.md`. |

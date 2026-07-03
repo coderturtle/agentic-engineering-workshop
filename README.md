@@ -14,6 +14,10 @@ A self-paced workshop on how prompt engineering, context engineering, harness en
 - Already using at least one coding-agent harness regularly.
 - A working harness installed on your machine.
 
+## See it in action
+
+Before you clone anything: [`docs/sample-attempt-preview.md`](docs/sample-attempt-preview.md) is real, condensed output from an actual attempt at Module 04's core exercise, reproduce a bug, root-cause it, fix it, prove it, in that order. Not a mockup, not cherry-picked prose; a script extracts it straight from the transcript. If you want the raw, un-condensed version, that's linked from the same page.
+
 ## How to start
 
 ```bash

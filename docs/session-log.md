@@ -322,3 +322,34 @@ See `docs/decisions.md`, four 2026-07-03 entries: "Built the shared `receipts` f
 - coderturtle review of this dry run (`runs/2026-07-03-module-04-dry-run/retro.md`) and the `coachgremlin.md` edit, per the Human Gate.
 - Per plan §6 step 2: author Module 01 next (cheap, atomic, reuses the fixture's function spec), applying any further retro lessons.
 - `~/hekton` PR #26 still needs human review; first Pages deploy still pending human confirmation.
+
+## 2026-07-03 - Committed the dry run, then closed a review-panel gap with a filtered real-transcript preview
+
+Committed the fixture/Module-04/dry-run work above (`e22fb88`, local, not pushed). Then picked up a side question raised while reviewing that work: this session's takeaway artifacts (`.claude/commands/ticket-to-pr-ready.md`, the `receipts` fixture) are things a learner's own agent consumes, but is there anything a human needs that isn't that? The Workshop Review Panel's End-User/Learner persona had already flagged the relevant gap, back when no real content existed: no sample module, no walkthrough, "come back later."
+
+### What changed
+
+- **`scripts/render-transcript-preview.py`** (new): a filter, not a content generator. Reads `runs/2026-07-03-module-04-dry-run/attempt-good/transcript.txt` and writes `docs/sample-attempt-preview.md`, condensing five verbose `unittest` lines into a pass/fail count, extracting the one failure's assertion message instead of its full traceback, and splitting narrative prose from `grep -n`-style code fragments so they don't run together. Every fact in the output is pulled from the real transcript; nothing is invented. Rerunning the script regenerates the page from source, so it can't silently drift the way a hand-maintained "sample module" would.
+- **`docs/sample-attempt-preview.md`** (new, generated): the condensed preview. Added to `scripts/check-brand-lint.sh`'s scope since it's linked from the README and read by prospective learners, not an internal planning doc.
+- **`README.md`**: new "See it in action" section, before "How to start," linking the preview so a visitor can see what a real attempt looks like before cloning anything or setting up an agent.
+- **`docs/decisions.md`**: recorded the approach and why it doesn't contradict the workshop's own anti-tutorial thesis (real, mechanically-extracted evidence, not manufactured "hello world" content).
+
+### Why this shape and not a DIY mini-project
+
+Considered and rejected building separate human-facing code samples or interactive mini-projects as a second content track. The workshop's whole thesis is "you learn this by doing it inside a harness, not by reading about it" (`docs/workshop-design.md`); a parallel tutorial track would fight that thesis and need to be kept in sync forever. A filtered excerpt of real, already-existing evidence closes the review panel's actual gap (a prospective learner has nothing to look at before committing) without inventing a second thing to maintain.
+
+### A bug, on brand
+
+The filter script shipped a real bug on the first run: its banner-detection regex (`^===.*===$`, meant to catch this script's own `=== ... ===` framing lines) also matched `unittest`'s bare `======...======` divider, which silently truncated the "reproduce" step and dropped the one failure's detail line from the output. Caught by actually reading the generated file rather than trusting the script ran without errors, which is the exact discipline this whole session has been about. Fixed (`^=== .+ ===$`, requiring the space unittest's divider doesn't have) and left as a code comment, not scrubbed from history.
+
+### Validation
+
+- Ran the script, read the generated `docs/sample-attempt-preview.md` in full, caught the truncation bug by inspection, fixed it, reran, confirmed the failure detail and all four steps render correctly with no double-blank-line artifacts.
+- `scripts/check-brand-lint.sh`: clean (15 files now in scope, up from 14).
+- `scripts/verify-project.sh` and `scripts/check-mirror-drift.sh`: clean.
+- Grepped the new file and the README edit for em dashes: none.
+
+### Next Actions
+
+- Same as above: coderturtle review of the dry run, then Module 01 next.
+- If the fixture or the dry-run transcript ever changes, rerun `scripts/render-transcript-preview.py` before assuming the published preview still matches.

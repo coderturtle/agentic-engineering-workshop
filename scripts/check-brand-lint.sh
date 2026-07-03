@@ -41,6 +41,7 @@ ok() { printf '  OK: %s\n' "$*"; }
 # as the workshop grows past its current skeleton.
 SCOPE_FILES=()
 [[ -f README.md ]] && SCOPE_FILES+=("README.md")
+[[ -f docs/sample-attempt-preview.md ]] && SCOPE_FILES+=("docs/sample-attempt-preview.md")
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find modules -name '*.md' -print0 2>/dev/null)
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find docs/build-log -name '*.md' -print0 2>/dev/null)
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find site/src -type f \( -name '*.astro' -o -name '*.mdx' \) -print0 2>/dev/null)
