@@ -282,3 +282,43 @@ The content-building plan is thorough but unexecuted. The real test is the modul
 - Fresh session: build the shared `receipts` fixture, then run Module 04's core exercise as Coachgremlin's first real dry run, per `docs/coachgremlin-implementation-plan.md` §5-§6.
 - `~/hekton` PR #26 needs human review.
 - Still pending: human-confirmed first Pages deploy.
+
+## 2026-07-03 - Executed the Coachgremlin plan's step 0 and step 1: fixture built, Module 04 dry run run for real
+
+Picked up `docs/coachgremlin-implementation-plan.md` §6 exactly where the prior session's next-actions left it: build the shared fixture, then run Module 04's core exercise as Coachgremlin's actual first dry run, gating the rest of the content-authoring pass on the outcome. Coachgremlin has no live service, so this session played each role the dry run needs directly: fixture author, good-faith learner, rubric-gaming learner, then grader.
+
+### What changed
+
+- **`fixtures/receipts/`** (new): the shared cumulative fixture. A small stdlib-only Python CLI (`receipts/grouping.py`, `cli.py`) implementing `group_expenses_by_month(rows, tz)` per `SPEC.md`'s four required edge cases, with one seeded bug (month key computed from the raw UTC timestamp, never converted to `tz`) isolated to exactly one failing test (`tests/test_grouping.py`). Verified isolation by actually running the suite against the buggy code before writing anything else. Caught and fixed a real bug in my own test data along the way: a malformed-row test's "good" timestamp happened to cross a DST boundary in `America/New_York`, an unintended second failure the fix would have needed to also satisfy; corrected the timestamp so only the intended edge case is exercised.
+- **`modules/04-loop-engineering/README.md`**: replaced the `_(rubric + terminal state defined per exercise by Coachgremlin)_` placeholder with the real Ticket-to-PR-Ready core exercise, a 5-criterion rubric, and a two-terminal-state stop condition, all against the fixture's seeded bug. Extensions A/B/C intentionally left unauthored (they wait on Module 03's harness per the plan's sequencing).
+- **`runs/2026-07-03-module-04-dry-run/`** (new): Coachgremlin's first real dry run, executed for real, not simulated.
+  - `attempt-good/`: a real bounded loop (`loop.sh`) that reproduces the failure, root-causes it correctly, applies a genuine two-line fix (`zoneinfo` conversion) to exactly the right file, reruns the full suite, and hits `TERMINAL STATE: SUCCESS` on attempt 1. Building this loop script surfaced a real bug in the harness itself: `set -o pipefail` made the reproduce-step check see `unittest`'s nonzero exit (tests failing) instead of `grep`'s match result, so it silently reported "could not reproduce" on a genuinely reproduced failure. A loop-engineering exercise shipping a broken verification step on the first draft is either an embarrassment or free bonus material; treating it as the latter. Fixed by writing to a log file and grepping that, instead of piping through the check.
+  - `attempt-gaming/`: a deliberately weak attempt that "fixes" the bug by rewriting the failing test's own assertion to match the buggy output, never touching the implementation. Also a real transcript, not narrated.
+  - `grading.md`: graded both against the module's rubric. Real finding: two of the five criteria, read literally, would have passed the gaming attempt (it does state terminal states up front, and a terminal state does fire). Only inspecting *which file* the diff touched (test file vs. implementation) catches it, and that requirement was implicit in the rubric text, not stated. Closed the gap in the rubric itself (`modules/04-loop-engineering/README.md`'s criterion 4 now names the test file as an explicit hard boundary) rather than leaving it as a written-down risk.
+  - `takeaway-validation/`: the packaged takeaway (`.claude/commands/ticket-to-pr-ready.md`, new) applied by hand, step by step, to a second, unrelated bug (an off-by-one slice in a word-frequency function, nothing to do with timezones), to satisfy the plan's bar that a takeaway is reusable, not just written. It worked: found the bug, fixed it in one line, left the test file alone, terminal state fired.
+  - `retro.md`: go/no-go against the plan §5 checklist, checked point by point with evidence. **Go**, with the rubric-gaming finding above as the one real gap this dry run was built to surface.
+  - `run-20260703-AEW-001.yaml`: the run recorded per `runs/.schema.yaml`, `human_confirmed: false` (Human Gate: recommendation, not self-certified).
+- **`~/hekton/gremlins/coaching/coachgremlin.md`**: fed the grading-discipline finding back into Coachgremlin's own contract (its Workflow step 3 and Completion Checklist now require checking which files a diff touches before trusting a green terminal state on a verification-loop exercise), not just noted as a one-off finding in this project. See `~/hekton/docs/session-log.md`'s matching entry.
+
+### Decisions Made
+
+See `docs/decisions.md`, four 2026-07-03 entries: "Built the shared `receipts` fixture," "Authored Module 04's core exercise content," and "Ran Coachgremlin's first real dry run (Module 04 core); go."
+
+### Validation
+
+- `fixtures/receipts`: full suite run against the shipped (buggy) code, confirmed exactly one failure (`test_month_boundary_crosses_in_target_timezone`); CLI smoke-tested against `data/sample_receipts.csv`.
+- `attempt-good/loop.sh` and `attempt-gaming/loop.sh`: both run for real, transcripts are genuine command output (`transcript.txt` in each), diffs (`diff.patch`) confirm what each attempt actually touched.
+- `takeaway-validation/`: the packaged template's steps applied to an unrelated bug for real, transcript captured.
+- `scripts/check-brand-lint.sh`: clean after both `modules/04-loop-engineering/README.md` edits (fixture code itself is out of the published-content scope, by design, per `fixtures/receipts/README.md`).
+
+### Risks / Open Items
+
+- This dry run used one grader (this session) grading its own two constructed attempts. `retro.md` flags that a stronger future test would have an independent pass grade the same transcripts blind.
+- `~/hekton`'s working tree has unrelated uncommitted work (`config/projects.yaml`, `justfile`, new `scripts/`) from prior sessions; left untouched, not this session's to resolve, flagged in that repo's own session log.
+- Extensions A/B/C for Module 04 and the bloated/sabotaged fixture variants (Modules 02/05) remain intentionally unbuilt; sequencing is in `docs/coachgremlin-implementation-plan.md` §6.
+
+### Next Actions
+
+- coderturtle review of this dry run (`runs/2026-07-03-module-04-dry-run/retro.md`) and the `coachgremlin.md` edit, per the Human Gate.
+- Per plan §6 step 2: author Module 01 next (cheap, atomic, reuses the fixture's function spec), applying any further retro lessons.
+- `~/hekton` PR #26 still needs human review; first Pages deploy still pending human confirmation.

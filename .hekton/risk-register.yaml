@@ -15,3 +15,16 @@ risks:
     reviewed_date: 2026-07-03
     links:
       - "docs/risks.md"
+  - id: RISK-0004
+    title: "Coachgremlin's Module 04 dry-run grading was self-graded, not blind"
+    category: quality
+    likelihood: medium
+    impact: medium
+    status: open
+    owner: coderturtle
+    mitigation: "Rubric-gaming gap found and closed directly in modules/04-loop-engineering/README.md's rubric text. Residual: run an independent blind grading pass on the same transcripts before treating rubric-discrimination as proven."
+    raised_date: 2026-07-03
+    reviewed_date: 2026-07-03
+    links:
+      - "docs/risks.md"
+      - "runs/2026-07-03-module-04-dry-run/grading.md"

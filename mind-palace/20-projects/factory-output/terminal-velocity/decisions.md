@@ -29,3 +29,6 @@
 | 2026-07-03 | Named and wired the Docs Consistency Loop | `scripts/check-brand-lint.sh` + existing mirror-drift check, wired into pre-push. See `docs/decisions.md`. |
 | 2026-07-03 | ~/hekton branch pushed, PR #26 opened | Clean-break audit found it local-only. See `docs/decisions.md`. |
 | 2026-07-03 | Coachgremlin content-building plan produced (Opus) | `docs/coachgremlin-implementation-plan.md`. Recommends module 04 as the first real run. See `docs/decisions.md`. |
+| 2026-07-03 | Built the shared `receipts` fixture (stdlib-only Python) | One seeded, isolated bug in `group_expenses_by_month`. See `docs/decisions.md`. |
+| 2026-07-03 | Authored Module 04's core exercise content | Real exercise, rubric, stop condition, replacing placeholders. See `docs/decisions.md`. |
+| 2026-07-03 | Ran Coachgremlin's first real dry run (Module 04 core); go | Found and closed a rubric-gaming gap in both the module and `coachgremlin.md`. `human_confirmed: false`. See `docs/decisions.md` and `runs/2026-07-03-module-04-dry-run/`. |
