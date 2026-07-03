@@ -24,3 +24,5 @@
 | 2026-07-03 | Fixed a pre-existing em-dash violation in `modules/` and `README.md` | Written before `docs/brand.md`'s hard rules existed; caught by a self-check, not the review panel. |
 | 2026-07-03 | Verified the site locally before any deploy | `npm run dev` + headless Chromium; real screenshots reviewed, not just build success. |
 | 2026-07-03 | Opus research pass on agent-native workshop interaction | `docs/agent-native-interaction-plan.md`. Static manifest, not a live server, is the correct default. Recommends piloting module 03. See `docs/decisions.md`. |
+| 2026-07-03 | Workshop Gremlin/Coachgremlin stay separate; documented as one Workshop Lifecycle | Build then Learn. See `~/hekton/gremlins/workshop/workshop-lifecycle.md` and `docs/decisions.md`. |
+| 2026-07-03 | Every module's gate now produces a takeaway | Skill/prompt-template/sub-agent-config/loop-template per module, not just proof. See `modules/README.md`'s "What you keep" and `docs/decisions.md`. |

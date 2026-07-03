@@ -28,6 +28,10 @@ Then work through `modules/` in order, one at a time. Each module's core exercis
 
 Prompt engineering is one turn's instruction. Context engineering is what that turn can see. Harness engineering decides what the agent can reach and how its work is organized, mostly settled before anything runs. Loop engineering decides when it stops, how it's verified, and how it improves, only relevant once the harness is already running. The capstone has you diagnose which of the four is the actual bottleneck in a deliberately broken agent task, then fix it. Full arc: [`modules/README.md`](modules/README.md).
 
+## What you keep
+
+Every module leaves you with something, not just a passed check: a reusable prompt template, a context-budgeting Skill, a real sub-agent or harness config you can drop into a real project, a loop template, a diagnostic playbook. See [`modules/README.md`](modules/README.md#what-you-keep) for the full list.
+
 ## The teaching method
 
 Our working hypothesis, not a settled finding: the harness is the classroom. You learn this material by doing it inside a real agent session, with Coachgremlin setting the rubric up front and grading your actual attempt, not by reading a guide. See [`docs/workshop-design.md`](docs/workshop-design.md) for the full reasoning, including where we admit this is a bet, not proven pedagogy.

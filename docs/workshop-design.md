@@ -27,6 +27,8 @@ The workshop's core bet is that you learn agentic engineering *by doing it insid
 
 **Hard requirement, not aspiration:** every module has a required gate, an artifact produced or an action observed, checked against a rubric. A module whose only "exercise" is reading is a design defect, not a lighter-touch module. This applies to the workshop's own skeleton from the moment it exists (see `modules/README.md`'s arc table), not just once content is written, and it's now a standing principle for every workshop the Workshop Gremlin produces, not just this one (`~/hekton/gremlins/workshop/workshop-gremlin.md`'s Design Principles, added 2026-07-03).
 
+**Also a hard requirement, added 2026-07-03:** every module's gate produces a takeaway, not just proof. A learner leaves each module with something reusable, a prompt template, a Skill, a sub-agent/harness-config definition, a loop template, not just a passed rubric. See `modules/README.md`'s "What you keep" section for the concrete takeaway per module, and `~/hekton/gremlins/workshop/workshop-lifecycle.md` for why this belongs to Coachgremlin's phase specifically (Build scaffolds the *shape* of the takeaway; Learn is where it actually gets packaged and handed over).
+
 ## The four-module arc (+ synthesis capstone)
 
 Harness engineering was originally folded into the loop-engineering module. After reviewing three external accounts of loop engineering (see Sources, below), we split it into its own module — the distinction is real and teachable, not cosmetic. The workshop's spine is the evolution of practice, in order, with an explicit "how they fit together" synthesis at the end rather than treating the parts as unrelated topics.

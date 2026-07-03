@@ -24,6 +24,10 @@ A context-budget exercise: a deliberately oversized/noisy context that must be c
 
 Take a deliberately oversized/noisy context down to a fixed budget and still get the task right, with a short written justification of what you cut and why. Submitted curated context, the task output, and the justification, checked against a rubric (rubric TBD by Coachgremlin). Reading this module does not count: you advance on a working curation, not on having read this page.
 
+## Takeaway
+
+A context-budgeting Skill: your justification write-up, generalized into a personal checklist for "what to keep, what to cut, in what order" and packaged as a Claude Code Skill (or your harness's equivalent) you load in future sessions. The exercise produces a one-off curation; the takeaway is the reusable judgment behind it, made loadable.
+
 ## Stop condition
 
 _(rubric + terminal state defined per exercise by Coachgremlin)_

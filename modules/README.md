@@ -4,9 +4,9 @@ Terminal Velocity's spine is the evolution of agentic-engineering practice, in o
 
 Every module's core exercise is run through your own coding-agent harness (Claude Code, Codex, Cursor, or equivalent). You drive it; Coachgremlin frames the task and gives feedback against your actual attempt. See the top-level README and `docs/workshop-design.md` for the full thesis.
 
-**Hands-on by design, not passive text.** No module here completes by reading it. Every module states a required gate: an artifact you produce or an action you're observed doing, checked against a rubric. If a module ever reduces to "read this, then move on," that's a defect, not how this workshop is meant to work.
+**Hands-on by design, not passive text.** No module here completes by reading it. Every module states a required gate: an artifact you produce or an action you're observed doing, checked against a rubric. If a module ever reduces to "read this, then move on," that's a defect, not how this workshop is meant to work. Every gate also has a stated **takeaway**: you keep something reusable, not just proof you did the exercise.
 
-> Content status: skeleton only. Module READMEs below state the question each module answers, what it will draw on, and its required gate, not the exercises themselves yet. Exercise specs and rubrics are a later, one-concept-at-a-time Coachgremlin content-building pass (see `docs/next-actions.md`).
+> Content status: skeleton only. Module READMEs below state the question each module answers, what it will draw on, its required gate, and its takeaway, not the exercises themselves yet. Exercise specs and rubrics are a later, one-concept-at-a-time Coachgremlin content-building pass (see `docs/next-actions.md`).
 
 ## The arc
 
@@ -17,6 +17,18 @@ Every module's core exercise is run through your own coding-agent harness (Claud
 | 03 | [Harness engineering](03-harness-engineering/README.md) | What can it reach, and how is the work organized? | A harness config that actually runs, with a transcript |
 | 04 | [Loop engineering](04-loop-engineering/README.md) | When does it stop, how do we know it's right, and how does it get better without me watching every turn? | A bounded loop that actually terminates correctly |
 | 05 | [Synthesis capstone](05-synthesis-capstone/README.md) | Given a broken agent task, which of the four layers is actually the bottleneck? | A correct diagnosis, a fix, and a written defense |
+
+## What you keep
+
+Each module's gate produces a takeaway, not just proof. See `~/hekton/gremlins/workshop/workshop-lifecycle.md`'s "Takeaways" section for why this is now a standing principle, not a one-off idea for this workshop.
+
+| # | Module | Takeaway |
+|---|---|---|
+| 01 | Prompt engineering | A reusable prompt template, the pattern generalized past the one-off submission |
+| 02 | Context engineering | A context-budgeting Skill, your curation judgment made loadable |
+| 03 | Harness engineering | A real sub-agent/harness-config definition, drop-in reusable (also the agent-native-interaction pilot candidate; see `docs/agent-native-interaction-plan.md`) |
+| 04 | Loop engineering | A reusable loop template, with its stop condition and (if applicable) review gate carried explicitly |
+| 05 | Synthesis capstone | A personal diagnostic playbook, ideally a Skill, compressing all four layers into one repeatable method |
 
 ## Why this order
 

@@ -24,6 +24,10 @@ No external named pattern yet: this is the one module without a borrowed exercis
 
 Produce a single-turn prompt that gets a specified hard task right on the first try, no follow-up correction turn. Submitted prompt plus the model's actual output, checked against a rubric (rubric TBD by Coachgremlin). Reading this module does not count: you advance on a working prompt, not on having read this page.
 
+## Takeaway
+
+A reusable prompt template: the winning prompt's structure, generalized past this one task (what's fixed, what's a fill-in-the-blank, why each constraint is there), saved somewhere you'll actually use it again, a personal snippet library, a slash command, whatever your harness supports. Not the raw one-off prompt as submitted; the pattern behind it.
+
 ## Stop condition
 
 _(rubric + terminal state defined per exercise by Coachgremlin)_

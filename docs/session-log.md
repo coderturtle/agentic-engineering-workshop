@@ -234,3 +234,27 @@ The plan is still just a plan. The real test is whether the content-building pas
 
 - Still pending: human-confirmed first Pages deploy.
 - If the agent-native pilot is picked up: schema first, then the grader persona, then module 03's manifest, ideally alongside real module-03 Coachgremlin content.
+
+## 2026-07-03 - Workshop Lifecycle documented (Build/Learn); takeaways designed per module
+
+coderturtle asked whether Workshop Gremlin and Coachgremlin should merge into one "hybrid agent-human workshop" workflow, and separately asked what a learner (or their agent) should walk away from a workshop with.
+
+### What changed
+
+- **Did not merge the Gremlins.** `~/hekton/gremlins/workshop/workshop-lifecycle.md` (new, in `~/hekton`) documents them as two phases of one lifecycle instead: Build (Workshop Gremlin, runs a handful of times, pre-learner) then Learn (Coachgremlin, runs continuously, per concept per learner). Both Gremlin definitions gained a `Lifecycle Phase` header; `agents/index.md` gained a Phase column. Full reasoning for staying separate: cardinality, reuse grain, audience, each independently sufficient.
+- **Takeaways added as a standing principle**, not just this workshop's idea: `workshop-gremlin.md` gained Design Principle 4 (every gate produces a keepable takeaway) and the module-README template grew from 7 to 8 parts. `coachgremlin.md`'s Workflow gained a "package the takeaway" step (6th), plus matching Outputs and Completion Checklist updates.
+- **Concrete takeaways designed for all 5 modules** and written into `modules/*/README.md` plus a new `modules/README.md` "What you keep" table: a reusable prompt template (01), a context-budgeting Skill (02), a real sub-agent/harness-config definition (03, strongest fit, also the agent-native-interaction pilot candidate), a reusable loop template (04), and a diagnostic-playbook Skill (05, compressing all four layers into one method).
+- `docs/workshop-design.md` and `docs/workshop-gremlin-design.md` updated to reflect both decisions; `docs/workshop-gremlin-design.md`'s status section corrected (Workshop Gremlin and the Review Panel are v0; Coachgremlin is still draft, no real run yet).
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Workshop Gremlin and Coachgremlin stay separate" and "Every module's gate now produces a takeaway" entries.
+
+### Risks / Open Items
+
+The takeaways are designed, not proven. Coachgremlin has never run for real; whether "package the takeaway" actually produces something a learner would keep, versus busywork tacked onto the exercise, is untested until a real content-building pass happens.
+
+### Next Actions
+
+- Content-building pass for any module should treat producing the stated takeaway as part of the exercise's success criteria, not an afterthought.
+- Coachgremlin's first real run is the next piece of evidence this factory needs, for the takeaway-packaging step specifically as well as the exercise/rubric loop generally.

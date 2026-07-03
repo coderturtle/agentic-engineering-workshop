@@ -24,6 +24,10 @@ The capstone exercise: diagnose which of the four is the bottleneck in a deliber
 
 Diagnose which layer is the actual bottleneck in a deliberately broken agent task, fix it, and defend the diagnosis in writing (why this layer, not the other three). Submitted diagnosis, fix, and written defense, checked against a rubric (rubric TBD by Coachgremlin). Reading this module does not count: you advance on a correct diagnosis and fix, not on having read this page.
 
+## Takeaway
+
+A personal diagnostic playbook, ideally packaged as a Skill: the "which layer is actually broken" method you just practiced, written down as a repeatable checklist (symptom → suspect layer → how to confirm → how to fix) you can run against a real broken agent task later. This is the capstone's own synthesis turned into the workshop's single most reusable artifact: everything from modules 01-04, compressed into one diagnostic tool.
+
 ## Stop condition
 
 _(rubric + terminal state defined per exercise by Coachgremlin)_

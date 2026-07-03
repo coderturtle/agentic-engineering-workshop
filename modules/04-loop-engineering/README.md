@@ -34,6 +34,10 @@ See [modules/README.md](../README.md#loop-taxonomy-module-04-uses-this-vocabular
 
 Build and run a bounded loop (modeled on Ticket-to-PR-Ready or an equivalent) with a real, stated stop condition, and show it actually terminating correctly, not just describe one. Submitted loop definition plus a real run transcript showing the terminal state firing correctly, checked against a rubric (rubric TBD by Coachgremlin). Reading this module does not count: you advance on a loop that actually stopped correctly, not on having read this page.
 
+## Takeaway
+
+A reusable loop template: the bounded loop you built, generalized past this one task into something you can point at a different problem later, a slash command, a script, or a documented pattern (in the same style as Ticket-to-PR-Ready) with its stop condition and verification step named explicitly. If it used hill-climbing, the template must carry the review-gate requirement with it, not just the mechanism.
+
 ## Stop condition
 
 _(rubric + terminal state defined per exercise by Coachgremlin)_

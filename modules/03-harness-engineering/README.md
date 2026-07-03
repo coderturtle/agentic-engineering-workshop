@@ -25,6 +25,10 @@ Tool access, sub-agents/specialists, reusable skills, plugins/connectors (MCP an
 
 Configure a working harness setup (defined tool access, a sub-agent or specialist boundary, persistent state across a context reset) for a given task, and demonstrate it actually running correctly, not just described. Submitted harness config plus a real run transcript, checked against a rubric (rubric TBD by Coachgremlin). Reading this module does not count: you advance on a harness that actually ran, not on having read this page.
 
+## Takeaway
+
+A real, reusable sub-agent or harness-config definition (e.g. a `.claude/agents/*.md` file, an MCP server config, or your harness's equivalent) built for the exercise but written generally enough to drop into a real project afterward. This module's takeaway is the strongest fit of the five: the exercise artifact and the reusable takeaway are close to the same thing, unlike modules where the takeaway has to be distilled out of a one-off attempt. Also the leading candidate for the agent-native interaction pilot (`docs/agent-native-interaction-plan.md`): a machine-readable version of this same config is what that pilot would package.
+
 ## Stop condition
 
 _(rubric + terminal state defined per exercise by Coachgremlin)_
