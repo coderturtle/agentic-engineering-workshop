@@ -107,3 +107,41 @@ See `docs/decisions.md`, 2026-07-03 "Naming pass complete" entry.
 
 - Human-authorize a vault card move/rename for the live Obsidian vault (out of session scope until then).
 - Proceed to executing `docs/implementation-plan.md`.
+
+## 2026-07-03 - Live vault card moved (explicit authorization given)
+
+coderturtle explicitly authorized moving the live Obsidian vault card for this project (a one-time authorization, not a standing permission).
+
+### What changed
+
+- `~/vaults/hekton-mind-palace/20-projects/factory-output/agentic-engineering-workshop/` moved to `.../terminal-velocity/`; `index.md`/`session-log.md` frontmatter and content updated to match.
+- `just validate-projects` re-run: the "local repo not found" warning this rename had introduced is gone; project now reports clean as `terminal-velocity` throughout.
+
+### Next Actions
+
+- See review-panel entry below — ran alongside this.
+
+## 2026-07-03 - Workshop Review Panel: designed, test-run, wired findings back in
+
+Designed a 7-persona Workshop Review Panel (AI/ML Practitioner, Developer Evangelist, End-User/Learner, Professional Technical Writer, Skeptical Critic, Instructional Designer, Security-Conscious Reviewer) per coderturtle's request, at `~/hekton/gremlins/workshop/workshop-review-panel.md`. Test-ran it against this project's own current design docs before wiring it into the Workshop Gremlin's roster, per the Gremlin Model's "draft until run end-to-end once" discipline.
+
+### What changed
+
+- Ran all seven personas independently and in parallel against `README.md`, `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`, `docs/implementation-plan.md`. Synthesized into `docs/review-panel/2026-07-03-initial-design.md`; raw per-persona critiques preserved in `docs/review-panel/2026-07-03-personas/`.
+- Two cross-persona agreements: (1) stale "naming pending" prose survived the earlier rename's find-replace in all four current-state docs, since the prose never contained the old name as a literal string; (2) an unreconciled contradiction between "harness engineering is static" and "hill-climbing rewrites the harness," plus a missing human-review caveat on hill-climbing (independently flagged by the AI/ML Practitioner on technical-correctness grounds and the Security-Conscious Reviewer on safety grounds).
+- Five single-persona findings, each real and not overlapping with another lens: unsupported/overclaiming language (Skeptical Critic, 5 instances); a missing exercise-pattern anchor for module 2 (Instructional Designer); no exercise yet exists to evaluate the core promise against (End-User/Learner); harness vocabulary possibly too Claude-Code-specific (End-User/Learner); Coachgremlin's grading trustworthiness is asserted, not shown (End-User/Learner).
+- Applied fixes for everything fixable at the design-doc stage directly to the four reviewed docs (see `docs/decisions.md`). Deferred the content-building-only findings to `docs/next-actions.md`.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Designed and test-ran a Workshop Review Panel" entry.
+
+### Risks / Open Items
+
+- The panel is real cost (7 parallel passes) — reserve full-panel runs for design-level checkpoints, not routine edits, per the Gremlin's own Risks section.
+- Panel hasn't been run against actual module content yet (none exists) — several findings (exercise design, grader trust) can only be re-checked once content-building happens.
+
+### Next Actions
+
+- Wire the Workshop Review Panel into `~/hekton/gremlins/workshop/workshop-gremlin.md`'s roster as a new step (see that repo's session log/decisions for the update).
+- Re-run the panel once module content exists.

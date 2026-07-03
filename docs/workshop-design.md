@@ -1,6 +1,6 @@
 # Workshop Design (Track B)
 
-> Working title: **"Prompt → Loop"**. Final name is a deliverable of the Workshop Gremlin's naming agent (see `docs/workshop-gremlin-design.md` and `docs/next-actions.md`) — this doc uses the working title until the human picks from the naming agent's candidates.
+> **Terminal Velocity.** Naming pass complete (see `docs/workshop-gremlin-design.md` and `docs/decisions.md`) — this doc was drafted under the working title "Prompt → Loop" and has since been updated throughout.
 
 ## The one-line problem
 
@@ -23,7 +23,7 @@ The workshop's core bet is that you learn agentic engineering *by doing it insid
 
 - Every module's core exercise is run through a real coding-agent harness — the learner drives Claude Code (or equivalent), not a notebook or quiz.
 - **Coachgremlin** (see `docs/workshop-gremlin-design.md`) frames each exercise, sets the rubric up front, and gives feedback against the learner's actual attempt — it does not lecture and does not hand over the solution.
-- The harness *is* the classroom. This is the workshop's punchy thesis and the reason it can't just be a written guide: the medium of instruction matches the skill being taught.
+- Our working hypothesis, not a proven finding: the harness *is* the classroom. We don't yet have data or a prior pilot showing this teaches better than a well-structured written guide — it's the workshop's central bet and the reason it can't just be a written guide, but it should be read as a hypothesis this workshop is testing, not a settled claim.
 
 ## The four-module arc (+ synthesis capstone)
 
@@ -31,18 +31,18 @@ Harness engineering was originally folded into the loop-engineering module. Afte
 
 1. **Prompt engineering** — the atomic unit: getting a single turn to do what you want. Precision, structure, examples, constraints. Framed as necessary but insufficient once tasks span more than one turn.
 2. **Context engineering** — what surrounds the prompt: what's in the window, what's retrieved, what's summarized versus preserved verbatim, what's excluded on purpose. The shift from "write a good instruction" to "curate what the model can see."
-3. **Harness engineering** — the structural layer: what the agent can *reach* and how its work is *organized*, decided before it ever runs. Tool access, sub-agents/specialists, reusable skills, plugins/connectors to external systems (MCP and friends), isolated worktrees, and persistent on-disk state across context resets. The question this module answers is **"what can it reach, and how is the work organized?"** — a structural, largely static design decision.
-4. **Loop engineering** — the behavioral layer, built *on top of* a harness that already exists. Stop conditions, verification/grading against a rubric, event-driven triggers, and the meta move where an outer loop rewrites the inner harness's own config or prompts based on production traces ("hill-climbing"). The question this module answers is **"when does it stop, how do we know it's right, and how does it get better without me watching every turn?"** — dynamic, runtime, and (at the frontier) self-modifying.
+3. **Harness engineering** — the structural layer: what the agent can *reach* and how its work is *organized*, decided before it ever runs. Tool access, sub-agents/specialists, reusable skills, plugins/connectors to external systems (MCP and friends), isolated worktrees, and persistent on-disk state across context resets. The question this module answers is **"what can it reach, and how is the work organized?"** — a structural design decision that's stable *by default*, though module 4 covers the one case (hill-climbing) where a loop deliberately reaches back in and changes it.
+4. **Loop engineering** — the behavioral layer, built *on top of* a harness that already exists. Stop conditions, verification/grading against a rubric, event-driven triggers, and the meta move where an outer loop *proposes* rewrites to the inner harness's own config or prompts based on production traces ("hill-climbing") — proposals a human reviews before they're adopted, not auto-applied changes; see the taxonomy below. The question this module answers is **"when does it stop, how do we know it's right, and how does it get better without me watching every turn?"** — dynamic, runtime, and (at the frontier) self-modifying under human review.
 5. **Synthesis capstone** — how all four actually compose in a real harness today: a prompt is one turn's instruction; context engineering shapes what that turn can see; harness engineering decides what the agent can reach and how its work is organized; loop engineering decides when it stops, how it verifies, and how it rewrites itself. The capstone exercise has the learner diagnose which of the four is the bottleneck in a deliberately broken agent task, then fix it.
 
 ### Our view: how harness engineering evolved into loop engineering
 
-This is our own synthesis, not a restatement of any one source. Harness engineering and loop engineering answer different *kinds* of question, and that's why the split matters pedagogically:
+This is our own synthesis, not a restatement of any one source, and it's a teaching framing we're proposing, not an independently validated pedagogical finding — we split it this way because it made the two modules teachable as distinct skills, not because it's the only correct way to carve the problem:
 
-- **Harness engineering is a question about structure.** It's decided largely up front: what tools exist, what sub-agents are on call, what state persists, what the agent is allowed to touch. You can describe a harness completely without ever running it.
-- **Loop engineering is a question about behavior over time.** It only exists once the harness is running: how many iterations, what counts as "done," what triggers a re-run, what happens when a verifier disagrees with the agent.
+- **Harness engineering is a question about structure.** It's decided up front and stable by default: what tools exist, what sub-agents are on call, what state persists, what the agent is allowed to touch. You can describe a harness completely without ever running it — *unless* a hill-climbing loop is deliberately changing it (see below), which is the one case where the structural/behavioral line gets crossed on purpose.
+- **Loop engineering is a question about behavior over time.** It only exists once the harness is running: how many iterations, what counts as "done," what triggers a re-run, what happens when a verifier disagrees with the agent — including, at the frontier, proposing changes back to the harness itself, gated by human review rather than applied automatically.
 
-Loop engineering became its own discipline once harnesses got good enough that "give it more tools" stopped being the bottleneck. Once tool access, sub-agents, and state were solved problems, the open question shifted from *what can the agent reach* to *how does it know when to stop, whether it's right, and how it gets better without a human watching every turn*. That shift — from structural completeness to behavioral trustworthiness — is the actual hinge between the two modules, and it's why the capstone treats harness and loop as sequential dependencies (you need a harness before a loop has anything to run inside) rather than as synonyms.
+Our working narrative for *why* the split emerged (not a verified historical claim — we have no dates or named examples to back this beyond the three sources we read): loop engineering became worth naming separately once harnesses got good enough that "give it more tools" stopped being the obvious next question. Once tool access, sub-agents, and state felt like solved problems, the open question shifted toward *how does it know when to stop, whether it's right, and how it gets better without a human watching every turn*. That shift is why the capstone treats harness and loop as sequential dependencies (you need a harness before a loop has anything to run inside) rather than as synonyms — but treat this as our organizing story, not settled fact.
 
 ### Loop taxonomy (used inside the loop-engineering module)
 
@@ -51,7 +51,7 @@ Rather than teach "loop engineering" as one undifferentiated idea, the module us
 1. **Agent loop** — the base case: the model calls tools in a loop until a task is complete.
 2. **Verification loop** — an added grading pass: output is checked against a rubric and sent back on failure.
 3. **Event-driven loop** — the agent loop is triggered by something external (a webhook, a schedule, a message), not run ad hoc.
-4. **Hill-climbing loop** — the frontier case: traces from real runs feed an analysis pass that rewrites the harness's own config or prompts — the outer loop reaches back in and edits the inner one.
+4. **Hill-climbing loop** — the frontier case: traces from real runs feed an analysis pass that *proposes* rewrites to the harness's own config or prompts — the outer loop reaches back in and edits the inner one. **This must be taught with an explicit gate**: a proposed rewrite is only adopted if it passes verification (regression-free, per Forward Future's vocabulary above) and a human reviews it — never auto-applied. A learner copying this pattern without that gate is copying an unsafe default, not the actual practice.
 
 **Practical rubric for learners:** not every task deserves a loop. The decision rule we teach: *stable goal → build the loop; moving target → keep it a manual, prompt-driven task.* Loops pay for their setup cost only when the success criteria hold still.
 
@@ -66,7 +66,7 @@ Each of the four core modules (plus the capstone) gets at least one Coachgremlin
 
 ## Build-in-public build log
 
-The build of this workshop itself is published as a dated build-log/journal via GitHub Pages (Astro, see `docs/workshop-gremlin-design.md`), separate from the module content. It's the maintainer's own record of building the workshop and the Gremlin simultaneously — a real demonstration of the practices being taught, not auto-generated from session logs.
+The build of this workshop itself is published as a dated build-log/journal via GitHub Pages (Astro, see `docs/workshop-gremlin-design.md`), separate from the module content. It's intended as the maintainer's own record of building the workshop and the Gremlin simultaneously — deliberately written, not auto-generated from session logs — but that intent hasn't been demonstrated yet; the first real entry (part of the implementation-plan.md build-log work) is what will prove or disprove it.
 
 ## What's explicitly out of scope for this design pass
 
@@ -82,7 +82,7 @@ The build of this workshop itself is published as a dated build-log/journal via 
 
 ## Sources reviewed (2026-07-03)
 
-External research that shaped the harness/loop split and the loop taxonomy above. The "our view" section is our own synthesis, informed by but not copied from these:
+Three industry blog posts, not peer-reviewed research — they shaped the harness/loop split and the loop taxonomy above as inspiration, and the "our view" section is our own synthesis, informed by but not copied from (or validated by) these:
 
 - Forward Future, [Loop Library](https://signals.forwardfuture.com/loop-library/) — loops as repeatable, bounded workflows; named patterns (Ticket-to-PR-Ready, Promise-to-Proof, Restartable Handoff); vocabulary (terminal states, regression-free, evidence ledger, blast radius).
 - LangChain, [The Art of Loop Engineering](https://www.langchain.com/blog/the-art-of-loop-engineering) — the four-layer taxonomy (agent / verification / event-driven / hill-climbing loop) and the "outer loop rewrites the inner loop" insight.

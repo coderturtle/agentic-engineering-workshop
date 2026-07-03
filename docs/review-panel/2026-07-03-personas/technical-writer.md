@@ -1,0 +1,11 @@
+# Persona: Professional Technical Writer / Editor — 2026-07-03
+
+**1. README.md contradicts itself and the other current-state docs on whether the rename happened.** The H1 is "Terminal Velocity" (the real, adopted name), but the body still says: "Working title while the Workshop Gremlin's naming agent runs: **"Prompt → Loop"**" (line 15) and "Next: naming pass, then execute the implementation plan" (line 21). This directly contradicts `docs/decisions.md`'s final row ("Naming pass complete... all current-state docs updated in place") and `docs/implementation-plan.md`'s own header note ("The naming pass has since completed — the final name is Terminal Velocity"). A reader hits the real name in the title and then reads two lines later that the name hasn't been chosen yet.
+
+**2. workshop-design.md's opening blockquote is the same stale artifact.** Line 3: "Working title: **"Prompt → Loop"**. Final name is a deliverable of the Workshop Gremlin's naming agent... this doc uses the working title until the human picks from the naming agent's candidates." This should have been removed/updated by the rename pass and wasn't.
+
+**3. workshop-gremlin-design.md's status section also claims naming is still pending.** Line 43: "naming, deliverables/branding, and the build-log/Pages publisher are open next actions" — again asserting naming isn't done, the third document now disagreeing with implementation-plan.md and decisions.md.
+
+**4. implementation-plan.md is internally inconsistent about its own rename-safety claim.** The header (line 5) asserts rename-dependent spots were "mechanically updated to the real slug," but the body still contains untouched working-title language: "working title until rename" (line 49), "Working-title banner — `> Working title "Prompt → Loop"...`" (line 56), "`Name: [PENDING NAMING PASS — working title "Prompt → Loop"]`" (line 66), and "rename-dependent; use working title" (line 95). Worse, §4d shows the *value* already updated (`base: "/terminal-velocity/"`) next to a comment that says "update after the naming pass renames the repo" — the code and its own inline comment disagree.
+
+No findings on voice/terminology beyond the rename issue — vocabulary ("harness engineering," "loop taxonomy," Gremlin names) is used consistently across all four docs.

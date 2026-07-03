@@ -29,6 +29,7 @@ modules/
 - **Placeholder learning objectives** — 3-5 bullets marked `_(objectives finalized in the Coachgremlin content pass)_`.
 - **Named exercise pattern it will draw from** — a pointer, not a spec:
   - `01-prompt-engineering` → single-turn precision (no external named pattern yet; note "atomic unit, necessary-but-insufficient framing").
+  - `02-context-engineering` → a context-budget exercise: a deliberately oversized/noisy context the learner must curate down to a fixed budget while preserving what the task actually needs — forces a real curation tradeoff rather than talking about one in the abstract. (Flagged as a gap by the Workshop Review Panel's Instructional Designer — module 02 had no anchor at all before this pass; exact exercise spec is still a later Coachgremlin content-building task, this is only the pointer.)
   - `03-harness-engineering` → tool access / sub-agents / worktrees / persistent state material.
   - `04-loop-engineering` → the loop taxonomy (agent / verification / event-driven / hill-climbing), **Ticket-to-PR-Ready Loop**, **Restartable Handoff Loop**, and the **"ralph loop"** (Geoffrey Huntley) for the hill-climbing/self-improving concept; plus the stable-goal-vs-moving-target decision rule.
   - `05-synthesis-capstone` → the "diagnose which of the four is the bottleneck in a deliberately broken agent task, then fix it" exercise.
@@ -46,14 +47,14 @@ The current `README.md` is internal Hekton scaffold framing (classification head
 **Plan:**
 - Move the internal scaffold content (classification block, documentation contract, vault-mutation note, "two goals / extract reusable machinery" framing, key-docs index) into a new `docs/maintainers.md` (or `CONTRIBUTING.md`-style maintainer doc). `CLAUDE.md`/`AGENTS.md` already carry the agent operating rules, so the README does not need to.
 - Rewrite `README.md` as the learner landing page with these sections:
-  1. **Title + one-line tagline** — pulled from the brand layer (§3), name-agnostic, working title until rename.
+  1. **Title + one-line tagline** — "Terminal Velocity" plus a hook-first tagline pulled from the brand layer (§3), leading with the doing-not-reading thesis rather than a list of the four module names.
   2. **What this is / who it's for** — the audience statement from `docs/workshop-design.md` (advanced practitioners already using agents daily; not intro-to-AI).
   3. **Prerequisites** — comfort with git/CLI/diffs; regular use of at least one coding agent/harness (Claude Code, Codex, Cursor); a working harness installed. This is the concrete gate.
-  4. **How to start** — clone, then work through `modules/` in order (link `modules/README.md`); every module's core exercise is *run through your own harness*, not read.
+  4. **How to start** — a literal copy-pasteable `git clone .../terminal-velocity && cd terminal-velocity && cat modules/README.md`-style command block, not prose bullets — the gap between reading and doing is the whole friction budget (per the Workshop Review Panel's Developer Evangelist finding, `docs/review-panel/2026-07-03-initial-design.md`). Then work through `modules/` in order; every module's core exercise is *run through your own harness*, not read.
   5. **How the modules connect** — the prompt → context → harness → loop arc in one short paragraph + link to `modules/README.md` for the full synthesis; state the capstone diagnoses which layer is the bottleneck.
   6. **The teaching method** — the "harness is the classroom / Coachgremlin frames each exercise and grades against your actual attempt, never hands over the solution" thesis.
   7. **Build-in-public note** — one line pointing at the published build-log site (§4) as a live demonstration of the practices taught.
-  8. **Working-title banner** — `> Working title "Prompt → Loop"; final name pending a naming pass.` so a public reader isn't confused, and the rename has one obvious anchor to update.
+  8. ~~Working-title banner~~ — not needed; the naming pass completed before this section executes. If a future rename happens, add a temporary banner then rather than carrying one permanently.
 - Keep a slim **Key docs** footer linking `docs/workshop-design.md` and `docs/maintainers.md` for anyone who wants the design rationale, but keep the top of the file learner-first.
 
 ---
@@ -62,14 +63,14 @@ The current `README.md` is internal Hekton scaffold framing (classification head
 
 **Single source of truth:** one file, `docs/brand.md`, adapting the reusable pattern already proven in blog-factory-lab (`templates/brand-style-layer-template.md`, and the filled example `examples/hekton-blog/brand-style-layer.md`). Do not scatter brand values across README + site + configs; those consume `docs/brand.md`, they don't redefine it. This is the same "the only place a series' personality lives" discipline ADR-001 of the blog factory enforces.
 
-**`docs/brand.md` sections (all name-agnostic so they survive the rename):**
-- **Site identity** — `Name: [PENDING NAMING PASS — working title "Prompt → Loop"]`, a one-line **tagline** that describes the *content* not the name (e.g. something about learning agentic engineering by doing it inside a harness), parent brand (Hekton), and a `slug: [pending]` line. The name/slug are the *only* rename-dependent fields, quarantined at the top.
+**`docs/brand.md` sections (name/slug still isolated to one block, in case of a *future* rename):**
+- **Site identity** — `Name: Terminal Velocity`, a one-line **tagline** that describes the *content* not the name (e.g. something about learning agentic engineering by doing it inside a harness — lead with the doing-not-reading thesis, not a list of module names, per the Developer Evangelist review finding), parent brand (Hekton), and `slug: terminal-velocity`. The name/slug are kept in a single block, quarantined at the top, so a *future* rename stays mechanical the way this one was.
 - **Voice** — adapt from the hekton-blog example: competent, specific, dryly funny, anti-hype, treats readers as capable peers (fits an advanced-practitioner audience). First person for build-log entries; system language for workshop structure.
 - **Banned language** — reuse the blog-factory banned list verbatim (no em dashes; no delve/tapestry/unlock/seamless/game-changing/leverage-unless-load-bearing; no AI-slop openers). This keeps the workshop's prose consistent with the wider Hekton house style.
-- **Minimal visual identity** — inherit the starter's neutral tokens rather than invent a palette: `--accent`, `ink`/`paper` Tailwind tokens, the `.post-body` typography rhythm, and the "no section dividers, whitespace only" layout rule. Record a short `[TBD before final]` checklist (accent colour, favicon/wordmark, dark mode) exactly as the hekton-blog example does — these can be filled after the rename without blocking anything now.
+- **Minimal visual identity** — inherit the starter's neutral tokens rather than invent a palette: `--accent`, `ink`/`paper` Tailwind tokens, the `.post-body` typography rhythm, and the "no section dividers, whitespace only" layout rule. Record a short `[TBD]` checklist (accent colour, favicon/wordmark, dark mode) exactly as the hekton-blog example does.
 - **Application map** — a short table stating which artifacts read from this file: `README.md` (title + tagline), `site/` `BaseLayout` (header wordmark + footer), `astro.config.mjs` (`site`/title), and the site's homepage copy.
 
-Because the name lives in exactly one quarantined block and everything else is voice/visual/rules, the pending rename touches `docs/brand.md` (one block), `README.md` (title + banner), the site config `title`, and `docs/workshop-design.md`'s existing working-title note — a bounded, mechanical change.
+Because the name lives in exactly one quarantined block and everything else is voice/visual/rules, any *future* rename would touch `docs/brand.md` (one block), `README.md` (title), and the site config `title` — a bounded, mechanical change, the same pattern that made this project's actual rename a same-day find-replace.
 
 ---
 
@@ -92,8 +93,8 @@ Adapt `blog-factory-lab/site-starters/astro-blog` into `site/`. Good news from e
 - Anything under `blog-factory-lab/infra/` — do not copy; the Pages workflow (§4c) replaces it.
 
 **Rewrite for this project:**
-- `BaseLayout.astro` header wordmark ("Blog Factory") and footer → workshop title/tagline from `docs/brand.md` (rename-dependent; use working title).
-- `astro.config.mjs`: set `site` and `base` for GitHub Pages project hosting (see §4d) — flagged rename-dependent.
+- `BaseLayout.astro` header wordmark ("Blog Factory") and footer → "Terminal Velocity" title/tagline from `docs/brand.md`.
+- `astro.config.mjs`: set `site` and `base` for GitHub Pages project hosting (see §4d).
 
 ### 4b. Surfacing dated build-log entries on the site
 
@@ -127,11 +128,11 @@ New file `.github/workflows/deploy-pages.yml`.
 - Alternative single-job form using `withastro/action@v3` (with `path: site/`) is acceptable and shorter; the explicit two-job form above is recommended for transparency since Astro-on-Pages is a new, unproven pattern for this factory (per the Gremlin's Risks note) and the maintainer will want to read each step.
 - The repo-side enablement (Settings → Pages → Source: GitHub Actions) is itself part of the human deploy gate — note it in the plan, don't automate it.
 
-### 4d. Astro config for Pages (rename-dependent, flag clearly)
+### 4d. Astro config for Pages
 
 GitHub project pages serve under `https://<user>.github.io/<repo>/`, so:
-- `site: "https://coderturtle.github.io"` and `base: "/terminal-velocity/"` in `astro.config.mjs`, with an inline comment: `// RENAME-DEPENDENT: base must match the final repo slug; update after the naming pass renames the repo.`
-- All internal links use Astro's `base`-aware helpers / root-relative `import.meta.env.BASE_URL` prefixing rather than bare `/build-log/...`, so the rename only touches the one config line, not every link. Call this out explicitly — it's the single most common Pages-project breakage.
+- `site: "https://coderturtle.github.io"` and `base: "/terminal-velocity/"` in `astro.config.mjs`, with an inline comment: `// If this repo is ever renamed again, update this base to match the new slug — it's the one spot that needs to change.`
+- All internal links use Astro's `base`-aware helpers / root-relative `import.meta.env.BASE_URL` prefixing rather than bare `/build-log/...`, so a *future* rename would only touch this one config line, not every link. Call this out explicitly — it's the single most common Pages-project breakage.
 - If a custom domain is chosen later, `base` returns to `/` and a `public/CNAME` is added; note as a future option, not this phase.
 
 ### 4e. `.gitignore`

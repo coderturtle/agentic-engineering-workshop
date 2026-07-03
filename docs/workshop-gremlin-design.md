@@ -40,4 +40,4 @@ Full definition: `~/hekton/gremlins/coaching/coachgremlin.md`.
 
 ## Status and what's left
 
-Both definitions are **draft**. This workshop (`terminal-velocity`) is the Workshop Gremlin's first end-to-end run — repo scaffolding is done; naming, deliverables/branding, and the build-log/Pages publisher are open next actions (see `docs/next-actions.md`). Once this run completes, both Gremlin definitions should be revised from real experience and versioned up per the model's rules (major bump for roster changes, minor for prompt/contract changes within a fixed roster).
+Both definitions are **draft**. This workshop (`terminal-velocity`) is the Workshop Gremlin's first end-to-end run — repo scaffolding, naming (complete: **Terminal Velocity**), and a first Workshop Review Panel test run are done; deliverables/branding and the build-log/Pages publisher are the open next actions (see `docs/next-actions.md`). Once this run completes, both Gremlin definitions should be revised from real experience and versioned up per the model's rules (major bump for roster changes, minor for prompt/contract changes within a fixed roster).

@@ -21,3 +21,11 @@ Produced `docs/implementation-plan.md` via an Opus-run planning pass covering mo
 ## 2026-07-03 - Naming pass: renamed to Terminal Velocity
 
 Naming pass complete; renamed GitHub repo, local dir, and this mirror to **Terminal Velocity** (`terminal-velocity`). Live vault card left under the old path pending vault-mutation authorisation. Full detail in the repo's `docs/session-log.md` and `docs/decisions.md`.
+
+## 2026-07-03 - Live vault card moved (explicit authorization given)
+
+Moved the live Obsidian vault card to match the rename, with explicit human authorisation. Full detail in the repo's `docs/session-log.md` and `docs/decisions.md`.
+
+## 2026-07-03 - Workshop Review Panel: designed, test-run, wired findings back in
+
+Designed a 7-persona Workshop Review Panel and test-ran it against this project's own design docs before wiring into the Workshop Gremlin's roster. Fixes from the run applied directly to the reviewed docs. Full detail in the repo's `docs/session-log.md` and `docs/decisions.md`.
