@@ -43,3 +43,21 @@ See `docs/decisions.md` for the full list (audience, format, teaching method, Co
 ### Next Actions
 
 - See `docs/next-actions.md` — naming pass, deliverables/branding, build-log/Pages publisher, then Coachgremlin content-building.
+
+## 2026-07-03 - Harness engineering research pass + module arc revision
+
+Reviewed three external sources on loop engineering (Forward Future's Loop Library, LangChain's "Art of Loop Engineering," CodeRabbit's Loop Engineering post) at the user's request, to check for angles the workshop design was missing before the naming pass.
+
+### What changed
+
+- `docs/workshop-design.md` — split the module arc from three to four core modules: prompt engineering, context engineering, **harness engineering** (new), loop engineering, plus the synthesis capstone (now four-way, not three-way). Added: our own synthesis of how harness engineering evolved into loop engineering (structural "what can it reach" vs. behavioral "when does it stop/how does it improve"); a four-layer loop taxonomy (agent / verification / event-driven / hill-climbing) for the loop module; the stable-goal-vs-moving-target decision rule as a teachable rubric item; named real-world patterns (Ticket-to-PR-Ready, Restartable Handoff, the "ralph loop") earmarked as source material for Coachgremlin exercises; a Sources section citing all three articles.
+- `docs/decisions.md` — recorded the arc-split decision and its rationale.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Split the arc from three modules to four" entry.
+
+### Next Actions
+
+- Implementation plan for the next phase (deliverables/branding + build-log/Pages publisher), to be produced by an Opus-run planning pass — see follow-up entry.
+- Naming pass after the implementation plan is in hand.
