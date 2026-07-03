@@ -34,6 +34,7 @@ Anything a learner reads (README, module content, build-log entries, the site) f
 - [Workshop Gremlin Design](workshop-gremlin-design.md) — reusable Gremlin/Coachgremlin decisions
 - [Implementation Plan](implementation-plan.md) — module skeleton, brand layer, README rework, build-log/Pages site
 - [Agent-Native Interaction Plan](agent-native-interaction-plan.md) — researched, not built: options considered, recommended module-03 pilot, Human Gate extension for agent-submitted attempts
+- [Coachgremlin Implementation Plan](coachgremlin-implementation-plan.md) — content-building plan for all 5 modules, plus the recommended first real run (module 04) and its go/no-go dry-run design
 - [Brand / Style Layer](brand.md) — voice, hard rules, visual identity
 - [Workshop Review Panel Report](review-panel/2026-07-03-initial-design.md) — 7-persona critique of the design docs, first test run
 - [Session Log](session-log.md)

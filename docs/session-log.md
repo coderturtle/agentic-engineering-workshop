@@ -258,3 +258,27 @@ The takeaways are designed, not proven. Coachgremlin has never run for real; whe
 
 - Content-building pass for any module should treat producing the stated takeaway as part of the exercise's success criteria, not an afterthought.
 - Coachgremlin's first real run is the next piece of evidence this factory needs, for the takeaway-packaging step specifically as well as the exercise/rubric loop generally.
+
+## 2026-07-03 - Clean-break audit, dogfooded loop engineering, Coachgremlin implementation plan
+
+Three things, in order: audited both repos for a clean session handoff; built the loop-engineering dogfood opportunity identified earlier; produced a detailed content-building plan so Coachgremlin's first real run can happen in a fresh session.
+
+### What changed
+
+- **Clean-break audit.** `terminal-velocity` (PR #1) was already clean, everything pushed. `~/hekton` was not: 11 commits of real Gremlin/Lifecycle work were sitting on a local-only branch while every other branch in that repo routinely goes through PR review. Pushed it and opened `~/hekton` PR #26.
+- **Docs Consistency Loop, built and wired.** New `scripts/check-brand-lint.sh` (em dashes, banned phrases, scoped to published content only per `docs/brand.md`), alongside the existing `scripts/check-mirror-drift.sh`. Both wired warn-only into the pre-push hook (`scripts/setup-hooks.sh`), regenerated locally so it's live now. Documented as a named verification loop in `~/hekton/gremlins/workshop/workshop-lifecycle.md`'s new "Dogfooding" section, mapped explicitly onto this project's own loop taxonomy. Deliberately did not automate the more interesting hill-climbing candidate (Gremlin-contract revision after each run), citing this factory's own stable-goal-vs-moving-target rule: each Gremlin has had only 1-2 real runs, short of the 3+ the Gremlin Model requires before a contract counts as stable.
+- **`docs/coachgremlin-implementation-plan.md`** (new, Opus-run): real exercise specs, rubrics, stop conditions, and takeaway-packaging instructions for all 5 modules, built against one shared cumulative fixture (a small deliberately-flawed `receipts` CLI). Resolves every constraint the Workshop Review Panel deferred to content-building: modules made genuinely cumulative (02 reuses 01's task under noise; 03's harness runs 01-02; 04's loop runs inside 03's harness; 05 sabotages assemblies of 01-04), harness-agnostic-vs-Claude-Code-leaning decided explicitly per module with translation tables, module 04 right-sized (one required core plus three optional graded extensions instead of four heavy exercises), and the capstone built genuinely ambiguous (multi-variant sabotage, obvious culprit is not the real one). Recommends **module 04's Ticket-to-PR-Ready core** as Coachgremlin's actual first real run, not module 01 despite being cheaper, because 04 exercises Coachgremlin's two least-proven Workflow steps (observe the attempt; package the takeaway, added only today) and forces the shared fixture to get built first. Includes a concrete go/no-go dry-run design: run a deliberately weak/rubric-gaming attempt through it and confirm Coachgremlin actually catches it, the direct test of the review panel's "grader trust asserted, not shown" finding.
+
+### Decisions Made
+
+See `docs/decisions.md`, three 2026-07-03 entries: "Named and wired the Docs Consistency Loop," "~/hekton's branch pushed and PR #26 opened," and "Detailed Coachgremlin content-building plan produced."
+
+### Risks / Open Items
+
+The content-building plan is thorough but unexecuted. The real test is the module-04 dry run itself: whether Coachgremlin's rubric actually discriminates a good attempt from a gaming one, and whether "package the takeaway" produces something a learner would keep. Both are open until that dry run happens.
+
+### Next Actions
+
+- Fresh session: build the shared `receipts` fixture, then run Module 04's core exercise as Coachgremlin's first real dry run, per `docs/coachgremlin-implementation-plan.md` §5-§6.
+- `~/hekton` PR #26 needs human review.
+- Still pending: human-confirmed first Pages deploy.

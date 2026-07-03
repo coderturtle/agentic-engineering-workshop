@@ -26,3 +26,6 @@
 | 2026-07-03 | Opus research pass on agent-native workshop interaction | `docs/agent-native-interaction-plan.md`. Static manifest, not a live server, is the correct default. Recommends piloting module 03. See `docs/decisions.md`. |
 | 2026-07-03 | Workshop Gremlin/Coachgremlin stay separate; documented as one Workshop Lifecycle | Build then Learn. See `~/hekton/gremlins/workshop/workshop-lifecycle.md` and `docs/decisions.md`. |
 | 2026-07-03 | Every module's gate now produces a takeaway | Skill/prompt-template/sub-agent-config/loop-template per module, not just proof. See `modules/README.md`'s "What you keep" and `docs/decisions.md`. |
+| 2026-07-03 | Named and wired the Docs Consistency Loop | `scripts/check-brand-lint.sh` + existing mirror-drift check, wired into pre-push. See `docs/decisions.md`. |
+| 2026-07-03 | ~/hekton branch pushed, PR #26 opened | Clean-break audit found it local-only. See `docs/decisions.md`. |
+| 2026-07-03 | Coachgremlin content-building plan produced (Opus) | `docs/coachgremlin-implementation-plan.md`. Recommends module 04 as the first real run. See `docs/decisions.md`. |
