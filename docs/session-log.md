@@ -500,3 +500,39 @@ See `docs/decisions.md`, four 2026-07-03 entries, one per module.
 - Consider running the panel against a genuinely different workshop once one exists, to test the breadth half of the panel's own maturation trigger.
 - Still open: Module 04's extensions, Module 05's prompt/context variants, Module 03's agent-native manifest, all deliberately deferred.
 - Push the local commits once reviewed.
+
+## 2026-07-03 - Ran the panel against the user-facing entry-point docs (README, arc index, site guide, sample preview)
+
+coderturtle asked to run the panel through "the rest of the user docs in the repo including the readme." Scoped this to the actual learner-facing entry points, deliberately excluding internal/maintainer docs (`docs/workshop-design.md`, `docs/brand.md`, `docs/decisions.md`, etc.) and the build-log journal, which serve a different purpose: `README.md`, `modules/README.md` (never directly reviewed before, only referenced), `site/src/pages/index.astro`, `docs/sample-attempt-preview.md`. This is the panel's 7th real-content run.
+
+### What changed
+
+- **Cross-document consistency was this run's real value.** Two agreements, both invisible from reading any single file: README.md and the site guide page duplicated almost entirely with no cross-linking, and actively *disagreed* on sequencing (README puts the sample preview before the runbook; the site had it after, undermining its own "before you clone anything" heading). And `modules/README.md`'s Content status blockquote reproduced the exact internal-citation-leak pattern already fixed in all five module reviews, at the arc-index level, which had never itself been reviewed.
+- **A real, confirmed factual inconsistency**: Module 02's takeaway was called a "Skill" in two documents and a "checklist" in the third; Module 03's takeaway was narrowed from "sub-agent or harness-config definition" to just "sub-agent definition" on the site. Fixed by aligning to `modules/README.md` as the source of truth.
+- **A stale claim three documents had inherited**: README, the arc table, and the site all still said the capstone diagnoses "which of the four" layers, contradicting Module 05's own honest scope note (added in the prior panel run) that only two of four layers currently have a built scenario. Fixed consistently across all three.
+- **A genuinely broken reference**: `modules/README.md` pointed a learner at `~/hekton/gremlins/workshop/workshop-lifecycle.md`, a path on the maintainer's local machine, unresolvable for anyone who'd actually cloned the repo. Removed.
+- **An unhedged outcome claim** on the site ("You get practiced judgment...") directly violated `docs/brand.md`'s own hedging rule, one section after the same page correctly hedged a different claim. Reworded to point at each module's actual evidence instead of asserting the outcome as guaranteed.
+- **"Not cherry-picked" overclaimed**: the featured transcript (the successful attempt) was a choice; the text itself wasn't edited. Reworded to the true, available claim, and now explicitly discloses that a gaming attempt exists alongside it.
+- Smaller fixes: added the real GitHub Pages URL to a dead-end "Build in public" mention; added a hands-on-by-design statement to the top-level README (previously only in the arc index and site); fixed Module 01's arc-table gate description to name its reproducibility requirement, not just "first try"; added real GitHub issues links where "report it" had no destination; aligned hypothesis/bet wording; named Module 04 explicitly on the site instead of "one of the modules."
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Ran the panel against the user-facing entry-point docs" entry.
+
+### Validation
+
+- `npx astro check` and `npm run build`: both clean after the site guide page rewrite.
+- `scripts/check-brand-lint.sh`: clean.
+- Verified file paths directly rather than trusting the personas' claims: confirmed the `~/hekton` path really is unresolvable from the repo, confirmed the Skill/checklist and sub-agent wording really did diverge, confirmed the new README transcript link target actually exists.
+
+### Risks / Open Items
+
+- The site's sample-preview link still targets `main` and will 404 until this branch merges; already a tracked "push once reviewed" item, not new.
+- Whether README.md and the site guide page should be substantially differentiated, not just cross-linked and made internally consistent, is a bigger editorial call than this pass made; the fix here makes the overlap honest and navigable, not smaller.
+- With this run, every piece of user-facing content in the repository (all five modules plus the four entry-point docs) has now been through an independent review pass.
+
+### Next Actions
+
+- coderturtle review of this run's report and fixes, per the Human Gate.
+- Decide whether README.md and the site guide page should be more substantially differentiated in a future pass.
+- Same standing items: push once reviewed, human-confirm first Pages deploy.

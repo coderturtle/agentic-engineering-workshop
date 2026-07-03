@@ -21,9 +21,21 @@ const recentEntries = (await getCollection("buildlog", ({ data }) => !data.draft
 
   <div class="post-body mt-10">
     <p>
-      This page is the guide. The workshop itself, five modules plus the fixture they run
-      against, lives in the <a href={REPO}>repo</a>. Nothing here substitutes for cloning it;
-      this is orientation, not the content.
+      This page is the guide for anyone landing on the deployed site rather than the repo
+      directly. The workshop itself, five modules plus the fixture they run against, lives in
+      the <a href={REPO}>repo</a>, whose own README covers the same ground in more detail once
+      you've cloned it. Nothing here substitutes for cloning it; this is orientation, not the
+      content.
+    </p>
+
+    <h2>See it before you clone anything</h2>
+    <p>
+      <a href={`${REPO}/blob/main/docs/sample-attempt-preview.md`}>
+        A real, condensed transcript
+      </a>{" "}
+      of an actual attempt at Module 04's core exercise: reproduce a bug, root-cause it, fix it,
+      prove it, in that order. Not a mockup: a script extracts the text straight from the real
+      run, unedited. The raw version is linked from that same page.
     </p>
 
     <h2>The idea: the harness is the classroom</h2>
@@ -35,30 +47,32 @@ const recentEntries = (await getCollection("buildlog", ({ data }) => !data.draft
       is orientation. The module completes when something you did passes its stated gate.
     </p>
     <p>
-      This is a bet, not a settled finding: that the next skill past "get a plausible answer
-      once" is a set of four disciplines (precise instructions, curated context, bounded tool
-      access, supervised loops) that compound, plus the judgment to tell which one is actually
-      broken when something doesn't work. The <a href={`${base}build-log/`}>build log</a> is
-      where that bet gets argued with in public, including the places it's wrong.
+      This is a hypothesis, not a settled finding: that the next skill past "get a plausible
+      answer once" is a set of four disciplines (precise instructions, curated context, bounded
+      tool access, supervised loops) that compound, plus the judgment to tell which one is
+      actually broken when something doesn't work. The <a href={`${base}build-log/`}>build log</a>{" "}
+      is where that hypothesis gets argued with in public, including the places it's wrong.
     </p>
 
     <h2>What you walk away with</h2>
     <p>
       Two different things get built during each module, and they're both real: your own
-      judgment, and a reusable artifact your agent can load next time.
+      judgment, and a reusable artifact your agent can load next time. Neither is a guarantee,
+      both are what the exercises are designed to produce; see each module's own README for the
+      evidence behind its specific gate.
     </p>
     <ul>
       <li>
         <strong>You</strong> get practiced judgment: writing an instruction precise enough to be
         reproducible, deciding what a model actually needs to see, scoping what an agent can
         reach, telling a loop's terminal state apart from a loop that just stopped, and
-        diagnosing which of those four is broken when a setup doesn't work.
+        diagnosing which layer is broken when a setup doesn't work.
       </li>
       <li>
         <strong>Your agent</strong> gets the packaged takeaways: a prompt template, a
-        context-budgeting checklist, a bounded sub-agent definition, a loop template, a
-        diagnostic playbook, each one built from an exercise you actually completed, not
-        written from theory. Concrete form and reference implementations are in the repo's{" "}
+        context-budgeting Skill, a sub-agent or harness-config definition, a loop template, a
+        diagnostic playbook, each one built from an exercise actually completed, not written
+        from theory. Concrete form and reference implementations are in the repo's{" "}
         <code>.claude/</code> directory once you clone it.
       </li>
     </ul>
@@ -84,18 +98,10 @@ const recentEntries = (await getCollection("buildlog", ({ data }) => !data.draft
       <li>
         No module completes by reading it. Every module states a required gate, an artifact you
         produce or an action you're observed doing. If a module ever reduces to "read this,
-        then move on," that's a defect, report it.
+        then move on," or a link here is broken, that's a defect: {" "}
+        <a href={`${REPO}/issues`}>open an issue</a>.
       </li>
     </ol>
-
-    <h2>See it before you clone anything</h2>
-    <p>
-      <a href={`${REPO}/blob/main/docs/sample-attempt-preview.md`}>
-        A real, condensed transcript
-      </a>{" "}
-      of an actual attempt at one of the modules: reproduce a bug, root-cause it, fix it, prove
-      it, in that order. Not a mockup; a script extracts it straight from the real run.
-    </p>
   </div>
 
   {

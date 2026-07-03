@@ -1,0 +1,11 @@
+# Persona: Instructional Designer — User Docs — 2026-07-03
+
+**1. Site page's "before you clone anything" claim was undermined by its own placement.** `site/src/pages/index.astro`'s "See it before you clone anything" section (the sample transcript link) sat *after* "The runbook," whose step 2 is `git clone` and step 3-5 already send the reader into `modules/README.md`. The heading promises a pre-clone preview but structurally arrived post-clone-instruction. `README.md` gets this right, "See it in action" precedes "How to start", so the two entry docs disagreed on sequencing the same content, exactly the "compete for start-here" failure mode this review is watching for.
+
+**2. The hands-on-by-design principle was stated nowhere in the top-level README.** The explicit gate definition ("No module here completes by reading it. Every module states a required gate...") appeared in `modules/README.md` and, nearly verbatim, in `site/index.astro`'s runbook, but README.md, the doc most learners hit first (GitHub landing page), only implied it via the tagline and "How to start." A learner deciding whether to clone based on README.md alone never saw "required to advance" defined.
+
+**3. `modules/README.md`'s arc table undersold Module 01's actual gate.** The table's "Required to advance" cell said "A working prompt that gets a hard task right first try." Module 01's actual Required-to-advance section demands the prompt pass "first try... three times in a row from a clean session," reproducibility is a named gate (Rubric #2), not a footnote. The table read as a single-attempt bar when the authored module is stricter.
+
+**4. "Report it" had no destination.** Site's phrasing ("that's a defect, report it") diverged from modules/README.md's ("that's a defect, not how this workshop is meant to work") and implied a reporting channel that didn't exist in any of the four docs, no issues link, no CONTRIBUTING reference anywhere in scope.
+
+**5. Minor:** the pre-clone sample (`sample-attempt-preview.md`) is Module 04's multi-step reproduce/root-cause/fix/prove loop, not representative of Module 01's single-turn prompting task a new learner actually does first, labeled correctly, but sets the wrong expectation for what "module 1 hands-on" looks like.
