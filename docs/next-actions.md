@@ -1,5 +1,34 @@
 # Next Actions: Terminal Velocity
 
+## Next session: priorities (as of 2026-07-03, end of the content-authoring + panel-review pass)
+
+**Does this need deep analysis first? No.** The substantive design questions for everything remaining are already answered in existing docs (`docs/coachgremlin-implementation-plan.md` for the module extensions/variants, `docs/agent-native-interaction-plan.md` for the manifest). What's left is execution against those specs, plus a set of items that are blocked on coderturtle, not on more research. A fresh Opus-style planning pass would be re-deriving decisions already made, not making new ones.
+
+### Blocked on you, not on more agent work
+
+1. **Human-confirm the first GitHub Pages deploy** (enable Pages in repo Settings → Source: GitHub Actions, then manually run the `workflow_dispatch` workflow). Nothing downstream needs this to happen first, but it's been pending the whole session.
+2. **Review all five modules' content and evidence** (`runs/2026-07-03-module-0{1,2,3,4,5}-dry-run/`, plus the six `docs/review-panel/2026-07-03-*-content.md` reports). Confirm or contest each "go," and decide whether the Module 04 dry run counts as run 1 of Coachgremlin's 3-run Review Trigger. This is the biggest lever: every other open item either follows from this review or doesn't depend on it.
+3. **Visually confirm the guide page and build-log entries** in a real browser (dev server was left running for this once; would need restarting).
+4. **Authorize registering the three Gremlins in the mind-palace Gremlin Registry** (vault mutation, currently deferred beyond this project's own card).
+
+### Ready to execute next session, no new design needed, specs already exist
+
+In the order the original plan sequences them (`docs/coachgremlin-implementation-plan.md` §6, plus `docs/agent-native-interaction-plan.md`):
+
+1. **Module 03's agent-native manifest**: schema first (`modules/.manifest.schema.yaml` + a `runs/.schema.yaml` extension), then the grader persona (`coachgremlin/grader.md`), then Module 03's `module.yaml` + `AGENT.md`. Write the rubric in the manifest's `{criterion, observable, weight}` shape from the start, since Module 03's rubric already exists in that near-equivalent shape and shouldn't need re-deriving.
+2. **Module 04's three optional extensions** (verification-deepened, event-driven, hill-climbing): specs already written in `docs/coachgremlin-implementation-plan.md` §2. Module 03's harness now exists for the event-driven/hill-climbing extensions to build on, so the dependency that gated deferring these is resolved.
+3. **Module 05's remaining two sabotaged variants** (prompt-bottleneck, context-bottleneck), following the exact pattern already proven for the harness/loop variants: build the variant, verify it's genuinely single-cause with a real isolating test, no self-spoiling noise (learned the hard way twice this session).
+
+Recommend #2 in "Blocked on you" (the module review) happens before piling more unreviewed content on top of five modules that haven't had human eyes on them yet, but that's a judgment call, not a hard dependency.
+
+### Optional / lower priority, pick up if there's time or specific interest
+
+- Independent/blind grading pass on any module's evidence, before treating "the rubric discriminates" as fully proven rather than well-evidenced (`docs/risks.md` RISK-0004).
+- A Review Panel run against a second, differently-shaped workshop, to test the "different workshops" half of the panel's own maturation trigger (seven runs so far are all within this one workshop).
+- Whether README.md and the site guide page should be more substantially differentiated, not just cross-linked and internally consistent (this session's fix).
+- Transcript-based "See it in action" previews for Modules 01/02/03/05, matching Module 04's.
+- `npm audit` on `site/`'s dependencies before the first real deploy (4 vulnerabilities reported at install time, inherited from the blog-factory-lab starter, not yet triaged).
+
 ## Immediate
 
 - [x] Resolve GitHub push credential (was `IdentitiesOnly` missing on the `github.com-coderturtle` SSH alias) — fixed 2026-07-03, `main` pushed.

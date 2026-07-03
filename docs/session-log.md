@@ -536,3 +536,21 @@ See `docs/decisions.md`, 2026-07-03 "Ran the panel against the user-facing entry
 - coderturtle review of this run's report and fixes, per the Human Gate.
 - Decide whether README.md and the site guide page should be more substantially differentiated in a future pass.
 - Same standing items: push once reviewed, human-confirm first Pages deploy.
+
+## 2026-07-03 - Planned next session's work, pushed, PR updated
+
+coderturtle asked for a plan of the remaining work before the next session, a call on whether that plan needed deep analysis first, then to commit and open a PR.
+
+### What changed
+
+- **`docs/next-actions.md`**: added a "Next session: priorities" section at the top, above the historical `Immediate`/`This Week`/`Later` log. Sorted the currently-open items into three tiers: blocked on coderturtle (Pages deploy confirmation, the five-module content review, a visual guide-page check, Gremlin Registry authorization), ready to execute with no new design work (Module 03's agent-native manifest, Module 04's three extensions, Module 05's two remaining sabotaged variants, in the order `docs/coachgremlin-implementation-plan.md` §6 already sequences them), and optional/lower-priority follow-ups (independent grading pass, a second-workshop panel run, README/site differentiation, more transcript previews, `npm audit`).
+- **Deep-analysis call: no.** Every substantive design question for what's left was already answered earlier this project (`docs/coachgremlin-implementation-plan.md` for the extensions/variants, `docs/agent-native-interaction-plan.md` for the manifest's shape and why a static manifest over a live server). What remains is execution against those specs plus items only coderturtle can unblock. A fresh Opus-style planning pass would re-derive decisions already on record, not make new ones.
+- **Pushed all three pending commits** (the Module 01 panel run, the Modules 02-05 panel run, the user-docs panel run) to `origin/agent/claude/workshop-design-docs`. PR #1, already open and tracking this branch since the very first session, now reflects everything through this point; no new PR needed.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Planned next session's priorities; no deep-analysis pass needed" entry.
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "Next session: priorities" section directly; it supersedes scanning the full historical list for what to do next.
