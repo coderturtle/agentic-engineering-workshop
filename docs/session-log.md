@@ -391,3 +391,35 @@ See `docs/decisions.md`, four 2026-07-03 entries, one per module.
 - Re-run the Workshop Review Panel on real content (`docs/coachgremlin-implementation-plan.md` §6 step 7), now that all five modules have it.
 - Build the deferred extensions/variants/manifest above, in whatever order the review surfaces as highest-value.
 - Still pending: human-confirmed first Pages deploy; `~/hekton` PR #26 review.
+
+## 2026-07-03 - Site gets a guide page; build log catches up four entries
+
+coderturtle asked to inspect the site locally, then asked for two structural things on it: a guide page (points to the repo, a runbook, what both a human and their agent get out of the workshop, the harness-as-classroom idea) alongside the existing build log, and more build-log entries since the journal had only ever gotten one, despite the project having moved a long way past that first day's scaffolding.
+
+### What changed
+
+- **`site/src/pages/index.astro`** rewritten from a build-log-listing homepage into the guide: what the workshop is, the harness-is-the-classroom bet stated plainly as a bet, a "what you walk away with" section split explicitly between the human's judgment and the agent's packaged takeaways (reusing `modules/README.md`'s "what you keep" framing), a numbered runbook (prerequisites, clone command, start at `modules/README.md`, module order, the hands-on-by-design rule), a link to `docs/sample-attempt-preview.md` on GitHub as a look-before-you-clone preview, and the three most recent build-log entries with a link to the full index.
+- **`site/src/components/layout/BaseLayout.astro`**: header gained a two-item nav (Guide, Build log) now that there are two sections; footer copy generalized since it no longer only describes a build log.
+- **`docs/build-log/`**: four new dated entries catching the journal up to the project's actual state, each a real narrative with real tension per `docs/brand.md`'s voice rules, not a highlight reel: the hands-on-by-design rule and the em-dash self-check that immediately followed it; the Workshop-Gremlin-vs-Coachgremlin lifecycle decision and the takeaways idea; Coachgremlin's first real dry run (the rubric almost let a cheating attempt pass, and the loop harness that ran the good attempt had a real `pipefail` bug of its own); and the four-module authoring pass, including the moment the capstone's own sabotaged-loop variant turned out to need the identical fix as the bug that broke the earlier dry run's harness. `pubDate` values use distinct same-day timestamps so ordering resolves correctly.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Site restructured: guide page plus build log; four build-log entries added" entry.
+
+### Validation
+
+- `npx astro check`: 0 errors, 0 warnings, 0 hints.
+- `npm run build`: all 8 pages built clean, including all 5 build-log entries and the new guide homepage.
+- Dev server run live, not just built: curled the homepage (200, correct title, nav present), the build-log index (200, all 5 entries present in correct newest-first order), and a spot-checked new entry route (200).
+- `scripts/check-brand-lint.sh`: clean across all new site and build-log content (23 files in scope, up from 19).
+
+### Risks / Open Items
+
+- No live screenshot review this session (Playwright wasn't set up as a project dependency and wasn't worth installing just for this); relied on `astro check`, a full build, and direct HTTP verification of rendered content instead. coderturtle is inspecting the running dev server directly, which covers the gap.
+- The guide's GitHub links (repo clone URL, the sample-preview blob link) will 404 until the local commits are pushed.
+
+### Next Actions
+
+- coderturtle: visually confirm the guide page and new build-log entries in the browser.
+- Push the local commits so the guide page's GitHub links resolve.
+- Consider whether the guide page should also get a screenshot-based visual review before the first live Pages deploy, per this project's established practice of not trusting a build's exit code alone.

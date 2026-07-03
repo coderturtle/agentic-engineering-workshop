@@ -1,0 +1,19 @@
+---
+title: "Four More Modules, Same Day"
+description: "Prompt, context, harness, and the capstone all went from placeholder to real in one pass. None of them stayed placeholder-shaped once I actually tried them."
+pubDate: 2026-07-03T20:00:00
+tags: ["build-log", "prompt-engineering", "context-engineering", "harness-engineering", "synthesis-capstone"]
+draft: false
+---
+
+One module down, the go/no-go decided, four to go. The temptation at this point is to treat the first one as proof the pattern works and just write the remaining four faster, since the mechanism's already validated. I didn't, mostly because the first one's whole point was that "I wrote it carefully" and "it actually works" are different claims, and I'd already caught myself being wrong about that once that same day.
+
+Prompt engineering needed its own starting point, not Module 04's buggy one: writing an implementation from a spec is a different exercise than fixing a bug in an existing one, and sharing a fixture would have quietly turned Module 01 into a smaller version of Module 04. So the function got stubbed out instead, `raise NotImplementedError`, and I wrote a candidate prompt naming every edge case explicitly instead of trusting a model to infer them. Then, because "reproducible" is a claim you can't half-verify, I ran it three separate times, in three genuinely fresh sessions with no memory of each other, no reference implementation to lean on. Three for three. Not because I was confident it would work; because that's what the rubric I wrote actually requires, and I wasn't going to grade a criterion I hadn't checked.
+
+Context engineering needed noise, so I wrote a generator and let it produce 9,289 lines of entirely fake product history: a changelog for a tool that never shipped ninety of its claimed features, a legacy export module for a format nobody uses, a red herring tax-rate table by state that nothing reads. Curated it down to 182 lines by hand, cutting the CLI file that turned out not to be load-bearing for the test suite at all, and reran the exact Module 01 prompt against what was left. It still worked. That's the whole exercise: prove the cut was safe, not just claim it.
+
+Harness engineering is where the session earned its keep. I built a bounded sub-agent, gave it a scope (touch `receipts/`, nothing else) and a persistent notes file, then genuinely split the work across two sessions with zero shared memory: the first implemented half the feature and stopped on purpose, wrote down exactly what was left; the second read only that file and finished correctly, having never seen the first conversation at all. Watching a second, cold session pick up work through nothing but a notes file it had to trust was more convincing than any amount of describing the mechanism would have been.
+
+The capstone is where the humor caught up with me. Its whole premise is: here's a broken setup, and the obvious-looking culprit (a sloppy prompt, a noisy context file) is never the real one, so you have to isolate the actual cause with evidence instead of guessing. Building the second sabotaged variant, I gave its loop script a broken verification check, one that greps a log file for a success string the test runner never actually prints, so it reports failure no matter what. That's the exact same bug shape, the same missing piece of verification discipline, as the pipefail mistake in Module 04's own harness earlier the same day. I built a module that teaches "don't trust a loop's verdict, check what it actually checked," and then wrote a bug into that module's own fixture that requires exactly that lesson to catch. I'd like to say that was intentional pedagogy. It was a coincidence I noticed afterward and decided not to hide.
+
+All five modules have a real exercise behind them now, each one actually attempted before being called done, not just described. What's still missing is someone who didn't build any of it trying one for real.
