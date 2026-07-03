@@ -1,16 +1,16 @@
-project_name: agentic-engineering-workshop
-project_title: "Agentic Engineering Workshop"
+project_name: terminal-velocity
+project_title: "Terminal Velocity"
 classification: factory-output
 status: active
 lifecycle_stage: active
-local_repo_path: /Users/hekton/Development/hekton/factory-output/agentic-engineering-workshop
-mind_palace_path: 20-projects/factory-output/agentic-engineering-workshop
+local_repo_path: /Users/hekton/Development/hekton/factory-output/terminal-velocity
+mind_palace_path: 20-projects/factory-output/terminal-velocity
 owner: coderturtle
 created_date: 2026-07-03
 promotion_target: none
 privacy_boundary: public
 github_account: coderturtle
-github_remote_url: "git@github.com-coderturtle:coderturtle/agentic-engineering-workshop.git"
+github_remote_url: "git@github.com-coderturtle:coderturtle/terminal-velocity.git"
 vault_mutation_allowed: false
 # version: applies to platform components (alpha|beta|v1.0|v1.x|v2.0) and factory outputs (v0|beta|v1.0|v1.x)
 # Labs do not carry version numbers. Set by the Promotion Agent on first promotion; human confirms.

@@ -1,15 +1,15 @@
 # Machine-readable run ledger schema.
 # Read by hekton-status and cross-project dashboard aggregators.
-# Scaffolded 2026-07-03 — run standardise-runs-ledger.py --project agentic-engineering-workshop --force to enrich.
+# Scaffolded 2026-07-03 — run standardise-runs-ledger.py --project terminal-velocity --force to enrich.
 schema_version: "1"
-project: agentic-engineering-workshop
+project: terminal-velocity
 project_type: factory-output
 id_prefix: AEW
 task_types:
   - task
   - review
   - session
-run_description: "A unit of work in Agentic Engineering Workshop that produces a traceable result requiring human review."
+run_description: "A unit of work in Terminal Velocity that produces a traceable result requiring human review."
 fields:
   run_id: string
   project: string

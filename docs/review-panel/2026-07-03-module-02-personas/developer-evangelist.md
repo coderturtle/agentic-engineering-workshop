@@ -1,0 +1,11 @@
+# Persona: Developer Evangelist — Module 02 — 2026-07-03
+
+**Top finding: the exercise is buried again, same as pre-fix Module 01.** Section order is: "The question this module answers" → "Where it sits in the arc" → "Learning objectives" → "Exercise material this module draws from" → *then* "Exercise" (line 23). That's four headings of throat-clearing before I see what I'm actually doing. Module 01, post-restructure, puts "Exercise" as section two, right after the opening question. Module 02 did not inherit that fix — it reads like the pre-restructure version of Module 01.
+
+**Internal review-process leaking into learner prose (same defect Module 01 had).** Line 19: *"(This module had no exercise anchor at all before the Workshop Review Panel's Instructional Designer flagged the gap; see `docs/review-panel/2026-07-03-initial-design.md`.)"* This is a parenthetical about the module's own authoring history, sitting in the middle of the section meant to sell me the task. As a first-time reader I don't care that an internal panel flagged a gap — it just tells me I'm reading a document still under construction. This is exactly the kind of internal citation the panel caught in Module 01; it shouldn't have shipped again here.
+
+**The actual hook is good — but it's hidden.** The "Cumulative hook" line is the best sentence on the page: *"the exact same task as Module 01, now buried in noise... this exercise lands hard precisely because of that."* That's genuinely shareable — "watch your proven prompt fail once we bury it" is a strong pitch to a colleague. But it's stranded as a sub-bullet under "Exercise material this module draws from," four sections deep, instead of being the opening line of the page.
+
+**Payoff arrives late and flat.** The vivid detail — 9,289 lines of noise, a red-herring tax-rate config designed to fool you — doesn't surface until the exercise body (lines 25, 29). If that specificity opened the page instead of the abstract "what does the model need to see" framing, I'd want to start immediately. As written, I'd read three sections of scaffolding before deciding whether this is worth my time.
+
+**Would I share this page?** Only the "Cumulative hook" sentence — not the page as landed on.

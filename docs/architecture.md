@@ -1,4 +1,4 @@
-# Architecture: Agentic Engineering Workshop
+# Architecture: Terminal Velocity
 
 ## Overview
 

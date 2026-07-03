@@ -1,17 +1,78 @@
-# Next Actions: Agentic Engineering Workshop
+# Next Actions: Terminal Velocity
+
+## Next session: priorities (as of 2026-07-03, end of the content-authoring + panel-review pass)
+
+**Does this need deep analysis first? No.** The substantive design questions for everything remaining are already answered in existing docs (`docs/coachgremlin-implementation-plan.md` for the module extensions/variants, `docs/agent-native-interaction-plan.md` for the manifest). What's left is execution against those specs, plus a set of items that are blocked on coderturtle, not on more research. A fresh Opus-style planning pass would be re-deriving decisions already made, not making new ones.
+
+### Blocked on you, not on more agent work
+
+1. **Human-confirm the first GitHub Pages deploy** (enable Pages in repo Settings → Source: GitHub Actions, then manually run the `workflow_dispatch` workflow). Nothing downstream needs this to happen first, but it's been pending the whole session.
+2. **Review all five modules' content and evidence** (`runs/2026-07-03-module-0{1,2,3,4,5}-dry-run/`, plus the six `docs/review-panel/2026-07-03-*-content.md` reports). Confirm or contest each "go," and decide whether the Module 04 dry run counts as run 1 of Coachgremlin's 3-run Review Trigger. This is the biggest lever: every other open item either follows from this review or doesn't depend on it.
+3. **Visually confirm the guide page and build-log entries** in a real browser (dev server was left running for this once; would need restarting).
+4. **Authorize registering the three Gremlins in the mind-palace Gremlin Registry** (vault mutation, currently deferred beyond this project's own card).
+
+### Ready to execute next session, no new design needed, specs already exist
+
+In the order the original plan sequences them (`docs/coachgremlin-implementation-plan.md` §6, plus `docs/agent-native-interaction-plan.md`):
+
+1. **Module 03's agent-native manifest**: schema first (`modules/.manifest.schema.yaml` + a `runs/.schema.yaml` extension), then the grader persona (`coachgremlin/grader.md`), then Module 03's `module.yaml` + `AGENT.md`. Write the rubric in the manifest's `{criterion, observable, weight}` shape from the start, since Module 03's rubric already exists in that near-equivalent shape and shouldn't need re-deriving.
+2. **Module 04's three optional extensions** (verification-deepened, event-driven, hill-climbing): specs already written in `docs/coachgremlin-implementation-plan.md` §2. Module 03's harness now exists for the event-driven/hill-climbing extensions to build on, so the dependency that gated deferring these is resolved.
+3. **Module 05's remaining two sabotaged variants** (prompt-bottleneck, context-bottleneck), following the exact pattern already proven for the harness/loop variants: build the variant, verify it's genuinely single-cause with a real isolating test, no self-spoiling noise (learned the hard way twice this session).
+
+Recommend #2 in "Blocked on you" (the module review) happens before piling more unreviewed content on top of five modules that haven't had human eyes on them yet, but that's a judgment call, not a hard dependency.
+
+### Optional / lower priority, pick up if there's time or specific interest
+
+- Independent/blind grading pass on any module's evidence, before treating "the rubric discriminates" as fully proven rather than well-evidenced (`docs/risks.md` RISK-0004).
+- A Review Panel run against a second, differently-shaped workshop, to test the "different workshops" half of the panel's own maturation trigger (seven runs so far are all within this one workshop).
+- Whether README.md and the site guide page should be more substantially differentiated, not just cross-linked and internally consistent (this session's fix).
+- Transcript-based "See it in action" previews for Modules 01/02/03/05, matching Module 04's.
+- `npm audit` on `site/`'s dependencies before the first real deploy (4 vulnerabilities reported at install time, inherited from the blog-factory-lab starter, not yet triaged).
 
 ## Immediate
 
-- [ ] Define project brief
-
-
-- [ ] Record first design decisions in `docs/decisions.md`
-- [ ] Run first implementation
+- [x] Resolve GitHub push credential (was `IdentitiesOnly` missing on the `github.com-coderturtle` SSH alias) — fixed 2026-07-03, `main` pushed.
+- [x] Produce an implementation plan for the next phase (deliverables/branding + build-log/Pages publisher) — `docs/implementation-plan.md`, produced via an Opus-run planning pass, reflecting the revised four-module arc.
+- [x] Run the Workshop Gremlin's naming agent — chose **Terminal Velocity**. Repo, local dir, mind-palace mirror (repo-local and live vault) all renamed 2026-07-03.
+- [x] Design + test-run the Workshop Review Panel (7 personas) against this project's current design docs — `~/hekton/gremlins/workshop/workshop-review-panel.md`; report at `docs/review-panel/2026-07-03-initial-design.md`. Fixes from that run applied directly to README.md, docs/workshop-design.md, docs/workshop-gremlin-design.md, docs/implementation-plan.md.
+- [x] Ran the site locally (`npm run dev` + headless Chromium) before deploying anywhere: homepage and build-log entry both render correctly under the `/terminal-velocity/` base path, no console errors.
+- [x] Deep Opus research pass on agent-native workshop interaction — `docs/agent-native-interaction-plan.md`. Recommends module 03 as the pilot, a static manifest (not a live server) as the correct default, and a concrete Human Gate extension for agent-submitted attempts.
 
 ## This Week
 
--
+- [x] Execute `docs/implementation-plan.md` §1: module directory skeleton (`modules/01-prompt-engineering/` … `05-synthesis-capstone/`, each a structure-only README stub, plus `modules/README.md` index with the loop taxonomy). Module 02's exercise-anchor gap closed.
+- [x] Execute §3: `docs/brand.md` brand layer. Real name throughout; hard rules (no em dash, no unqualified efficacy claims) written directly in response to the review panel's Skeptical Critic findings.
+- [x] Execute §2: reworked top-level `README.md` for a learner audience with a literal copy-pasteable clone command; relocated internal Hekton framing to `docs/maintainers.md`.
+- [x] Execute §4: adapted `blog-factory-lab/site-starters/astro-blog` into `site/` (dropped React/narrative components per the plan, kept MDX), wired `docs/build-log/` via an Astro 5 Content Layer `glob` loader (entries stay in `docs/build-log/`, not duplicated into `src/`), wrote the first build-log entry, added `.github/workflows/deploy-pages.yml` (`workflow_dispatch`-only trigger, `push` commented out — no live deploy without explicit human confirmation per the Human Gate).
+- [x] Verified per `docs/implementation-plan.md` §6: `npm run build` and `npx astro check` both clean; seed entry renders on the homepage and its own route with the correct `/terminal-velocity/` base path; workflow YAML validated; no em dashes or banned phrases in published content; all README/modules links resolve; mirror-drift and `verify-project.sh` clean.
 
 ## Later
 
--
+- [x] **Hands-on-by-design retrofit**: added a "Required to advance" gate to all 5 module READMEs plus `modules/README.md`'s arc table, per coderturtle's direction that every workshop must require the learner to produce/demonstrate something, never just read. Now a standing principle in `~/hekton/gremlins/workshop/workshop-gremlin.md`'s Design Principles, not just this workshop's choice.
+- [x] Fixed a pre-existing em-dash violation across `modules/` and `README.md` (written before `docs/brand.md`'s hard rules existed) — published content is now clean.
+- [x] **Workshop Lifecycle documented** (`~/hekton/gremlins/workshop/workshop-lifecycle.md`): Workshop Gremlin (Build) and Coachgremlin (Learn) stay separate, formalized as two phases of one lifecycle rather than merged. Both Gremlins gained a `Lifecycle Phase` header field; `agents/index.md` gained a Phase column.
+- [x] **Takeaways added**: every module gained a "Takeaway" section (`modules/*/README.md`, `modules/README.md`'s "What you keep") — a keepable Skill/prompt-template/sub-agent-definition/loop-template per module, not just proof of completion. New Design Principle 4 in `workshop-gremlin.md`; Coachgremlin's Workflow gained a "package the takeaway" step.
+- [x] **Dogfooded loop engineering on the build process**: named and wired the "Docs Consistency Loop" (a verification loop, per `modules/README.md`'s own taxonomy) — new `scripts/check-brand-lint.sh` alongside the existing `scripts/check-mirror-drift.sh`, both wired warn-only into the pre-push hook (`scripts/setup-hooks.sh`). Documented in `~/hekton/gremlins/workshop/workshop-lifecycle.md`'s "Dogfooding" section, which also explains why the more tempting hill-climbing candidate (Gremlin-contract revision) stays manual for now (moving target, not stable, per this factory's own rule).
+- [x] **Detailed Coachgremlin content-building plan produced** — `docs/coachgremlin-implementation-plan.md` (Opus-run). Full exercise specs, rubrics, stop conditions, and takeaway-packaging instructions for all 5 modules; a shared cumulative fixture (`receipts` CLI); recommends **module 04 (Ticket-to-PR-Ready core)** as Coachgremlin's actual first real run, with a concrete go/no-go dry-run design; harness-agnostic vs. Claude-Code-leaning decided per module; full sequencing and verification plan. Not yet executed.
+- [ ] **Human-confirm the first GitHub Pages deploy**: enable Pages (Settings → Source: GitHub Actions) on the repo, then manually run the `workflow_dispatch` workflow. Only after that succeeds, uncomment the `push` trigger in `.github/workflows/deploy-pages.yml` for future auto-publish.
+- [x] **Built the shared `receipts` fixture** (`fixtures/receipts/`, plan §6 step 0): stdlib-only Python, `group_expenses_by_month(rows, tz)` with the four required edge cases, one seeded bug isolated to exactly one failing test.
+- [x] **Authored Module 04's core exercise content**, replacing the rubric/stop-condition placeholders (`modules/04-loop-engineering/README.md`). Extensions A/B/C intentionally deferred to after Module 03.
+- [x] **Ran Coachgremlin's first real dry run** (Module 04 core, plan §5): a genuine good attempt and a genuine rubric-gaming attempt, both graded against the rubric, feedback given without handing over the fix, takeaway packaged (`.claude/commands/ticket-to-pr-ready.md`) and validated on a second, unrelated bug. **Go**, with one real finding (a rubric-gaming loophole) found and closed in both the module rubric and `~/hekton/gremlins/coaching/coachgremlin.md`. Full record: `runs/2026-07-03-module-04-dry-run/` (`grading.md`, `retro.md`), `runs/run-20260703-AEW-001.yaml` (`human_confirmed: false`, Human Gate).
+- [x] Committed the fixture/Module-04/dry-run work (`e22fb88`, local, not pushed).
+- [x] **Added a filtered real-transcript preview for prospective learners**: `scripts/render-transcript-preview.py` condenses `runs/2026-07-03-module-04-dry-run/attempt-good/transcript.txt` into `docs/sample-attempt-preview.md`, linked from README's new "See it in action" section. Direct answer to the Workshop Review Panel's End-User/Learner finding (no sample to look at before committing) without adding a parallel hand-maintained tutorial track. Rerun the script if the source transcript ever changes.
+- [x] **Authored and verified all four remaining modules** (01, 02, 03, 05), each against a real fixture variant, each actually attempted at least once (Module 01 three times) and independently reverified, not just written. Full detail in `docs/session-log.md`'s 2026-07-03 "Authored and verified Modules 01, 02, 03, 05" entry. All five modules now have real exercises, rubrics, stop conditions, and packaged, evidence-backed takeaways.
+- [ ] **coderturtle: review all five modules' content and evidence** (`runs/2026-07-03-module-0{1,2,3,4,5}-dry-run/`), per the Human Gate. Confirm or contest each "go," and decide whether the Module 04 dry run counts as run 1 of Coachgremlin's 3-run Review Trigger.
+- [x] **Restructured the site**: `site/src/pages/index.astro` is now a guide page (repo link, harness-as-classroom framing, runbook, human-vs-agent takeaway split), `build-log/` stays a separate section, `BaseLayout.astro` gained nav between the two. Four new `docs/build-log/` entries catch the journal up to the project's real state. Verified via `astro check`, `npm run build`, and direct checks against the running dev server.
+- [ ] **coderturtle: visually confirm the guide page and new build-log entries** in the browser (dev server was left running for this).
+- [ ] Push the local commits once reviewed, so the guide page's GitHub links (repo clone URL, sample-preview blob link) resolve instead of 404ing.
+- [ ] Consider a screenshot-based visual review of the guide page before the first live Pages deploy (this session verified via HTTP/build output only, no rendered screenshot; Playwright isn't set up as a project dependency yet).
+- [ ] Consider running an independent/blind grading pass on any of the five modules' evidence before treating "the rubric discriminates" / "the diagnosis is correct" as proven rather than plausible; every rubric so far was validated by the same session that authored it (`docs/risks.md` RISK-0004, now generalized past Module 04 to all five).
+- [x] **Ran the Workshop Review Panel against Module 01**, its first run against real content (previously design docs only): `docs/review-panel/2026-07-03-module-01-content.md`. Two cross-persona agreements (the digestibility complaint's real structural cause; the module's central claim untested against a negative control), fixed for real: restructured the module, fixed a real wrong-directory bug in `SPEC.md`, ran the missing counterfactual (which contradicted the original claim and led to rewriting it honestly rather than keeping it). Full detail in `docs/session-log.md`'s matching entry.
+- [x] **Ran the same scoped panel treatment for Modules 02, 03, 04, and 05.** All five modules have now been through the panel against real content. Two real fixture bugs found and fixed (Module 02's self-announcing noise; Module 05's nonexistent `docs/` directory plus self-spoiling context files), one real rubric-vs-grading-evidence inconsistency caught and fixed (Module 04), one central claim contradicted by its own negative control and rewritten honestly (Module 03's reset-and-resume), one evidence gap closed with a fresh agent run (Module 05's loop-variant prompt). Full detail in `docs/session-log.md`'s matching entry and `docs/review-panel/2026-07-03-module-0{2,3,4,5}-content.md`. `~/hekton`'s panel definition updated with a summary across all six runs.
+- [x] **Ran the panel against the user-facing entry-point docs** (README.md, modules/README.md, the site guide page, sample-attempt-preview.md): `docs/review-panel/2026-07-03-user-docs-content.md`. Real value was cross-document consistency, invisible from any single file: README/site guide duplicated with no cross-link and disagreed on sequencing; a stale "diagnose all four layers" claim survived in three docs after Module 05 had already corrected it in a fourth; "what you keep" wording genuinely diverged across documents (Skill vs. checklist); a `~/hekton` local-machine path had leaked into the public arc index. All fixed. With this run, every piece of user-facing content in the repo has been through an independent review pass.
+- [ ] **A run against a second, differently-shaped workshop** (not `terminal-velocity`) is what would test the "different workshops" half of the panel's own maturation trigger; seven runs so far are all within this one workshop.
+- [ ] **Consider whether README.md and the site guide page should be more substantially differentiated**, not just cross-linked and made internally consistent (this pass's fix), since they still cover largely the same ground for two different landing contexts.
+- [ ] **Deliberately deferred, not forgotten:** Module 04's three optional extensions (verification-deepened, event-driven, hill-climbing), Module 05's prompt- and context-bottleneck sabotaged variants (of the plan's two-to-four; two are built), and Module 03's agent-native manifest co-production (`docs/agent-native-interaction-plan.md`: schema first, then the grader persona, then `module.yaml` + `AGENT.md`, rubric in the manifest's `{criterion, observable, weight}` shape). Order depends on what the Review Panel re-run surfaces as highest-value.
+- [ ] Consider a transcript-based "See it in action" preview (like Module 04's) for one or more of Modules 01/02/03/05 now that each has real dry-run evidence of its own.
+- [ ] Register all three Gremlins in the mind-palace Gremlin Registry (vault mutation currently deferred beyond this project's own card — needs explicit authorisation for the registry file itself).
+- [ ] Consider running `npm audit` on `site/`'s dependencies before the first real deploy (4 vulnerabilities reported at install time, inherited from the blog-factory-lab starter, not yet triaged).

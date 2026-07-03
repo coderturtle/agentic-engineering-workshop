@@ -1,0 +1,65 @@
+=== Ticket-to-PR-Ready template applied to a second, unrelated ticket ===
+Terminal states: success = tests green, no test file modified | failure = cannot reproduce after 2 attempts
+
+--- Step 1: classify ---
+Stable goal: one function (top_n_words), one described bug, fixed spec (n items, most-frequent-first, alphabetical tiebreak). Worth a bounded loop.
+
+--- Step 2: reproduce ---
+test_top_n_words_handles_ties_alphabetically (test_word_stats.TopNWordsTests.test_top_n_words_handles_ties_alphabetically) ... FAIL
+test_top_n_words_returns_n_items (test_word_stats.TopNWordsTests.test_top_n_words_returns_n_items) ... FAIL
+
+======================================================================
+FAIL: test_top_n_words_handles_ties_alphabetically (test_word_stats.TopNWordsTests.test_top_n_words_handles_ties_alphabetically)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-04-dry-run/takeaway-validation/test_word_stats.py", line 13, in test_top_n_words_handles_ties_alphabetically
+    self.assertEqual(top_n_words(text, 2), ["a", "b"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['a'] != ['a', 'b']
+
+Second list contains 1 additional elements.
+First extra element 1:
+'b'
+
+- ['a']
++ ['a', 'b']
+
+======================================================================
+FAIL: test_top_n_words_returns_n_items (test_word_stats.TopNWordsTests.test_top_n_words_returns_n_items)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-04-dry-run/takeaway-validation/test_word_stats.py", line 9, in test_top_n_words_returns_n_items
+    self.assertEqual(top_n_words(text, 2), ["a", "b"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['a'] != ['a', 'b']
+
+Second list contains 1 additional elements.
+First extra element 1:
+'b'
+
+- ['a']
++ ['a', 'b']
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (failures=2)
+
+--- Step 3: root-cause ---
+9:    return [w for w, _ in ranked[: n - 1]]
+ranked[:n - 1] drops the nth item. Off-by-one in the slice bound.
+
+--- Step 4: smallest fix ---
+Patched word_stats.py (test file untouched)
+
+--- Step 5: rerun ---
+test_top_n_words_handles_ties_alphabetically (test_word_stats.TopNWordsTests.test_top_n_words_handles_ties_alphabetically) ... ok
+test_top_n_words_returns_n_items (test_word_stats.TopNWordsTests.test_top_n_words_returns_n_items) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+--- Step 6: stop ---
+=== TERMINAL STATE: SUCCESS. Tests green, test file untouched. ===

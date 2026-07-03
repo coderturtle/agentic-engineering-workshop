@@ -1,0 +1,11 @@
+# Persona: End-User / Target Learner — Module 02 — 2026-07-03
+
+**Top finding: the noise spoils itself.** I opened `config/tax_rates.yaml` expecting to have to reason about whether it's load-bearing, and its own header reads: *"Red herring: per-state tax rate tables... group_expenses_by_month never reads this file."* `legacy_export.py`'s docstring says *"A red herring by inclusion, not by content."* Every `CHANGELOG.md` entry ends *"unrelated to the receipts CLI's current scope."* The bloated `README.md` opens with *"Kept here as historical bloat for Module 02."* As the advertised advanced practitioner, my actual workflow here is `grep -l "unrelated\|red herring\|stale\|historical bloat"` — not the judgment the module claims to teach ("decide what to summarize... exclude on purpose, and justify each decision"). The rubric even penalizes me for smuggling in noise I was handed a literal confession for. This isn't a subtle miscalibration; it undercuts the module's central promise.
+
+**Mechanics gap — I have to leave the page.** The exercise says "Curate... down to 2,000 lines... then run Module 01's task again inside it," but never says *how*: edit the fixture in place, or copy essential files into a new scratch directory (which is what actually happened, per `runs/2026-07-03-module-02-dry-run/README.md` — a hand-built 182-line directory)? Module 01 explicitly told me to "recopy into a new scratch directory"; Module 02 doesn't repeat that instruction even though the same pattern applies. I also never see a sample `context-budget.sh` invocation on the page — I'd have to open the script itself to learn it defaults to a 2000-line limit and takes `--limit`.
+
+**Objective/exercise mismatch.** Objective #2 promises a summarize-vs-cut tradeoff, but the validated solution lands at 182/2000 lines by pure deletion — no summarization needed at all. The stated budget never forces the harder middle-ground judgment the objectives advertise.
+
+**Minor:** "buried under 9,289 lines of noise" is actually the fixture's total size, not the noise portion (~9,060 lines are noise; ~230 are the real spec/code) — my first `wc -l` won't match the framing.
+
+**Verdict: No, not as written.** I'd curate this in under two minutes by grepping for the word "unrelated," which isn't the skill the module claims to be teaching.

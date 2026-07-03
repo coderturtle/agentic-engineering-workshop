@@ -1,0 +1,127 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../components/layout/BaseLayout.astro";
+
+const REPO = "https://github.com/coderturtle/terminal-velocity";
+const base = import.meta.env.BASE_URL;
+
+const recentEntries = (await getCollection("buildlog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Terminal Velocity: guide"
+  description="Learn agentic engineering by running it in a harness, not reading about it."
+>
+  <h1 class="text-3xl font-bold">Terminal Velocity</h1>
+  <p class="mt-2 text-lg opacity-80">
+    Learn agentic engineering by running it in a harness, not reading about it.
+  </p>
+
+  <div class="post-body mt-10">
+    <p>
+      This page is the guide for anyone landing on the deployed site rather than the repo
+      directly. The workshop itself, five modules plus the fixture they run against, lives in
+      the <a href={REPO}>repo</a>, whose own README covers the same ground in more detail once
+      you've cloned it. Nothing here substitutes for cloning it; this is orientation, not the
+      content.
+    </p>
+
+    <h2>See it before you clone anything</h2>
+    <p>
+      <a href={`${REPO}/blob/main/docs/sample-attempt-preview.md`}>
+        A real, condensed transcript
+      </a>{" "}
+      of an actual attempt at Module 04's core exercise: reproduce a bug, root-cause it, fix it,
+      prove it, in that order. Not a mockup: a script extracts the text straight from the real
+      run, unedited. The raw version is linked from that same page.
+    </p>
+
+    <h2>The idea: the harness is the classroom</h2>
+    <p>
+      Every exercise in this workshop runs inside your own coding-agent tool (Claude Code,
+      Codex, Cursor, or equivalent), not on a page you read. A module states a task and a
+      rubric up front, you drive your agent through it, and feedback comes from your actual
+      attempt: what the transcript shows, not a generic answer key. Reading a module's README
+      is orientation. The module completes when something you did passes its stated gate.
+    </p>
+    <p>
+      This is a hypothesis, not a settled finding: that the next skill past "get a plausible
+      answer once" is a set of four disciplines (precise instructions, curated context, bounded
+      tool access, supervised loops) that compound, plus the judgment to tell which one is
+      actually broken when something doesn't work. The <a href={`${base}build-log/`}>build log</a>{" "}
+      is where that hypothesis gets argued with in public, including the places it's wrong.
+    </p>
+
+    <h2>What you walk away with</h2>
+    <p>
+      Two different things get built during each module, and they're both real: your own
+      judgment, and a reusable artifact your agent can load next time. Neither is a guarantee,
+      both are what the exercises are designed to produce; see each module's own README for the
+      evidence behind its specific gate.
+    </p>
+    <ul>
+      <li>
+        <strong>You</strong> get practiced judgment: writing an instruction precise enough to be
+        reproducible, deciding what a model actually needs to see, scoping what an agent can
+        reach, telling a loop's terminal state apart from a loop that just stopped, and
+        diagnosing which layer is broken when a setup doesn't work.
+      </li>
+      <li>
+        <strong>Your agent</strong> gets the packaged takeaways: a prompt template, a
+        context-budgeting Skill, a sub-agent or harness-config definition, a loop template, a
+        diagnostic playbook, each one built from an exercise actually completed, not written
+        from theory. Concrete form and reference implementations are in the repo's{" "}
+        <code>.claude/</code> directory once you clone it.
+      </li>
+    </ul>
+
+    <h2>The runbook</h2>
+    <ol>
+      <li>
+        Prerequisites: comfortable with git, the CLI, and reading a diff; already using at
+        least one coding-agent harness regularly, installed on your machine.
+      </li>
+      <li>
+        Clone it: <code>git clone {REPO}.git</code>
+      </li>
+      <li>
+        Start at <code>modules/README.md</code>. It has the full arc, in order, and a table of
+        what each module's gate requires and what you keep from it.
+      </li>
+      <li>
+        Work through the five modules in order: prompt, context, harness, loop, then the
+        synthesis capstone. Each assumes the ones before it; the capstone only makes sense once
+        you've done all four.
+      </li>
+      <li>
+        No module completes by reading it. Every module states a required gate, an artifact you
+        produce or an action you're observed doing. If a module ever reduces to "read this,
+        then move on," or a link here is broken, that's a defect: {" "}
+        <a href={`${REPO}/issues`}>open an issue</a>.
+      </li>
+    </ol>
+  </div>
+
+  {
+    recentEntries.length > 0 && (
+      <>
+        <h2 class="mt-14 text-xl font-semibold">Recent from the build log</h2>
+        <ul class="mt-6 space-y-4">
+          {recentEntries.map((entry) => (
+            <li>
+              <a href={`${base}build-log/${entry.id}/`} class="text-lg font-semibold underline">
+                {entry.data.title}
+              </a>
+              <p class="text-sm opacity-80">{entry.data.description}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-sm opacity-70">
+          See the <a href={`${base}build-log/`} class="underline">full index</a>.
+        </p>
+      </>
+    )
+  }
+</BaseLayout>

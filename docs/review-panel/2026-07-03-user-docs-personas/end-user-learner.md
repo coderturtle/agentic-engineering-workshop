@@ -1,0 +1,11 @@
+# Persona: End-User / Target Learner — User Docs — 2026-07-03
+
+**Verified paths** (all resolve correctly): `docs/sample-attempt-preview.md`, `modules/README.md`, all five `modules/0N-*/README.md` files, `runs/2026-07-03-module-04-dry-run/{grading.md,attempt-good/transcript.txt}` (linked from the preview doc), `docs/workshop-design.md`, `docs/maintainers.md`, `docs/agent-native-interaction-plan.md`. The site's blob link (`{REPO}/blob/main/docs/sample-attempt-preview.md`) correctly targets `main`, which is confirmed as the actual default branch. The `git clone git@github.com:coderturtle/terminal-velocity.git` command in README.md matches the real repo identity.
+
+**Real problem 1 — a dead-end link.** README.md's "Build in public" section says the workshop's build is "published as a dated journal on GitHub Pages", and then gives no URL, no link, nothing to click. As the target reader deciding whether to invest time, this is exactly the kind of social-proof pointer I'd want to follow, and it's a stub.
+
+**Real problem 2 — an unresolvable internal path leaked into learner-facing docs.** `modules/README.md` sends me to `~/hekton/gremlins/workshop/workshop-lifecycle.md` to understand why takeaways are "a standing principle." That's the maintainer's local machine, not anything in the repo I just cloned. For the advertised audience, someone who cloned the repo and has nothing but the repo, this reference resolves to nothing. It reads like an internal note that escaped into the public arc index.
+
+**Real problem 3 — duplicated runbook, no cross-link.** README.md and site/index.astro give near-identical instructions. Neither links to the other. If I land on the site first, I have no signal that README.md exists or differs from it; if I land on README.md first, I never learn the site/guide page exists at all. Not fatal, the content agrees, but it's redundant without being sign-posted as redundant.
+
+**Verdict: Yes**, with caveats — the actual clone-and-start path (README → `modules/README.md` → `01-prompt-engineering/README.md`) is intact and every link on that critical path resolves; the two problems above are dead-ends off to the side, not on the main road into Module 01.

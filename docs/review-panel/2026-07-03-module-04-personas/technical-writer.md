@@ -1,0 +1,11 @@
+# Persona: Professional Technical Writer / Editor — Module 04 — 2026-07-03
+
+**1. The flagged internal-citation leak is still present, twice.** The Loop taxonomy section narrates panel process directly to the learner: "flagged by the Workshop Review Panel (AI/ML Practitioner and Security-Conscious Reviewer both caught the same gap independently; see `docs/review-panel/2026-07-03-initial-design.md`)." This is the exact issue the Module 01 report logged as present in Module 04 and deferred, unfixed. A second, uncatalogued instance sits in the Rubric: "(see `runs/2026-07-03-module-04-dry-run/grading.md` for the dry-run attempt this rule was written to catch)" puts an audit-trail citation inside the criteria a learner is graded against. Both belong in `docs/` or a build-log entry, not the module page.
+
+**2. The exercise is buried deeper than Module 01's was.** A first-time reader crosses six headers — Title, "The question this module answers," "Where it sits in the arc," "Learning objectives," "Loop taxonomy used here," "Exercise material this module draws from" — before reaching the task. Module 01's original five-header burial was the panel's top finding and got restructured; Module 04 has one more header and hasn't been touched. "Loop taxonomy used here" is a single pointer-sentence with no content of its own, it adds a header without adding information a reader needs before the exercise.
+
+**3. Section order reproduces Module 01's exact pre-fix defect.** Current order is Exercise → Rubric → Required to advance → Takeaway → Stop condition, the identical sequence the Module 01 report named in finding #4 and moved (Takeaway now runs after Stop Condition there). Module 04 wasn't part of that restructure, so the same ordering inconsistency ships here unremediated, even though the Takeaway's content itself doesn't hand over the exercise's answer the way Module 01's did.
+
+**4. Redundant restatement of the same requirement, three times.** "Terminal states stated before running" appears near-verbatim in Rubric criterion 1, "Required to advance," and "Stop condition", the same "one shot"/"single-turn" drift Module 01 flagged, here as three-way duplication rather than two.
+
+Sentence-level style is clean: no em dashes, no banned phrases.

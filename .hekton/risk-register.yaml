@@ -1,5 +1,5 @@
 risk_register_version: 1
-project_name: agentic-engineering-workshop
+project_name: terminal-velocity
 created_date: 2026-07-03
 
 risks:
@@ -15,3 +15,20 @@ risks:
     reviewed_date: 2026-07-03
     links:
       - "docs/risks.md"
+  - id: RISK-0004
+    title: "Every module's rubric/diagnosis was self-validated, not independently checked"
+    category: quality
+    likelihood: medium
+    impact: medium
+    status: open
+    owner: coderturtle
+    mitigation: "All five modules have been through the Workshop Review Panel (7 independent personas) against real content, which found and fixed real issues in every module, including two fixture bugs and one rubric-vs-evidence inconsistency. Residual: the panel itself was run by the same session/operator in one sitting, not a fully independent human or blind pass."
+    raised_date: 2026-07-03
+    reviewed_date: 2026-07-03
+    links:
+      - "docs/risks.md"
+      - "docs/review-panel/2026-07-03-module-01-content.md"
+      - "docs/review-panel/2026-07-03-module-02-content.md"
+      - "docs/review-panel/2026-07-03-module-03-content.md"
+      - "docs/review-panel/2026-07-03-module-04-content.md"
+      - "docs/review-panel/2026-07-03-module-05-content.md"

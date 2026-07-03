@@ -1,0 +1,11 @@
+# Persona: Skeptical Practitioner / Critic — Module 01 — 2026-07-03
+
+**Top finding: the takeaway's central design claim has no ablation evidence behind it.** `.claude/commands/spec-impl.md` states: "each piece is there because leaving it out was tried and failed during validation." The dry-run (`runs/2026-07-03-module-01-dry-run/README.md`) ran the *complete* candidate prompt three times, unchanged. Nothing in that method removes a slot to test failure-on-omission. "Tried and failed" describes an experiment that never happened. Either run the ablation (test the prompt minus each slot, show it fails) or cut the claim to "each piece was present in the prompt that passed 3/3" — a much weaker, honest statement.
+
+**Second: "the single biggest lever in the validated prompt"** (spec-impl.md, re: numbered edge cases). Comparative claims about which lever matters *most* require isolating levers against each other. Three runs of one undifferentiated prompt can't rank its own components. This is an opinion stated as a measured result.
+
+**Third: overclaimed rubric coverage.** The takeaway and module README both cite "validated 3-for-3" as blanket endorsement of the template. But the dry-run's own "What this validates" section only checks rubric criteria 1, 2, and 5 — it says nothing about criterion 3 (edge-case coverage) or 4 (constraint economy). The module README's rubric has five criteria; the evidence base speaks to three. State that scope explicitly wherever "validated" appears.
+
+**Fourth:** "the agent catches its own near-misses before they ever reach you" (spec-impl.md, on the verification-command slot). No near-miss occurred in any of the three runs — all passed clean, first try. This asserts a self-correction mechanism the evidence never exercised. Either produce a run where the verification step actually caught something, or reword to "designed to catch near-misses" (untested), not "catches."
+
+**Minor but real:** n=3 is being asked to carry the word "reproducibility." The dry-run is transparent about its own narrow scope ("not a full Coachgremlin dry run") — the module README and takeaway should inherit that same hedge instead of upgrading it to unqualified "validated."

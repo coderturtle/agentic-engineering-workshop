@@ -1,0 +1,18 @@
+schema_version: "1"
+run_id: run-20260703-AEW-001
+project: terminal-velocity
+task_id: coachgremlin-module-04-core-dry-run
+task_type: session
+engine: claude-sonnet-5
+status: done
+created: 2026-07-03
+human_confirmed: false
+human_notes: >
+  Coachgremlin's first real run (previously draft, no run behind it).
+  Recommendation is a go on authoring the other four modules; see
+  runs/2026-07-03-module-04-dry-run/retro.md for the full reasoning.
+  Awaiting coderturtle's review before treating this as Coachgremlin's
+  first counted run toward its Review Trigger (3+ runs across 2+
+  workshops before it can bump past draft).
+output_artifact: runs/2026-07-03-module-04-dry-run/
+failure_reason: ""

@@ -1,0 +1,43 @@
+---
+import "../../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Terminal Velocity: learn agentic engineering by running it in a harness, not reading about it.",
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="prose-narrative flex items-center justify-between px-4 py-6">
+      <a href={base} class="font-mono text-sm uppercase tracking-widest">Terminal Velocity</a>
+      <nav class="flex gap-5 text-sm">
+        <a href={base} class="underline-offset-2 hover:underline">Guide</a>
+        <a href={`${base}build-log/`} class="underline-offset-2 hover:underline">Build log</a>
+      </nav>
+    </header>
+    <main class="prose-narrative px-4 pb-16">
+      <slot />
+    </main>
+    <footer class="prose-narrative px-4 py-8 text-sm opacity-70">
+      <p>
+        The workshop itself lives in the <a href="https://github.com/coderturtle/terminal-velocity" class="underline">repo</a>, not on this site. This site is the guide and the build-in-public journal; the exercises run in your own coding-agent harness.
+      </p>
+    </footer>
+  </body>
+</html>
