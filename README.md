@@ -16,8 +16,9 @@ Working title while the Workshop Gremlin's naming agent runs: **"Prompt → Loop
 
 ## Implementation Status
 
-- 2026-07-03 — Scaffolded as factory-output. Both design tracks complete: see [Workshop Design](docs/workshop-design.md) (the workshop itself) and [Workshop Gremlin Design](docs/workshop-gremlin-design.md) (the reusable machinery). Gremlin definitions live at `~/hekton/gremlins/workshop/workshop-gremlin.md` and `~/hekton/gremlins/coaching/coachgremlin.md`.
-- Next: naming pass, deliverables/branding, and the build-log/Pages site skeleton (see `docs/next-actions.md`).
+- 2026-07-03 — Scaffolded as factory-output. Both design tracks complete: see [Workshop Design](docs/workshop-design.md) (the workshop itself, now a four-module arc — prompt / context / harness / loop engineering — plus synthesis capstone) and [Workshop Gremlin Design](docs/workshop-gremlin-design.md) (the reusable machinery). Gremlin definitions live at `~/hekton/gremlins/workshop/workshop-gremlin.md` and `~/hekton/gremlins/coaching/coachgremlin.md`.
+- [Implementation Plan](docs/implementation-plan.md) for the next phase (module skeleton, brand layer, README rework, build-log/Pages site) is written, not yet executed.
+- Next: naming pass, then execute the implementation plan (see `docs/next-actions.md`).
 
 ## Documentation Contract
 
@@ -35,6 +36,7 @@ Vault mutation is not allowed by default. The repo-local `mind-palace/` folder i
 
 - [Workshop Design](docs/workshop-design.md) — audience, format, teaching method, module arc
 - [Workshop Gremlin Design](docs/workshop-gremlin-design.md) — reusable Gremlin/Coachgremlin decisions
+- [Implementation Plan](docs/implementation-plan.md) — module skeleton, brand layer, README rework, build-log/Pages site (planned, not yet executed)
 - [Session Log](docs/session-log.md)
 - [Decisions](docs/decisions.md)
 - [Risks](docs/risks.md)

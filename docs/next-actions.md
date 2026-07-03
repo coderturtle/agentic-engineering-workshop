@@ -3,15 +3,17 @@
 ## Immediate
 
 - [x] Resolve GitHub push credential (was `IdentitiesOnly` missing on the `github.com-coderturtle` SSH alias) — fixed 2026-07-03, `main` pushed.
-- [ ] Produce an implementation plan for the next phase (deliverables/branding + build-log/Pages publisher), planned via an Opus-run planning pass, reflecting the revised four-module arc.
+- [x] Produce an implementation plan for the next phase (deliverables/branding + build-log/Pages publisher) — `docs/implementation-plan.md`, produced via an Opus-run planning pass, reflecting the revised four-module arc.
 - [ ] Run the Workshop Gremlin's naming agent against this project's idea/audience and have coderturtle choose the final workshop name from candidates.
 - [ ] Rename the repo (local + GitHub) once the name is chosen; update `.hekton/project.yaml`, README, and both design docs' "working title" references.
 
 ## This Week
 
-- [ ] Deliverables & branding step: module directory skeleton (prompt / context / harness / loop engineering / capstone), learner-facing README, brand layer (name, tagline, voice).
-- [ ] Build-log/Pages publisher step: adapt blog-factory-lab's Astro starter, add the GitHub Actions `deploy-pages` workflow, write the first build-log entry.
-- [ ] Validate one real GitHub Pages deploy end-to-end before treating the publishing pipeline as proven.
+- [ ] Execute `docs/implementation-plan.md` §1: module directory skeleton (`modules/01-prompt-engineering/` … `05-synthesis-capstone/`, each a structure-only README stub).
+- [ ] Execute §3: `docs/brand.md` brand layer (name/slug quarantined to one block, adapted from blog-factory-lab's brand-style-layer template).
+- [ ] Execute §2: rework top-level `README.md` for a learner audience; relocate internal Hekton framing to `docs/maintainers.md`.
+- [ ] Execute §4: adapt `blog-factory-lab/site-starters/astro-blog` into `site/`, wire up `docs/build-log/` via a Content Layer `glob` loader, write the first build-log entry, add `.github/workflows/deploy-pages.yml` (`workflow_dispatch`-only trigger — no live deploy without explicit human confirmation per the Human Gate).
+- [ ] Verify per `docs/implementation-plan.md` §6 (site build, workflow YAML validity, mirror-drift check) before treating the phase as done.
 
 ## Later
 

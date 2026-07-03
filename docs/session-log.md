@@ -61,3 +61,21 @@ See `docs/decisions.md`, 2026-07-03 "Split the arc from three modules to four" e
 
 - Implementation plan for the next phase (deliverables/branding + build-log/Pages publisher), to be produced by an Opus-run planning pass — see follow-up entry.
 - Naming pass after the implementation plan is in hand.
+
+## 2026-07-03 - Implementation plan for deliverables/branding + Pages publisher (Opus)
+
+Ran an Opus-model Plan agent (read-only; no Write/Edit access) to design the next phase, given the newly revised four-module arc. It read `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`, `~/hekton/gremlins/workshop/workshop-gremlin.md`, and `blog-factory-lab`'s Astro starter before planning.
+
+### What changed
+
+- `docs/implementation-plan.md` (new) — module-skeleton layout, learner-facing README rework, a name-agnostic `docs/brand.md` brand layer, and a detailed Astro-on-GitHub-Pages adaptation of blog-factory-lab's starter (found that the AWS coupling lives outside the starter, in `blog-factory-lab/infra/`, so no stripping needed there), plus a `workflow_dispatch`-only deploy workflow respecting the Human Gate. Includes sequencing and per-step verification.
+- `docs/decisions.md`, `docs/next-actions.md` — recorded the plan and converted next actions into concrete execution steps against the plan's section numbers.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Produced docs/implementation-plan.md" entry.
+
+### Next Actions
+
+- Execute `docs/implementation-plan.md` §1-§5 (module skeleton, brand layer, README rework, site adaptation, deploy workflow), verify per §6.
+- Naming pass (Workshop Gremlin naming agent) — next up.
