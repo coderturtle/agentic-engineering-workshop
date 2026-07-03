@@ -1,0 +1,11 @@
+# build output
+dist/
+# generated astro types
+.astro/
+# dependencies
+node_modules/
+# logs
+npm-debug.log*
+# env
+.env
+.env.production

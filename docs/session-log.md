@@ -145,3 +145,41 @@ See `docs/decisions.md`, 2026-07-03 "Designed and test-ran a Workshop Review Pan
 
 - Wire the Workshop Review Panel into `~/hekton/gremlins/workshop/workshop-gremlin.md`'s roster as a new step (see that repo's session log/decisions for the update).
 - Re-run the panel once module content exists.
+
+## 2026-07-03 - Executed the implementation plan (§1-§4)
+
+Executed `docs/implementation-plan.md` end to end: module skeleton, brand layer, README rework, and the Astro-on-GitHub-Pages build-log site. Stopped at "ready to deploy" per the Human Gate: no live Pages deploy without explicit confirmation.
+
+### What changed
+
+- `modules/`: 5 structure-only module READMEs (`01-prompt-engineering` … `05-synthesis-capstone`) plus `modules/README.md` (arc index + loop taxonomy table). Each stub states the question it answers, its position in the arc, placeholder learning objectives, a pointer to real exercise material (not a spec), and a "skeleton only" banner.
+- `docs/brand.md`: name-agnostic-in-structure brand layer (name/slug already real: Terminal Velocity), adapted from blog-factory-lab's brand-style-layer template. Hard rules include no em dashes and no unqualified efficacy claims, a direct and permanent response to the Workshop Review Panel's Skeptical Critic findings, not a one-time fix.
+- `README.md`: rewritten as a learner-facing landing page (what/who it's for, prerequisites, literal copy-pasteable clone command, how the modules connect, the teaching method, build-in-public note). Internal Hekton scaffold framing (classification, documentation contract, vault-mutation note) relocated to new `docs/maintainers.md`.
+- `site/`: adapted from `blog-factory-lab/site-starters/astro-blog`. Dropped React and the narrative components (`GremlinNote`, `DecisionLog`, etc.) since a maintainer build-log doesn't need them; kept MDX. Build-log entries live in `docs/build-log/` and are read in place via an Astro 5 Content Layer `glob` loader (`site/src/content/config.ts`), not duplicated into `src/`. Wrote the first real entry, `docs/build-log/2026-07-03-scaffolding-the-workshop.md`, in the brand voice.
+- `.github/workflows/deploy-pages.yml`: `workflow_dispatch`-only trigger, `push` trigger written but commented out, minimal permissions (`contents: read`, `pages: write`, `id-token: write`), builds `site/` and deploys `site/dist` via `actions/deploy-pages@v4`.
+- `.gitignore`: added `.astro/` (was missing; `node_modules/`/`dist/` already covered).
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Executed docs/implementation-plan.md §1-§4" entry.
+
+### Validation
+
+- `npm install` + `npm run build` in `site/`: 4 pages built clean.
+- `npx astro check`: 0 errors, 0 warnings, 0 hints.
+- Confirmed the seed build-log entry renders on the homepage and at its own route with the correct `/terminal-velocity/` base path.
+- Workflow YAML parsed and structure-checked via `npx js-yaml`.
+- Grepped README/site/build-log/modules for em dashes and banned phrases: none found.
+- All links in `README.md` and `modules/README.md` resolve.
+- `scripts/check-mirror-drift.sh` and `scripts/verify-project.sh`: clean.
+
+### Risks / Open Items
+
+- `npm install` reported 4 dependency vulnerabilities (3 low, 1 high), inherited from the blog-factory-lab starter, not yet triaged — logged in `docs/next-actions.md`.
+- No live Pages deploy has happened yet; the workflow is untested against the real GitHub Actions environment (only validated locally). First run should be watched closely.
+
+### Next Actions
+
+- Human-confirm the first Pages deploy (enable Pages in repo Settings, run the `workflow_dispatch` workflow), then uncomment the `push` trigger.
+- Content-building run with Coachgremlin, one concept at a time.
+- Triage the `site/` dependency vulnerabilities before the first real deploy.

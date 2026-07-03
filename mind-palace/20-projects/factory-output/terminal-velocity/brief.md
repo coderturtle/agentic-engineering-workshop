@@ -10,8 +10,8 @@ Practitioners already using coding agents daily have absorbed prompt engineering
 
 Two deliverables from one build:
 
-1. A shipped, self-paced public workshop (working title "Prompt → Loop") for advanced practitioners, teaching prompt → context → loop engineering as an evolving, unified practice — every exercise run through a real harness, guided by Coachgremlin, not read passively.
-2. Reusable factory machinery extracted while building it: the **Workshop Gremlin** (scaffolding, naming, deliverables/branding, build-log/Pages publishing) and **Coachgremlin** (the harness-native teaching agent), both added to `~/hekton/gremlins/` for future workshops.
+1. A shipped, self-paced public workshop, **Terminal Velocity**, for advanced practitioners, teaching prompt, context, harness, and loop engineering as an evolving, unified practice, every exercise run through a real harness, guided by Coachgremlin, not read passively.
+2. Reusable factory machinery extracted while building it: the **Workshop Gremlin** (scaffolding, naming, review panel, deliverables/branding, build-log/Pages publishing) and **Coachgremlin** (the harness-native teaching agent), both added to `~/hekton/gremlins/` for future workshops.
 
 Full design: `docs/workshop-design.md` (the workshop) and `docs/workshop-gremlin-design.md` (the machinery) in the repo.
 
