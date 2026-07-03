@@ -1,0 +1,11 @@
+# Persona: AI/ML Practitioner — Module 01 — 2026-07-03
+
+**Top finding — the "four edge cases" aren't evenly real, and none of them is counterfactually tested.** Edge case 1 (empty input) is passively satisfied by almost any loop-based implementation; there's no failure mode it guards against that a naive prompt would plausibly produce. Edge case 4 (malformed row) is largely plumbing in this exercise specifically: `candidate-prompt.md` tells the model to call the already-provided `_parse_row`, which already returns `(None, RowError)` on failure — the model routes a tuple, it doesn't design error handling. Only edge case 2 (month-boundary crossing) is the genuine, distinct bug class the SPEC itself centers ("the seeded bug," SPEC.md L27-33). Edge case 3 (duplicate timestamps) is plausible but unverified as a real discriminator.
+
+That leads to the deeper problem: the dry run (`runs/2026-07-03-module-01-dry-run/README.md`) only ever ran the *fully-specified* prompt, 3/3. There's no run of a deliberately vague prompt ("handle errors gracefully") to confirm it actually drops 2 or 3. So the module's central claim — "the hardness is the edge cases a naive prompt drops" (README L27) — and `spec-impl.md`'s claim that naming edge cases explicitly is "the single biggest lever in the validated prompt" (L31) are asserted, not demonstrated. Validating only the positive case says nothing about what fails without it.
+
+**Second finding — reproducibility is statistically thin.** Three clean runs is decent *qualitative* evidence (the dry run notes real implementation divergence — `defaultdict` vs `dict.get`, one-time vs inline `ZoneInfo` — suggesting correctness wasn't accidental), but n=3 has weak power: a prompt with a true ~65% pass rate would still land 3/3 about 27% of the time. The rubric's binary gate ("Any flaky run costs the criterion," README L32) treats 3-for-3 as proof rather than a noisy signal.
+
+**Correct and unremarkable:** the timezone fix itself (SPEC.md L22-24, L33) — converting to local time via `zoneinfo` before computing the `"YYYY-MM"` key — is the standard, correct fix for a genuine, common practitioner bug.
+
+**Minor:** SPEC.md's "No external dependencies: stdlib only" (L43) elides that `zoneinfo` needs the system IANA tz database, absent on some platforms (Windows, minimal Docker images) without the `tzdata` package.

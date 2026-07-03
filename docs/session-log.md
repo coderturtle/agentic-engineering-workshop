@@ -423,3 +423,43 @@ See `docs/decisions.md`, 2026-07-03 "Site restructured: guide page plus build lo
 - coderturtle: visually confirm the guide page and new build-log entries in the browser.
 - Push the local commits so the guide page's GitHub links resolve.
 - Consider whether the guide page should also get a screenshot-based visual review before the first live Pages deploy, per this project's established practice of not trusting a build's exit code alone.
+
+## 2026-07-03 - Ran the Workshop Review Panel against real content for the first time (Module 01), fixed what it found
+
+coderturtle read Module 01 and called it "probably good but not very digestible," and asked to run the Workshop Review Panel against it if it hadn't already run against real content. It hadn't: the one prior run (`docs/review-panel/2026-07-03-initial-design.md`) only had design docs to work with, before any exercise existed, and "re-run once real module content exists" was still an open follow-up action in the panel's own definition. So this was the panel's actual second run, and its first against something a learner would really attempt.
+
+### What changed
+
+- **Ran all seven personas** (`~/hekton/gremlins/workshop/workshop-review-panel.md`) independently and in parallel against `modules/01-prompt-engineering/README.md` and its supporting artifacts (`SPEC.md`, `.claude/commands/spec-impl.md`, the dry-run evidence). Raw critiques preserved in `docs/review-panel/2026-07-03-module-01-personas/`; synthesis at `docs/review-panel/2026-07-03-module-01-content.md`.
+- **Two cross-persona agreements**, independently reached: (1) Developer Evangelist and Technical Writer both diagnosed the actual cause of "not very digestible" as structural, not tonal — the exercise buried under five headers of framing, with an internal review-panel citation and workshop-internal jargon leaking into learner-facing prose; (2) AI/ML Practitioner and Instructional Designer both flagged that the module's central claim ("a naive prompt drops the edge cases") had only ever been tested with the polished prompt, never a naive one, so the module's core discriminator was asserted, not demonstrated.
+- **Closed the evidence gap for real, not just with a word change**: ran the missing counterfactual, a deliberately naive prompt (no named edge cases, no scope constraint) through three fresh, independent sessions against the same fixture, independently reverified the same way the original dry run was. **It also passed 3-for-3.** Root cause, confirmed by inspection: the fixture's own docstring already lists all four edge cases, so a reasonably diligent agent finds them regardless of what the prompt says. The module's central claim was rewritten to say what was actually shown (reproducibility and explicit scope control are the demonstrated advantages; edge-case-dropping wasn't) rather than keep the unsupported original. New "Counterfactual" section in `runs/2026-07-03-module-01-dry-run/README.md` has the full method and result.
+- **Found and fixed a real functional bug**: `SPEC.md`'s "Running it" section hardcoded `cd fixtures/receipts` in every variant copy, including `variants/unimplemented/`, where Module 01 actually runs. A learner following the module's own pointer into SPEC.md and then following its literal instructions would land in the wrong fixture entirely. Fixed in all four copies (base plus three variants) to be directory-relative instead of hardcoded, and to note that the CLI demo command needs sample data most variants don't ship.
+- **Restructured `modules/01-prompt-engineering/README.md`**: exercise now appears second, right after the framing question, instead of five headers deep; the internal citation to the prior review-panel report removed from learner-facing prose; "Required to advance" and "Stop condition" merged (they restated each other almost verbatim); Takeaway moved to the very end with an explicit "don't read this before attempting" note, closing a real spoiler issue the End-User/Learner persona caught (reading the page in order handed you the winning structure before you'd tried anything); terminology standardized on "one prompt."
+- **Fixed rubric criterion 2's gate-vs-scored contradiction** (tagged "(scored)" while the rest of the page treated it as absolute) and **added a line** addressing the Security-Conscious Reviewer's finding that the module states "green isn't proof" in prose but never asks the learner to actually look at the diff.
+- **Softened `.claude/commands/spec-impl.md`'s overclaiming**, per the Skeptical Critic: "tried and failed during validation" (no ablation was ever run), "the single biggest lever" (an unranked claim, and now actually contradicted by the counterfactual), and "catches its own near-misses" (none occurred) all reworded to what the evidence actually supports.
+- **Updated the panel's own definition in `~/hekton`**: checked off the "re-run once real content exists" follow-up action, with a summary of this run's outcome. See that repo's own session log for the matching entry.
+
+### Decisions Made
+
+See `docs/decisions.md`, 2026-07-03 "Ran the Workshop Review Panel against Module 01, its first run against real content" entry.
+
+### Validation
+
+- All seven persona critiques independently produced, none generic, none empty; two genuine cross-persona agreements, five single-persona findings, all logged with a status (fixed, or honestly deferred with why).
+- The wrong-directory bug was confirmed by direct inspection before being called a bug, not just asserted from a persona's claim.
+- The counterfactual's result was independently reverified the same way as the original dry run (diffed the test file for tampering, reran the suite directly), not trusted from the subagents' self-reports.
+- `scripts/check-brand-lint.sh`: clean (23 files in scope; caught and fixed one em dash introduced during the Module 01 restructure).
+- `scripts/verify-project.sh`: clean.
+- Confirmed the shipped `variants/unimplemented/` fixture is still in its pristine, unimplemented state after all the verification work (still `errors=5` against the original stub).
+
+### Risks / Open Items
+
+- One finding (rubric criterion 3, edge-case coverage, is gameable since the exercise text already lists the cases verbatim) was logged as an honest, acknowledged limitation rather than fixed — it's a structural property of the exercise's original design in `docs/coachgremlin-implementation-plan.md`, not something introduced during authoring, and fixing it properly means redesigning the exercise, which is bigger than a content pass.
+- The same "internal citation leaks into learner content" pattern the Technical Writer flagged in Module 01 also exists in Module 04's README (noted as a house habit, not a one-off). Not fixed here to keep this pass scoped; a candidate for a small cross-module pass or an explicit `docs/brand.md` rule.
+- This is the panel's second real run. Its own follow-up actions call for reviewing whether all seven personas are pulling their weight after 2-3 runs, ideally across different workshops; not due yet, and this run gave no reason to think any persona is dead weight (all seven produced distinct, real findings again).
+
+### Next Actions
+
+- Consider whether Modules 02, 03, 05 should get the same scoped panel treatment, especially since Module 02 directly inherits Module 01's task and might inherit the corrected claim's implications.
+- If external research + panel persona/instruction maturation is still wanted independent of this run's outcome, that's a distinct next step, not triggered by this pass (the panel performed well; nothing here argues for redesigning it yet).
+- Same standing next actions as before: coderturtle review, push once reviewed.

@@ -34,9 +34,15 @@ The fix is a conversion to `tz` before formatting the key (Python's `zoneinfo.Zo
 
 ## Running it
 
+This file is copied verbatim into every fixture variant (`variants/unimplemented/`, `variants/bloated/`, and so on), so these commands are written to run from **whichever directory contains this copy of `SPEC.md`**, not a hardcoded path. `cd` into that directory first, then:
+
 ```bash
-cd fixtures/receipts
 PYTHONPATH=. python3 -m unittest discover -s tests -v
+```
+
+The CLI demo below needs `data/sample_receipts.csv`, which only the base fixture (`fixtures/receipts/`) ships; most variants exist to exercise `receipts/grouping.py` and its tests directly and don't include sample data. Skip it if `data/` isn't present in the directory you're in:
+
+```bash
 PYTHONPATH=. python3 -m receipts.cli data/sample_receipts.csv --tz America/New_York
 ```
 

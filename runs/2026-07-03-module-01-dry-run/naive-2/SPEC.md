@@ -34,15 +34,9 @@ The fix is a conversion to `tz` before formatting the key (Python's `zoneinfo.Zo
 
 ## Running it
 
-This file is copied verbatim into every fixture variant (`variants/unimplemented/`, `variants/bloated/`, and so on), so these commands are written to run from **whichever directory contains this copy of `SPEC.md`**, not a hardcoded path. `cd` into that directory first, then:
-
 ```bash
+cd fixtures/receipts
 PYTHONPATH=. python3 -m unittest discover -s tests -v
-```
-
-The CLI demo below needs `data/sample_receipts.csv`, which only the base fixture (`fixtures/receipts/`) ships; most variants exist to exercise `receipts/grouping.py` and its tests directly and don't include sample data. Skip it if `data/` isn't present in the directory you're in:
-
-```bash
 PYTHONPATH=. python3 -m receipts.cli data/sample_receipts.csv --tz America/New_York
 ```
 
@@ -50,6 +44,5 @@ No external dependencies: stdlib only (`unittest`, `zoneinfo`, `argparse`, `csv`
 
 ## Variants (built when the module that needs them is authored)
 
-- **Unimplemented variant** (Module 01, reused under noise by Module 02): `variants/unimplemented/`. Same package, `group_expenses_by_month` stubbed to `raise NotImplementedError` instead of shipping the seeded bug. Built, see `variants/unimplemented/README.md`.
-- **Bloated variant** (Module 02): the unimplemented variant with noise added (a long README, a CHANGELOG, an unrelated module, stale docs, a red-herring config) to roughly the module's stated budget. Not yet built; build it as part of authoring Module 02, per `docs/coachgremlin-implementation-plan.md` §6 step 3.
+- **Bloated variant** (Module 02): this same package with noise added (a long README, a CHANGELOG, an unrelated module, stale docs, a red-herring config) to roughly the module's stated budget. Not yet built; build it as part of authoring Module 02, per `docs/coachgremlin-implementation-plan.md` §6 step 3.
 - **Sabotaged capstone variants** (Module 05): two to four full agent setups (prompt + context + harness + loop, all provided) whose true bottleneck differs by variant. Not yet built; build as part of authoring Module 05, per plan §6 step 6.
