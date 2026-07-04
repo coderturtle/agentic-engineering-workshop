@@ -1,0 +1,87 @@
+diff --git a/fixtures/receipts/receipts/cli.py b/fixtures/receipts/receipts/cli.py
+index a3adedc..be48ac3 100644
+--- a/fixtures/receipts/receipts/cli.py
++++ b/fixtures/receipts/receipts/cli.py
+@@ -6,7 +6,7 @@ import argparse
+ import csv
+ import sys
+ 
+-from receipts.grouping import group_expenses_by_month
++from receipts.grouping import group_expenses_by_category, group_expenses_by_month
+ 
+ 
+ def main(argv=None) -> int:
+@@ -20,16 +20,24 @@ def main(argv=None) -> int:
+         default="UTC",
+         help="IANA timezone the month grouping is computed in (default: UTC)",
+     )
++    parser.add_argument(
++        "--by-category",
++        action="store_true",
++        help="group by receipt category instead of by calendar month",
++    )
+     args = parser.parse_args(argv)
+ 
+     with open(args.csv_path, newline="", encoding="utf-8") as f:
+         rows = list(csv.DictReader(f))
+ 
+-    result = group_expenses_by_month(rows, tz=args.tz)
++    if args.by_category:
++        result = group_expenses_by_category(rows)
++    else:
++        result = group_expenses_by_month(rows, tz=args.tz)
+ 
+-    for month in sorted(result.months):
+-        summary = result.months[month]
+-        print(f"{month}: {summary.count} receipt(s), total ${summary.total:.2f}")
++    for key in sorted(result.months):
++        summary = result.months[key]
++        print(f"{key}: {summary.count} receipt(s), total ${summary.total:.2f}")
+ 
+     if result.errors:
+         print(f"\n{len(result.errors)} row(s) skipped:", file=sys.stderr)
+diff --git a/fixtures/receipts/receipts/grouping.py b/fixtures/receipts/receipts/grouping.py
+index 70a7d16..a1fd1ed 100644
+--- a/fixtures/receipts/receipts/grouping.py
++++ b/fixtures/receipts/receipts/grouping.py
+@@ -88,12 +88,38 @@ def group_expenses_by_month(rows, tz: str) -> GroupResult:
+ 
+ 
+ def group_expenses_by_category(rows) -> GroupResult:
+-    """Module 03 target: not yet implemented.
++    """Group expense rows by their `category` field.
+ 
+     Same shape as group_expenses_by_month, keyed by `category` instead of
+     calendar month (the `months` field on GroupResult is reused as a
+     generic bucket-by-key dict; the name is a little off for this case,
+     left as-is rather than renamed to avoid touching group_expenses_by_month's
+     callers). Reuse `_parse_row` the same way group_expenses_by_month does.
++
++    Edge cases mirrored from group_expenses_by_month (see SPEC.md):
++        1. empty input -> months == {}, errors == []
++        2. duplicate timestamps/receipts are independent, never merged
++        3. a malformed row (bad timestamp or non-numeric amount) is
++           collected in `errors`, excluded from `months`, and does not
++           stop the remaining rows from being processed
++    Category grouping has no timezone dependency, so `_parse_row` is used
++    purely to validate/parse timestamp and amount; the row's `category`
++    value (not the timestamp) supplies the bucket key.
+     """
+-    raise NotImplementedError("group_expenses_by_category: not yet wired up")
++    months: dict[str, MonthSummary] = defaultdict(MonthSummary)
++    errors: list[RowError] = []
++
++    for row in rows:
++        parsed, err = _parse_row(row)
++        if err is not None:
++            errors.append(err)
++            continue
++        receipt_id, ts, amount = parsed
++        key = row.get("category", "")
++
++        summary = months[key]
++        summary.total += amount
++        summary.count += 1
++        summary.receipt_ids.append(receipt_id)
++
++    return GroupResult(months=dict(months), errors=errors)

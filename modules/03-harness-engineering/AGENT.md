@@ -16,7 +16,10 @@ persona locally," never "the workshop graded me."
    condition. Parse this instead of scraping `README.md`'s prose.
 2. `README.md` — the exercise task itself, the "Why this is hard" section, and the harness
    translation table. `module.yaml` mirrors this file's gate and question; if you find them
-   disagreeing, stop and flag it rather than trusting either silently.
+   disagreeing, stop and flag it rather than trusting either silently. **Skip the "Takeaway"
+   section on this first read** — it opens with its own warning not to read it before a first
+   attempt, because it names the reference implementation directly. Come back to it only after
+   you've completed and submitted your own attempt.
 3. `../../coachgremlin/grader.md` — load this as your grading persona before you assess your own
    (or the learner's) attempt.
 4. `../../runs/.schema.yaml` — the ledger schema your submission must conform to.
@@ -26,7 +29,10 @@ persona locally," never "the workshop graded me."
 1. Parse `module.yaml`'s `expected_artifacts` and `stop_condition`. Build the harness config it
    describes (a bounded sub-agent/specialist, persistent on-disk state, a demonstrated context
    reset) against the `--by-category` task in `fixtures/receipts/`, exactly as `README.md`
-   describes it.
+   describes it. Put the persistent-state/progress file at the fixture root (e.g.
+   `fixtures/receipts/.receipts-category-progress.md`), a sibling of `receipts/` and `tests/`, not
+   inside `receipts/` itself — the exercise requires this artifact to exist, so writing it is not a
+   violation of "touch `receipts/`, nothing else," but it isn't part of the CLI package either.
 2. Run it for real. A described config is not a run config — `module.yaml`'s `Actually ran`
    criterion is a gate, not a nice-to-have. Produce the run-transcript artifact as you go, not as
    a summary written after the fact.
