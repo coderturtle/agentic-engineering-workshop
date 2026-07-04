@@ -64,3 +64,15 @@ architecture:
 notes:
   - Public workshop teaching the evolution from prompt engineering to context engineering to loop engineering, taught by leveraging agents and harnesses as the learning method itself.
 
+# Read by the agentic-infra-lab Infrastructure Gremlin's github-pages-dns pattern to
+# generate the Route53 CNAME (+ optional TXT domain-verification) plan. The gremlin
+# plans and classifies; a human always applies. See docs/decisions.md.
+deployment:
+  pattern: github-pages-dns
+  subdomain_fqdn: terminal-velocity.coderturtle.io
+  root_domain: coderturtle.io
+  pages_host: coderturtle.github.io
+  repo: coderturtle/terminal-velocity
+  create_domain_verification: true
+  human_confirmed: false
+

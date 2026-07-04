@@ -554,3 +554,125 @@ See `docs/decisions.md`, 2026-07-03 "Planned next session's priorities; no deep-
 ### Next Actions
 
 See `docs/next-actions.md`'s new "Next session: priorities" section directly; it supersedes scanning the full historical list for what to do next.
+
+## 2026-07-03 - Merged PR #1: main now has the real project for the first time
+
+coderturtle asked to merge the PR, then close the session. `main` had sat at the initial scaffold commit (one commit, `9e77357`) for the entire life of this project; every real thing built, the naming pass, the brand layer, the site, all five modules, every fixture and dry run, all seven Workshop Review Panel runs, lived on `agent/claude/workshop-design-docs` until this merge.
+
+### What changed
+
+- Verified the PR was clean before merging: `mergeable: MERGEABLE`, `mergeStateStatus: CLEAN`, no required status checks, no pending review requirement.
+- Merged with a regular merge commit (`gh pr merge 1 --merge`), not a squash, deliberately: the 19 commits on the branch each document a distinct, real piece of work with commit messages that are themselves part of this project's audit trail; squashing would have thrown that away. Branch not deleted (repo default; may still be the working branch for the next-session items already queued).
+- Merge commit `d6b8788` on `origin/main`, confirmed via `gh pr view` (`state: MERGED`) and `git fetch` + `git log origin/main`.
+- Updated `docs/next-actions.md`'s "Next session: priorities" section to note the merge and that the Pages-deploy item is now more pressing (there's finally a real site on `main` to deploy, not just the scaffold).
+
+### Decisions Made
+
+Merged via a regular merge, not squash or rebase, to preserve individual commit history as part of this project's documentation trail. Recorded in this entry rather than a separate `docs/decisions.md` row; the decision is procedural (how to merge), not a project-design decision.
+
+### Assumptions
+
+- The user's "merge the PR" was explicit, direct authorization for this specific merge, not a standing permission for future merges; each future merge should get its own confirmation.
+- Left the feature branch (`agent/claude/workshop-design-docs`) undeleted since the queued next-session work references it implicitly and deleting it wasn't asked for.
+
+### Risks
+
+- `main` has never been deployed; the Pages workflow is still `workflow_dispatch`-only pending human confirmation (`docs/next-actions.md` #1). First deploy should be watched closely, per the existing standing note.
+- Every module's rubric/diagnosis and every review-panel finding this session produced is still self-validated in the sense `docs/risks.md` RISK-0004 describes (the same overall session authored, attempted, and reviewed all of it). That risk doesn't change by merging; it's still open.
+- No CI/status checks are configured on this repo yet, so the merge went through on `mergeStateStatus: CLEAN` with zero automated verification beyond what this session ran locally (`scripts/verify-project.sh`, `scripts/check-brand-lint.sh`, `scripts/check-mirror-drift.sh`, `astro check`, `npm run build`, and the fixture test suites), all of which were clean at merge time.
+
+### Next Actions
+
+See `docs/next-actions.md`'s "Next session: priorities" section, now updated to reflect the merge.
+
+### Validation
+
+- `gh pr view 1` post-merge: `state: MERGED`, `mergedAt` populated, `mergeCommit.oid` matches `origin/main`'s new HEAD.
+- `git fetch origin` + `git log origin/main --oneline`: confirms `d6b8788` (merge) sitting on top of the 19 branch commits, with `9e77357` (the original scaffold) as their common ancestor.
+
+### Mind-palace updated
+
+No — the repo-local mirror (`mind-palace/20-projects/factory-output/terminal-velocity/`) is current as of this session's last `check-mirror-drift.sh` pass, but the live Obsidian vault card was not touched this session (`vault_mutation_allowed: false`; no explicit authorization was given or needed, since nothing this session required a live-vault write). Proposed for a future session if the project's live vault card should reflect the "first real merge to main" milestone.
+
+## 2026-07-04 - Designed GitHub Pages custom-domain provisioning; implemented this repo's own pieces
+
+### What changed
+
+- **Research**: an Explore pass reviewed `agentic-infra-lab`'s `infrastructure-gremlin` agent team (a plan/classify/Well-Architected-review/human-apply pipeline, currently 100% coupled to one AWS S3/CloudFront Terraform pattern consumed from `blog-factory-lab`) and confirmed GitHub Pages provisioning has zero precedent anywhere in either lab.
+- **Design**: an Opus planning pass (`/effort` default, model override to Opus) produced a full architecture for (a) codifying `{workshop}.coderturtle.io` end-to-end with no manual console steps, and (b) evolving the single-pattern gremlin team into a layered, extensible "patterns" architecture (shared governance core + one `pattern.yaml`-driven directory per infra type), directly closing a gap `agentic-infra-lab`'s own `docs/guardrails.md:27` and `docs/next-actions.md` had already flagged and never implemented.
+- **Implemented in this repo** (the pieces that don't depend on the cross-repo work landing first):
+  - `site/public/CNAME` — declares the custom domain `terminal-velocity.coderturtle.io`.
+  - `site/astro.config.mjs` — `site`/`base` cutover from `https://coderturtle.github.io` + `/terminal-velocity/` to `https://terminal-velocity.coderturtle.io` + `/`. Verified via `npm run build`: `dist/CNAME` present, all internal links now root-relative (`/`, `/build-log/`), no stray hardcoded `/terminal-velocity/` paths anywhere in `site/`.
+  - `.github/workflows/deploy-pages.yml` — `configure-pages@v5` gained `enablement: true`; added an idempotent `gh api` step that sets the Pages custom domain (`cname`, `build_type: workflow`) using the workflow's existing `GITHUB_TOKEN`, no new credential; added a best-effort, non-failing HTTPS-enforcement status check after deploy. The `workflow_dispatch`-only Human Gate is unchanged — this does not lift it.
+  - `.hekton/project.yaml` — new `deployment` block (`pattern: github-pages-dns`, `subdomain_fqdn`, `root_domain`, `pages_host`, `repo`, `create_domain_verification: true`, `human_confirmed: false`) for the Infrastructure Gremlin to read once its `github-pages-dns` pattern exists.
+  - `docs/decisions.md`, `docs/next-actions.md` — recorded the design decisions and superseded the two stale "enable Pages in repo Settings console" bullets.
+
+### Decisions Made
+
+See `docs/decisions.md`'s four new 2026-07-04 rows: (1) GitHub side configured via versioned `CNAME` file + `gh api`, not the Terraform `integrations/github` provider, to avoid a new repo-admin PAT and a second apply surface; DNS side stays Terraform, human-applied only, never agent-applied; (2) the new `github-pages-dns` Terraform pattern will live in `agentic-infra-lab` itself, not `blog-factory-lab` — a user-directed reversal of that lab's existing "consume blog-factory-lab, don't duplicate" default, on the reasoning that `blog-factory-lab` should own content-generation, not infra; (3) migrating the existing, already-applied `aws-static-site` module's live Terraform state into `agentic-infra-lab` is explicitly scoped as a separate future phase (real risk: state migration + drift re-verification), not attempted now; (4) this session implemented only this repo's own pieces, deferring the cross-repo `agentic-infra-lab`/`blog-factory-lab` work.
+
+### Assumptions
+
+- `coderturtle.io` DNS lives in Route 53 (confirmed directly with the user, not derived from any existing code — no prior reference to this domain existed in either lab).
+- The repo is user-owned (`coderturtle/terminal-velocity`), so the Pages host is `coderturtle.github.io` (user page), not an org page — confirmed from `.hekton/project.yaml`'s `github_remote_url` and `astro.config.mjs`'s prior `site` value.
+
+### Risks
+
+- **The site is not actually reachable at the new domain yet.** Nothing resolves until a human applies the Route53 CNAME (+ optional TXT verification) record via the not-yet-built `agentic-infra-lab` `github-pages-dns` pattern. Until then, this repo's changes are a coordinated, verified-in-isolation cutover with no live traffic depending on it — `npm run build` was the only verification possible this session.
+- The `astro.config.mjs` `base: "/"` change is a real breaking cutover for any existing external links to `coderturtle.github.io/terminal-velocity/...` — they will stop resolving to current content once the custom domain is live and Pages redirects. No inbound links are known to exist yet (project hasn't been publicly announced), but this should be double-checked before the first custom-domain deploy.
+- ~~The full Opus plan... currently only saved to this session's scratchpad...~~ **Resolved same session**: copied into `agentic-infra-lab/docs/github-pages-dns-implementation-plan.md`, with ADR-006 and a `next-actions.md` update recorded there. See the entry below.
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "Next session: priorities (as of 2026-07-04...)" section: the cross-repo `agentic-infra-lab` pattern-layer work hasn't started; the Route53 record needs a human apply once it exists; then confirm the live cutover and uncomment the `push` trigger.
+
+### Validation
+
+- `npm run build` (in `site/`): clean, 8 pages built, `dist/CNAME` present with correct content, all internal hrefs root-relative post-cutover.
+- `ruby -ryaml` parse check on both `.github/workflows/deploy-pages.yml` and `.hekton/project.yaml`: both valid YAML.
+- `grep` across `site/` for hardcoded `terminal-velocity/` paths: none found outside the explanatory comment in `astro.config.mjs` itself.
+- `git status`: only the intended files touched (`deploy-pages.yml`, `project.yaml`, `decisions.md`, `next-actions.md`, `astro.config.mjs`, new `site/public/CNAME`).
+
+### Mind-palace updated
+
+No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); no request was made to update it, and the repo-local mirror doesn't need changes for this session's work.
+
+## 2026-07-04 - Moved the infra-gremlin plan into agentic-infra-lab so it survives past this session
+
+### What changed
+
+- Copied the full Opus plan (previously only in this session's scratchpad, flagged as a risk in
+  the entry above) into `agentic-infra-lab/docs/github-pages-dns-implementation-plan.md`, updated
+  to reflect two decisions made after the original plan draft: the TXT domain-verification record
+  is now unconditional (not optional), and the new `github-pages-dns` Terraform module's home is
+  `agentic-infra-lab` itself, not `blog-factory-lab` — reversing that lab's ADR-003 default for
+  future patterns, per the user's explicit direction. Also recorded ADR-006 and a `next-actions.md`
+  update in `agentic-infra-lab`, per that repo's own documentation contract.
+- Added a new Phase 6 to the plan (not in the original draft): migrating the existing
+  `aws-static-site` module's live Terraform state into `agentic-infra-lab` too, scoped as
+  separate, later, higher-risk work — it has live state and a second external consumer
+  ("The Agentic Tekton") depending on its current location, so it isn't bundled into unblocking
+  GitHub Pages.
+- Updated this repo's `docs/decisions.md` to point at the durable copy instead of the scratchpad
+  path.
+
+### Decisions Made
+
+No new decisions for this repo — this was purely making an existing decision (from earlier the
+same day) durable in the repo where it will actually be built.
+
+### Next Actions
+
+Cross-repo work starts in `agentic-infra-lab` per that repo's `docs/next-actions.md` (Phase 1: the
+new Terraform module). Nothing further needed in `terminal-velocity` until that lands and a human
+applies the Route53 record.
+
+### Validation
+
+Confirmed `agentic-infra-lab`'s `git status` showed only the intended files touched
+(`docs/decisions.md`, `docs/next-actions.md`, `docs/session-log.md`, new
+`docs/github-pages-dns-implementation-plan.md`) before finishing.
+
+### Mind-palace updated
+
+No — not requested, and not required for this documentation-only follow-up.

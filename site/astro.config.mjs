@@ -5,11 +5,11 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://coderturtle.github.io",
-  // RENAME-DEPENDENT: if this repo is ever renamed again, update this base to match
-  // the new slug. It's the one spot that needs to change; every internal link uses
-  // Astro's base-aware helpers rather than bare paths, so nothing else does.
-  base: "/terminal-velocity/",
+  // Custom domain (terminal-velocity.coderturtle.io) via GitHub Pages + Route53 CNAME,
+  // see .hekton/project.yaml's `deployment` block and docs/decisions.md. Site now serves
+  // at the domain root, not under /terminal-velocity/ on coderturtle.github.io.
+  site: "https://terminal-velocity.coderturtle.io",
+  base: "/",
   integrations: [mdx(), tailwind()],
   output: "static",
 });

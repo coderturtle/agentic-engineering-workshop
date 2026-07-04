@@ -45,6 +45,24 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Sets the custom domain (terminal-velocity.coderturtle.io) declared in
+      # site/public/CNAME so the repo's Pages settings match the built site,
+      # with no manual Settings -> Pages console step. Idempotent: safe to
+      # rerun every deploy. The Route53 CNAME record itself is Terraform,
+      # applied by a human via the agentic-infra-lab Infrastructure Gremlin
+      # (see .hekton/project.yaml's `deployment` block) - this step only
+      # configures the GitHub side, which is outside that gate's boundary.
+      - name: Configure custom domain
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method PUT "repos/${{ github.repository }}/pages" \
+            -f cname='terminal-velocity.coderturtle.io' \
+            -f build_type='workflow' \
+            --silent
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -61,3 +79,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Best-effort only: GitHub issues the Pages TLS cert asynchronously once
+      # the CNAME record resolves publicly, so this never blocks or fails the
+      # deploy - it just surfaces current status in the run log.
+      - name: Check HTTPS enforcement status (best-effort, non-blocking)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/pages" --jq \
+            '"https_enforced=" + (.https_enforced | tostring) + " status=" + .status' \
+            || echo "Could not read Pages status yet (DNS/cert may still be propagating)."
