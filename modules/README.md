@@ -6,7 +6,7 @@ Every module's core exercise is run through your own coding-agent harness (Claud
 
 **Hands-on by design, not passive text.** No module here completes by reading it. Every module states a required gate: an artifact you produce or an action you're observed doing, checked against a rubric. If a module ever reduces to "read this, then move on," that's a defect, not how this workshop is meant to work. Every gate also has a stated **takeaway**: you keep something reusable, not just proof you did the exercise.
 
-> Content status: all five core exercises are real, not placeholders, each authored, actually run, and independently reviewed, not just written. Evidence for each is in that module's own `runs/` folder. A few pieces remain deliberately unbuilt (Module 04's optional extensions, Module 05's prompt- and context-bottleneck variants); each module's own README says so where it applies. Module 03's agent-native manifest (`module.yaml` + `AGENT.md`, schema in `modules/.manifest.schema.yaml`) was built 2026-07-04 but is not yet dry-run verified — see that module's README.
+> Content status: all five core exercises are real, not placeholders, each authored, actually run, and independently reviewed, not just written. Evidence for each is in that module's own `runs/` folder. A few pieces remain deliberately unbuilt (Module 04's optional extensions, Module 05's prompt- and context-bottleneck variants); each module's own README says so where it applies. Module 03's agent-native manifest (`module.yaml` + `AGENT.md`, schema in `modules/.manifest.schema.yaml`) was built and dry-run verified 2026-07-04; see that module's README.
 
 ## The arc
 
