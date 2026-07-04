@@ -1,4 +1,4 @@
-# Module 04 Extension B (event-driven loop): the pre-push hook, verified live
+# Module 04 Extension B (event-driven loop): the pre-push hook's check, verified live
 
 ## Method
 
@@ -39,19 +39,39 @@ Brand lint clean.
 (exit 0)
 ```
 
-`.git/hooks/pre-push` (already installed in this repo, confirmed present and executable) runs
-this exact check automatically on every `git push`, warn-only: a violation prints a warning but
-does not block the push. That's the event; a human choosing to run `scripts/check-brand-lint.sh`
-by hand is the same loop, manually triggered. The only difference extension B teaches is removing
-the manual trigger.
+`.git/hooks/pre-push` (already installed in this repo) runs this check automatically on every
+`git push`, warn-only: a violation prints a warning but does not block the push. Confirmed by
+actually triggering it, not just reading the hook file: `git push --dry-run` still runs
+`pre-push` (git fires the hook before the network operation, dry-run or not), and running it for
+real produced:
+
+```
+$ git push --dry-run origin agent/claude/module-03-agent-native-pilot
+-- Mirror drift check --------------------------------------------------
+  ...
+-- Brand lint (published content only) ----------------------------------
+  files checked: 24
+
+  OK: no em dashes in published content
+  OK: no banned phrases in published content
+
+Brand lint clean.
+To github.com-coderturtle:coderturtle/terminal-velocity.git
+ * [new branch]      agent/claude/module-03-agent-native-pilot -> agent/claude/module-03-agent-native-pilot
+```
+
+The hook ran both checks (mirror-drift and brand-lint) automatically, with no separate command
+for either. A human choosing to run `scripts/check-brand-lint.sh` by hand, as done earlier in this
+same session, is the identical loop, manually triggered; the only difference extension B teaches
+is removing that manual trigger, and this confirms the automatic path genuinely works, not just
+that the hook file exists.
 
 ## Result
 
-Real, not staged: the check found three genuine violations in content this session had just
-written, was fixed, and reran clean. The event-driven wiring (the pre-push hook calling the same
-script) was already in place from an earlier session (`scripts/setup-hooks.sh`); this run confirms
-it still works and demonstrates the loop firing on real, unplanned input rather than a synthetic
-example built to order.
+Real on both counts: the check found three genuine violations in content this session had just
+written (via manual invocation), was fixed, and reran clean; separately, the event trigger itself
+(a real `git push` tripping `.git/hooks/pre-push`) was observed actually firing and running the
+same check automatically, not merely confirmed to exist as a file.
 
 ## What "converting a manual loop into an event-driven one" means, generalized
 

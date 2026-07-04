@@ -31,10 +31,22 @@ case "$mode" in
       echo "blast-radius-check: patch file not found: $patch_file" >&2
       exit 2
     fi
-    # Unified-diff "+++ b/path" (or a bare "+++ path") lines name the touched file.
-    # Strip a leading "a/" or "b/" prefix if present (git-style); otherwise take the
-    # path as-is (this fixture's diffs use plain relative paths, not a/ b/ prefixes).
-    touched="$(grep -E '^\+\+\+ ' "$patch_file" | sed -E 's#^\+\+\+ (b/)?##' | sed -E 's/\t.*//')"
+    # Unified-diff "+++ b/path" (or a bare "+++ path") lines name the touched file,
+    # except for a deletion, where "+++" is /dev/null and the real path is on the
+    # matching "---" line instead; use that so a deletion is checked against the
+    # file it actually deleted, not reported as touching "/dev/null". Also pick up
+    # git's "rename from X" / "rename to Y" lines: a pure rename (no content change)
+    # emits neither a "---" nor a "+++" line, so without this a renamed file could
+    # leave scope undetected.
+    touched="$( { \
+      grep -E '^rename (from|to) ' "$patch_file" | sed -E 's/^rename (from|to) //'; \
+      paste -d'|' \
+        <(grep -E '^--- ' "$patch_file" | sed -E 's#^--- (a/)?##' | sed -E 's/\t.*//') \
+        <(grep -E '^\+\+\+ ' "$patch_file" | sed -E 's#^\+\+\+ (b/)?##' | sed -E 's/\t.*//') \
+      | while IFS='|' read -r old new; do \
+          if [[ "$new" == "/dev/null" ]]; then echo "$old"; else echo "$new"; fi; \
+        done; \
+    } | sort -u)"
     ;;
   --git)
     shift 1
@@ -55,7 +67,7 @@ fi
 allowed_globs=("$@")
 
 if [[ -z "$touched" ]]; then
-  echo "blast-radius-check: no changed files detected — nothing to check."
+  echo "blast-radius-check: no changed files detected, nothing to check."
   exit 0
 fi
 

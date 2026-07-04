@@ -10,7 +10,7 @@ Add a new step 6 ("Check blast radius") to `.claude/commands/ticket-to-pr-ready.
 `scripts/blast-radius-check.sh` against the fix's diff before trusting a green rerun. Full diff:
 `proposed-diff.patch`. Full reasoning: `analysis.md`.
 
-## Verification already done (regression-free, not sufficient on its own)
+## Verification already done (necessary, not sufficient on its own)
 
 - The real `attempt-good/` diff still passes under the proposed check.
 - The real `attempt-gaming/` diff still fails under the proposed check, for the reason a human
@@ -18,10 +18,17 @@ Add a new step 6 ("Check blast radius") to `.claude/commands/ticket-to-pr-ready.
 - The proposed diff was generated and reviewed as a patch; `.claude/commands/ticket-to-pr-ready.md`
   itself has not been modified by this analysis.
 
-Passing regression is necessary, not sufficient. It confirms the change doesn't break known
-history. It does not confirm the change is worth making, has no side effects on tickets shaped
-differently from these three, or reads clearly to a learner encountering it for the first time.
-That judgment is this gate's job, not the regression check's.
+Both diffs above are the exact pair the blast-radius check was designed around, not held-out
+cases, so this confirms the mechanism works as built, not that it's regression-safe against the
+general case. It does not confirm the change is worth making, has no side effects on tickets
+shaped differently from these two, or reads clearly to a learner encountering it for the first
+time. That judgment is this gate's job, not the check's.
+
+**Also worth knowing before signing off:** this attestation is a documented convention, not a
+structural block. No hook, CI check, or script currently reads `human_confirmed` before permitting
+`git apply proposed-diff.patch`; nothing in this repo's tooling would stop the patch from being
+applied even with `human_confirmed: false`. The gate holds only as long as whoever's applying
+changes actually checks it.
 
 ## Attestation required (not just an artifact existing)
 

@@ -48,15 +48,19 @@ $ scripts/blast-radius-check.sh --diff runs/2026-07-03-module-04-dry-run/attempt
 === BLAST RADIUS: FAIL. Out-of-bounds file(s): tests/test_grouping.py ===
 ```
 
-Regression-free against known history: the real good attempt still passes under the proposed
-addition; the real gaming attempt still fails, for the same reason a human grader caught it
-manually. The rewrite doesn't change the outcome of either historical case, it automates the
-check a human was doing by hand.
+The real good attempt still passes under the proposed addition; the real gaming attempt still
+fails, for the same reason a human grader caught it manually. Worth being precise about what this
+does and doesn't prove: these are the exact two examples the blast-radius check was designed
+around, not held-out cases, so this confirms the mechanism does what it was built to do, not that
+it's regression-safe against the general case. The third available transcript
+(`takeaway-validation/`) isn't included here since no `diff.patch` was captured for it at the
+time; a genuinely independent check would need at least one held-out example this specific
+proposal wasn't shaped by.
 
 ## What this is, and isn't
 
 This is a proposed diff, not an applied one. `.claude/commands/ticket-to-pr-ready.md` is
-untouched by this analysis (confirmed: `git status` shows no changes to that file). Per this
-module's own hill-climbing safety rule ("a proposed rewrite is only adopted if it passes
-verification and a human reviews it, never auto-applied"), landing this requires the sign-off
-recorded in `review-gate.md` in this same directory.
+untouched by this analysis (confirmed: `git status` and `git log` both show no changes to that
+file). Per this module's own hill-climbing safety rule ("a proposed rewrite is only adopted if it
+passes verification and a human reviews it, never auto-applied"), landing this requires the
+sign-off that `review-gate.md` (in this same directory) asks for and does not yet have.
