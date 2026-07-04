@@ -764,3 +764,82 @@ separate confirmation), visually confirm the site in a browser, run `npm audit`.
 
 No — not requested this session; the mirror-drift check already flagged existing drift
 independent of this session's changes (pre-push hook warning, non-blocking).
+## 2026-07-04 - Built the agent-native manifest pilot for Module 03 (schema, grader persona, manifest, agent entry point)
+
+### What changed
+
+Picked up `docs/agent-native-interaction-plan.md`'s pilot, scoped to Module 03 only, per that
+plan's own §5 sequencing (steps 1-4 of 8):
+
+- `modules/.manifest.schema.yaml` — new, the machine-readable module-manifest schema (same
+  convention as `runs/.schema.yaml`): `question`, `arc_position`, `gate`, `rubric` as
+  `{criterion, observable, weight}`, `stop_condition`, `expected_artifacts`, `submission`,
+  `human_gate`.
+- `runs/.schema.yaml` — extended, not replaced: `task_type: exercise` added to `task_types`;
+  `module_id`, `attempt_driver` (`human | agent | mixed`), `rubric_scores`,
+  `coachgremlin_assessment` added as optional fields.
+- `coachgremlin/grader.md` — new top-level directory and file: the Coachgremlin teaching loop
+  (frame → rubric → observe → feedback → confirm/loop → package the takeaway) distilled from the
+  canonical `~/hekton/gremlins/coaching/coachgremlin.md` into a persona a learner's own agent loads
+  locally. Placed at repo top level, not inside module 03, since the plan calls for it to be reused
+  by every future module's pilot. Carries the hard rule the whole pilot depends on: never emit a
+  terminal "complete"/"certified" state; only a human flipping `human_confirmed` does that, and for
+  an agent-driven attempt that flip means attestation of understanding, not sighting of an artifact.
+- `modules/03-harness-engineering/module.yaml` — new, the manifest instance. Mirrors the README's
+  existing real 6-item rubric verbatim (Bounded reach, Sub-agent/specialist boundary, Persistent
+  state survives reset, Actually ran, Isolation-conditional, Reusable generality) rather than
+  inventing a parallel version — checked directly: `question` and `gate` text both appear verbatim
+  in `README.md` (`grep`-confirmed, not just eyeballed).
+- `modules/03-harness-engineering/AGENT.md` — new, the harness-agnostic agent-facing counterpart to
+  `README.md`: what to read, what to build, how to write the `runs/` entry, and an explicit
+  instruction to stop at a submitted entry and never self-certify or advance the learner to Module
+  04 on its own assessment.
+
+### Decisions Made
+
+Followed the plan's own recommended design: Option A (static manifest) + Option E (the existing
+runs ledger) as the pilot's base layer; Option C (a `tv` CLI) and Option B (an MCP server) stay
+explicitly staged as later phases, not built now — the plan's own risk section warns against
+building the service before the manifest is proven, and that reasoning was followed rather than
+re-litigated.
+
+### Assumptions
+
+Module 03's README already carried a complete, real 6-criterion rubric (authored in the prior
+session's full five-module content pass), so the plan's original "sequencing choice" caveat (build
+plumbing against a placeholder rubric, or co-produce with real content) resolved itself in favor of
+building directly against the real rubric — no placeholder was needed.
+
+### Risks
+
+- **Proven-by-construction, not proven-by-observation.** Every new file is internally consistent
+  and schema-valid, and cross-checked against the README for drift, but no actual harness has yet
+  parsed `module.yaml`/`AGENT.md` and produced a real transcript. The plan's own verification
+  section is explicit that "the observed behavior, not the file's existence, is the proof" — this
+  session built the plumbing (steps 1-4), not the proof (step 5, the dry run). Recorded as the
+  explicit next step in `docs/next-actions.md`, not left implicit.
+- **Two-sources-of-truth drift**, same risk the plan itself names: `module.yaml` and `README.md`
+  must be kept in sync by hand going forward. Checked clean at write time; nothing currently
+  enforces it automatically (no drift-check script added this session — a candidate for
+  `scripts/check-mirror-drift.sh`-style tooling if this pattern spreads past Module 03).
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "agent-native manifest pilot for Module 03" section: the real dry
+run (a harness actually consuming the manifest, building the harness config, demonstrating
+reset-and-resume, writing a `runs/` entry) is the load-bearing next step, followed by one real
+human-confirmation exercise and the plan's scoped 3-persona review-panel re-run.
+
+### Validation
+
+- `ruby -ryaml` parse check on all three new/changed YAML files (`modules/.manifest.schema.yaml`,
+  `modules/03-harness-engineering/module.yaml`, `runs/.schema.yaml`): all valid.
+- `grep` confirmed `module.yaml`'s `question` and `gate` fields appear verbatim in
+  `modules/03-harness-engineering/README.md` and `modules/README.md`'s arc table — no drift.
+- No dry run performed this session (see Risks above); this is explicitly not yet end-to-end
+  verified.
+
+### Mind-palace updated
+
+No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
+requested.
