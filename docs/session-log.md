@@ -843,3 +843,58 @@ human-confirmation exercise and the plan's scoped 3-persona review-panel re-run.
 
 No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
 requested.
+
+## 2026-07-04 - New branch reconciling the manifest pilot with the live deploy, dry run executed, minimal site styling
+
+### What changed
+
+- **New branch, `agent/claude/module-03-agent-native-pilot`, off `main`** (which had moved ahead
+  with the real GitHub Pages deploy, done by the user in parallel). Cherry-picked the manifest-pilot
+  commit (`352dc70`) forward onto it, resolving append-only-log conflicts in `decisions.md`,
+  `next-actions.md`, `session-log.md` by keeping both sides' entries.
+- **Ran the Module 03 manifest pilot's dry run for real** (`docs/agent-native-interaction-plan.md`
+  §5's load-bearing verification step): two genuinely disconnected fresh-agent phases in an isolated
+  git worktree, self-grading via `coachgremlin/grader.md`, a `runs/` ledger entry that never
+  self-certifies, and a negative control. Found and fixed two real ambiguities in `AGENT.md`. Full
+  detail in `docs/decisions.md`'s matching row and `runs/2026-07-04-module-03-manifest-dry-run/`.
+  Fixture left unsolved; worktree discarded after extracting evidence.
+- **Minimal styling pass on `site/`**: `ink`/`paper`/`accent` moved to RGB-channel CSS custom
+  properties so Tailwind's opacity modifiers keep working and `prefers-color-scheme: dark` drives
+  both palettes automatically; links/nav/wordmark now actually use the accent color; build-log and
+  homepage entry lists gained a real card treatment (border, subtle background, hover state)
+  instead of whitespace-only separation; header gained a subtle bottom divider.
+
+### Decisions Made
+
+See `docs/decisions.md`'s two new 2026-07-04 rows: the branch strategy (fresh branch off `main` plus
+a forward cherry-pick, rather than merging the live deploy backward into the older branch), and the
+styling approach (CSS custom properties over a JS-driven theme toggle, since `prefers-color-scheme`
+covers the actual need with zero new dependencies or client-side code).
+
+### Risks
+
+- The `astro dev` server exhibited a stale-HMR artifact during the styling work where compiled CSS
+  looked like it had baked custom-property values in literally (making dark mode appear broken).
+  The real `astro build` output was correct throughout. Worth remembering as a pattern: verify
+  dark-mode/CSS-variable changes in Astro against `astro preview` (the real build), not just
+  `astro dev`, since the dev server's incremental compilation isn't always representative.
+- Module 03's manifest pilot is now dry-run-verified but still not human-confirmed, and the plan's
+  scoped 3-persona review-panel re-run hasn't happened yet — both remain open per `docs/next-actions.md`.
+
+### Next Actions
+
+See `docs/next-actions.md`: assess and report the remaining content backlog (Module 04 extensions,
+Module 05 remaining variants, the standing module-review item), which is the next thing this session
+moves to.
+
+### Validation
+
+- `astro check`: 0 errors/warnings/hints.
+- `astro build`: clean, 8 pages, `dist/CNAME` present.
+- Playwright screenshots (via `astro preview`, not the dev server) confirmed both light and dark
+  rendering for the homepage, build-log index, and a build-log post.
+- `git status` after each commit: only the intended files touched.
+
+### Mind-palace updated
+
+No — not requested; nothing this session required a live-vault write.

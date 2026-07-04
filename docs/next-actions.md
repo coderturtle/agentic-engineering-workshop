@@ -20,7 +20,7 @@ runs, each catching a different real bug) and `docs/decisions.md` for the correc
       standing behavior change (every future push to `main` touching those paths auto-deploys).
 - [ ] Visually confirm the live site in a browser (verified via `curl`/API only so far).
 - [ ] Run `npm audit` on `site/`'s dependencies before this matters more (site is now public).
-- [ ] Add minimal styling to the deployed site (in progress this session).
+- [x] **Minimal styling pass done** (this branch): accent color actually used (links, nav, wordmark), dark mode via `prefers-color-scheme` (RGB-channel CSS custom properties, no toggle/JS/new dependency), card treatment for build-log/homepage entry lists, subtle header divider. Verified against the real `astro build` output (not just `astro dev`, which had a stale-HMR artifact) via `astro preview` + Playwright screenshots in both light and dark, plus a clean `astro check`.
 
 This supersedes the "GitHub Pages custom-domain design pass" and cross-repo-infra-blocked sections
 that previously lived here — the domain is live, so those are resolved, not just planned.
