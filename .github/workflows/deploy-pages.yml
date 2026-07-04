@@ -16,6 +16,11 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  # PUT /repos/{owner}/{repo}/pages (setting the custom domain, and the very
+  # first Pages enablement) needs repo-administration access, not just
+  # pages:write - that only covers deployments. Without this, the default
+  # GITHUB_TOKEN gets "Resource not accessible by integration" (403).
+  administration: write
 
 concurrency:
   group: "pages"
