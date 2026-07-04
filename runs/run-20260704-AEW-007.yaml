@@ -1,0 +1,20 @@
+schema_version: "1"
+run_id: run-20260704-AEW-007
+project: terminal-velocity
+task_id: module-05-synthesis-capstone-review
+task_type: review
+engine: claude-sonnet-5
+status: done
+created: 2026-07-04
+human_confirmed: true
+human_notes: >
+  coderturtle reviewed and confirmed (go) 2026-07-04: the two shipped
+  variants (harness-bottleneck, loop-bottleneck), each independently
+  diagnosed via a real isolating test, plus the two real fixture bugs found
+  and fixed during review (a nonexistent-directory scope reference,
+  self-spoiling context files). Honest scope note (2 of 4 layers live)
+  still accurate at confirmation time; the two remaining variants
+  (prompt-bottleneck, context-bottleneck) are in progress this same session
+  and will get their own review once landed.
+output_artifact: runs/2026-07-03-module-05-dry-run/
+failure_reason: ""
