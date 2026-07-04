@@ -111,10 +111,10 @@ const recentEntries = (await getCollection("buildlog", ({ data }) => !data.draft
         <ul class="mt-6 space-y-4">
           {recentEntries.map((entry) => (
             <li>
-              <a href={`${base}build-log/${entry.id}/`} class="text-lg font-semibold underline">
-                {entry.data.title}
+              <a href={`${base}build-log/${entry.id}/`} class="entry-card">
+                <p class="entry-title text-lg font-semibold">{entry.data.title}</p>
+                <p class="mt-1 text-sm opacity-80">{entry.data.description}</p>
               </a>
-              <p class="text-sm opacity-80">{entry.data.description}</p>
             </li>
           ))}
         </ul>
