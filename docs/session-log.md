@@ -853,11 +853,14 @@ requested.
   commit (`352dc70`) forward onto it, resolving append-only-log conflicts in `decisions.md`,
   `next-actions.md`, `session-log.md` by keeping both sides' entries.
 - **Ran the Module 03 manifest pilot's dry run for real** (`docs/agent-native-interaction-plan.md`
-  §5's load-bearing verification step): two genuinely disconnected fresh-agent phases in an isolated
-  git worktree, self-grading via `coachgremlin/grader.md`, a `runs/` ledger entry that never
-  self-certifies, and a negative control. Found and fixed two real ambiguities in `AGENT.md`. Full
-  detail in `docs/decisions.md`'s matching row and `runs/2026-07-04-module-03-manifest-dry-run/`.
-  Fixture left unsolved; worktree discarded after extracting evidence.
+  §5's load-bearing verification step): a phase-2 fresh agent in an isolated git worktree resumed
+  with zero access to phase 1's transcript (the actual property under test), self-grading via
+  `coachgremlin/grader.md`, a `runs/` ledger entry that never self-certifies, and a negative control.
+  Found and fixed two real ambiguities in `AGENT.md`. Full detail in `docs/decisions.md`'s matching
+  row (updated after this session's own Review Panel re-run corrected "two genuinely disconnected
+  phases" to be precise about what's actually preserved as evidence) and
+  `runs/2026-07-04-module-03-manifest-dry-run/`. Fixture left unsolved; worktree discarded after
+  extracting evidence.
 - **Minimal styling pass on `site/`**: `ink`/`paper`/`accent` moved to RGB-channel CSS custom
   properties so Tailwind's opacity modifiers keep working and `prefers-color-scheme: dark` drives
   both palettes automatically; links/nav/wordmark now actually use the accent color; build-log and
@@ -960,4 +963,65 @@ See `docs/next-actions.md`'s new "content backlog closed" status section.
 ### Mind-palace updated
 
 No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
+requested.
+
+## 2026-07-04 - Scoped Review Panel on Module 03's manifest pilot; fixed what it found
+
+### What changed
+
+- Ran the scoped 3-persona review panel (Instructional Designer, Security-Conscious Reviewer,
+  Skeptical Practitioner/Critic) `docs/agent-native-interaction-plan.md` §5 itself calls for,
+  against the manifest pilot (`module.yaml`, `AGENT.md`, `coachgremlin/grader.md`,
+  `modules/.manifest.schema.yaml`, the dry-run evidence and its ledger entry).
+- **Two personas independently confirmed the Human Gate is enforced by instruction only**: no CI
+  workflow, script, or hook anywhere reads or blocks on `human_confirmed`. Fixed by stating this
+  plainly in `AGENT.md`, `coachgremlin/grader.md`, `coachgremlin-assessment.md`, and the ledger
+  entry, rather than presenting the gate as more solid than it currently is.
+- **Two personas independently found a real overclaim**: "two genuinely disconnected fresh-agent
+  phases run this session" (in `docs/decisions.md`/`docs/session-log.md`) overstated what's
+  actually preserved as evidence. Phase 1 was a real agent invocation the orchestrating session
+  dispatched, but its transcript isn't a standalone artifact; only phase 2's account of finding it
+  "already on disk" is, which is the correct, intended epistemic position for a reset-and-resume
+  test, not a gap. Fixed by stating this precisely everywhere it was previously compressed.
+- Also fixed: the "harness-agnostic" claim was untested against a second harness (now caveated
+  everywhere it's claimed); soft self-certifying language in `rubric_scores` ("meets, gate
+  cleared") reworded to read as observed evidence, not certification, per a new rule added to
+  `coachgremlin/grader.md`; a rubric-drift bug where `module.yaml`'s schema couldn't represent a
+  criterion that's both gate and scored (`modules/.manifest.schema.yaml` gained a
+  `gate_and_scored` value); `coachgremlin/grader.md` itself was outside `check-brand-lint.sh`'s
+  scope entirely despite being genuinely learner-facing content, added to the scope after fixing
+  its own em-dash violations.
+
+### Decisions Made
+
+See `docs/decisions.md`'s updated 2026-07-04 row for the manifest-pilot dry run, now precise about
+what phase 2 could and couldn't see. Full findings and fixes: `docs/review-panel/2026-07-04-module-03-manifest-pilot-content.md`.
+
+### Risks
+
+- The dry run still only demonstrates one compliant agent choosing to follow the Human Gate
+  instructions, not a mechanical guarantee against a careless or adversarial one; this is now
+  documented as an open limitation, not fixed (fixing it would mean building an actual enforcement
+  mechanism, out of scope for a documentation-and-wording pass).
+- Per the Instructional Designer's finding: this dry run validated the pilot's own authors more
+  than a genuinely cold learner. Tracked in `docs/next-actions.md` as a reason a second harness and
+  a fresh, uninvolved run would carry more weight than another self-run.
+
+### Next Actions
+
+See `docs/next-actions.md`: the human-confirmation exercise for this pilot is still open, and a
+second-harness/fresh-learner verification pass is now explicitly recommended before deciding on
+the `tv` CLI or MCP server phases.
+
+### Validation
+
+- `scripts/check-brand-lint.sh --check`: clean, now covering `coachgremlin/` too (25 files, up
+  from 24).
+- `ruby -ryaml` parse check on all touched YAML files: valid.
+- Drift check: `module.yaml`'s `question`/`gate` still match `README.md` verbatim (case-insensitive
+  spot check confirmed a false-alarm on capitalization, not real drift).
+
+### Mind-palace updated
+
+No, nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
 requested.

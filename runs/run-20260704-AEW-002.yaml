@@ -14,24 +14,29 @@ output_artifact: runs/2026-07-04-module-03-manifest-dry-run/
 failure_reason: ""
 rubric_scores:
   - criterion: "Bounded reach"
-    result: "meets — git status confined to fixtures/receipts/receipts/{cli.py,grouping.py} plus the in-fixture notes file across the whole worktree, verified before/after every phase; boundary is explicit in the sub-agent's own definition but enforced by prompt-level discipline, not sandboxing (tools: restricts tool names, not file paths)"
+    result: "observed within scope: git status confined to fixtures/receipts/receipts/{cli.py,grouping.py} plus the in-fixture notes file across the whole worktree, checked before/after every phase; boundary is explicit in the sub-agent's own definition, but enforced by prompt-level discipline, not sandboxing (tools: restricts tool names, not file paths, so this is not a hard guarantee)"
   - criterion: "Sub-agent/specialist boundary"
-    result: "meets — one named specialist (.claude/agents/receipts-category-summary.md), one stated responsibility, reused unmodified across all three sub-agent invocations"
+    result: "observed: one named specialist (.claude/agents/receipts-category-summary.md), one stated responsibility, reused unmodified across all three sub-agent invocations"
   - criterion: "Persistent state survives reset"
-    result: "meets, gate cleared — genuinely fresh Agent-tool session resumed from on-disk notes and completed correctly, independently reverified by rerunning the test suite; negative control found this specific task's remaining work was also reconstructable from code alone, so the notes weren't strictly necessary here (mechanism real and correctly exercised; necessity for this task not demonstrated, matching the original 2026-07-03 reference run's same finding)"
+    result: "gate criterion, observed evidence follows, not a certification: a genuinely fresh Agent-tool session resumed from on-disk notes and completed correctly, independently reverified by rerunning the test suite. Negative control found this specific task's remaining work was also reconstructable from code alone, so the notes weren't strictly necessary here (mechanism real and correctly exercised; necessity for this task not demonstrated, matching the original 2026-07-03 reference run's same finding). A human should read final-diff.patch and the checkpoints directly before treating this as settled."
   - criterion: "Actually ran"
-    result: "meets, gate cleared — two independent Agent-tool invocations with real tool-call transcripts, both independently reverified by the orchestrator (test reruns, diffs, checkpoint comparisons) rather than trusting self-reported success; minor honest gap: no separately-exported raw session-log file exists beyond this conversation's own tool-call record and the README compiled from it"
+    result: "gate criterion, observed evidence follows, not a certification: two independent Agent-tool invocations with real tool-call transcripts, both independently reverified by the orchestrator (test reruns, diffs, checkpoint comparisons) rather than trusting self-reported success. Honest gap: no separately-exported raw session-log file exists beyond this conversation's own tool-call record and the README compiled from it."
   - criterion: "Isolation, conditional"
-    result: "satisfied via the allowed alternative — no git worktree used for the exercise itself; file-level checkpoints (phase1-stop, phase2-with-notes, negative-control-without-notes) provided the isolation needed for the negative control, which the rubric explicitly permits"
+    result: "satisfied via the allowed alternative: no git worktree used for the exercise itself; file-level checkpoints (phase1-stop, phase2-with-notes, negative-control-without-notes) provided the isolation needed for the negative control, which the rubric explicitly permits"
   - criterion: "Reusable generality"
-    result: "meets, with a caveat — the sub-agent definition uses relative, fixture-shape paths, not hardcoded to one location; this run's own invocation prompts passed an absolute path due to the Agent tool's cwd-reset requirement, a property of how this run was driven, not a defect in the reusable config itself"
+    result: "observed, with a caveat: the sub-agent definition uses relative, fixture-shape paths, not hardcoded to one location; this run's own invocation prompts passed an absolute path due to the Agent tool's cwd-reset requirement, a property of how this run was driven, not a defect in the reusable config itself"
 coachgremlin_assessment: >-
   Full self-assessment in runs/2026-07-04-module-03-manifest-dry-run/coachgremlin-assessment.md.
-  Summary: both gate criteria (persistent state survives reset; actually ran) are met, with honest
-  caveats recorded rather than smoothed over — bounded reach is discipline-enforced, not sandboxed;
-  the negative control found the notes file wasn't strictly necessary for this specific task
-  (mechanism demonstrated, necessity not); the transcript is compiled from a real record rather than
-  a separately-exported raw log. Recommendation: a human should independently review
-  final-diff.patch, the checkpoints directory, and the assessment itself before deciding whether the
-  reset-and-resume evidence is convincing. This assessment does not certify the exercise and does not
-  advance the learner to Module 04 — that is human_confirmed's decision alone.
+  This field and rubric_scores above are an agent's self-assessment, not a certification: read
+  alone, without that file's prose, they should not be mistaken for confirmation. Summary: the
+  observed evidence for both gate criteria (persistent state survives reset; actually ran) is real
+  and independently reverified, with honest caveats recorded rather than smoothed over. Bounded
+  reach is discipline-enforced, not sandboxed. The negative control found the notes file wasn't
+  strictly necessary for this specific task (mechanism demonstrated, necessity not). The transcript
+  is compiled from a real record rather than a separately-exported raw log. Also note: this run
+  exercised exactly one harness (Claude Code); it does not demonstrate harness-agnosticism.
+  Recommendation: a human should independently review final-diff.patch, the checkpoints directory,
+  and the assessment itself before deciding whether the reset-and-resume evidence is convincing.
+  This assessment does not certify the exercise and does not advance the learner to Module 04: that
+  is human_confirmed's decision alone, and nothing here or elsewhere in this repo mechanically
+  enforces that boundary today.

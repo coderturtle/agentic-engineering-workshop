@@ -13,9 +13,17 @@ evidence in `runs/` ledger entries. See `docs/decisions.md`'s 2026-07-04 rows fo
 **Still open, not done this session:**
 - [ ] Whether Module 04's dry run counts as run 1 of Coachgremlin's 3-run Review Trigger (a
       Coachgremlin-maturity question, separate from module-content confirmation).
-- [ ] Module 03's agent-native manifest pilot needs its own human-confirmation exercise, then the
-      plan's scoped 3-persona review-panel re-run (Instructional Designer, Security-Conscious
-      Reviewer, Skeptical Critic), before deciding on the `tv` CLI / MCP server phases.
+- [x] ~~Module 03's agent-native manifest pilot needs its own human-confirmation exercise, then the
+      plan's scoped 3-persona review-panel re-run~~ **Review-panel re-run done 2026-07-04**
+      (`docs/review-panel/2026-07-04-module-03-manifest-pilot-content.md`): found the Human Gate is
+      enforced by instruction only (no hook/CI reads `human_confirmed`), an overclaim in how the
+      dry run's "two disconnected phases" was summarized (fixed), and that this pilot's harness-
+      agnostic claim is still untested against a second harness. All fixed except the harness test
+      itself. **Still open:** the human-confirmation exercise itself, and (per the panel's
+      Instructional Designer finding) that this dry run validated the pilot's own authors more than
+      a cold learner, so a second harness *and* a genuinely fresh, uninvolved learner/agent would
+      carry more evidentiary weight than another self-run before deciding on the `tv` CLI / MCP
+      server phases.
 - [ ] Consider whether the Module 04/05 review-panel findings (e.g. the blast-radius script's
       rename/deletion handling, now fixed) suggest a similar audit of the two original Module 05
       variants (`sabotaged-harness`/`sabotaged-loop`), which haven't been re-reviewed since 2026-07-03.

@@ -2,7 +2,7 @@
 # Same convention as runs/.schema.yaml: this file documents the shape a
 # per-module module.yaml must follow; it is not itself executable. A module's
 # module.yaml sits beside its README.md as the parseable counterpart to that
-# prose — see docs/agent-native-interaction-plan.md §5 and
+# prose, see docs/agent-native-interaction-plan.md §5 and
 # site/src/content/config.ts for the "schema beside prose, one source of
 # truth" pattern this imitates. The README remains the human-readable source;
 # module.yaml must mirror its gate and question without drift, never invent
@@ -25,7 +25,7 @@ fields:
   rubric:                     # list of {criterion, observable, weight}; must cover the same ground as the README's Rubric section, not a parallel invention
     - criterion: string
       observable: string       # what evidence proves this criterion, not a restatement of the criterion
-      weight: "scored | gate"  # "gate" criteria block advancement outright; "scored" criteria are graded but not individually blocking
+      weight: "scored | gate | gate_and_scored"  # "gate" criteria block advancement outright; "scored" criteria are graded but not individually blocking; "gate_and_scored" is both at once (added 2026-07-04: a plain "gate" was silently collapsing a README criterion that's explicitly both, per the Workshop Review Panel's Module 03 scoped re-run)
 
   stop_condition: string      # verbatim or equivalent to the README's "Required to advance / stop condition" section
 
@@ -40,7 +40,7 @@ fields:
 
   human_gate:
     non_delegation_clause: string   # per-module statement of what the human must have done themselves, even if an agent drives the rest (docs/agent-native-interaction-plan.md §3, Q3)
-    attestation_requirement: string  # what human_confirmed: true must mean for this module — understanding, not just an artifact existing (§3, Q2)
+    attestation_requirement: string  # what human_confirmed: true must mean for this module, understanding, not just an artifact existing (§3, Q2)
 
 # Hard rules for anything that reads or writes a module.yaml:
 # - A module.yaml never emits or implies a terminal "complete"/"certified" state.
@@ -48,4 +48,4 @@ fields:
 # - No module.yaml exists without a README.md beside it; the manifest is
 #   validated against the README's own gate/question text, not maintained
 #   independently. If they diverge, the README is the defect to fix, or the
-#   manifest is — decide which, but never let both stand.
+#   manifest is, decide which, but never let both stand.

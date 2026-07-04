@@ -20,7 +20,8 @@ it does not advance the learner to Module 04. `human_confirmed` on the accompany
 
 ## Rubric scoring (against `module.yaml`'s six criteria)
 
-1. **Bounded reach — scored. Meets.** `git status --porcelain` across the *whole worktree*, not
+1. **Bounded reach — scored. Observed within scope, with a real limit on what that means (below).**
+   `git status --porcelain` across the *whole worktree*, not
    just the fixture, before and after every phase, showed changes confined to
    `fixtures/receipts/receipts/{cli.py,grouping.py}` and the in-fixture notes file — nothing in
    `tests/`, `SPEC.md`, `data/`, or `variants/`. The boundary is explicit in the sub-agent's own
@@ -38,7 +39,8 @@ it does not advance the learner to Module 04. `human_confirmed` on the accompany
    control). Not authored fresh in this run — it's the module's pre-existing reference
    implementation — but the criterion asks for a real bounded specialist in use, which this is.
 
-3. **Persistent state survives reset — gate + scored. Meets, gate cleared.** On-disk state
+3. **Persistent state survives reset — gate + scored. Gate criterion: observed evidence follows,
+   not a certification that it's cleared.** On-disk state
    (`.receipts-category-progress.md`) existed before this run (inherited from an earlier, uncredited
    session — see "What I did not author," below) and described reasoning and remaining work in
    prose, not a finished copy-pasteable diff — confirmed by reading it before trusting it. A
@@ -52,7 +54,8 @@ it does not advance the learner to Module 04. `human_confirmed` on the accompany
    was; it is not evidence that this particular task needed it, and the run says so plainly rather
    than implying necessity it didn't demonstrate.
 
-4. **Actually ran — gate. Meets, gate cleared, most strongly-evidenced criterion.** Two independent
+4. **Actually ran — gate. Observed, most strongly-evidenced criterion, still not a certification.**
+   Two independent
    `Agent` tool invocations of the real sub-agent, both producing tool-call transcripts (visible in
    this session), both independently reverified afterward by the orchestrator: reran
    `PYTHONPATH=. python3 -m unittest tests.test_by_category -v` myself (not trusting either
@@ -95,14 +98,27 @@ done the whole exercise end to end in one continuous session.
 
 ## Recommendation
 
-All four rubric-relevant gates and scored criteria that this run can speak to are met, with the
-caveats above stated rather than smoothed over. The weakest points are (a) reach's enforcement being
-discipline-based rather than sandboxed, and (b) the "actually ran" transcript being compiled from a
-real record rather than a separately-exported raw log. Neither is a fabricated result — both are
-honestly-scoped gaps in artifact form, not in whether the work happened.
+All four rubric-relevant gates and scored criteria that this run can speak to are observed as met,
+with the caveats above stated rather than smoothed over. The weakest points are (a) reach's
+enforcement being discipline-based rather than sandboxed, and (b) the "actually ran" transcript
+being compiled from a real record rather than a separately-exported raw log. Neither is a
+fabricated result: both are honestly-scoped gaps in artifact form, not in whether the work
+happened.
+
+Two more limits worth stating plainly, surfaced by this module's own scoped Review Panel re-run:
+
+- **This dry run exercised exactly one harness** (Claude Code, via the `Agent` tool). `AGENT.md`'s
+  "harness-agnostic by design" claim is about the prose containing no Claude-Code-only assumption,
+  which is true, but harness-agnosticism itself (a second harness actually consuming this manifest
+  successfully) hasn't been empirically tested yet. Don't read this dry run as having demonstrated
+  that.
+- **The Human Gate this whole pilot depends on is enforced by instruction, not structurally.**
+  Nothing in this repo (no hook, no CI check, no schema validator) reads `human_confirmed` and
+  blocks on it. This run complied because the persona was followed, not because anything would have
+  caught non-compliance. Treat the gate as real but currently unenforced by tooling.
 
 Next step: a human should review the diff (`final-diff.patch`), the checkpoints directory, and this
-assessment, and decide independently whether the reset-and-resume evidence is convincing — not take
+assessment, and decide independently whether the reset-and-resume evidence is convincing, not take
 this document's word for it. Per `coachgremlin/grader.md`'s attestation rule, `human_confirmed: true`
 on the ledger entry would mean "I reviewed this and understand why it passes," not "an artifact
 exists." That flip is not made here.

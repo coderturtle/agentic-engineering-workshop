@@ -50,7 +50,14 @@ persona locally," never "the workshop graded me."
    is a human decision, and per `coachgremlin/grader.md`'s attestation rule, it means "I reviewed
    this and understand why it passes," not "an artifact exists." If you are drafting `human_notes`
    for a human to review, leave the field itself for them to write in their own words; don't
-   ghostwrite the attestation you're supposed to be attesting to.
+   ghostwrite the attestation you're supposed to be attesting to. When writing `rubric_scores`,
+   don't use language that reads like certification ("cleared," "passed," "confirmed") for a
+   `weight: gate` criterion even when you believe it's met: say what you observed, not that it's
+   settled. **This whole stop-and-defer instruction is enforced by you following it, not by
+   anything structural.** Nothing in this repo (no hook, no CI check, no schema validator) reads
+   `human_confirmed` and blocks on it; a careless or adversarial agent could write
+   `human_confirmed: true` and nothing here would catch it. Treat this as a real limitation of the
+   current pilot, not a solved problem, until a mechanical check exists.
 
 ## Non-delegation
 
@@ -61,12 +68,17 @@ harness," build it, but make the scoping and verification decisions visible in t
 tell judgment happened, not just that a file got written. See `module.yaml`'s
 `human_gate.non_delegation_clause`.
 
-## Harness-agnostic by design
+## Harness-agnostic by design (design intent; only tested against one harness so far)
 
-Nothing above assumes Claude Code specifically. `README.md`'s translation table maps sub-agents,
-worktrees, MCP servers, and skills across Claude Code, Cursor, and Codex CLI: use whichever
-mechanism your harness actually enforces, and note in your transcript whether the boundary you
-declared is genuinely enforced by your harness or just requested of it (the table's own
-"Enforcement isn't equivalent across the row" warning). A CLI or MCP-server pilot may exist for this
-module later (`docs/agent-native-interaction-plan.md` §5, phases 2-3); this manifest is the base
-layer any of those would sit on top of, not a bet on one harness.
+Nothing above assumes Claude Code specifically, by design. `README.md`'s translation table maps
+sub-agents, worktrees, MCP servers, and skills across Claude Code, Cursor, and Codex CLI: use
+whichever mechanism your harness actually enforces, and note in your transcript whether the
+boundary you declared is genuinely enforced by your harness or just requested of it (the table's
+own "Enforcement isn't equivalent across the row" warning). Be precise about what this claim
+means: the prose has no Claude-Code-only assumption baked in, but this pilot's own dry run
+(`runs/2026-07-04-module-03-manifest-dry-run/`) only ever exercised Claude Code's own sub-agent
+mechanism end to end; a second harness hasn't actually driven this manifest yet, which is exactly
+the verification step `docs/agent-native-interaction-plan.md` calls for before treating
+harness-agnosticism as demonstrated rather than designed-for. A CLI or MCP-server pilot may exist
+for this module later (§5, phases 2-3); this manifest is the base layer any of those would sit on
+top of, not a bet on one harness.

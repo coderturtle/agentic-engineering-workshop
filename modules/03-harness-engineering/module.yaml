@@ -1,5 +1,5 @@
 # Machine-readable manifest for Module 03, validated against modules/.manifest.schema.yaml.
-# Mirrors README.md's gate, question, and Rubric section verbatim — do not let this file and
+# Mirrors README.md's gate, question, and Rubric section verbatim, do not let this file and
 # the README diverge; if you change one, change the other in the same commit.
 schema_version: "1"
 module_id: "03-harness-engineering"
@@ -14,19 +14,19 @@ gate: "A harness config that actually runs, with a transcript"
 
 rubric:
   - criterion: "Bounded reach"
-    observable: "The config grants only the access the task needs; over-broad access (full-repo write, running the whole suite, network) is scoped out, and the boundary is explicit in the sub-agent's own definition, not just followed by luck. Verify by checking what's outside the granted scope, not just what's inside it — a git status or directory listing beyond the allowed path should show nothing touched."
+    observable: "The config grants only the access the task needs; over-broad access (full-repo write, running the whole suite, network) is scoped out, and the boundary is explicit in the sub-agent's own definition, not just followed by luck. Verify by checking what's outside the granted scope, not just what's inside it, a git status or directory listing beyond the allowed path should show nothing touched."
     weight: scored
   - criterion: "Sub-agent/specialist boundary"
     observable: "A named specialist with a stated single responsibility, not a monolith asked to do everything."
     weight: scored
   - criterion: "Persistent state survives reset"
-    observable: "On-disk state exists; a demonstrated context reset (a genuinely new session with no conversational memory of the first) resumes from it and completes correctly. The notes must describe state and reasoning, not contain a finished, copy-pasteable answer — if the second session's job is just to transcribe what the first session already wrote in full, this criterion is staged, not demonstrated."
-    weight: gate
+    observable: "On-disk state exists; a demonstrated context reset (a genuinely new session with no conversational memory of the first) resumes from it and completes correctly. The notes must describe state and reasoning, not contain a finished, copy-pasteable answer: if the second session's job is just to transcribe what the first session already wrote in full, this criterion is staged, not demonstrated."
+    weight: gate_and_scored
   - criterion: "Actually ran"
     observable: "Transcript shows the configured harness executing the task correctly, not just described. Self-reported success isn't enough; the result should be independently reproducible from the transcript's own evidence (diffs, command output)."
     weight: gate
   - criterion: "Isolation, conditional"
-    observable: "If worktrees are used, experimental work does not collide with the main checkout. Not required — a plain isolated working copy satisfies the exercise if a worktree isn't used."
+    observable: "If worktrees are used, experimental work does not collide with the main checkout. Not required, a plain isolated working copy satisfies the exercise if a worktree isn't used."
     weight: scored
   - criterion: "Reusable generality"
     observable: "The config is not hard-wired to one path in a way that cannot transfer to a real project."
@@ -62,7 +62,7 @@ human_gate:
     is verified), even if an agent typed the config or ran the reset-and-resume. Module 03 is one of
     the strongest-fit modules for agent-native interaction (docs/agent-native-interaction-plan.md
     §3, Q3) precisely because the skill here is orchestration and verification, not authorship of a
-    single turn — but "I asked my agent to build a harness" without reviewing what it scoped in and
+    single turn, but "I asked my agent to build a harness" without reviewing what it scoped in and
     out still isn't the exercise.
   attestation_requirement: >-
     human_confirmed: true means "I reviewed the harness config, understand exactly what it can and

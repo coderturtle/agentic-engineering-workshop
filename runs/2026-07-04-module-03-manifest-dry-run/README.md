@@ -10,6 +10,16 @@ orchestrating session) running the grader persona locally and orchestrating a bo
 Nothing here is "the workshop grading me" — it's a self-assessment against `module.yaml`'s rubric,
 recorded in `runs/` for a human to review.
 
+**Provenance note, added after this module's own scoped Review Panel re-run:** the phase-1 work
+described below (implementing `group_expenses_by_category`, stopping before `cli.py`) was a real
+agent invocation the orchestrating session dispatched and received a report from earlier the same
+day. That transcript is not preserved as a standalone file in this directory, only this document's
+own account of finding phase 1's artifacts already on disk, which is written from phase 2's actual
+epistemic position: phase 2 has zero access to phase 1's conversation, by design, since that's the
+exact property reset-and-resume is testing. Read "prior, partial attempt" and "uncredited session"
+below as phase 2's honest account of what it could see, not as evidence that phase 1's provenance is
+unknown to the project as a whole.
+
 ## Starting state found on disk (before this run)
 
 This worktree had a prior, partial attempt already on disk when this run began:

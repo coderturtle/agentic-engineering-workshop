@@ -1,6 +1,6 @@
 # Machine-readable run ledger schema.
 # Read by hekton-status and cross-project dashboard aggregators.
-# Scaffolded 2026-07-03 — run standardise-runs-ledger.py --project terminal-velocity --force to enrich.
+# Scaffolded 2026-07-03, run standardise-runs-ledger.py --project terminal-velocity --force to enrich.
 schema_version: "1"
 project: terminal-velocity
 project_type: factory-output
@@ -26,6 +26,6 @@ fields:
   # Added 2026-07-04 for task_type: exercise entries (the agent-native module-manifest
   # pilot, docs/agent-native-interaction-plan.md §5). Optional for task_type: task/review/session.
   module_id: "string, optional"            # which module's exercise this attempt is against, e.g. "03-harness-engineering"
-  attempt_driver: "human | agent | mixed, optional"  # who drove the attempt; changes what human_confirmed: true must mean (see docs/agent-native-interaction-plan.md §3, Q2) — for attempt_driver: agent, human_confirmed: true means "I can explain why this passes," not "an artifact exists"
+  attempt_driver: "human | agent | mixed, optional"  # who drove the attempt; changes what human_confirmed: true must mean (see docs/agent-native-interaction-plan.md §3, Q2), for attempt_driver: agent, human_confirmed: true means "I can explain why this passes," not "an artifact exists"
   rubric_scores: "list of {criterion, result}, optional"  # per-criterion result against the module's manifest rubric
-  coachgremlin_assessment: "string, optional"  # the grader persona's recommendation and next step; never a claim of certification — that's human_confirmed's job alone
+  coachgremlin_assessment: "string, optional"  # the grader persona's recommendation and next step; never a claim of certification, that's human_confirmed's job alone
