@@ -16,11 +16,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # PUT /repos/{owner}/{repo}/pages (setting the custom domain, and the very
-  # first Pages enablement) needs repo-administration access, not just
-  # pages:write - that only covers deployments. Without this, the default
-  # GITHUB_TOKEN gets "Resource not accessible by integration" (403).
-  administration: write
 
 concurrency:
   group: "pages"
@@ -48,26 +43,19 @@ jobs:
         run: npm run build
         working-directory: site
 
+      # Corrected 2026-07-04, found against a real deploy: setting Pages
+      # enablement or the custom domain via the API (PUT /repos/{owner}/{repo}/pages)
+      # needs repo-administration-level access. The default GITHUB_TOKEN cannot
+      # get this under any `permissions:` grant - `administration` isn't even a
+      # valid GITHUB_TOKEN permission scope (only contents/pages/id-token/etc.
+      # are; a workflow declaring it fails to parse at all, 422 on dispatch).
+      # Both Pages enablement and the custom domain (cname) are therefore
+      # one-time, human-run steps (`gh api --method PUT repos/{owner}/{repo}/pages
+      # -f cname=... -f build_type=workflow`, using the human's own authenticated
+      # session, not a workflow token) - already done for this repo. CI's job is
+      # build + deploy only, never repo-settings changes.
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      # Sets the custom domain (terminal-velocity.coderturtle.io) declared in
-      # site/public/CNAME so the repo's Pages settings match the built site,
-      # with no manual Settings -> Pages console step. Idempotent: safe to
-      # rerun every deploy. The Route53 CNAME record itself is Terraform,
-      # applied by a human via the agentic-infra-lab Infrastructure Gremlin
-      # (see .hekton/project.yaml's `deployment` block) - this step only
-      # configures the GitHub side, which is outside that gate's boundary.
-      - name: Configure custom domain
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method PUT "repos/${{ github.repository }}/pages" \
-            -f cname='terminal-velocity.coderturtle.io' \
-            -f build_type='workflow' \
-            --silent
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
