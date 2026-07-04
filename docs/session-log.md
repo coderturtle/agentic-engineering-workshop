@@ -898,3 +898,66 @@ moves to.
 ### Mind-palace updated
 
 No — not requested; nothing this session required a live-vault write.
+
+## 2026-07-04 - Finished the content backlog: Module 04's extensions, Module 05's remaining variants, human confirmation, review panel
+
+### What changed
+
+- **Human review recorded**: all five modules' existing dry-run evidence confirmed (go) by
+  coderturtle, recorded retroactively in `runs/` ledger entries (`run-20260703-AEW-001` updated,
+  `run-20260704-AEW-00{4,5,6,7}` new).
+- **Module 04's three optional extensions authored and verified**: Extension A
+  (`scripts/blast-radius-check.sh`, a reusable diff-scope checker), Extension B (documented and
+  live-verified the existing pre-push `check-brand-lint.sh` hook, including actually triggering it
+  via `git push --dry-run`), Extension C (a hill-climbing analysis proposing to fold Extension A
+  into `.claude/commands/ticket-to-pr-ready.md`, sitting under human review, not adopted).
+- **Module 05's remaining two variants built and rigorously tested**: `sabotaged-prompt/` and
+  `sabotaged-context/`, each via a background agent in an isolated worktree. Across 10 independent
+  fresh-agent runs and multiple sabotage designs (including one with the fixture's own `SPEC.md`
+  answer-key section redacted), neither reproduced its intended failure mode: this fixture family's
+  deliberate self-documentation (for Modules 01-04's sake) structurally defeats prompt/context
+  misdirection, since a thorough agent routes around bad instructions by reading code/tests it
+  already has access to. User's explicit call (given three framed options): ship both variants and
+  their full evidence as an honest, well-evidenced negative finding, not as confirmed diagnostic
+  exercises. The capstone's required exercise is unchanged (2 of 4 layers live).
+- **Workshop Review Panel run twice**: full 7-persona on Module 04's extensions, scoped 3-persona
+  on Module 05's update. Real bugs found and fixed in both passes (see Decisions).
+- Along the way, a tool-use mistake (spawning a fresh agent instead of resuming one via
+  `SendMessage`, which would have operated in the wrong location) was caught and corrected before
+  it wrote anything.
+
+### Decisions Made
+
+See `docs/decisions.md`'s four new 2026-07-04 rows: the human-confirmation recording, Module 04's
+extensions, Module 05's variant-construction-and-honest-finding decision, and the two review-panel
+runs and what they fixed.
+
+### Risks
+
+- Module 03's manifest pilot still needs its own human-confirmation exercise and scoped
+  review-panel re-run, not done this session (tracked in `docs/next-actions.md`).
+- The two original Module 05 variants (`sabotaged-harness`/`sabotaged-loop`) haven't had the same
+  fresh scrutiny the new work received; worth a look given what the new review passes found
+  elsewhere.
+- `blast-radius-check.sh`'s suffix-match glob logic is looser than "blast radius" implies (would
+  pass e.g. `vendor/receipts/grouping.py` against an allowlist of `receipts/grouping.py`); flagged
+  by a reviewer, not fixed, since no realistic adversarial case was found, only a caveat added.
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "content backlog closed" status section.
+
+### Validation
+
+- `scripts/check-brand-lint.sh --check`: clean throughout, rerun after every batch of edits.
+- `scripts/blast-radius-check.sh` regression-tested against real historical diffs after its
+  deletion/rename fix (unchanged PASS/FAIL outcomes on the two original cases, correct behavior on
+  new deletion test cases).
+- Both new Module 05 fixtures sanity-checked to still ship the seeded bug (`FAILED (failures=1)`
+  on `test_month_boundary_crosses_in_target_timezone`, nothing else).
+- `git status` clean after each commit; worktrees removed once evidence was extracted.
+
+### Mind-palace updated
+
+No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
+requested.

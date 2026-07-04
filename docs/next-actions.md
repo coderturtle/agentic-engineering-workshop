@@ -1,5 +1,25 @@
 # Next Actions: Terminal Velocity
 
+## Status: content backlog closed, all five modules human-confirmed (2026-07-04)
+
+Module 04's three optional extensions (verification-deepened, event-driven, hill-climbing) and
+Module 05's two remaining variants (prompt-bottleneck, context-bottleneck) are now built, verified,
+and Review-Panel-reviewed. Module 05's two new variants are a real, well-evidenced negative
+finding (10 independent fresh-agent runs, neither sabotage reproduced), shipped as documented
+negative-control artifacts, not required-exercise options; the capstone's required exercise stays
+at 2 of 4 layers live, honestly. coderturtle confirmed (go) all five modules' existing dry-run
+evidence in `runs/` ledger entries. See `docs/decisions.md`'s 2026-07-04 rows for full detail.
+
+**Still open, not done this session:**
+- [ ] Whether Module 04's dry run counts as run 1 of Coachgremlin's 3-run Review Trigger (a
+      Coachgremlin-maturity question, separate from module-content confirmation).
+- [ ] Module 03's agent-native manifest pilot needs its own human-confirmation exercise, then the
+      plan's scoped 3-persona review-panel re-run (Instructional Designer, Security-Conscious
+      Reviewer, Skeptical Critic), before deciding on the `tv` CLI / MCP server phases.
+- [ ] Consider whether the Module 04/05 review-panel findings (e.g. the blast-radius script's
+      rename/deletion handling, now fixed) suggest a similar audit of the two original Module 05
+      variants (`sabotaged-harness`/`sabotaged-loop`), which haven't been re-reviewed since 2026-07-03.
+
 ## Status: LIVE at terminal-velocity.coderturtle.io (2026-07-04)
 
 The site is deployed and reachable over both HTTP and HTTPS (cert already issued). Route53 records

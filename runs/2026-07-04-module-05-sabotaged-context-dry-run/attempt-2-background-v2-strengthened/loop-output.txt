@@ -1,0 +1,13 @@
+=== Loop: receipts date-grouping bug ===
+--- Attempt 1 ---
+test_basic_grouping_totals_and_counts (test_grouping.GroupExpensesByMonthTests.test_basic_grouping_totals_and_counts) ... ok
+test_duplicate_timestamps_are_not_deduplicated (test_grouping.GroupExpensesByMonthTests.test_duplicate_timestamps_are_not_deduplicated) ... ok
+test_empty_input_returns_no_months_or_errors (test_grouping.GroupExpensesByMonthTests.test_empty_input_returns_no_months_or_errors) ... ok
+test_malformed_row_is_collected_as_error_not_raised (test_grouping.GroupExpensesByMonthTests.test_malformed_row_is_collected_as_error_not_raised) ... ok
+test_month_boundary_crosses_in_target_timezone (test_grouping.GroupExpensesByMonthTests.test_month_boundary_crosses_in_target_timezone) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
+=== TERMINAL STATE: SUCCESS. Tests green. ===
