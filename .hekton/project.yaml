@@ -74,5 +74,12 @@ deployment:
   pages_host: coderturtle.github.io
   repo: coderturtle/terminal-velocity
   create_domain_verification: true
-  human_confirmed: false
+  human_confirmed: true
+  # Recorded 2026-07-04 after a real `terraform apply` in agentic-infra-lab's
+  # github-pages-dns pattern (hosted zone Z3DLQAZ6G5LV63). Both records
+  # confirmed live via `dig` against real Route53.
+  hosted_zone_id: Z3DLQAZ6G5LV63
+  record_fqdn: terminal-velocity.coderturtle.io
+  verification_record_fqdn: _github-pages-challenge-coderturtle.terminal-velocity.coderturtle.io
+  applied_date: 2026-07-04
 
