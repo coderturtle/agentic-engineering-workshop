@@ -1,6 +1,27 @@
 # Next Actions: Terminal Velocity
 
-## Next session: priorities (as of 2026-07-04, GitHub Pages custom-domain design pass)
+## Status: LIVE at terminal-velocity.coderturtle.io (2026-07-04)
+
+The site is deployed and reachable over both HTTP and HTTPS (cert already issued). Route53 records
+applied via `agentic-infra-lab`'s `github-pages-dns` pattern; Pages enabled and the custom domain
+set; `deploy-pages.yml` runs clean end to end (`workflow_dispatch`).
+
+**Real discovery, corrected in `deploy-pages.yml`**: the workflow's own design assumed its default
+`GITHUB_TOKEN` could enable Pages and set the custom domain via `gh api` — it cannot, under any
+`permissions:` grant (`administration` isn't even a valid `GITHUB_TOKEN` permission scope; a
+workflow declaring it fails to parse entirely). Both are one-time, human-run steps now (already
+done for this repo, via a human's own authenticated `gh` session). CI's job is build + deploy only.
+See `docs/session-log.md`'s "2026-07-04 - First live deploy" entry for the full story (three failed
+runs, each catching a different real bug) and `docs/decisions.md` for the corrected design record.
+
+**Not yet done:**
+- [ ] Uncomment the `push` trigger in `deploy-pages.yml` so future `site/**`/`docs/build-log/**`
+      changes auto-publish — deliberately not done yet without separate confirmation, since it's a
+      standing behavior change (every future push to `main` touching those paths auto-deploys).
+- [ ] Visually confirm the live site in a browser (verified via `curl`/API only so far).
+- [ ] Run `npm audit` on `site/`'s dependencies before this matters more (site is now public).
+
+## Next session: priorities (as of 2026-07-04, GitHub Pages custom-domain design pass) — superseded by the status above
 
 Custom domain (`terminal-velocity.coderturtle.io`) design is done (Opus plan, see `docs/decisions.md`'s 2026-07-04 rows) and this repo's own pieces are implemented: `site/public/CNAME`, the `astro.config.mjs` site/base cutover, and `deploy-pages.yml`'s `gh api` custom-domain + best-effort HTTPS-status steps. **Superseded:** the two "enable Pages in repo Settings" manual-console bullets further down this file — that's now automated by the workflow itself.
 

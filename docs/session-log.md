@@ -676,3 +676,91 @@ Confirmed `agentic-infra-lab`'s `git status` showed only the intended files touc
 ### Mind-palace updated
 
 No — not requested, and not required for this documentation-only follow-up.
+
+---
+
+## 2026-07-04 - First live deploy: terminal-velocity.coderturtle.io is up (three real bugs caught along the way)
+
+**Agent:** Claude
+
+### What changed
+
+- **Merged the CI/CD fix onto `main`.** The custom-domain workflow, `astro.config.mjs` cutover,
+  and `site/public/CNAME` (commit `0fae6fd`) had been sitting on `agent/claude/workshop-design-docs`
+  since earlier the same day — never pushed, never merged. `main`'s actual deploy workflow was
+  still the pre-custom-domain version. Cherry-picked `0fae6fd` and a second commit (recorded
+  Terraform outputs in `.hekton/project.yaml`) onto an updated `main`; two docs files
+  (`next-actions.md`, `session-log.md`) had merge conflicts from parallel history, resolved by
+  keeping both sides' content (nothing was actually duplicated — `main`'s side was empty at both
+  conflict points). Pushed as `7393162` and `c75c99d`.
+- **First deploy attempt failed**: `Configure Pages` (`actions/configure-pages@v5` with
+  `enablement: true`) failed — `GITHUB_TOKEN` cannot perform the very first Pages enablement.
+  Fixed by enabling Pages manually via a human-authenticated `gh api` call (not the workflow's
+  token) — a one-time, real administrative action, done once.
+- **Second attempt**: build succeeded, but `deploy` failed with "Deployment failed, try again
+  later" — a transient error, most likely a race right after Pages was enabled seconds earlier.
+  Retried; succeeded, build content live at `coderturtle.github.io/terminal-velocity/` (200 OK) —
+  but the custom domain (`cname`) was still unset.
+- **Root cause of the missing custom domain**: the "Configure custom domain" `gh api` step never
+  even ran on `main` at that point, because `main`'s workflow (pre-cherry-pick, at commit
+  `d6b8788`) was the *older* version without that step or `enablement: true` at all — this only
+  became visible after fixing the merge gap above.
+- **After the merge landed**, re-ran the deploy: `Configure custom domain` now ran but failed with
+  `Resource not accessible by integration (HTTP 403)`. First fix attempt added
+  `permissions: administration: write` to the workflow — **this was itself wrong**: `administration`
+  is not a valid `GITHUB_TOKEN` permission scope at all (only `contents`/`pages`/`id-token`/etc.
+  are), so the workflow failed to parse entirely (422 on every future dispatch, including
+  automatic ones). Reverted immediately.
+- **Real fix**: `GITHUB_TOKEN` structurally cannot enable Pages or set the custom domain, under any
+  permission grant — both require repo-administration-level access no workflow token can hold, only
+  a human's own authenticated session (or a stored PAT, deliberately not introduced). Set the custom
+  domain manually (same mechanism as the enablement fix); removed the "Configure custom domain" step
+  and `enablement: true` from `deploy-pages.yml` entirely, replaced with a comment explaining the
+  real constraint. Re-ran the deploy: fully green, build + deploy both succeeded.
+- **Verified live**: `terminal-velocity.coderturtle.io` returns HTTP 200 over both HTTP and HTTPS
+  (cert already issued — faster than the "minutes to ~an hour" estimate in the design docs).
+- Recorded real Terraform outputs (`record_fqdn`, `verification_record_fqdn`, `hosted_zone_id`,
+  `human_confirmed: true`) in `.hekton/project.yaml`'s `deployment` block, per
+  `agentic-infra-lab`'s `github-pages-dns` pattern's Phase 4 handoff.
+
+### Decisions Made
+
+See `docs/decisions.md`'s new 2026-07-04 row: Pages enablement and custom-domain configuration are
+one-time, human-run administrative steps, not something CI's default token can ever do — corrected
+from the original design's assumption that a `gh api` step using `GITHUB_TOKEN` would suffice.
+
+### Assumptions
+
+None beyond what's already recorded — this session executed against, and corrected, existing
+designs rather than making new architectural calls beyond the one above.
+
+### Risks
+
+- The three real bugs this session (unquoted TXT value in `agentic-infra-lab`'s Terraform module;
+  the missing merge onto `main`; the `GITHUB_TOKEN` permission-boundary misunderstanding) were each
+  caught only by a real deploy attempt, not by code review, local tests, or reasoning from docs.
+  Worth remembering as a pattern, not just three isolated incidents: this project's own designs have
+  now been wrong about GitHub/AWS API permission boundaries twice in one session, in ways that
+  looked entirely reasonable on paper.
+- HTTPS enforcement (`https_enforced` in the Pages API) still reads `false` even though the site
+  serves correctly over HTTPS — worth a follow-up check once GitHub's enforcement flag catches up,
+  though this doesn't block anything today.
+- The `push` trigger for auto-publish is still commented out, deliberately — not enabled this
+  session without separate confirmation, since it's a standing behavior change.
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "Status: LIVE" section: uncomment the `push` trigger (needs
+separate confirmation), visually confirm the site in a browser, run `npm audit`.
+
+### Validation
+
+- `curl` confirms `terminal-velocity.coderturtle.io` returns HTTP 200 over both HTTP and HTTPS.
+- `gh api repos/coderturtle/terminal-velocity/pages` confirms `cname` set, domain verified
+  (`pending_domain_unverified_at: null`).
+- `gh run watch` on the final deploy run: both `build` and `deploy` jobs green, all steps passed.
+
+### Mind-palace updated
+
+No — not requested this session; the mirror-drift check already flagged existing drift
+independent of this session's changes (pre-push hook warning, non-blocking).
