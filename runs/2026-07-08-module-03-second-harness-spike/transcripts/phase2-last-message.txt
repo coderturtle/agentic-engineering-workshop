@@ -1,0 +1,17 @@
+Implemented and verified the `--by-category` feature.
+
+Changes:
+- [receipts/grouping.py](/private/tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py:90): `group_expenses_by_category` groups parsed rows by `category`, preserving totals, counts, receipt IDs, and parse errors.
+- [receipts/cli.py](/private/tmp/module-03-pilot-attempt-l59CcI/receipts/cli.py:23): added `--by-category` and dispatches to category grouping.
+- [.receipts-category-progress.md](/private/tmp/module-03-pilot-attempt-l59CcI/.receipts-category-progress.md:1): appended the resume evidence, focused test output summary, and no-notes negative-control result.
+- [receipts/grouping.py](/private/tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py:90): cleaned the stale “not yet implemented” docstring.
+
+Verification run:
+```bash
+PYTHONPATH=. python3 -m unittest tests.test_by_category -v
+```
+Result: `Ran 2 tests ... OK`.
+
+I also temporarily hid `.receipts-category-progress.md` and spawned a fresh no-context verifier. It inspected only the relevant code/tests/data, ran the same focused test command, and passed. That confirms the remaining state was reconstructable from code/tests without the notes file, matching the module README’s negative-control requirement.
+
+I did not run the full suite because the module README explicitly scopes verification to `tests/test_by_category.py`; this fixture is also not a git repository, so scope evidence is recorded via file listing rather than `git status`.

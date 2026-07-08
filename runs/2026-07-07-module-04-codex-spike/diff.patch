@@ -1,0 +1,21 @@
+diff --git a/receipts/grouping.py b/receipts/grouping.py
+index 70a7d16..ee1c145 100644
+--- a/receipts/grouping.py
++++ b/receipts/grouping.py
+@@ -28,6 +28,7 @@ from __future__ import annotations
+ from collections import defaultdict
+ from dataclasses import dataclass, field
+ from datetime import datetime
++from zoneinfo import ZoneInfo
+ 
+ 
+ @dataclass
+@@ -77,7 +78,7 @@ def group_expenses_by_month(rows, tz: str) -> GroupResult:
+             errors.append(err)
+             continue
+         receipt_id, ts, amount = parsed
+-        key = ts.strftime("%Y-%m")
++        key = ts.astimezone(ZoneInfo(tz)).strftime("%Y-%m")
+ 
+         summary = months[key]
+         summary.total += amount

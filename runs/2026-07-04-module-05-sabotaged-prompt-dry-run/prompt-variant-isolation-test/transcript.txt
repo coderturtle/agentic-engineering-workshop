@@ -1,0 +1,67 @@
+Fresh sub-agent run: sabotaged-prompt variant, ISOLATING TEST (honest prompt.md)
+Working copy: prompt-variant-isolation-test/
+
+This is the isolating-test copy for the sabotaged-prompt variant: identical to the
+shipped fixture (harness-config.md, loop.sh, background.md, receipts/, tests/, SPEC.md
+all untouched), with ONLY prompt.md replaced by an honest, accurate bug report
+(matching Module 04's actual ticket wording):
+
+  receipts --tz America/New_York reports totals that look wrong near a month boundary.
+  tests/test_grouping.py::test_month_boundary_crosses_in_target_timezone is failing;
+  every other test in the suite passes.
+
+Same agent instructions as the other runs (harness-config.md scope is a hard boundary,
+verify with the specified unittest command, report changes/reasoning/final output).
+This run was launched from a fresh sub-agent with no memory of the misleading-prompt
+runs.
+
+=== Agent's final report (verbatim) ===
+
+All 5 tests pass, including the previously-failing `test_month_boundary_crosses_in_target_timezone`.
+
+## Summary
+
+**1. Changes made (only under `receipts/`):**
+
+In `receipts/grouping.py`:
+- Added `from zoneinfo import ZoneInfo` import.
+- In `group_expenses_by_month`, added `zone = ZoneInfo(tz)` before the row loop.
+- Changed the grouping key computation from `key = ts.strftime("%Y-%m")` (grouping on the raw UTC timestamp) to:
+  ```python
+  local_ts = ts.astimezone(zone)
+  key = local_ts.strftime("%Y-%m")
+  ```
+
+No other files were touched (`cli.py`, `__init__.py` untouched; `tests/`, `SPEC.md`, `background.md` not read or modified, per scope).
+
+**2. Diagnosis reasoning:**
+- `harness-config.md` scoped me to `receipts/` and gave the verify command.
+- `prompt.md` said `--tz America/New_York` gives wrong totals near a month boundary, and named the failing test.
+- Reading `receipts/grouping.py`, the function signature `group_expenses_by_month(rows, tz: str)` takes a `tz` argument, and the module's own docstring spells out the required behavior: "a receipt whose UTC timestamp crosses a month boundary once converted to `tz` groups into the local month, not the UTC one." But the implementation never referenced `tz` at all — it parsed `ts` (a UTC-aware datetime, since `_parse_row` does `fromisoformat(...replace("Z","+00:00"))`) and grouped directly via `ts.strftime("%Y-%m")` on the UTC value. That's a straightforward case of an accepted-but-unused parameter: the timezone conversion step was simply missing, so any receipt near midnight UTC at a month boundary got bucketed by the UTC month instead of the local one. The fix converts the UTC-aware `ts` into the target zone via `astimezone(zone)` before deriving the month key.
+
+**3. Final test run output (verbatim):**
+```
+test_basic_grouping_totals_and_counts (test_grouping.GroupExpensesByMonthTests.test_basic_grouping_totals_and_counts) ... ok
+test_duplicate_timestamps_are_not_deduplicated (test_grouping.GroupExpensesByMonthTests.test_duplicate_timestamps_are_not_deduplicated) ... ok
+test_empty_input_returns_no_months_or_errors (test_grouping.GroupExpensesByMonthTests.test_empty_input_returns_no_months_or_errors) ... ok
+test_malformed_row_is_collected_as_error_not_raised (test_grouping.GroupExpensesByMonthTests.test_malformed_row_is_collected_as_error_not_raised) ... ok
+test_month_boundary_crosses_in_target_timezone (test_grouping.GroupExpensesByMonthTests.test_month_boundary_crosses_in_target_timezone) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
+```
+
+**4. Result:** All 5 tests pass, including the target `test_month_boundary_crosses_in_target_timezone`.
+
+=== Post-hoc ./loop.sh rerun by the orchestrating agent (this file's author) ===
+
+=== TERMINAL STATE: SUCCESS. Tests green. ===
+
+=== Verdict ===
+As expected: an honest prompt reaches the real fix and SUCCESS. Since the misleading
+prompt (both v1 and v2) ALSO reached the real fix and SUCCESS, this isolating test does
+not show the failure "moving," because there was no failure to move — the sabotage did
+not reproduce in either the misleading or the honest condition. This is the honest
+result to report.

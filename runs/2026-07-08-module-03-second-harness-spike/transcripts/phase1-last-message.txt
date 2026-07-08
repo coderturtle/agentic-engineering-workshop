@@ -1,0 +1,11 @@
+Stopped after the first invocation as requested.
+
+Implemented `group_expenses_by_category` and wired `--by-category` in the CLI. Added the Codex specialist boundary notes in [README.md](/tmp/module-03-pilot-attempt-l59CcI/README.md) and the harness file [`.codex-receipts-category-specialist.md`](/tmp/module-03-pilot-attempt-l59CcI/.codex-receipts-category-specialist.md). Persistent progress/reasoning is in [`.receipts-category-progress.md`](/tmp/module-03-pilot-attempt-l59CcI/.receipts-category-progress.md).
+
+Verification run:
+
+```bash
+PYTHONPATH=. python3 -m unittest tests.test_by_category -v
+```
+
+Result: 2 tests passed.

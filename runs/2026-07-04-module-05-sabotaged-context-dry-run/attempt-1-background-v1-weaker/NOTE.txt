@@ -1,0 +1,1 @@
+note: attempt-1 and attempt-2 both used the run1-shipped scratch copy sequentially (attempt-1 first, then scratch was reset before attempt-2). Final grouping.py after attempt-2 saved as evidence; attempt-1's own report (transcript.md) already documents its diff verbatim.

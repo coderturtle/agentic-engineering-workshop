@@ -1,0 +1,90 @@
+Only in /tmp/module-03-pilot-attempt-l59CcI: .codex-receipts-category-specialist.md
+Only in /tmp/module-03-pilot-attempt-l59CcI: .receipts-category-progress.md
+diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/README.md /tmp/module-03-pilot-attempt-l59CcI/README.md
+--- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/README.md	2026-07-04 17:28:17
++++ /tmp/module-03-pilot-attempt-l59CcI/README.md	2026-07-08 09:34:00
+@@ -15,3 +15,9 @@
+ cd fixtures/receipts
+ PYTHONPATH=. python3 -m unittest discover -s tests -v
+ ```
++
++## Module 03 Harness Translation
++
++| Harness | Specialist boundary used here | Enforcement |
++|---|---|---|
++| Codex CLI | `.codex-receipts-category-specialist.md` plus `.receipts-category-progress.md` define a task-scoped receipts category specialist. | Unenforced custom-instructions-scoped prompt text only. It does not provide path-level sandboxing; this scratch fixture's filesystem sandbox is broader than `receipts/`, so scope must be verified from observed edits and commands. |
+diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py /tmp/module-03-pilot-attempt-l59CcI/receipts/cli.py
+--- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py	2026-07-04 17:28:17
++++ /tmp/module-03-pilot-attempt-l59CcI/receipts/cli.py	2026-07-08 09:34:00
+@@ -6,7 +6,7 @@
+ import csv
+ import sys
+ 
+-from receipts.grouping import group_expenses_by_month
++from receipts.grouping import group_expenses_by_category, group_expenses_by_month
+ 
+ 
+ def main(argv=None) -> int:
+@@ -20,16 +20,24 @@
+         default="UTC",
+         help="IANA timezone the month grouping is computed in (default: UTC)",
+     )
++    parser.add_argument(
++        "--by-category",
++        action="store_true",
++        help="summarize receipts by category instead of by month",
++    )
+     args = parser.parse_args(argv)
+ 
+     with open(args.csv_path, newline="", encoding="utf-8") as f:
+         rows = list(csv.DictReader(f))
+ 
+-    result = group_expenses_by_month(rows, tz=args.tz)
++    if args.by_category:
++        result = group_expenses_by_category(rows)
++    else:
++        result = group_expenses_by_month(rows, tz=args.tz)
+ 
+-    for month in sorted(result.months):
+-        summary = result.months[month]
+-        print(f"{month}: {summary.count} receipt(s), total ${summary.total:.2f}")
++    for key in sorted(result.months):
++        summary = result.months[key]
++        print(f"{key}: {summary.count} receipt(s), total ${summary.total:.2f}")
+ 
+     if result.errors:
+         print(f"\n{len(result.errors)} row(s) skipped:", file=sys.stderr)
+diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py /tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py
+--- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py	2026-07-04 17:28:17
++++ /tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py	2026-07-08 09:36:07
+@@ -88,7 +88,7 @@
+ 
+ 
+ def group_expenses_by_category(rows) -> GroupResult:
+-    """Module 03 target: not yet implemented.
++    """Group parsed receipt rows by category.
+ 
+     Same shape as group_expenses_by_month, keyed by `category` instead of
+     calendar month (the `months` field on GroupResult is reused as a
+@@ -96,4 +96,20 @@
+     left as-is rather than renamed to avoid touching group_expenses_by_month's
+     callers). Reuse `_parse_row` the same way group_expenses_by_month does.
+     """
+-    raise NotImplementedError("group_expenses_by_category: not yet wired up")
++    categories: dict[str, MonthSummary] = defaultdict(MonthSummary)
++    errors: list[RowError] = []
++
++    for row in rows:
++        parsed, err = _parse_row(row)
++        if err is not None:
++            errors.append(err)
++            continue
++        receipt_id, _ts, amount = parsed
++        key = row.get("category", "")
++
++        summary = categories[key]
++        summary.total += amount
++        summary.count += 1
++        summary.receipt_ids.append(receipt_id)
++
++    return GroupResult(months=dict(categories), errors=errors)

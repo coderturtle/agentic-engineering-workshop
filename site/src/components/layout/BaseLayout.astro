@@ -24,12 +24,16 @@ const base = import.meta.env.BASE_URL;
     <meta name="description" content={description} />
   </head>
   <body>
-    <header class="prose-narrative flex items-center justify-between px-4 py-6">
-      <a href={base} class="font-mono text-sm uppercase tracking-widest">Terminal Velocity</a>
-      <nav class="flex gap-5 text-sm">
-        <a href={base} class="underline-offset-2 hover:underline">Guide</a>
-        <a href={`${base}build-log/`} class="underline-offset-2 hover:underline">Build log</a>
-      </nav>
+    <header class="site-header">
+      <div class="prose-narrative flex items-center justify-between px-4 py-6">
+        <a href={base} class="brand-mark font-mono text-sm uppercase tracking-widest no-underline">
+          Terminal Velocity
+        </a>
+        <nav class="site-nav flex gap-5 text-sm">
+          <a href={base}>Guide</a>
+          <a href={`${base}build-log/`}>Build log</a>
+        </nav>
+      </div>
     </header>
     <main class="prose-narrative px-4 pb-16">
       <slot />
