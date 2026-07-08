@@ -33,3 +33,27 @@ risks:
       - "docs/review-panel/2026-07-03-module-04-content.md"
       - "docs/review-panel/2026-07-03-module-05-content.md"
       - "runs/2026-07-07-module-04-student-gremlin-spike/retro.md"
+  - id: RISK-0005
+    title: "site/ dependencies carry inherited npm vulnerabilities"
+    category: dependency
+    likelihood: high
+    impact: low
+    status: closed
+    owner: coderturtle
+    mitigation: "Triaged 2026-07-08 by the Vulnerability Gremlin (3rd real run): none of the 5 advisories reachable (no define:vars/server-islands, output:static, CI never runs astro dev). Actually re-attempted the upgrade (target version differed from prior runs: astro@7.0.7 vs 7.0.6) rather than assuming - confirmed the same @astrojs/tailwind failure on Astro 7 reproduces identically, a structural incompatibility, not something a newer patch fixes. Accepted as-is; re-open if output mode changes from static."
+    raised_date: 2026-07-08
+    reviewed_date: 2026-07-08
+    links:
+      - "docs/risks.md"
+  - id: RISK-0006
+    title: "fixtures/receipts has no dependencies to audit"
+    category: dependency
+    likelihood: none
+    impact: none
+    status: closed
+    owner: coderturtle
+    mitigation: "Vulnerability Gremlin's 3rd real run: confirmed via direct inspection (no requirements.txt/pyproject.toml/setup.cfg, every import resolves to Python stdlib) that this fixture has no third-party dependency tree at all. Recorded so a future audit doesn't re-derive this from scratch."
+    raised_date: 2026-07-08
+    reviewed_date: 2026-07-08
+    links:
+      - "docs/risks.md"

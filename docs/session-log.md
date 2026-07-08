@@ -1401,3 +1401,52 @@ events to confirm what was read and written.
 ### Mind-palace updated
 
 No — out of scope; no authorization sought or given.
+
+## 2026-07-08 - Vulnerability Gremlin's third real run (RISK-0005/RISK-0006)
+
+Ran the Vulnerability Gremlin (`~/hekton/gremlins/red-team/vulnerability-gremlin.md`) for real
+against this project - its third run, after `half-life`'s and `borrow-native`'s the same day.
+
+`npm audit` against `site/`: the same 4 findings both prior runs found (Astro/esbuild chain).
+Unlike the other two projects, this one had never been flagged during scaffolding at all - a
+genuinely new discovery here. Checked reachability directly against this project's own code (no
+`define:vars`/server-island usage, `output: "static"`, CI only runs `npm run build`).
+
+The offered upgrade target differed from the prior two runs (`astro@7.0.7` here vs. `7.0.6`), so
+actually re-ran the upgrade attempt rather than assuming the prior finding transfers unchanged:
+confirmed the same `@astrojs/tailwind` failure (`Cannot read properties of undefined (reading
+'postcss')`) reproduces identically on the newer patch - real evidence this is a structural
+incompatibility, not a bug a patch release happens to fix. Reverted fully via `git reset`/`git
+checkout HEAD -- site/`, reinstalled original dependencies, re-confirmed `npm run build` clean (8
+pages, matching pre-audit state). Closed as RISK-0005, accepted risk.
+
+Also audited `fixtures/receipts/` (the Python exercise fixture), per the Gremlin's own workflow
+requiring every present ecosystem to be checked, not just the one with findings: confirmed via
+direct inspection (grepped every import) that it has zero third-party dependencies - nothing to
+run `pip-audit` against. Recorded as RISK-0006, informational.
+
+### Decisions Made
+
+- See `docs/decisions.md`'s 2026-07-08 Vulnerability Gremlin entry.
+
+### Risks
+
+- RISK-0005: closed, accepted (not fixed) - see `docs/risks.md` for full reachability reasoning.
+- RISK-0006: closed, informational - no dependencies exist to audit in `fixtures/receipts/`.
+
+### Next Actions
+
+- All three of this factory's public workshops (`terminal-velocity`, `borrow-native`, `half-life`)
+  now carry the identical accepted Astro/`@astrojs/tailwind` risk with the identical known upgrade
+  path - worth fixing once, across all three sites together, rather than three separate future
+  sessions rediscovering the same blocker.
+- Unaffected: Phase B/C of the Module 03 pilot plan remain open, per the existing plan.
+
+### Validation
+
+`npm run build` and the revert were both independently re-verified (`git status`/`git diff` clean
+against `main`, build output matches pre-audit page count and content).
+
+### Mind-palace updated
+
+No - out of scope; no authorization sought or given.

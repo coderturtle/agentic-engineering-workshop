@@ -1,5 +1,23 @@
 # Next Actions: Terminal Velocity
 
+## Status: Vulnerability Gremlin's third real run — RISK-0005/RISK-0006 closed (2026-07-08)
+
+Ran the new Vulnerability Gremlin (`~/hekton/gremlins/red-team/vulnerability-gremlin.md`) for
+real, its third run after `half-life`'s and `borrow-native`'s the same day. `npm audit` against
+`site/` found the same 4 Astro/esbuild findings both prior runs found (never flagged during this
+project's own scaffolding, unlike the other two). Checked reachability directly against this
+project's own code and confirmed unreachable (no `define:vars`/server-island usage, `output:
+"static"`, CI never runs `astro dev`). Actually re-ran the upgrade attempt (the offered target
+version differed from prior runs) rather than assuming it transfers — confirmed the same
+`@astrojs/tailwind` failure on Astro 7 reproduces identically, then reverted fully. Closed as
+RISK-0005, accepted risk. Also confirmed `fixtures/receipts/` has zero third-party dependencies
+(RISK-0006, informational) — nothing for `pip-audit` to check. Full detail: `docs/risks.md`,
+`docs/decisions.md`. **Unaffected**: does not touch the Module 03 pilot plan below.
+
+- [ ] All three public workshops now carry the identical accepted Astro/`@astrojs/tailwind` risk —
+      worth fixing once, across all three sites together, rather than three separate future
+      rediscoveries.
+
 ## Status: Module 03 pilot completion plan's Phase A run (second harness + fresh attempt) (2026-07-08)
 
 Ran `docs/module-03-pilot-completion-plan.md`'s Phase A from a cleared-context session, as the
