@@ -1,0 +1,356 @@
+# tax_rates.yaml
+#
+# Per-state tax rate reference table, sourced from the finance team's
+# quarterly filing worksheet. Update when rates change.
+
+tax_rates:
+  AL:
+    sales_tax: 0.020
+    use_tax: 0.010
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-01-01
+  AK:
+    sales_tax: 0.030
+    use_tax: 0.020
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-02-01
+  AZ:
+    sales_tax: 0.040
+    use_tax: 0.030
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-03-01
+  AR:
+    sales_tax: 0.050
+    use_tax: 0.040
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-04-01
+  CA:
+    sales_tax: 0.060
+    use_tax: 0.050
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-05-01
+  CO:
+    sales_tax: 0.070
+    use_tax: 0.060
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-06-01
+  CT:
+    sales_tax: 0.080
+    use_tax: 0.070
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-07-01
+  DE:
+    sales_tax: 0.090
+    use_tax: 0.010
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-08-01
+  FL:
+    sales_tax: 0.100
+    use_tax: 0.020
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-09-01
+  GA:
+    sales_tax: 0.110
+    use_tax: 0.030
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-01-01
+  HI:
+    sales_tax: 0.020
+    use_tax: 0.040
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-02-01
+  ID:
+    sales_tax: 0.030
+    use_tax: 0.050
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-03-01
+  IL:
+    sales_tax: 0.040
+    use_tax: 0.060
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-04-01
+  IN:
+    sales_tax: 0.050
+    use_tax: 0.070
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-05-01
+  IA:
+    sales_tax: 0.060
+    use_tax: 0.010
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-06-01
+  KS:
+    sales_tax: 0.070
+    use_tax: 0.020
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-07-01
+  KY:
+    sales_tax: 0.080
+    use_tax: 0.030
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-08-01
+  LA:
+    sales_tax: 0.090
+    use_tax: 0.040
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-09-01
+  ME:
+    sales_tax: 0.100
+    use_tax: 0.050
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-01-01
+  MD:
+    sales_tax: 0.110
+    use_tax: 0.060
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-02-01
+  MA:
+    sales_tax: 0.020
+    use_tax: 0.070
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-03-01
+  MI:
+    sales_tax: 0.030
+    use_tax: 0.010
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-04-01
+  MN:
+    sales_tax: 0.040
+    use_tax: 0.020
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-05-01
+  MS:
+    sales_tax: 0.050
+    use_tax: 0.030
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-06-01
+  MO:
+    sales_tax: 0.060
+    use_tax: 0.040
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-07-01
+  MT:
+    sales_tax: 0.070
+    use_tax: 0.050
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-08-01
+  NE:
+    sales_tax: 0.080
+    use_tax: 0.060
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-09-01
+  NV:
+    sales_tax: 0.090
+    use_tax: 0.070
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-01-01
+  NH:
+    sales_tax: 0.100
+    use_tax: 0.010
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-02-01
+  NJ:
+    sales_tax: 0.110
+    use_tax: 0.020
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-03-01
+  NM:
+    sales_tax: 0.020
+    use_tax: 0.030
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-04-01
+  NY:
+    sales_tax: 0.030
+    use_tax: 0.040
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-05-01
+  NC:
+    sales_tax: 0.040
+    use_tax: 0.050
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-06-01
+  ND:
+    sales_tax: 0.050
+    use_tax: 0.060
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-07-01
+  OH:
+    sales_tax: 0.060
+    use_tax: 0.070
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-08-01
+  OK:
+    sales_tax: 0.070
+    use_tax: 0.010
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-09-01
+  OR:
+    sales_tax: 0.080
+    use_tax: 0.020
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-01-01
+  PA:
+    sales_tax: 0.090
+    use_tax: 0.030
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-02-01
+  RI:
+    sales_tax: 0.100
+    use_tax: 0.040
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-03-01
+  SC:
+    sales_tax: 0.110
+    use_tax: 0.050
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-04-01
+  SD:
+    sales_tax: 0.020
+    use_tax: 0.060
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-05-01
+  TN:
+    sales_tax: 0.030
+    use_tax: 0.070
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-06-01
+  TX:
+    sales_tax: 0.040
+    use_tax: 0.010
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-07-01
+  UT:
+    sales_tax: 0.050
+    use_tax: 0.020
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-08-01
+  VT:
+    sales_tax: 0.060
+    use_tax: 0.030
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-09-01
+  VA:
+    sales_tax: 0.070
+    use_tax: 0.040
+    local_surcharge_min: 0.0000
+    local_surcharge_max: 0.0000
+    rounding: nearest_cent
+    effective_date: 2024-01-01
+  WA:
+    sales_tax: 0.080
+    use_tax: 0.050
+    local_surcharge_min: 0.0010
+    local_surcharge_max: 0.0020
+    rounding: nearest_cent
+    effective_date: 2024-02-01
+  WV:
+    sales_tax: 0.090
+    use_tax: 0.060
+    local_surcharge_min: 0.0020
+    local_surcharge_max: 0.0040
+    rounding: nearest_cent
+    effective_date: 2024-03-01
+  WI:
+    sales_tax: 0.100
+    use_tax: 0.070
+    local_surcharge_min: 0.0030
+    local_surcharge_max: 0.0060
+    rounding: nearest_cent
+    effective_date: 2024-04-01
+  WY:
+    sales_tax: 0.110
+    use_tax: 0.010
+    local_surcharge_min: 0.0040
+    local_surcharge_max: 0.0080
+    rounding: nearest_cent
+    effective_date: 2024-05-01

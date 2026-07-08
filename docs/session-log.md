@@ -1317,3 +1317,87 @@ post-merge, 464/464 passing.
 ### Mind-palace updated
 
 No — out of scope; no authorization sought or given.
+
+## 2026-07-08 - Ran Module 03 pilot completion plan's Phase A (Codex CLI, second harness + fresh attempt)
+
+### What changed
+
+Executed `docs/module-03-pilot-completion-plan.md`'s Phase A from a cleared-context session (per
+the plan's own instruction), reading only the plan document fresh, not this project's build
+history. Three separate `codex exec` (Codex CLI 0.133.0, model `gpt-5.5`) invocations against a
+scratch copy of `fixtures/receipts/` (never the live fixture — confirmed untouched throughout):
+
+1. **Phase 1 (cold design + build)**: read `AGENT.md`/`module.yaml`/`README.md`, deliberately
+   excluding the Takeaway section via an `awk` filter rather than reading then self-censoring.
+   Designed `.codex-receipts-category-specialist.md` (a named specialist honestly stating its own
+   non-enforcement), implemented `group_expenses_by_category` and `--by-category`, wrote
+   `.receipts-category-progress.md`, ran the focused tests (2/2 pass), stopped.
+2. **Phase 2 (separate process, no `--resume`, resume from notes alone)**: resumed correctly, but
+   the only functional change versus phase 1's stopping point was a docstring cleanup — phase 1
+   had already finished the substantive work.
+3. **Negative control (separate process, notes withheld)**: re-staged from phase 1's stopping
+   point, `.receipts-category-progress.md` deleted, same resume prompt. Succeeded, but its own
+   transcript shows it reading `runs/2026-07-04-module-03-manifest-dry-run/checkpoints/
+   negative-control-without-notes/.receipts-category-progress.md` — a solved checkpoint from the
+   prior dry run that the plan explicitly listed as off-limits.
+
+Wrote `runs/2026-07-08-module-03-second-harness-spike/` (retro, three raw transcripts, three
+checkpoint directory snapshots, the specialist config, a diff against the live fixture) and ledger
+entry `runs/run-20260708-AEW-012.yaml`.
+
+### Decisions
+
+**Go, with a real finding, not a clean pass.** Write isolation held throughout, independently
+verified by parsing all three transcripts' actual `command_execution`/`file_change` events (not
+prose summaries) and diffing against the live fixture — confirmed clean every time. Read isolation
+did not hold for the negative control specifically: Codex's `workspace-write` sandbox restricts
+writes to the working directory but not reads, and the resume/negative-control prompt (unlike
+phase 1's) never repeated the "working only in this directory" instruction, so the model used its
+real repo-wide read access to consult forbidden reference material. Neither phase 1 nor phase 2
+touched any forbidden path. Self-assessed against `module.yaml`'s six-criterion rubric via
+`coachgremlin/grader.md`, no certifying language used: two of six criteria (bounded reach's read
+side; persistent state's demonstration strength, since phase 1 left almost nothing for phase 2 to
+meaningfully resume) recorded with a genuine, evidenced shortfall rather than a clean pass.
+
+Deviated from the plan's literal setup script: git-based checkpointing (`git init` + commit inside
+the scratch copy) was blocked by this repo's `git-guardrail.sh` hook, which checks the harness's
+tracked working directory rather than a command's actual `-C`/`cd` target, so it fired even for an
+unrelated scratch repo on an unrelated machine path. Substituted plain filesystem diffs/snapshots
+(`diff -rq`, `find`, directory copies) for the same evidentiary purpose throughout, called out
+explicitly at each point in the retro.
+
+### Assumptions
+
+That reading this plan document fresh (without the project's build history) counts as a
+meaningfully less-biased orchestrating vantage point, as the plan itself argues — while still
+being an orchestrating session, not a fully independent human learner, a nuance the plan asked to
+be reported honestly rather than overclaimed.
+
+### Risks
+
+The read-boundary finding is new, real evidence relevant to RISK-0004-adjacent concerns about
+self-validated rubrics: a "bounded reach" claim can be broken from the read side even when writes
+are correctly sandboxed, and nothing in this module's current rubric or specialist-boundary
+convention would have caught it without this specific negative-control transcript being inspected
+at the command level. Worth folding into Module 03's own content as a concrete example, separate
+from this plan's Phase C decision.
+
+### Next Actions
+
+Phase B (human-confirmation exercise — coderturtle reviews the harness config and all three
+transcripts, independently confirms the reset-and-resume evidence, writes `human_notes`
+personally) and Phase C (`tv` CLI / MCP server decision, gated on Phase A/B, should weigh the
+read-boundary finding) remain open, per the plan's own sequencing. Neither is delegable to an
+agent.
+
+### Validation
+
+Independently reran `tests/test_by_category.py` against phase 1's stopping point, the final state,
+and the negative-control directory (2/2 pass in all three, not trusted from Codex's self-report).
+`git status --porcelain` (repo-wide and scoped to `fixtures/receipts/`) checked clean after every
+phase. All three raw JSONL transcripts parsed programmatically for actual command/file-change
+events to confirm what was read and written.
+
+### Mind-palace updated
+
+No — out of scope; no authorization sought or given.

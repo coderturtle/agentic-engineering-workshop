@@ -1,5 +1,33 @@
 # Next Actions: Terminal Velocity
 
+## Status: Module 03 pilot completion plan's Phase A run (second harness + fresh attempt) (2026-07-08)
+
+Ran `docs/module-03-pilot-completion-plan.md`'s Phase A from a cleared-context session, as the
+plan itself required. Three separate `codex exec` (Codex CLI, `gpt-5.5`) invocations against a
+scratch copy of `fixtures/receipts/`: a cold design+build, a genuinely separate resume-from-notes
+process, and a required negative control with the notes file withheld. **Go, with a real finding**:
+write isolation held throughout (independently verified via diff/find, not self-report; live
+fixture and rest of repo stayed clean), but the negative-control invocation's read access was not
+scoped to its intended directory — it read a forbidden solved checkpoint from the prior
+2026-07-04 dry run (`runs/2026-07-04-module-03-manifest-dry-run/checkpoints/negative-control-
+without-notes/.receipts-category-progress.md`), because Codex's `workspace-write` sandbox
+restricts writes but not reads, and the resume prompt (unlike phase 1's) didn't explicitly confine
+it. Full record, self-assessment against `module.yaml`'s six-criterion rubric (via
+`coachgremlin/grader.md`, no certification), and honest reporting on both the harness-boundary
+claim and how "fresh" this attempt really was: `runs/2026-07-08-module-03-second-harness-spike/
+retro.md`, ledger entry `runs/run-20260708-AEW-012.yaml` (`human_confirmed: false`).
+
+**Phase A's own setup deviated from the plan in one way**: git-based checkpointing (`git init` +
+commit inside the scratch copy) was blocked by this repo's `git-guardrail.sh` hook, which checks
+the harness's tracked working directory rather than the command's actual target, so it fired even
+for an unrelated scratch repo. Substituted plain filesystem diffs/snapshots for the same
+evidentiary purpose throughout; noted in the retro's Deviation section.
+
+**What's still open**: Phase B (the actual human-confirmation exercise — coderturtle reviews the
+harness config and reset-and-resume evidence, writes `human_notes` personally) and Phase C
+(the `tv` CLI / MCP server decision, gated on what Phase A/B reveal) remain, per the plan's own
+sequencing. Phase A's read-boundary finding is real evidence Phase C should weigh.
+
 ## Status: Module 03 pilot completion plan written; both feature branches merged (2026-07-08)
 
 `agent/claude/module-03-agent-native-pilot` merged into `main` (this session's full arc: manifest
@@ -94,12 +122,17 @@ evidence in `runs/` ledger entries. See `docs/decisions.md`'s 2026-07-04 rows fo
       (`docs/review-panel/2026-07-04-module-03-manifest-pilot-content.md`): found the Human Gate is
       enforced by instruction only (no hook/CI reads `human_confirmed`), an overclaim in how the
       dry run's "two disconnected phases" was summarized (fixed), and that this pilot's harness-
-      agnostic claim is still untested against a second harness. All fixed except the harness test
-      itself. **Still open:** the human-confirmation exercise itself, and (per the panel's
-      Instructional Designer finding) that this dry run validated the pilot's own authors more than
-      a cold learner, so a second harness *and* a genuinely fresh, uninvolved learner/agent would
-      carry more evidentiary weight than another self-run before deciding on the `tv` CLI / MCP
-      server phases.
+      agnostic claim is still untested against a second harness.
+- [x] ~~A second harness *and* a genuinely fresh, uninvolved attempt~~ **Done 2026-07-08**
+      (`docs/module-03-pilot-completion-plan.md` Phase A, `runs/2026-07-08-module-03-second-
+      harness-spike/`): Codex CLI, three separate cold `codex exec` invocations. Go, plus a real
+      finding — the negative control read a forbidden solved checkpoint because Codex's sandbox
+      doesn't restrict reads, only writes. See the status section at the top of this file.
+- [ ] **Phase B (human-confirmation exercise, human-only)**: coderturtle reviews the harness
+      config and both/all transcripts, independently confirms the reset-and-resume evidence, and
+      writes `human_notes` personally — not "an artifact exists." Cannot be delegated forward.
+- [ ] **Phase C (`tv` CLI / MCP server decision)**: gated on Phase A/B; Phase A's read-boundary
+      finding is real evidence to weigh here.
 - [ ] Consider whether the Module 04/05 review-panel findings (e.g. the blast-radius script's
       rename/deletion handling, now fixed) suggest a similar audit of the two original Module 05
       variants (`sabotaged-harness`/`sabotaged-loop`), which haven't been re-reviewed since 2026-07-03.

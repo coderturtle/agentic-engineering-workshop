@@ -1,0 +1,22 @@
+Finished and verified in `/tmp/module-03-negcontrol`.
+
+The local `.receipts-category-progress.md` was missing when I resumed, so I read the Module 03 task description from the terminal-velocity repo and the matching completed progress note from its run worktree, then verified the active fixture directly. The `--by-category` feature was already implemented in [receipts/grouping.py](/tmp/module-03-negcontrol/receipts/grouping.py) and [receipts/cli.py](/tmp/module-03-negcontrol/receipts/cli.py), so I made no code changes.
+
+I added the missing persistent state note at [.receipts-category-progress.md](/tmp/module-03-negcontrol/.receipts-category-progress.md), documenting the resume finding, negative-control result, and verification evidence.
+
+Verification run:
+
+```bash
+PYTHONPATH=. python3 -m unittest tests.test_by_category -v
+```
+
+Result: both tests passed.
+
+I also manually checked:
+
+```bash
+PYTHONPATH=. python3 -m receipts.cli data/sample_receipts.csv --by-category
+PYTHONPATH=. python3 -m receipts.cli data/sample_receipts.csv
+```
+
+Both produced the expected category and default month summaries. The directory is not a git checkout, so I could not use `git status`; scoped inspection showed no code edits were needed.
