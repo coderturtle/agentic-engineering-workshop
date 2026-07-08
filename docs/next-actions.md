@@ -1,5 +1,23 @@
 # Next Actions: Terminal Velocity
 
+## Status: num_ctx question resolved, student-gremlin spike now converges (2026-07-08)
+
+Follow-up to 2026-07-07's patch investigation below. The "requested 32768, observed 384000, cause
+unconfirmed" framing was wrong — checked `local-agentic-coding-lab`'s actual Ollama server log
+instead of continuing to guess. Real cause: devstral-small-2:24b's own genuine max context
+(384000, not a placeholder) needs ~32GB of KV cache, too large for this 24GB machine even though
+correct for a 64GB profile. Fixed properly (a `context_by_profile` registry field, not a guessed
+magic number) on the same `fix/patch-generation-json-format` branch (still local-commit-only, not
+pushed). **The student-gremlin spike now converges**: live-verified, carefully monitored, no
+resource issue — the local `devstral-small-2:24b` pipeline joins Codex CLI as a second positive
+fresh-agent result for Module 04. A real, separate concurrency observation (another active
+session hitting the same shared Ollama instance mid-run) was confirmed but wasn't the cause here;
+logged as its own backlog item in `local-agentic-coding-lab/docs/next-actions.md`, not built now.
+Full record: `runs/2026-07-08-module-04-student-gremlin-spike/retro.md`.
+
+**Still true**: Module 03's own still-open items (human-confirmation exercise, second harness,
+fresh/uninvolved learner-or-agent test) are unaffected — none of this work reached Module 03.
+
 ## Status: Codex CLI spike (go) + patch investigation, same-day follow-up (2026-07-07)
 
 Follow-up to the two spikes below. **Codex CLI, run cold as an independent full harness against

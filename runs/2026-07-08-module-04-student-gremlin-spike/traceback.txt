@@ -1,0 +1,15 @@
+test_month_boundary_crosses_in_target_timezone (tests.test_grouping.GroupExpensesByMonthTests.test_month_boundary_crosses_in_target_timezone) ... FAIL
+
+======================================================================
+FAIL: test_month_boundary_crosses_in_target_timezone (tests.test_grouping.GroupExpensesByMonthTests.test_month_boundary_crosses_in_target_timezone)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/t9/s4yz0sms73j1ycq5_hkp28hw0000gp/T/workshop-student-spike-mivrldcn/tests/test_grouping.py", line 32, in test_month_boundary_crosses_in_target_timezone
+    self.assertIn("2026-01", result.months)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '2026-01' not found in {'2026-02': MonthSummary(total=15.0, count=1, receipt_ids=['r010'])}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

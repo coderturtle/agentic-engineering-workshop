@@ -1,5 +1,10 @@
 # Student-gremlin spike retro: Module 04, `local-agentic-coding-lab` (3 attempts, consolidated)
 
+> **Resolved 2026-07-08**: a 4th attempt, after fully root-causing attempt 3's incident (the
+> "requested 32768, observed 384000" framing below turned out to be wrong — see the corrected
+> account), converged cleanly. Full record:
+> `runs/2026-07-08-module-04-student-gremlin-spike/retro.md`.
+
 Bounded spike (see `docs/decisions.md`'s 2026-07-07 entries), not a standing "student gremlin"
 product. Driver: `local-agentic-coding-lab/scripts/workshop_student_spike.py`, which stages a
 copy of the canonical `fixtures/receipts/` fixture (already in its seeded-bug state) and drives

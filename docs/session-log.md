@@ -1194,3 +1194,77 @@ prompts a similar attempt at Module 03, are open, not decided here.
 ### Mind-palace updated
 
 No — out of scope; no authorization sought or given.
+
+## 2026-07-08 - Resolved the num_ctx question: wrong framing corrected, real fix shipped, student-gremlin spike converges
+
+### What changed
+
+Asked to investigate the prior day's open num_ctx question before shipping it, and to commit more
+frequently during this kind of experimental work going forward (a real lesson from losing attempt
+1's raw evidence to an overwrite before either session's work was committed — saved as a
+[[feedback-commit-frequently-during-experiments]] memory). Committed all three repos' outstanding
+work from the prior session first, as asked.
+
+Investigated the num_ctx discrepancy properly this time: instead of continuing to guess (an
+earlier hypothesis floated concurrency, another floated thermal throttling — both plausible-
+sounding, both wrong), read `local-agentic-coding-lab`'s actual Ollama server log directly. Found
+the prior day's own framing was wrong: the "requested 32768" baseline that isolated tests had
+verified as safe belonged to a *different* model's registry entry, confused with devstral's; the
+real code always correctly requested devstral's own genuine `context: 384000` (confirmed via
+`ollama show`, not a placeholder — consistent across both the real, gitignored config and the
+tracked example fallback). The blowup was simply that context's ~32GB KV-cache requirement
+exceeding this 24GB machine's RAM, once and for all confirmed, not a mystery.
+
+Per the user's explicit choice ("fix the registry entry itself"), designed and shipped a proper
+per-hardware-profile fix rather than picking a smaller, safer-sounding number: a new optional
+`context_by_profile` field on `local-agentic-coding-lab`'s model registry, resolved via a new
+`effective_context(profile_name)` method; `ModelPlane` now exposes its active profile's name
+(previously computed internally, never surfaced) so callers can resolve it. Devstral's registry
+entry now declares `context_by_profile: {mac_air_m5_24gb: 8192}` (live-verified safe, ~3x headroom
+over the real observed need), while `mac_64gb` keeps the correct, unmodified `384000`. All landed
+on the existing `fix/patch-generation-json-format` branch (still local-commit-only, not pushed).
+
+Live-verified end to end, monitoring `ollama ps` continuously and ready to force-stop early if
+anything looked unsafe again: the student-gremlin spike converged for the first time across four
+attempts (tests-green, diff confined to `receipts/grouping.py`, `tests/test_grouping.py`
+untouched). Took ~24 minutes, much longer than earlier isolated tests (~2-4 minutes) — while it
+ran, confirmed (via `ps aux`, a distinct shell-snapshot ID) a genuinely separate, concurrently-
+active process from another Claude Code session (`local-llm-lab`'s `hekton_llm.judge_calibration`)
+hitting the same shared Ollama instance. Real, current evidence for the concurrency concern raised
+alongside the investigation request — but not the cause of the incident actually being
+investigated, which was fully, separately explained above. Logged as its own backlog item, not
+conflated with the resolved one.
+
+### Decisions
+
+Concurrent multi-session access to a shared local Ollama instance is real and unmanaged, but
+building a fix (safe multithreading/queuing) is out of scope here — logged as a `[plan-first]`
+backlog item in `local-agentic-coding-lab/docs/next-actions.md`, likely belonging in `local-llm-lab`
+as shared "control plane" infrastructure per the user's own framing, deserving its own dedicated
+planning session rather than an ad-hoc fix bolted onto this investigation.
+
+### Assumptions
+
+That correcting a wrong root-cause claim openly (rather than quietly patching the docs) was the
+right call, twice in one investigation (first the concurrency/thermal guesses, then the prior
+day's "cause unconfirmed" framing) — this project's own culture treats an honest wrong turn,
+corrected with evidence, as more valuable than a clean-looking record that omits it.
+
+### Risks
+
+None new to this repo. RISK-0004 and Module 03's open items are unaffected by any of this.
+
+### Next Actions
+
+See `docs/next-actions.md`'s updated status block. The concurrency backlog item and whether to
+merge `fix/patch-generation-json-format` are open, not decided here.
+
+### Validation
+
+464/464 tests pass on the fix branch. Live end-to-end run monitored continuously via `ollama ps`
+(polled throughout, not just checked before/after) — confirmed healthy at every step (proper
+4096↔8192 transitions, max 14GB, no CPU/GPU spillover), unlike the incident being investigated.
+
+### Mind-palace updated
+
+No — out of scope; no authorization sought or given.
