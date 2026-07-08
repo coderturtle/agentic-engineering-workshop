@@ -1025,3 +1025,172 @@ the `tv` CLI or MCP server phases.
 
 No, nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
 requested.
+
+## 2026-07-07 - Two bounded local-model spikes: student-gremlin fresh-agent test (no-go, root cause found) and blind judging panel (go)
+
+### What changed
+
+Asked whether local models on adjacent Hekton labs could attack this project's two remaining
+evidence gaps: Module 03's need for a genuinely fresh, uninvolved agent attempt, and RISK-0004's
+need for an independent second opinion on grading. Entered plan mode, researched both labs'
+actual mechanics first (neither ask was greenfield: `local-agentic-coding-lab` already has a
+bounded iterate-until-tests-pass `coding.bugfix` pipeline and a diff-review arb-panel;
+`local-llm-lab` already has a working blind, deterministic LLM-as-judge and a
+human-vs-judge calibration schema), then ran two bounded spikes with explicit go/no-go gates,
+deliberately choosing easier first targets over the harder original asks.
+
+- **Spike A, student gremlin (`local-agentic-coding-lab`, Module 04, not Module 03):**
+  `scripts/workshop_student_spike.py` (new, in that lab) stages a scratch copy of the canonical
+  `fixtures/receipts/` fixture (confirmed already in its seeded-bug state: 4/5 tests pass,
+  `test_month_boundary_crosses_in_target_timezone` fails, exactly as Module 04's ticket
+  describes), narrowed to Module 04's own files (excluding `tests/test_by_category.py`, Module
+  03's separate unimplemented feature, which a naive `discover -s tests` would wrongly also run),
+  then drives that lab's existing `run_bugfix_workflow()` unmodified. **No-go, with a precise root
+  cause**: across two independent full runs, `devstral-small-2:24b` (that lab's real
+  `coder`-role default, not `qwen2.5-coder:7b` as first assumed) correctly diagnosed the actual
+  bug every single time, but its structured-edit patch JSON was truncated/malformed before
+  `msgspec` could decode it on every patch attempt, so no patch was ever built or tested. This
+  reads as a plumbing/generation-length limitation in that lab's shared workflow (logged there as
+  a follow-up, not fixed here — out of scope to edit another lab's shared workflow for a spike),
+  not a verdict on the model's diagnostic capability. Full record:
+  `runs/2026-07-07-module-04-student-gremlin-spike/retro.md`,
+  `runs/run-20260707-AEW-008.yaml` (`human_confirmed: false`).
+- **Spike B, blind judging panel (`local-llm-lab`, Module 04's already-graded transcripts):**
+  `scripts/workshop_judge_panel_spike.py` (new, in that lab) reuses that lab's existing
+  `build_judge_prompt`/`parse_judge_json`/`JUDGE_OPTIONS` unmodified, adding a 3-persona panel
+  (correctness / rubric-literalist / gaming-detector) — the arb-panel *pattern* from
+  `local-agentic-coding-lab`, ported onto `local-llm-lab`'s transcript/rubric judge *substrate*
+  since that lab's own arb-panel reviews diffs and can't run decoupled from its own repo. Scored
+  `runs/2026-07-03-module-04-dry-run/`'s `attempt-good`/`attempt-gaming` transcripts blind to the
+  original `grading.md` verdict. **Go**: the panel independently reproduced the original
+  good/gaming split (mean 0.90 pass vs. 0.417 fail), every persona flagging the exact
+  test-file-editing gaming move the original grading called out, reproduced on a second run.
+
+### Decisions
+
+Neither spike was built into a standing "student gremlin" or "judging panel" product — both stay
+bounded, additive scripts in their host labs, matching this factory's own dry-run/evidence
+culture (decide whether to invest further only after seeing whether a local model gets far
+enough). RISK-0004 is **narrowed, not closed**: an independent, non-Claude second opinion now
+exists for one rubric/two transcripts, but a human still owes review of any future disagreement,
+and this doesn't touch the Module 03 pilot's still-open items at all.
+
+### Assumptions
+
+That Module 04 (loop engineering) was the right first target for the student gremlin, being
+closer in shape to a bounded harness-driven loop than Module 03's actual ask (design a harness) —
+correct in the sense that it let a real, clean failure signal through (a plumbing limit, not a
+capability wall), but it means Module 03's own fresh-agent gap is still exactly as open as before
+this session.
+
+### Risks
+
+RISK-0004 (`docs/risks.md`) updated: mitigation now notes the local blind-judging panel as a
+second, genuinely independent signal, with the residual explicitly restated (no module has been
+checked by a party with zero involvement *and* no standing process for repeating this check
+exists yet — one run, two transcripts, one rubric).
+
+### Next Actions
+
+See `docs/next-actions.md`: Module 03's own human-confirmation exercise and a fresh/uninvolved
+learner-or-agent test are unaffected and still open. Whether to retry the student-gremlin spike
+after `local-agentic-coding-lab`'s maintainer addresses the patch-generation truncation, whether
+to extend the judging panel to other modules, and whether Module 03 is ever attempted by a local
+model at all, are open, not scheduled.
+
+### Validation
+
+- Spike A: two independent live runs against real Ollama (`devstral-small-2:24b`); verified the
+  sandboxed test-runner pipeline separately first (empty-patch guard, then a real hand-written fix
+  applied through `run_tests_with_patch`, confirmed exit_code 0 / all 5 tests green) before
+  spending model compute, to isolate plumbing bugs in the spike's own instrumentation from the
+  model's actual behavior — found and fixed one (an early version tried to `git diff` a scratch
+  workspace `run_bugfix_workflow` never actually applies a patch to).
+- Spike B: full live run against real Ollama (`qwen2.5:14b-instruct`) scoring both transcripts
+  under 3 personas each (6 judge calls); re-ran once more and confirmed identical scores and
+  identical triggered failure modes both times.
+- Confirmed no vault writes, no network beyond local Ollama, no `human_confirmed: true` written
+  anywhere by either spike.
+
+### Mind-palace updated
+
+No — out of scope for this session; no authorization sought or given.
+
+## 2026-07-07 - Same-day follow-up: Codex CLI spike (go) and a real patch investigation
+
+### What changed
+
+Asked to (a) try the student-gremlin question via Codex instead, to prove the concept
+independent of the local-model plumbing bug found above, and (b) turn that finding into a real
+patch request for `local-agentic-coding-lab`, checked for cascading effects. Clarified both via
+`AskUserQuestion` before proceeding: Codex CLI as an independent full harness (not a routing
+change to that lab's own local-only model plumbing, which is architecturally blocked from calling
+cloud models at all); the patch as a local branch + diff only, not pushed.
+
+- **Codex CLI spike**: `codex exec` (model `gpt-5.5`), run cold via `--sandbox workspace-write`
+  against a fresh copy of the receipts fixture, no involvement from the authoring session. Hit a
+  real operational snag first (the process hung waiting on stdin, since `codex exec` reads stdin
+  even when a prompt is also given as an argument, appending it as a block; fixed by explicitly
+  redirecting stdin from `/dev/null`). Once run: stated both terminal states before any command
+  execution (confirmed from the raw JSONL transcript, not self-reported), genuinely reproduced the
+  failure, correctly root-caused it, applied the same minimal two-line fix a human reference
+  would, reran the suite, declared success only then. Independently reverified myself (`git diff
+  --stat`: one file, two lines; reran the test suite: 5/5 green). One shot, no retries. Full
+  record: `runs/2026-07-07-module-04-codex-spike/retro.md`, `runs/run-20260707-AEW-009.yaml`.
+- **Patch investigation**: went looking for the real fix rather than accepting the earlier spike's
+  own guess (a generation-length/timeout limit). Checked and ruled out directly: this lab's
+  Ollama timeout is already 600s; the model has no `num_predict` cap. Found the real cause via a
+  raw API test against the actual prompt template: the patch-generation call requested no
+  `format: "json"`, so nothing enforced valid JSON grammar. Confirmed the fix works, checked for
+  cascading effects as asked (found and fixed the identical bug in `workflows/refactor.py`, which
+  imports and reuses the exact same `PatchProposal` schema), added duck-typed `fmt` support to all
+  three runtime providers, added regression tests, ran the full suite (458/458 passing). Isolated
+  this work in its own `git worktree` off `local-agentic-coding-lab`'s `main`, to avoid entangling
+  it with that repo's own uncommitted spike-script changes sitting on `main`'s working tree.
+  Committed to branch `fix/patch-generation-json-format`, not pushed, per the user's choice.
+- **A second real factor, found but not shipped**: with `fmt="json"` alone, the same call still
+  truncated against a real (not synthetic) captured prompt — Ollama's own un-requested default
+  context is 4096, too small for this call's actual size. An isolated direct-API test with
+  `options={"num_ctx": 32768}` (the model's own registry value) fixed it cleanly. Wiring that
+  identical value into the real workflow and running it end to end did not reproduce that clean
+  result: the resident model reloaded at context 384000 instead of the requested 32768 (cause
+  unconfirmed), ballooned to ~49GB memory at a 66%/34% CPU/GPU split, and sat stuck for 30+ minutes
+  before being force-stopped (`ollama stop`) for safety, on a 24GB-RAM machine. Reverted this part
+  from the patch rather than ship something observed to be unsafe; documented as an open question
+  in `local-agentic-coding-lab/docs/next-actions.md` instead.
+
+### Assumptions
+
+That stopping the live investigation once a real resource-safety incident appeared was the right
+call, rather than continuing to tune the `num_ctx` value live to find one that "works" — an
+unexplained requested-vs-observed context mismatch is worth understanding before trusting any
+specific number, not just whichever one happens not to blow up this time.
+
+### Risks
+
+None new to this repo. The consolidated retro (`runs/2026-07-07-module-04-student-gremlin-spike/
+retro.md`) discloses a real data-hygiene mistake made during the spike iterations: attempt 1's raw
+evidence files were overwritten on disk by attempt 2's re-run (same date-based directory name)
+before the mistake was noticed and the directory renaming scheme was introduced — attempt 1's
+specific findings survive as quoted text in that retro, but its raw artifacts do not.
+
+### Next Actions
+
+See `docs/next-actions.md`'s updated status block. Module 03's own open items are unaffected.
+Whether `local-agentic-coding-lab`'s maintainer investigates the num_ctx discrepancy, and whether
+this session's Codex-CLI success is treated as sufficient fresh-agent evidence for Module 04 or
+prompts a similar attempt at Module 03, are open, not decided here.
+
+### Validation
+
+- Codex CLI spike: independently reran the test suite myself against the same workspace state,
+  confirmed 5/5 passing and the diff confined to exactly the described two lines.
+- Patch fix: full test suite run twice (`Ran 458 tests ... OK`), once before and once after the
+  test-file revert that removed the num_ctx assertions; confirmed the reverted code path (fmt=json
+  only) still passes all tests.
+- Confirmed the stuck `llama-server` process was cleanly unloaded (`ollama stop`, `ollama ps`
+  empty afterward) and the machine's memory pressure returned to normal before continuing.
+
+### Mind-palace updated
+
+No — out of scope; no authorization sought or given.

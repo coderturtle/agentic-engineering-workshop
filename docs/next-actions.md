@@ -1,5 +1,44 @@
 # Next Actions: Terminal Velocity
 
+## Status: Codex CLI spike (go) + patch investigation, same-day follow-up (2026-07-07)
+
+Follow-up to the two spikes below. **Codex CLI, run cold as an independent full harness against
+Module 04: go, cleanly** — stated terminal states up front, correctly reproduced/root-caused/
+fixed/reran, minimal diff, one shot. This is real, positive fresh-agent evidence for Module 04
+(complementing, not replacing, the student-gremlin spike's negative result for the specific
+local-pipeline approach). Full record: `runs/2026-07-07-module-04-codex-spike/retro.md`.
+
+**Patch investigation** on `local-agentic-coding-lab` (per the user's request to turn the
+truncation finding into a real patch, checked for cascading effects): the original root-cause
+guess was wrong (checked and ruled out: timeout, `num_predict`). Real cause found and fixed
+(`fmt="json"` missing on the patch-generation call, cascading to an identical call in
+`workflows/refactor.py`) on a local branch (`fix/patch-generation-json-format`, not
+pushed/merged). A second real factor (Ollama's small default context) was found, confirmed to fix
+the issue in isolation, but caused a genuine resource-safety incident when wired into the full
+workflow (~49GB memory, stuck 30+ minutes) — **deliberately not shipped**, left open. Full record:
+`runs/2026-07-07-module-04-student-gremlin-spike/retro.md` (all three attempts, consolidated) and
+`local-agentic-coding-lab/docs/decisions.md`'s ADR-044.
+
+**Still true below**: Module 03's own still-open items are unaffected by any of this — none of
+today's work (student-gremlin, judging panel, or Codex) reached Module 03.
+
+## Status: two bounded local-model spikes run — student gremlin no-go (root cause found), judging panel go (2026-07-07)
+
+Ran two spikes on adjacent Hekton labs targeting this project's two open evidence gaps. **Student
+gremlin** (`local-agentic-coding-lab`, driving its existing `coding.bugfix` loop against Module
+04, not Module 03): no-go, but with a precise, well-evidenced root cause (the coder model's
+structured-edit patch JSON got truncated before parsing, on every attempt across two runs, despite
+correctly diagnosing the actual bug every time) — read as a plumbing limitation in that lab's
+shared workflow, not a verdict that a local model can't do this. **Judging panel** (`local-llm-lab`,
+a 3-persona blind panel scoring Module 04's already-graded transcripts): go — independently
+reproduced the original good/gaming split with zero access to the original verdict. Full detail
+in `docs/decisions.md`'s 2026-07-07 row and `docs/session-log.md`'s matching entry.
+
+**What this changes below:** RISK-0004 (`docs/risks.md`) is updated with the judging-panel result
+— narrowed, not closed. Module 03's own still-open items (human-confirmation exercise, second
+harness, fresh/uninvolved learner-or-agent test) are **unchanged** — the student-gremlin spike
+deliberately targeted the easier Module 04 first and did not reach Module 03 at all.
+
 ## Status: content backlog closed, all five modules human-confirmed (2026-07-04)
 
 Module 04's three optional extensions (verification-deepened, event-driven, hill-climbing) and
