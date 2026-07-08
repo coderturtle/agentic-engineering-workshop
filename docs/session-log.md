@@ -1268,3 +1268,52 @@ merge `fix/patch-generation-json-format` are open, not decided here.
 ### Mind-palace updated
 
 No — out of scope; no authorization sought or given.
+
+## 2026-07-08 - Merged both feature branches; wrote the Module 03 pilot completion plan
+
+### What changed
+
+Merged `agent/claude/module-03-agent-native-pilot` into this repo's `main` (conflict-free, one
+unrelated commit ahead) and `local-agentic-coding-lab`'s `fix/patch-generation-json-format` into
+its own `main` (464/464 tests re-verified post-merge); deleted the now-fully-merged branch and its
+worktree there. Neither `main` was pushed. Wrote `docs/module-03-pilot-completion-plan.md`,
+scoping the remaining steps of `docs/agent-native-interaction-plan.md` §5 (the human-confirmation
+exercise, plus a second harness and a genuinely fresh, uninvolved attempt first, per the review
+panel's Instructional Designer finding) into a concrete, self-contained runbook for a session with
+cleared context to execute — deliberately, since the point of the remaining work is testing
+whether the pilot holds up for someone who wasn't involved in building it.
+
+### Decisions
+
+Recommends Codex CLI for the second-harness/fresh-attempt phase (proven cold-capable this session
+against Module 04), run as two genuinely separate `codex exec` invocations for the reset-and-resume
+requirement, against a scratch copy of the fixture (never the live `fixtures/receipts/`, which
+stays unsolved for real learners). The human-confirmation exercise itself is scoped as explicitly
+human-only in the plan — not something any agent picking up the plan should attempt.
+
+### Assumptions
+
+That an orchestrating session merely reading this plan (rather than having built the pilot) is a
+meaningfully fresher vantage point, even though it isn't a fully independent human learner — the
+plan itself says so, asking whoever runs it to report that nuance honestly rather than overclaim
+purer independence than actually held.
+
+### Risks
+
+None new. Both merges were local-only, re-verified (tests, conflict check) before considering them
+done.
+
+### Next Actions
+
+Execute `docs/module-03-pilot-completion-plan.md`'s Phase A, ideally in a session with cleared
+context, per the plan's own reasoning.
+
+### Validation
+
+terminal-velocity: `git log --oneline HEAD..main`/`main..HEAD` checked before merging (one
+unrelated commit each direction, no overlap). local-agentic-coding-lab: full test suite re-run
+post-merge, 464/464 passing.
+
+### Mind-palace updated
+
+No — out of scope; no authorization sought or given.
