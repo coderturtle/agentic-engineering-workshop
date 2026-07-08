@@ -1,5 +1,24 @@
 # Next Actions: Terminal Velocity
 
+## Status: Module 03 pilot completion plan written; both feature branches merged (2026-07-08)
+
+`agent/claude/module-03-agent-native-pilot` merged into `main` (this session's full arc: manifest
+pilot, dry run, review-panel fixes, local-model spikes, Codex cross-check, num_ctx resolution).
+`local-agentic-coding-lab`'s `fix/patch-generation-json-format` merged into its own `main` (both
+commits: `fmt="json"` + `context_by_profile`); the branch and its worktree were deleted after
+merge (`git branch -d`, only succeeds on a fully-merged branch). Neither repo's `main` was pushed.
+
+**New: `docs/module-03-pilot-completion-plan.md`** — the concrete next step for Module 03's still-
+open items (human-confirmation exercise; a second harness *and* a genuinely fresh, uninvolved
+attempt, per the review panel's Instructional Designer finding that the existing dry run
+validated the pilot's own authors more than a cold learner). Designed to be run by a session with
+**cleared context** — deliberately, since the exact gap being closed is "does this hold up for
+someone who wasn't in the room," and an orchestrating session that remembers this build's history
+would bias that test. Recommends Codex CLI (proven cold-capable this session against Module 04)
+for Phase A, satisfying "second harness" and "fresh attempt" in one motion; Phase B (the actual
+human-confirmation exercise) stays explicitly human-only, not delegated forward; Phase C (`tv`
+CLI / MCP server decision) stays gated on what A/B reveal, per the original plan's own sequencing.
+
 ## Status: num_ctx question resolved, student-gremlin spike now converges (2026-07-08)
 
 Follow-up to 2026-07-07's patch investigation below. The "requested 32768, observed 384000, cause
