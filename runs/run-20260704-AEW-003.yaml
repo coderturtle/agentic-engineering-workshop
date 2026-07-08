@@ -1,0 +1,12 @@
+schema_version: "1"
+run_id: run-20260704-AEW-003
+project: terminal-velocity
+task_id: module-04-extension-c-hill-climbing-proposal
+task_type: review
+engine: claude-sonnet-5
+status: pending-response
+created: 2026-07-04
+human_confirmed: false
+human_notes: ""
+output_artifact: runs/2026-07-04-module-04-extension-c-hill-climbing/
+failure_reason: ""

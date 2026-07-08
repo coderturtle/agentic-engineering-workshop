@@ -6,7 +6,7 @@ Every module's core exercise is run through your own coding-agent harness (Claud
 
 **Hands-on by design, not passive text.** No module here completes by reading it. Every module states a required gate: an artifact you produce or an action you're observed doing, checked against a rubric. If a module ever reduces to "read this, then move on," that's a defect, not how this workshop is meant to work. Every gate also has a stated **takeaway**: you keep something reusable, not just proof you did the exercise.
 
-> Content status: all five core exercises are real, not placeholders, each authored, actually run, and independently reviewed, not just written. Evidence for each is in that module's own `runs/` folder. A few pieces remain deliberately unbuilt (Module 04's optional extensions, Module 05's prompt- and context-bottleneck variants, Module 03's agent-native manifest); each module's own README says so where it applies.
+> Content status: all five core exercises are real, not placeholders, each authored, actually run, and independently reviewed, not just written. Evidence for each is in that module's own `runs/` folder. Module 03's agent-native manifest (`module.yaml` + `AGENT.md`, schema in `modules/.manifest.schema.yaml`) was built and dry-run verified 2026-07-04. Module 04's three optional extensions were authored and verified 2026-07-04, reviewed against the Workshop Review Panel. Module 05's prompt- and context-bottleneck variants were built and rigorously tested 2026-07-04; neither reproduced its intended failure mode, a real finding documented in that module's own README, not a gap. Each module's own README has the full detail.
 
 ## The arc
 
@@ -18,7 +18,7 @@ Every module's core exercise is run through your own coding-agent harness (Claud
 | 04 | [Loop engineering](04-loop-engineering/README.md) | When does it stop, how do we know it's right, and how does it get better without me watching every turn? | A bounded loop that actually terminates correctly |
 | 05 | [Synthesis capstone](05-synthesis-capstone/README.md) | Given a broken agent task, which layer is actually the bottleneck? | A correct diagnosis, a fix, and a written defense |
 
-Module 05's exercise currently ships two variants (a harness-bottleneck and a loop-bottleneck); prompt- and context-bottleneck variants are designed but not yet built, so the capstone currently tests diagnosis across two of the four layers, not all four. See that module's own README for the honest scope note.
+Module 05's required exercise ships two variants (a harness-bottleneck and a loop-bottleneck), so the capstone tests diagnosis across two of the four layers, not all four. Prompt- and context-bottleneck variants were built and rigorously tested, not skipped, and neither reproduced its intended failure mode against this fixture family (a real structural finding, not a construction gap); shipped as evidenced negative-control artifacts alongside the exercise, not as required-exercise options. See that module's own README for the full finding.
 
 ## What you keep
 

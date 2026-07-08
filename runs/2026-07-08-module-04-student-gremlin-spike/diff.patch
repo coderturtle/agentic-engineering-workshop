@@ -1,0 +1,45 @@
+--- a/receipts/grouping.py
++++ b/receipts/grouping.py
+@@ -27,7 +27,12 @@
+ 
+ from collections import defaultdict
+ from dataclasses import dataclass, field
+-from datetime import datetime
++from datetime import datetime, timezone as dt_timezone
++try:
++    from zoneinfo import ZoneInfo
++except ImportError:
++    # Fallback for older Python versions without zoneinfo
++    ZoneInfo = None
+ 
+ 
+ @dataclass
+@@ -67,6 +72,18 @@
+     return (receipt_id, ts, amount), None
+ 
+ 
++def _localize_utc_to_tz(ts: datetime, tz_str: str) -> datetime:
++    """Convert a UTC datetime to the target timezone."""
++    if ZoneInfo is None:
++        # Fallback for older Python versions
++        import pytz
++        tz = pytz.timezone(tz_str)
++        return ts.astimezone(tz)
++    else:
++        tz = ZoneInfo(tz_str)
++        return ts.astimezone(tz)
++
++
+ def group_expenses_by_month(rows, tz: str) -> GroupResult:
+     months: dict[str, MonthSummary] = defaultdict(MonthSummary)
+     errors: list[RowError] = []
+@@ -77,7 +94,8 @@
+             errors.append(err)
+             continue
+         receipt_id, ts, amount = parsed
+-        key = ts.strftime("%Y-%m")
++        localized_ts = _localize_utc_to_tz(ts, tz)
++        key = localized_ts.strftime("%Y-%m")
+ 
+         summary = months[key]
+         summary.total += amount

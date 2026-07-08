@@ -22,9 +22,9 @@ risks:
     impact: medium
     status: open
     owner: coderturtle
-    mitigation: "All five modules have been through the Workshop Review Panel (7 independent personas) against real content, which found and fixed real issues in every module, including two fixture bugs and one rubric-vs-evidence inconsistency. Residual: the panel itself was run by the same session/operator in one sitting, not a fully independent human or blind pass."
+    mitigation: "All five modules have been through the Workshop Review Panel (7 independent personas) against real content, which found and fixed real issues in every module, including two fixture bugs and one rubric-vs-evidence inconsistency. 2026-07-07: a local, blind, multi-persona judging panel (local-llm-lab, qwen2.5:14b-instruct) independently re-graded Module 04's already-graded good/gaming transcripts, with zero access to the original verdict, and reproduced the original pass/fail split. Real independent signal (different model family, zero authorship involvement), narrower than a full resolution: one rubric, two transcripts, one run (reproduced once), still a bounded spike not a standing process. Residual: no module checked by a human with zero involvement in building it; no standing practice repeats this check across other modules or on fresh attempts."
     raised_date: 2026-07-03
-    reviewed_date: 2026-07-03
+    reviewed_date: 2026-07-07
     links:
       - "docs/risks.md"
       - "docs/review-panel/2026-07-03-module-01-content.md"
@@ -32,3 +32,4 @@ risks:
       - "docs/review-panel/2026-07-03-module-03-content.md"
       - "docs/review-panel/2026-07-03-module-04-content.md"
       - "docs/review-panel/2026-07-03-module-05-content.md"
+      - "runs/2026-07-07-module-04-student-gremlin-spike/retro.md"

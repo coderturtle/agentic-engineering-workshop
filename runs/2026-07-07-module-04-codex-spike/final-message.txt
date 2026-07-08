@@ -1,0 +1,11 @@
+Success fired: the full test suite passes, including `test_month_boundary_crosses_in_target_timezone`.
+
+Root cause: `group_expenses_by_month` accepted `tz` but ignored it, formatting the raw UTC timestamp as the month key. The fix in [receipts/grouping.py](/tmp/workshop-codex-spike-YJXbB8/receipts/grouping.py) converts each parsed timestamp with `ZoneInfo(tz)` before `strftime("%Y-%m")`.
+
+Verification run:
+
+```bash
+python3 -m unittest discover -s tests
+```
+
+Result: `Ran 5 tests ... OK`.

@@ -1,0 +1,20 @@
+--- /Users/hekton/Development/hekton/factory-output/terminal-velocity/.claude/worktrees/agent-a974506e40e7a005e/fixtures/receipts/variants/sabotaged-harness/receipts/grouping.py	2026-07-04 19:43:49
++++ /Users/hekton/Development/hekton/factory-output/terminal-velocity/.claude/worktrees/agent-a974506e40e7a005e/runs/2026-07-04-module-05-sabotaged-prompt-dry-run/prompt-variant-attempt/receipts/grouping.py	2026-07-04 19:52:11
+@@ -28,6 +28,7 @@
+ from collections import defaultdict
+ from dataclasses import dataclass, field
+ from datetime import datetime
++from zoneinfo import ZoneInfo
+ 
+ 
+ @dataclass
+@@ -77,7 +78,8 @@
+             errors.append(err)
+             continue
+         receipt_id, ts, amount = parsed
+-        key = ts.strftime("%Y-%m")
++        local_ts = ts.astimezone(ZoneInfo(tz))
++        key = local_ts.strftime("%Y-%m")
+ 
+         summary = months[key]
+         summary.total += amount

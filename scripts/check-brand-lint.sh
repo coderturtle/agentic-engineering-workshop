@@ -47,6 +47,10 @@ while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find docs/build-log
 # Takeaway artifacts: learner-facing (dropped into their own harness), not internal scaffolding.
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find .claude/commands -name '*.md' -print0 2>/dev/null)
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find .claude/skills -name '*.md' -print0 2>/dev/null)
+# Loadable personas: learner-facing (a learner's own agent loads these directly), not internal
+# scaffolding. Added 2026-07-04 after coachgremlin/grader.md shipped with em dashes this scope
+# missed entirely.
+while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find coachgremlin -name '*.md' -print0 2>/dev/null)
 while IFS= read -r -d '' f; do SCOPE_FILES+=("$f"); done < <(find site/src -type f \( -name '*.astro' -o -name '*.mdx' \) -print0 2>/dev/null)
 
 echo "-- Brand lint (published content only) ----------------------------------"

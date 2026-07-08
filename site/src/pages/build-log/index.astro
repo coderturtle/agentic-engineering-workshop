@@ -14,17 +14,17 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout title="Build log index" description="Every dated entry in the Terminal Velocity build log.">
   <h1 class="text-3xl font-bold">Build log</h1>
-  <ul class="mt-6 space-y-6">
+  <ul class="mt-6 space-y-4">
     {
       entries.map((entry) => (
         <li>
-          <p class="font-mono text-xs uppercase tracking-widest opacity-60">
-            {fmt(entry.data.pubDate)}
-          </p>
-          <a href={`${base}build-log/${entry.id}/`} class="text-xl font-semibold underline">
-            {entry.data.title}
+          <a href={`${base}build-log/${entry.id}/`} class="entry-card">
+            <p class="font-mono text-xs uppercase tracking-widest opacity-60">
+              {fmt(entry.data.pubDate)}
+            </p>
+            <p class="entry-title text-xl font-semibold">{entry.data.title}</p>
+            <p class="mt-1 text-sm opacity-80">{entry.data.description}</p>
           </a>
-          <p class="text-sm opacity-80">{entry.data.description}</p>
         </li>
       ))
     }

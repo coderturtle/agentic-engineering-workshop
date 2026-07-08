@@ -764,3 +764,507 @@ separate confirmation), visually confirm the site in a browser, run `npm audit`.
 
 No — not requested this session; the mirror-drift check already flagged existing drift
 independent of this session's changes (pre-push hook warning, non-blocking).
+## 2026-07-04 - Built the agent-native manifest pilot for Module 03 (schema, grader persona, manifest, agent entry point)
+
+### What changed
+
+Picked up `docs/agent-native-interaction-plan.md`'s pilot, scoped to Module 03 only, per that
+plan's own §5 sequencing (steps 1-4 of 8):
+
+- `modules/.manifest.schema.yaml` — new, the machine-readable module-manifest schema (same
+  convention as `runs/.schema.yaml`): `question`, `arc_position`, `gate`, `rubric` as
+  `{criterion, observable, weight}`, `stop_condition`, `expected_artifacts`, `submission`,
+  `human_gate`.
+- `runs/.schema.yaml` — extended, not replaced: `task_type: exercise` added to `task_types`;
+  `module_id`, `attempt_driver` (`human | agent | mixed`), `rubric_scores`,
+  `coachgremlin_assessment` added as optional fields.
+- `coachgremlin/grader.md` — new top-level directory and file: the Coachgremlin teaching loop
+  (frame → rubric → observe → feedback → confirm/loop → package the takeaway) distilled from the
+  canonical `~/hekton/gremlins/coaching/coachgremlin.md` into a persona a learner's own agent loads
+  locally. Placed at repo top level, not inside module 03, since the plan calls for it to be reused
+  by every future module's pilot. Carries the hard rule the whole pilot depends on: never emit a
+  terminal "complete"/"certified" state; only a human flipping `human_confirmed` does that, and for
+  an agent-driven attempt that flip means attestation of understanding, not sighting of an artifact.
+- `modules/03-harness-engineering/module.yaml` — new, the manifest instance. Mirrors the README's
+  existing real 6-item rubric verbatim (Bounded reach, Sub-agent/specialist boundary, Persistent
+  state survives reset, Actually ran, Isolation-conditional, Reusable generality) rather than
+  inventing a parallel version — checked directly: `question` and `gate` text both appear verbatim
+  in `README.md` (`grep`-confirmed, not just eyeballed).
+- `modules/03-harness-engineering/AGENT.md` — new, the harness-agnostic agent-facing counterpart to
+  `README.md`: what to read, what to build, how to write the `runs/` entry, and an explicit
+  instruction to stop at a submitted entry and never self-certify or advance the learner to Module
+  04 on its own assessment.
+
+### Decisions Made
+
+Followed the plan's own recommended design: Option A (static manifest) + Option E (the existing
+runs ledger) as the pilot's base layer; Option C (a `tv` CLI) and Option B (an MCP server) stay
+explicitly staged as later phases, not built now — the plan's own risk section warns against
+building the service before the manifest is proven, and that reasoning was followed rather than
+re-litigated.
+
+### Assumptions
+
+Module 03's README already carried a complete, real 6-criterion rubric (authored in the prior
+session's full five-module content pass), so the plan's original "sequencing choice" caveat (build
+plumbing against a placeholder rubric, or co-produce with real content) resolved itself in favor of
+building directly against the real rubric — no placeholder was needed.
+
+### Risks
+
+- **Proven-by-construction, not proven-by-observation.** Every new file is internally consistent
+  and schema-valid, and cross-checked against the README for drift, but no actual harness has yet
+  parsed `module.yaml`/`AGENT.md` and produced a real transcript. The plan's own verification
+  section is explicit that "the observed behavior, not the file's existence, is the proof" — this
+  session built the plumbing (steps 1-4), not the proof (step 5, the dry run). Recorded as the
+  explicit next step in `docs/next-actions.md`, not left implicit.
+- **Two-sources-of-truth drift**, same risk the plan itself names: `module.yaml` and `README.md`
+  must be kept in sync by hand going forward. Checked clean at write time; nothing currently
+  enforces it automatically (no drift-check script added this session — a candidate for
+  `scripts/check-mirror-drift.sh`-style tooling if this pattern spreads past Module 03).
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "agent-native manifest pilot for Module 03" section: the real dry
+run (a harness actually consuming the manifest, building the harness config, demonstrating
+reset-and-resume, writing a `runs/` entry) is the load-bearing next step, followed by one real
+human-confirmation exercise and the plan's scoped 3-persona review-panel re-run.
+
+### Validation
+
+- `ruby -ryaml` parse check on all three new/changed YAML files (`modules/.manifest.schema.yaml`,
+  `modules/03-harness-engineering/module.yaml`, `runs/.schema.yaml`): all valid.
+- `grep` confirmed `module.yaml`'s `question` and `gate` fields appear verbatim in
+  `modules/03-harness-engineering/README.md` and `modules/README.md`'s arc table — no drift.
+- No dry run performed this session (see Risks above); this is explicitly not yet end-to-end
+  verified.
+
+### Mind-palace updated
+
+No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
+requested.
+
+## 2026-07-04 - New branch reconciling the manifest pilot with the live deploy, dry run executed, minimal site styling
+
+### What changed
+
+- **New branch, `agent/claude/module-03-agent-native-pilot`, off `main`** (which had moved ahead
+  with the real GitHub Pages deploy, done by the user in parallel). Cherry-picked the manifest-pilot
+  commit (`352dc70`) forward onto it, resolving append-only-log conflicts in `decisions.md`,
+  `next-actions.md`, `session-log.md` by keeping both sides' entries.
+- **Ran the Module 03 manifest pilot's dry run for real** (`docs/agent-native-interaction-plan.md`
+  §5's load-bearing verification step): a phase-2 fresh agent in an isolated git worktree resumed
+  with zero access to phase 1's transcript (the actual property under test), self-grading via
+  `coachgremlin/grader.md`, a `runs/` ledger entry that never self-certifies, and a negative control.
+  Found and fixed two real ambiguities in `AGENT.md`. Full detail in `docs/decisions.md`'s matching
+  row (updated after this session's own Review Panel re-run corrected "two genuinely disconnected
+  phases" to be precise about what's actually preserved as evidence) and
+  `runs/2026-07-04-module-03-manifest-dry-run/`. Fixture left unsolved; worktree discarded after
+  extracting evidence.
+- **Minimal styling pass on `site/`**: `ink`/`paper`/`accent` moved to RGB-channel CSS custom
+  properties so Tailwind's opacity modifiers keep working and `prefers-color-scheme: dark` drives
+  both palettes automatically; links/nav/wordmark now actually use the accent color; build-log and
+  homepage entry lists gained a real card treatment (border, subtle background, hover state)
+  instead of whitespace-only separation; header gained a subtle bottom divider.
+
+### Decisions Made
+
+See `docs/decisions.md`'s two new 2026-07-04 rows: the branch strategy (fresh branch off `main` plus
+a forward cherry-pick, rather than merging the live deploy backward into the older branch), and the
+styling approach (CSS custom properties over a JS-driven theme toggle, since `prefers-color-scheme`
+covers the actual need with zero new dependencies or client-side code).
+
+### Risks
+
+- The `astro dev` server exhibited a stale-HMR artifact during the styling work where compiled CSS
+  looked like it had baked custom-property values in literally (making dark mode appear broken).
+  The real `astro build` output was correct throughout. Worth remembering as a pattern: verify
+  dark-mode/CSS-variable changes in Astro against `astro preview` (the real build), not just
+  `astro dev`, since the dev server's incremental compilation isn't always representative.
+- Module 03's manifest pilot is now dry-run-verified but still not human-confirmed, and the plan's
+  scoped 3-persona review-panel re-run hasn't happened yet — both remain open per `docs/next-actions.md`.
+
+### Next Actions
+
+See `docs/next-actions.md`: assess and report the remaining content backlog (Module 04 extensions,
+Module 05 remaining variants, the standing module-review item), which is the next thing this session
+moves to.
+
+### Validation
+
+- `astro check`: 0 errors/warnings/hints.
+- `astro build`: clean, 8 pages, `dist/CNAME` present.
+- Playwright screenshots (via `astro preview`, not the dev server) confirmed both light and dark
+  rendering for the homepage, build-log index, and a build-log post.
+- `git status` after each commit: only the intended files touched.
+
+### Mind-palace updated
+
+No — not requested; nothing this session required a live-vault write.
+
+## 2026-07-04 - Finished the content backlog: Module 04's extensions, Module 05's remaining variants, human confirmation, review panel
+
+### What changed
+
+- **Human review recorded**: all five modules' existing dry-run evidence confirmed (go) by
+  coderturtle, recorded retroactively in `runs/` ledger entries (`run-20260703-AEW-001` updated,
+  `run-20260704-AEW-00{4,5,6,7}` new).
+- **Module 04's three optional extensions authored and verified**: Extension A
+  (`scripts/blast-radius-check.sh`, a reusable diff-scope checker), Extension B (documented and
+  live-verified the existing pre-push `check-brand-lint.sh` hook, including actually triggering it
+  via `git push --dry-run`), Extension C (a hill-climbing analysis proposing to fold Extension A
+  into `.claude/commands/ticket-to-pr-ready.md`, sitting under human review, not adopted).
+- **Module 05's remaining two variants built and rigorously tested**: `sabotaged-prompt/` and
+  `sabotaged-context/`, each via a background agent in an isolated worktree. Across 10 independent
+  fresh-agent runs and multiple sabotage designs (including one with the fixture's own `SPEC.md`
+  answer-key section redacted), neither reproduced its intended failure mode: this fixture family's
+  deliberate self-documentation (for Modules 01-04's sake) structurally defeats prompt/context
+  misdirection, since a thorough agent routes around bad instructions by reading code/tests it
+  already has access to. User's explicit call (given three framed options): ship both variants and
+  their full evidence as an honest, well-evidenced negative finding, not as confirmed diagnostic
+  exercises. The capstone's required exercise is unchanged (2 of 4 layers live).
+- **Workshop Review Panel run twice**: full 7-persona on Module 04's extensions, scoped 3-persona
+  on Module 05's update. Real bugs found and fixed in both passes (see Decisions).
+- Along the way, a tool-use mistake (spawning a fresh agent instead of resuming one via
+  `SendMessage`, which would have operated in the wrong location) was caught and corrected before
+  it wrote anything.
+
+### Decisions Made
+
+See `docs/decisions.md`'s four new 2026-07-04 rows: the human-confirmation recording, Module 04's
+extensions, Module 05's variant-construction-and-honest-finding decision, and the two review-panel
+runs and what they fixed.
+
+### Risks
+
+- Module 03's manifest pilot still needs its own human-confirmation exercise and scoped
+  review-panel re-run, not done this session (tracked in `docs/next-actions.md`).
+- The two original Module 05 variants (`sabotaged-harness`/`sabotaged-loop`) haven't had the same
+  fresh scrutiny the new work received; worth a look given what the new review passes found
+  elsewhere.
+- `blast-radius-check.sh`'s suffix-match glob logic is looser than "blast radius" implies (would
+  pass e.g. `vendor/receipts/grouping.py` against an allowlist of `receipts/grouping.py`); flagged
+  by a reviewer, not fixed, since no realistic adversarial case was found, only a caveat added.
+
+### Next Actions
+
+See `docs/next-actions.md`'s new "content backlog closed" status section.
+
+### Validation
+
+- `scripts/check-brand-lint.sh --check`: clean throughout, rerun after every batch of edits.
+- `scripts/blast-radius-check.sh` regression-tested against real historical diffs after its
+  deletion/rename fix (unchanged PASS/FAIL outcomes on the two original cases, correct behavior on
+  new deletion test cases).
+- Both new Module 05 fixtures sanity-checked to still ship the seeded bug (`FAILED (failures=1)`
+  on `test_month_boundary_crosses_in_target_timezone`, nothing else).
+- `git status` clean after each commit; worktrees removed once evidence was extracted.
+
+### Mind-palace updated
+
+No — nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
+requested.
+
+## 2026-07-04 - Scoped Review Panel on Module 03's manifest pilot; fixed what it found
+
+### What changed
+
+- Ran the scoped 3-persona review panel (Instructional Designer, Security-Conscious Reviewer,
+  Skeptical Practitioner/Critic) `docs/agent-native-interaction-plan.md` §5 itself calls for,
+  against the manifest pilot (`module.yaml`, `AGENT.md`, `coachgremlin/grader.md`,
+  `modules/.manifest.schema.yaml`, the dry-run evidence and its ledger entry).
+- **Two personas independently confirmed the Human Gate is enforced by instruction only**: no CI
+  workflow, script, or hook anywhere reads or blocks on `human_confirmed`. Fixed by stating this
+  plainly in `AGENT.md`, `coachgremlin/grader.md`, `coachgremlin-assessment.md`, and the ledger
+  entry, rather than presenting the gate as more solid than it currently is.
+- **Two personas independently found a real overclaim**: "two genuinely disconnected fresh-agent
+  phases run this session" (in `docs/decisions.md`/`docs/session-log.md`) overstated what's
+  actually preserved as evidence. Phase 1 was a real agent invocation the orchestrating session
+  dispatched, but its transcript isn't a standalone artifact; only phase 2's account of finding it
+  "already on disk" is, which is the correct, intended epistemic position for a reset-and-resume
+  test, not a gap. Fixed by stating this precisely everywhere it was previously compressed.
+- Also fixed: the "harness-agnostic" claim was untested against a second harness (now caveated
+  everywhere it's claimed); soft self-certifying language in `rubric_scores` ("meets, gate
+  cleared") reworded to read as observed evidence, not certification, per a new rule added to
+  `coachgremlin/grader.md`; a rubric-drift bug where `module.yaml`'s schema couldn't represent a
+  criterion that's both gate and scored (`modules/.manifest.schema.yaml` gained a
+  `gate_and_scored` value); `coachgremlin/grader.md` itself was outside `check-brand-lint.sh`'s
+  scope entirely despite being genuinely learner-facing content, added to the scope after fixing
+  its own em-dash violations.
+
+### Decisions Made
+
+See `docs/decisions.md`'s updated 2026-07-04 row for the manifest-pilot dry run, now precise about
+what phase 2 could and couldn't see. Full findings and fixes: `docs/review-panel/2026-07-04-module-03-manifest-pilot-content.md`.
+
+### Risks
+
+- The dry run still only demonstrates one compliant agent choosing to follow the Human Gate
+  instructions, not a mechanical guarantee against a careless or adversarial one; this is now
+  documented as an open limitation, not fixed (fixing it would mean building an actual enforcement
+  mechanism, out of scope for a documentation-and-wording pass).
+- Per the Instructional Designer's finding: this dry run validated the pilot's own authors more
+  than a genuinely cold learner. Tracked in `docs/next-actions.md` as a reason a second harness and
+  a fresh, uninvolved run would carry more weight than another self-run.
+
+### Next Actions
+
+See `docs/next-actions.md`: the human-confirmation exercise for this pilot is still open, and a
+second-harness/fresh-learner verification pass is now explicitly recommended before deciding on
+the `tv` CLI or MCP server phases.
+
+### Validation
+
+- `scripts/check-brand-lint.sh --check`: clean, now covering `coachgremlin/` too (25 files, up
+  from 24).
+- `ruby -ryaml` parse check on all touched YAML files: valid.
+- Drift check: `module.yaml`'s `question`/`gate` still match `README.md` verbatim (case-insensitive
+  spot check confirmed a false-alarm on capitalization, not real drift).
+
+### Mind-palace updated
+
+No, nothing this session required a live-vault write (`vault_mutation_allowed: false`); not
+requested.
+
+## 2026-07-07 - Two bounded local-model spikes: student-gremlin fresh-agent test (no-go, root cause found) and blind judging panel (go)
+
+### What changed
+
+Asked whether local models on adjacent Hekton labs could attack this project's two remaining
+evidence gaps: Module 03's need for a genuinely fresh, uninvolved agent attempt, and RISK-0004's
+need for an independent second opinion on grading. Entered plan mode, researched both labs'
+actual mechanics first (neither ask was greenfield: `local-agentic-coding-lab` already has a
+bounded iterate-until-tests-pass `coding.bugfix` pipeline and a diff-review arb-panel;
+`local-llm-lab` already has a working blind, deterministic LLM-as-judge and a
+human-vs-judge calibration schema), then ran two bounded spikes with explicit go/no-go gates,
+deliberately choosing easier first targets over the harder original asks.
+
+- **Spike A, student gremlin (`local-agentic-coding-lab`, Module 04, not Module 03):**
+  `scripts/workshop_student_spike.py` (new, in that lab) stages a scratch copy of the canonical
+  `fixtures/receipts/` fixture (confirmed already in its seeded-bug state: 4/5 tests pass,
+  `test_month_boundary_crosses_in_target_timezone` fails, exactly as Module 04's ticket
+  describes), narrowed to Module 04's own files (excluding `tests/test_by_category.py`, Module
+  03's separate unimplemented feature, which a naive `discover -s tests` would wrongly also run),
+  then drives that lab's existing `run_bugfix_workflow()` unmodified. **No-go, with a precise root
+  cause**: across two independent full runs, `devstral-small-2:24b` (that lab's real
+  `coder`-role default, not `qwen2.5-coder:7b` as first assumed) correctly diagnosed the actual
+  bug every single time, but its structured-edit patch JSON was truncated/malformed before
+  `msgspec` could decode it on every patch attempt, so no patch was ever built or tested. This
+  reads as a plumbing/generation-length limitation in that lab's shared workflow (logged there as
+  a follow-up, not fixed here — out of scope to edit another lab's shared workflow for a spike),
+  not a verdict on the model's diagnostic capability. Full record:
+  `runs/2026-07-07-module-04-student-gremlin-spike/retro.md`,
+  `runs/run-20260707-AEW-008.yaml` (`human_confirmed: false`).
+- **Spike B, blind judging panel (`local-llm-lab`, Module 04's already-graded transcripts):**
+  `scripts/workshop_judge_panel_spike.py` (new, in that lab) reuses that lab's existing
+  `build_judge_prompt`/`parse_judge_json`/`JUDGE_OPTIONS` unmodified, adding a 3-persona panel
+  (correctness / rubric-literalist / gaming-detector) — the arb-panel *pattern* from
+  `local-agentic-coding-lab`, ported onto `local-llm-lab`'s transcript/rubric judge *substrate*
+  since that lab's own arb-panel reviews diffs and can't run decoupled from its own repo. Scored
+  `runs/2026-07-03-module-04-dry-run/`'s `attempt-good`/`attempt-gaming` transcripts blind to the
+  original `grading.md` verdict. **Go**: the panel independently reproduced the original
+  good/gaming split (mean 0.90 pass vs. 0.417 fail), every persona flagging the exact
+  test-file-editing gaming move the original grading called out, reproduced on a second run.
+
+### Decisions
+
+Neither spike was built into a standing "student gremlin" or "judging panel" product — both stay
+bounded, additive scripts in their host labs, matching this factory's own dry-run/evidence
+culture (decide whether to invest further only after seeing whether a local model gets far
+enough). RISK-0004 is **narrowed, not closed**: an independent, non-Claude second opinion now
+exists for one rubric/two transcripts, but a human still owes review of any future disagreement,
+and this doesn't touch the Module 03 pilot's still-open items at all.
+
+### Assumptions
+
+That Module 04 (loop engineering) was the right first target for the student gremlin, being
+closer in shape to a bounded harness-driven loop than Module 03's actual ask (design a harness) —
+correct in the sense that it let a real, clean failure signal through (a plumbing limit, not a
+capability wall), but it means Module 03's own fresh-agent gap is still exactly as open as before
+this session.
+
+### Risks
+
+RISK-0004 (`docs/risks.md`) updated: mitigation now notes the local blind-judging panel as a
+second, genuinely independent signal, with the residual explicitly restated (no module has been
+checked by a party with zero involvement *and* no standing process for repeating this check
+exists yet — one run, two transcripts, one rubric).
+
+### Next Actions
+
+See `docs/next-actions.md`: Module 03's own human-confirmation exercise and a fresh/uninvolved
+learner-or-agent test are unaffected and still open. Whether to retry the student-gremlin spike
+after `local-agentic-coding-lab`'s maintainer addresses the patch-generation truncation, whether
+to extend the judging panel to other modules, and whether Module 03 is ever attempted by a local
+model at all, are open, not scheduled.
+
+### Validation
+
+- Spike A: two independent live runs against real Ollama (`devstral-small-2:24b`); verified the
+  sandboxed test-runner pipeline separately first (empty-patch guard, then a real hand-written fix
+  applied through `run_tests_with_patch`, confirmed exit_code 0 / all 5 tests green) before
+  spending model compute, to isolate plumbing bugs in the spike's own instrumentation from the
+  model's actual behavior — found and fixed one (an early version tried to `git diff` a scratch
+  workspace `run_bugfix_workflow` never actually applies a patch to).
+- Spike B: full live run against real Ollama (`qwen2.5:14b-instruct`) scoring both transcripts
+  under 3 personas each (6 judge calls); re-ran once more and confirmed identical scores and
+  identical triggered failure modes both times.
+- Confirmed no vault writes, no network beyond local Ollama, no `human_confirmed: true` written
+  anywhere by either spike.
+
+### Mind-palace updated
+
+No — out of scope for this session; no authorization sought or given.
+
+## 2026-07-07 - Same-day follow-up: Codex CLI spike (go) and a real patch investigation
+
+### What changed
+
+Asked to (a) try the student-gremlin question via Codex instead, to prove the concept
+independent of the local-model plumbing bug found above, and (b) turn that finding into a real
+patch request for `local-agentic-coding-lab`, checked for cascading effects. Clarified both via
+`AskUserQuestion` before proceeding: Codex CLI as an independent full harness (not a routing
+change to that lab's own local-only model plumbing, which is architecturally blocked from calling
+cloud models at all); the patch as a local branch + diff only, not pushed.
+
+- **Codex CLI spike**: `codex exec` (model `gpt-5.5`), run cold via `--sandbox workspace-write`
+  against a fresh copy of the receipts fixture, no involvement from the authoring session. Hit a
+  real operational snag first (the process hung waiting on stdin, since `codex exec` reads stdin
+  even when a prompt is also given as an argument, appending it as a block; fixed by explicitly
+  redirecting stdin from `/dev/null`). Once run: stated both terminal states before any command
+  execution (confirmed from the raw JSONL transcript, not self-reported), genuinely reproduced the
+  failure, correctly root-caused it, applied the same minimal two-line fix a human reference
+  would, reran the suite, declared success only then. Independently reverified myself (`git diff
+  --stat`: one file, two lines; reran the test suite: 5/5 green). One shot, no retries. Full
+  record: `runs/2026-07-07-module-04-codex-spike/retro.md`, `runs/run-20260707-AEW-009.yaml`.
+- **Patch investigation**: went looking for the real fix rather than accepting the earlier spike's
+  own guess (a generation-length/timeout limit). Checked and ruled out directly: this lab's
+  Ollama timeout is already 600s; the model has no `num_predict` cap. Found the real cause via a
+  raw API test against the actual prompt template: the patch-generation call requested no
+  `format: "json"`, so nothing enforced valid JSON grammar. Confirmed the fix works, checked for
+  cascading effects as asked (found and fixed the identical bug in `workflows/refactor.py`, which
+  imports and reuses the exact same `PatchProposal` schema), added duck-typed `fmt` support to all
+  three runtime providers, added regression tests, ran the full suite (458/458 passing). Isolated
+  this work in its own `git worktree` off `local-agentic-coding-lab`'s `main`, to avoid entangling
+  it with that repo's own uncommitted spike-script changes sitting on `main`'s working tree.
+  Committed to branch `fix/patch-generation-json-format`, not pushed, per the user's choice.
+- **A second real factor, found but not shipped**: with `fmt="json"` alone, the same call still
+  truncated against a real (not synthetic) captured prompt — Ollama's own un-requested default
+  context is 4096, too small for this call's actual size. An isolated direct-API test with
+  `options={"num_ctx": 32768}` (the model's own registry value) fixed it cleanly. Wiring that
+  identical value into the real workflow and running it end to end did not reproduce that clean
+  result: the resident model reloaded at context 384000 instead of the requested 32768 (cause
+  unconfirmed), ballooned to ~49GB memory at a 66%/34% CPU/GPU split, and sat stuck for 30+ minutes
+  before being force-stopped (`ollama stop`) for safety, on a 24GB-RAM machine. Reverted this part
+  from the patch rather than ship something observed to be unsafe; documented as an open question
+  in `local-agentic-coding-lab/docs/next-actions.md` instead.
+
+### Assumptions
+
+That stopping the live investigation once a real resource-safety incident appeared was the right
+call, rather than continuing to tune the `num_ctx` value live to find one that "works" — an
+unexplained requested-vs-observed context mismatch is worth understanding before trusting any
+specific number, not just whichever one happens not to blow up this time.
+
+### Risks
+
+None new to this repo. The consolidated retro (`runs/2026-07-07-module-04-student-gremlin-spike/
+retro.md`) discloses a real data-hygiene mistake made during the spike iterations: attempt 1's raw
+evidence files were overwritten on disk by attempt 2's re-run (same date-based directory name)
+before the mistake was noticed and the directory renaming scheme was introduced — attempt 1's
+specific findings survive as quoted text in that retro, but its raw artifacts do not.
+
+### Next Actions
+
+See `docs/next-actions.md`'s updated status block. Module 03's own open items are unaffected.
+Whether `local-agentic-coding-lab`'s maintainer investigates the num_ctx discrepancy, and whether
+this session's Codex-CLI success is treated as sufficient fresh-agent evidence for Module 04 or
+prompts a similar attempt at Module 03, are open, not decided here.
+
+### Validation
+
+- Codex CLI spike: independently reran the test suite myself against the same workspace state,
+  confirmed 5/5 passing and the diff confined to exactly the described two lines.
+- Patch fix: full test suite run twice (`Ran 458 tests ... OK`), once before and once after the
+  test-file revert that removed the num_ctx assertions; confirmed the reverted code path (fmt=json
+  only) still passes all tests.
+- Confirmed the stuck `llama-server` process was cleanly unloaded (`ollama stop`, `ollama ps`
+  empty afterward) and the machine's memory pressure returned to normal before continuing.
+
+### Mind-palace updated
+
+No — out of scope; no authorization sought or given.
+
+## 2026-07-08 - Resolved the num_ctx question: wrong framing corrected, real fix shipped, student-gremlin spike converges
+
+### What changed
+
+Asked to investigate the prior day's open num_ctx question before shipping it, and to commit more
+frequently during this kind of experimental work going forward (a real lesson from losing attempt
+1's raw evidence to an overwrite before either session's work was committed — saved as a
+[[feedback-commit-frequently-during-experiments]] memory). Committed all three repos' outstanding
+work from the prior session first, as asked.
+
+Investigated the num_ctx discrepancy properly this time: instead of continuing to guess (an
+earlier hypothesis floated concurrency, another floated thermal throttling — both plausible-
+sounding, both wrong), read `local-agentic-coding-lab`'s actual Ollama server log directly. Found
+the prior day's own framing was wrong: the "requested 32768" baseline that isolated tests had
+verified as safe belonged to a *different* model's registry entry, confused with devstral's; the
+real code always correctly requested devstral's own genuine `context: 384000` (confirmed via
+`ollama show`, not a placeholder — consistent across both the real, gitignored config and the
+tracked example fallback). The blowup was simply that context's ~32GB KV-cache requirement
+exceeding this 24GB machine's RAM, once and for all confirmed, not a mystery.
+
+Per the user's explicit choice ("fix the registry entry itself"), designed and shipped a proper
+per-hardware-profile fix rather than picking a smaller, safer-sounding number: a new optional
+`context_by_profile` field on `local-agentic-coding-lab`'s model registry, resolved via a new
+`effective_context(profile_name)` method; `ModelPlane` now exposes its active profile's name
+(previously computed internally, never surfaced) so callers can resolve it. Devstral's registry
+entry now declares `context_by_profile: {mac_air_m5_24gb: 8192}` (live-verified safe, ~3x headroom
+over the real observed need), while `mac_64gb` keeps the correct, unmodified `384000`. All landed
+on the existing `fix/patch-generation-json-format` branch (still local-commit-only, not pushed).
+
+Live-verified end to end, monitoring `ollama ps` continuously and ready to force-stop early if
+anything looked unsafe again: the student-gremlin spike converged for the first time across four
+attempts (tests-green, diff confined to `receipts/grouping.py`, `tests/test_grouping.py`
+untouched). Took ~24 minutes, much longer than earlier isolated tests (~2-4 minutes) — while it
+ran, confirmed (via `ps aux`, a distinct shell-snapshot ID) a genuinely separate, concurrently-
+active process from another Claude Code session (`local-llm-lab`'s `hekton_llm.judge_calibration`)
+hitting the same shared Ollama instance. Real, current evidence for the concurrency concern raised
+alongside the investigation request — but not the cause of the incident actually being
+investigated, which was fully, separately explained above. Logged as its own backlog item, not
+conflated with the resolved one.
+
+### Decisions
+
+Concurrent multi-session access to a shared local Ollama instance is real and unmanaged, but
+building a fix (safe multithreading/queuing) is out of scope here — logged as a `[plan-first]`
+backlog item in `local-agentic-coding-lab/docs/next-actions.md`, likely belonging in `local-llm-lab`
+as shared "control plane" infrastructure per the user's own framing, deserving its own dedicated
+planning session rather than an ad-hoc fix bolted onto this investigation.
+
+### Assumptions
+
+That correcting a wrong root-cause claim openly (rather than quietly patching the docs) was the
+right call, twice in one investigation (first the concurrency/thermal guesses, then the prior
+day's "cause unconfirmed" framing) — this project's own culture treats an honest wrong turn,
+corrected with evidence, as more valuable than a clean-looking record that omits it.
+
+### Risks
+
+None new to this repo. RISK-0004 and Module 03's open items are unaffected by any of this.
+
+### Next Actions
+
+See `docs/next-actions.md`'s updated status block. The concurrency backlog item and whether to
+merge `fix/patch-generation-json-format` are open, not decided here.
+
+### Validation
+
+464/464 tests pass on the fix branch. Live end-to-end run monitored continuously via `ollama ps`
+(polled throughout, not just checked before/after) — confirmed healthy at every step (proper
+4096↔8192 transitions, max 14GB, no CPU/GPU spillover), unlike the incident being investigated.
+
+### Mind-palace updated
+
+No — out of scope; no authorization sought or given.
