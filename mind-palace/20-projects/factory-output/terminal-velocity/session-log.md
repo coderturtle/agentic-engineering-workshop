@@ -1594,3 +1594,75 @@ require pushing the branch; flagged here rather than assumed clean.
 
 No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
 false`).
+
+## 2026-07-11 - Minimum-viable pedagogy trial designed and verified (docs/pedagogy-trial/)
+
+Follow-up to the same day's critical review and learner-feedback channel. User asked to work on the
+written-guide control with the full trial packet in scope (protocol, guide, transfer task, rubric),
+after a clarifying question resolved which module (04, over 03) and how much to build now (the full
+packet, not just the guide).
+
+### What changed
+
+- `docs/pedagogy-trial/README.md` (new) - the trial protocol: what's being tested, the two-arm
+  randomized design, recruitment (including sourcing volunteers from the new attempt-report
+  template's opt-in checkbox), randomization procedure, session logistics (~90 minutes), consent and
+  privacy handling for a public repo, and an analysis plan that states up front n=4-6 supports only
+  a directional read.
+- `docs/pedagogy-trial/written-guide.md` (new) - the Arm B learning material: the loop-engineering
+  concept taught via prose, a fully narrated worked example (Module 04's own timezone-bug ticket,
+  including the gaming shortcut and why it fails), and an ungraded self-check before the transfer
+  task.
+- `docs/pedagogy-trial/transfer-task.md` (new) - the task both arms take after their learning phase:
+  a new ticket, facilitator setup instructions, and a six-question explain-back interview script.
+- `docs/pedagogy-trial/grading-rubric.md` (new) - blind-grading criteria adapting Module 04's
+  five-criterion rubric to the transfer artifact, plus scoring for the six explain-back answers, and
+  an explicit blinding procedure.
+- `fixtures/receipts/variants/pedagogy-trial-transfer/` (new) - the transfer task's fixture: a new
+  `group_expenses_by_week` function with a genuinely novel seeded bug (mutable-default-argument
+  state leak across independent calls), authored and verified before shipping unsolved.
+- `docs/next-actions.md`, `docs/risks.md`, `.hekton/risk-register.yaml`, `docs/decisions.md` -
+  updated to record the design as real progress on RISK-0007, explicit that recruiting and running
+  is the one remaining, human-only step.
+
+### Decisions Made
+
+- Chose Module 04 over 03 for the trial (user's choice, via `AskUserQuestion`): 04 has the deepest
+  existing dry-run evidence to build the guide's worked example from, and Ticket-to-PR-Ready is a
+  clean, self-contained skill; 03's own negative controls already found the notes file wasn't
+  load-bearing on this fixture three times, which would have capped the trial before it started.
+- The transfer task is scored, not the learning-phase artifact itself, so the comparison is fair
+  across two differently-shaped learning experiences (a harness exercise vs. reading prose) and so
+  it measures whether the discipline transferred to a ticket neither arm has seen, not just whether
+  either arm can produce an artifact once.
+- Seeded a genuinely different bug shape (state leak, not a timezone bug) for the transfer fixture,
+  specifically so success requires the transferred process rather than a memorized fix.
+- Verified the fixture the same way every other fixture in this project has been verified (bug
+  reproduces in isolation, minimal fix passes cleanly) rather than treating a design-only sketch as
+  sufficient, consistent with this project's own standing convention.
+
+### Risks
+
+- RISK-0007: further mitigated, still open. The load-bearing gap is now entirely about execution
+  (recruiting participants, running sessions), not design.
+
+### Next Actions
+
+- The only remaining step for RISK-0007: recruit 4-6 real practitioners per
+  `docs/pedagogy-trial/README.md` and run the sessions. Explicitly human-only, not delegable to an
+  agent, per the same document.
+
+### Validation
+
+Ran the new fixture's test suite against both the buggy (shipped) and a manually-applied minimal fix
+before committing: buggy state fails exactly one test and passes the other four; the fix passes
+5/5, touching only `group_expenses_by_week`. Caught and fixed a self-inflicted test-isolation bug
+mid-build (an initial `setUp` that reset state via the buggy implementation's own internals broke
+once a real fix was applied; replaced with `importlib.reload`, verified against both states again
+afterward). Checked all new learner-facing prose for em-dash violations per `docs/brand.md`'s hard
+rule (none found).
+
+### Mind-palace updated
+
+No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
+false`).
