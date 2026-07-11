@@ -1,0 +1,112 @@
+name: Workshop attempt report
+description: Tell us what happened when you tried a module — this is the only feedback channel this repo has, and it's entirely opt-in.
+title: "[attempt] "
+labels: ["attempt-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying this. A quick note on what this is before you fill it in:
+
+        **Nothing in this repo phones home.** This form is the only way any information about your
+        attempt ever reaches us — there's no telemetry, no analytics pixel, no background script
+        reading your session. If you don't open this, we have no idea you were here.
+
+        **What this can and can't prove.** Reports here can tell us "at least one real person
+        attempted this, and here's what happened" — genuinely useful, since as of now nobody
+        outside the people who built this workshop has ever attempted a module. What they *can't*
+        do is tell us whether learning inside a harness actually teaches better than a
+        well-structured written guide would have (the workshop's own central, still-unproven bet —
+        see `docs/workshop-design.md`). Anyone who's motivated enough to fill this in is already a
+        biased sample toward people who finished or who have a strong opinion; we're not going to
+        pretend otherwise, and you shouldn't have to either. Answer honestly, including "I gave up
+        and here's why" or "this felt like busywork" — that's exactly the kind of report that's
+        most useful to us.
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Which module?
+      options:
+        - "01 - Prompt engineering"
+        - "02 - Context engineering"
+        - "03 - Harness engineering"
+        - "04 - Loop engineering"
+        - "05 - Synthesis capstone"
+        - "More than one / the whole arc"
+    validations:
+      required: true
+
+  - type: input
+    id: harness
+    attributes:
+      label: Harness and model
+      description: What you actually drove the exercise with (e.g. "Claude Code, Sonnet 5", "Codex CLI, gpt-5.5", "Cursor").
+      placeholder: harness name, model name
+    validations:
+      required: true
+
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Outcome
+      options:
+        - "Completed the required gate"
+        - "Partially completed — stopped partway"
+        - "Abandoned before finishing"
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome-detail
+    attributes:
+      label: What actually happened
+      description: If you stopped partway or abandoned it, where and why? If you completed it, anything that went sideways along the way?
+    validations:
+      required: false
+
+  - type: input
+    id: time-spent
+    attributes:
+      label: Approximate time spent
+      placeholder: e.g. "45 minutes", "2 sessions over a weekend"
+    validations:
+      required: false
+
+  - type: textarea
+    id: load-bearing
+    attributes:
+      label: Did the exercise's gate feel load-bearing, or like theatre?
+      description: Could you have passed it without really engaging with what the module was trying to teach? Be blunt — a "this was busywork" answer is exactly the signal we need.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: trial-volunteer
+    attributes:
+      label: Help us actually test the hypothesis
+      description: >
+        Self-reports like this one can't tell us whether the harness approach teaches better than
+        a written guide would. The only thing that could is a real, structured comparison. If
+        you'd be willing to take part in one (a ~90-minute session: you're randomly assigned either
+        a written guide or a harness exercise covering the same material, then given a short
+        transfer task), check the box and leave a way to reach you below.
+      options:
+        - label: "I'd be willing to take part in a structured written-guide-vs-harness comparison session."
+          required: false
+
+  - type: input
+    id: contact
+    attributes:
+      label: Contact (only if you checked the box above)
+      description: An email or a way to reach you. Leave blank otherwise — this issue is public, so only share what you're comfortable posting.
+    validations:
+      required: false
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else
+      description: Free text. Confusing docs, a broken link, a rubric that didn't match what you built, whatever.
+    validations:
+      required: false
