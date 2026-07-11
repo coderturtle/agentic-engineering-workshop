@@ -50,7 +50,7 @@ This is early and imperfect by design (see "Content status" notes throughout `mo
 
 ## Did you try a module?
 
-Tell us what happened, using the [attempt report template](https://github.com/coderturtle/terminal-velocity/issues/new?template=attempt-report.yml) — completed, partial, or abandoned, all equally useful. Nothing in this repo phones home; that form is the only way any information about your attempt reaches us. It's also the only feedback channel this workshop currently has, since as of now nobody outside the people who built it has ever attempted a module.
+Tell us what happened, using the [attempt report template](https://github.com/coderturtle/terminal-velocity/issues/new?template=attempt-report.yml): completed, partial, or abandoned, all equally useful. Nothing in this repo phones home; that form is the only way any information about your attempt reaches us. It's also the only feedback channel this workshop currently has, since as of now nobody outside the people who built it has ever attempted a module.
 
 ## Key docs
 
