@@ -88,13 +88,14 @@ risks:
     impact: high
     status: open
     owner: coderturtle
-    mitigation: "Partially mitigated 2026-07-11. Independent fable-model critical review (docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md, Finding 1 and 2): every run to date validates mechanism (exercise completability, rubric discrimination, manifest parseability, isolation), not the pedagogical claim that harness-driven exercise teaches better than a written guide; zero human learners had ever attempted a module, and the self-paced/local-grading format had no telemetry or submission channel to change that. A second independent fable design pass produced .github/ISSUE_TEMPLATE/attempt-report.yml plus a README invitation: an opt-in, explicitly limitation-bounded sensor (existence/failure-mode detector, not a learning-outcome measure) that also recruits volunteers for the real test. Still open: no minimum-viable pedagogy test (written-guide control, 4-6 real practitioners, randomized, transfer task plus blind explain-back) has been designed or run; that is the only thing that actually closes this risk."
+    mitigation: "Further mitigated 2026-07-11. Independent fable-model critical review (docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md, Finding 1 and 2): every run to date validates mechanism (exercise completability, rubric discrimination, manifest parseability, isolation), not the pedagogical claim that harness-driven exercise teaches better than a written guide; zero human learners had ever attempted a module, and the self-paced/local-grading format had no telemetry or submission channel to change that. A second independent fable design pass produced .github/ISSUE_TEMPLATE/attempt-report.yml plus a README invitation: an opt-in, explicitly limitation-bounded sensor that also recruits volunteers for the real test. The minimum-viable pedagogy test itself is now fully designed and verified: docs/pedagogy-trial/ (protocol, written-guide control for Module 04, a shared transfer task on a newly authored and verified fixture with a genuinely novel seeded bug, and a blind-grading rubric). Still open, and load-bearing: nobody has been recruited and no session has been run; designing the test does not close this risk, only running it does."
     raised_date: 2026-07-11
     reviewed_date: 2026-07-11
     links:
       - "docs/risks.md"
       - "docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md"
       - ".github/ISSUE_TEMPLATE/attempt-report.yml"
+      - "docs/pedagogy-trial/README.md"
   - id: RISK-0008
     title: "Workshop Review Panel is a single-model-family echo (all Claude), with one narrow cross-family exception"
     category: quality

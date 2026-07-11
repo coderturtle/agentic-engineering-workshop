@@ -27,11 +27,19 @@ entirely) fixed. One factual overclaim corrected in
 actually prompt-injected).
 
 **New backlog items from the review, prioritized:**
-- [ ] **Design and run a minimum-viable pedagogy test for one module** (03 or 04): a written-guide
-      control version, 4-6 real practitioners from the stated audience, randomized harness-exercise
-      vs. guide, a transfer task on an unfamiliar fixture plus a blind-graded explain-back. This is
-      the only action anywhere that would test the actual hypothesis rather than harden the
-      apparatus around it. See RISK-0007.
+- [x] **Designed the minimum-viable pedagogy test** (2026-07-11, module 04 chosen over 03):
+      `docs/pedagogy-trial/` (`README.md` the full protocol; `written-guide.md` the Arm B learning
+      material; `transfer-task.md` the shared post-learning task plus a six-question explain-back
+      interview; `grading-rubric.md` the blind-grading criteria). A new fixture variant,
+      `fixtures/receipts/variants/pedagogy-trial-transfer/`, was authored and verified for the
+      transfer task: a genuinely new seeded bug (a mutable-default-argument state leak in a new
+      `group_expenses_by_week` function, distinct in shape from Module 04's own timezone bug so
+      transfer measures the taught process, not memorized specifics), confirmed to reproduce in
+      isolation and to be fixable with a minimal diff.
+  - [ ] **Still open, human-only: actually recruit 4-6 participants and run the sessions.** This is
+        the one remaining step and the only action anywhere that would test the actual hypothesis
+        rather than harden the apparatus around it; nothing built so far substitutes for it. See
+        `docs/pedagogy-trial/README.md`'s recruitment/randomization/consent sections and RISK-0007.
 - [ ] **Do Phase B (`docs/module-03-pilot-completion-plan.md`) before any further agent-side
       evidence work** — it's the cheapest open item, gates Phase C, and is the sole existing
       mechanism distinguishing human learning from agent performance. Its continued deferral while
