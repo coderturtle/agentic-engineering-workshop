@@ -47,9 +47,20 @@ actually prompt-injected).
 - [ ] Run one Workshop Review Panel pass on a non-Claude model family (Codex or the local qwen
       substrate already proven for judging) and record the model-monoculture limitation in the
       panel's own definition (RISK-0008).
-- [ ] Add a structured learner-feedback channel (issue template: module, harness, outcome, time
-      spent) — the shipped product currently has no sensor for the hypothesis at all; even opt-in
-      anecdotes beat the current zero.
+- [x] **Added a structured learner-feedback channel** (2026-07-11): `.github/ISSUE_TEMPLATE/
+      attempt-report.yml` (module, harness/model, outcome, time spent, a "load-bearing or theatre"
+      question, a trial-volunteer opt-in, free text), linked from a new README "Did you try a
+      module?" section. Design came from a second independent `fable` pass specifically on this
+      question (see that session's transcript), which pushed back on and dropped two pieces of the
+      original brainstorm: no CLI helper (would read as covert tracking to this audience for
+      negligible friction savings) and no published clone-count denominator (maintainer-private,
+      bot-swamped, not a usable rate). The template explicitly states its own limit in the intro
+      (existence/failure-mode detector, not a learning-outcome measure — self-report is
+      selection-biased toward finishers and the strongly opinionated) and its last field recruits
+      directly for the real test (the written-guide-vs-harness controlled trial below), so the
+      cheap sensor feeds the real experiment instead of competing with it for effort. RISK-0007
+      updated to reflect this as partial mitigation, not closure — the controlled trial remains the
+      only thing that can actually answer the hypothesis.
 - [ ] Fix the remaining human-facing doc decay: `docs/human-understanding-check.md` and
       `docs/depth-decision.md` are still unfilled template stubs after nine material sessions;
       `docs/project-walkthrough.md` is frozen at ~2026-07-03 state and now says things that are

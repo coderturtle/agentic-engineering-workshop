@@ -38,7 +38,7 @@ Every module leaves you with something, not just a passed check: a reusable prom
 
 ## The teaching method
 
-Our working hypothesis, not a settled finding: the harness is the classroom. You learn this material by doing it inside a real agent session, with Coachgremlin setting the rubric up front and grading your actual attempt, not by reading a guide. See [`docs/workshop-design.md`](docs/workshop-design.md) for the full reasoning, including where we admit this is a bet, not proven pedagogy.
+Our working hypothesis, not yet a testable finding: the harness is the classroom. You learn this material by doing it inside a real agent session, with Coachgremlin setting the rubric up front and grading your actual attempt, not by reading a guide. See [`docs/workshop-design.md`](docs/workshop-design.md) for the full reasoning, including where we admit this is a bet we haven't yet built a way to actually test, not proven pedagogy. If you're willing to help test it for real, see "Did you try a module?" below.
 
 ## Build in public
 
@@ -47,6 +47,10 @@ This workshop's own build is published as a dated journal at [coderturtle.github
 ## Something wrong?
 
 This is early and imperfect by design (see "Content status" notes throughout `modules/`). If a module reduces to "read this, then move on" instead of a real gate, or a link here is broken, [open an issue](https://github.com/coderturtle/terminal-velocity/issues).
+
+## Did you try a module?
+
+Tell us what happened, using the [attempt report template](https://github.com/coderturtle/terminal-velocity/issues/new?template=attempt-report.yml) — completed, partial, or abandoned, all equally useful. Nothing in this repo phones home; that form is the only way any information about your attempt reaches us. It's also the only feedback channel this workshop currently has, since as of now nobody outside the people who built it has ever attempted a module.
 
 ## Key docs
 

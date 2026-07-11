@@ -1531,3 +1531,66 @@ opinion, not a rubber stamp.
 
 No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
 false`).
+
+## 2026-07-11 - Learner-feedback channel built (RISK-0007 partial mitigation)
+
+Follow-up to the same day's critical review. User asked to think through how to track random
+learners in a public GitHub repo with no backend, and to send that specific question to a second,
+independent `fable` subagent rather than just running with the first brainstorm. That pass reacted
+critically to the brainstorm rather than validating it, and its recommendation was implemented
+directly.
+
+### What changed
+
+- `.github/ISSUE_TEMPLATE/attempt-report.yml` (new) - a GitHub issue form: module attempted,
+  harness/model, outcome (completed gate / partial / abandoned), detail, approx time spent, a
+  "load-bearing or theatre" question, a trial-volunteer opt-in checkbox plus optional contact, and
+  free text. Intro text states plainly what the data can and can't prove and that nothing in the
+  repo phones home.
+- `README.md` - new "Did you try a module?" section linking the template; the existing hypothesis
+  sentence (was "a bet, not proven pedagogy") updated to match `docs/workshop-design.md`'s same-day
+  correction ("a bet we haven't yet built a way to actually test"), closing a cross-document drift
+  the same day's own edits would otherwise have left stale.
+- `docs/next-actions.md` - the learner-feedback backlog item checked off with what was built and,
+  as important, what was deliberately not built.
+- `docs/risks.md` / `.hekton/risk-register.yaml` - RISK-0007 updated from "not yet mitigated" to
+  "partially mitigated," explicit that the controlled trial (not this channel) is what actually
+  closes it.
+- `docs/decisions.md` - new 2026-07-11 ADR row.
+
+### Decisions Made
+
+- Dropped two pieces of the original brainstorm on the second fable pass's recommendation: a CLI
+  helper (reads as covert tracking to this audience for negligible friction savings) and a
+  published clone-count denominator (maintainer-private, bot-swamped, not a usable rate).
+- Added a field the original brainstorm didn't have: a trial-volunteer opt-in, so the sensor feeds
+  the real controlled-trial recommendation instead of substituting for it.
+- Fixed the README hypothesis-wording drift in the same pass rather than leaving it for a future
+  session to rediscover, consistent with this project's own established practice of catching
+  cross-document inconsistency immediately once found.
+
+### Risks
+
+- RISK-0007: status changed from "not yet mitigated" to "partially mitigated." Still open - the
+  minimum-viable pedagogy test remains undesigned and is the only thing that actually answers the
+  hypothesis.
+
+### Next Actions
+
+- The controlled trial (written-guide control, 4-6 real practitioners, randomized, transfer task
+  plus blind explain-back) is still the highest-priority open item from the 2026-07-11 critical
+  review, unaffected by this session's work.
+- Watch whether any `attempt-report` issues actually arrive; zero is itself ambiguous (no organic
+  learners vs. no one bothering to report) and should be read as such, not over-interpreted either
+  way.
+
+### Validation
+
+Manually reviewed the issue-form YAML for valid GitHub Issue Forms syntax (dropdown/input/textarea/
+checkboxes types, required fields) - not validated against a live GitHub render, since that would
+require pushing the branch; flagged here rather than assumed clean.
+
+### Mind-palace updated
+
+No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
+false`).
