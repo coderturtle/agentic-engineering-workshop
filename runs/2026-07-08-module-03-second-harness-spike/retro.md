@@ -21,9 +21,16 @@ scratch copy of `fixtures/receipts/` (never the live fixture; confirmed untouche
 - Designed `.codex-receipts-category-specialist.md`: a named, single-responsibility specialist
   scoped to `receipts/`, `tests/test_by_category.py`, and the notes file, with an explicit
   "Enforcement Note" stating plainly that this is unenforced prompt text, not a path-level
-  sandbox — matching (independently, since it never read) the module's own README warning that
-  Codex's custom instructions carry no comparable sandboxing to a Claude Code sub-agent's `tools:`
-  field.
+  sandbox — matching the module's own README warning that Codex's custom instructions carry no
+  comparable sandboxing to a Claude Code sub-agent's `tools:` field.
+  **Correction, 2026-07-11 (independent critical review, `docs/review-panel/2026-07-11-harness-
+  hypothesis-critical-review.md`, Finding 4):** this was originally written as "matching
+  (independently, since it never read) the module's README warning," implying Codex arrived at the
+  honesty unaided. That's false — the Phase 1 prompt in `docs/module-03-pilot-completion-plan.md`
+  literally instructed it to say this ("your own translation-table entry in README.md is
+  unenforced custom-instructions-scoped prompt text, not path-level sandboxing, so say so plainly
+  rather than overclaiming"). The honesty was injected by the orchestrating prompt, not discovered
+  independently by the agent; credited to the wrong source in the original write-up.
 - Implemented `group_expenses_by_category` and `--by-category`, wrote `.receipts-category-
   progress.md` describing state and reasoning (not a finished copy-pasteable answer), ran
   `tests/test_by_category.py` (2/2 passed), then stopped as instructed.
@@ -41,6 +48,15 @@ scratch copy of `fixtures/receipts/` (never the live fixture; confirmed untouche
   This weakens how much the reset-and-resume demonstrates: it's a genuine cold process boundary
   (confirmed — no shared memory, no `--resume`), but not a case where the second session had to
   recover meaningful in-progress judgment, because there wasn't any left un-recorded.
+  **Correction, 2026-07-11 (same critical review, Finding 4):** this was written up as a discovered
+  weakness, but the plan's own Phase 1 prompt (`docs/module-03-pilot-completion-plan.md` lines
+  68-71) instructed Codex to "Run the tests yourself before stopping. Then stop" only after full
+  implementation — guaranteeing phase 2 would have nothing substantive to resume. The module's own
+  rubric names this exact failure mode ("if the second session's job is just to transcribe what
+  the first session already wrote in full, this criterion isn't demonstrated, it's staged,"
+  `modules/03-harness-engineering/README.md` line 21). The weak demonstration was staged by the
+  prompt design, not merely observed. A rerun should instruct Phase 1 to stop at a genuine
+  judgment point (e.g., after the design decision but before wiring the CLI flag).
 - Also ran its own internal negative-control check (hid the notes file, spawned a sub-verifier)
   and reported success — a nice instinct, but not a substitute for the plan's required third,
   fully separate top-level invocation, run below.

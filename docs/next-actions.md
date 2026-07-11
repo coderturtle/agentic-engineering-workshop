@@ -1,5 +1,81 @@
 # Next Actions: Terminal Velocity
 
+## Status: Independent fable-model critical review of the harness hypothesis (2026-07-11)
+
+Ran an independent, adversarial critical review (a `general-purpose` agent on the `fable` model,
+cold, no involvement in any prior session) against the whole workshop, focused on the central claim
+in `docs/workshop-design.md`: "the harness *is* the classroom." Full report:
+`docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md`.
+
+**Verdict: the hypothesis is untested, not partially tested.** Every run to date (five module dry
+runs, two review-panel campaigns, a rubric-gaming discrimination test, a blind local-model judging
+panel, the Codex/devstral fresh-agent spikes) validates that the exercise *mechanism* works —
+completable, isolable, portable across harnesses — not that harness-driven learning beats a
+well-structured written guide. Zero human learners have ever attempted a module, and the shipped
+product (self-paced, local grading, no telemetry, no submission channel) has no sensor to collect
+that data as-is. Worse, the fresh-agent evidence being counted toward the "genuinely uninvolved
+attempt" gap actually cuts the other way: per the pilot's own stated criterion
+(`docs/agent-native-interaction-plan.md` §6), an agent satisfying every gate with zero human
+learning is the disproof outcome, not confirmation — nobody had drawn that conclusion until now.
+`docs/workshop-design.md`'s hypothesis language and `docs/module-03-pilot-completion-plan.md`
+(new addendum) have been corrected to say so honestly. New risks logged: RISK-0007 (no test, no
+sensor) and RISK-0008 (all ten review-panel runs are one model family reviewing its own work).
+RISK-0002 was also found stale (marked "Open" in `docs/risks.md` for over a week after being
+fixed) and closed; risk-register drift (RISK-0002/0003 missing from `.hekton/risk-register.yaml`
+entirely) fixed. One factual overclaim corrected in
+`runs/2026-07-08-module-03-second-harness-spike/retro.md` (an "independently" claim that was
+actually prompt-injected).
+
+**New backlog items from the review, prioritized:**
+- [x] **Designed the minimum-viable pedagogy test** (2026-07-11, module 04 chosen over 03):
+      `docs/pedagogy-trial/` (`README.md` the full protocol; `written-guide.md` the Arm B learning
+      material; `transfer-task.md` the shared post-learning task plus a six-question explain-back
+      interview; `grading-rubric.md` the blind-grading criteria). A new fixture variant,
+      `fixtures/receipts/variants/pedagogy-trial-transfer/`, was authored and verified for the
+      transfer task: a genuinely new seeded bug (a mutable-default-argument state leak in a new
+      `group_expenses_by_week` function, distinct in shape from Module 04's own timezone bug so
+      transfer measures the taught process, not memorized specifics), confirmed to reproduce in
+      isolation and to be fixable with a minimal diff.
+  - [ ] **Still open, human-only: actually recruit 4-6 participants and run the sessions.** This is
+        the one remaining step and the only action anywhere that would test the actual hypothesis
+        rather than harden the apparatus around it; nothing built so far substitutes for it. See
+        `docs/pedagogy-trial/README.md`'s recruitment/randomization/consent sections and RISK-0007.
+- [ ] **Do Phase B (`docs/module-03-pilot-completion-plan.md`) before any further agent-side
+      evidence work** — it's the cheapest open item, gates Phase C, and is the sole existing
+      mechanism distinguishing human learning from agent performance. Its continued deferral while
+      three more agent-side campaigns shipped (judging panel, two Codex spikes, vulnerability
+      runs) is itself a selection-effect risk the review calls out (Finding 7): agent-runnable work
+      keeps getting done ahead of the human-gated work already identified as the bottleneck.
+- [ ] **Make the fixture-adequacy decision as one aggregated finding**: three of five modules'
+      central claims (01's naive-prompt claim, 03's notes-file-load-bearing claim, 05's sabotage
+      claims) independently failed their own negative controls for the same underlying reason —
+      `fixtures/receipts/` is small and self-documenting enough that a capable agent routes around
+      the very discipline each module teaches. Either grow the fixture until notes/curation/prompt
+      discipline become genuinely load-bearing, or scope module claims down to mechanics honestly.
+- [ ] Run one Workshop Review Panel pass on a non-Claude model family (Codex or the local qwen
+      substrate already proven for judging) and record the model-monoculture limitation in the
+      panel's own definition (RISK-0008).
+- [x] **Added a structured learner-feedback channel** (2026-07-11): `.github/ISSUE_TEMPLATE/
+      attempt-report.yml` (module, harness/model, outcome, time spent, a "load-bearing or theatre"
+      question, a trial-volunteer opt-in, free text), linked from a new README "Did you try a
+      module?" section. Design came from a second independent `fable` pass specifically on this
+      question (see that session's transcript), which pushed back on and dropped two pieces of the
+      original brainstorm: no CLI helper (would read as covert tracking to this audience for
+      negligible friction savings) and no published clone-count denominator (maintainer-private,
+      bot-swamped, not a usable rate). The template explicitly states its own limit in the intro
+      (existence/failure-mode detector, not a learning-outcome measure — self-report is
+      selection-biased toward finishers and the strongly opinionated) and its last field recruits
+      directly for the real test (the written-guide-vs-harness controlled trial below), so the
+      cheap sensor feeds the real experiment instead of competing with it for effort. RISK-0007
+      updated to reflect this as partial mitigation, not closure — the controlled trial remains the
+      only thing that can actually answer the hypothesis.
+- [ ] Fix the remaining human-facing doc decay: `docs/human-understanding-check.md` and
+      `docs/depth-decision.md` are still unfilled template stubs after nine material sessions;
+      `docs/project-walkthrough.md` is frozen at ~2026-07-03 state and now says things that are
+      false (site "not yet live," manifest "not built," Module 04 extensions "not yet exercised");
+      `docs/walkthroughs/` is missing entries for 2026-07-04/07/08 despite the Plain-English
+      Walkthrough Contract requiring one per material session.
+
 ## Status: Vulnerability Gremlin's third real run — RISK-0005/RISK-0006 closed (2026-07-08)
 
 Ran the new Vulnerability Gremlin (`~/hekton/gremlins/red-team/vulnerability-gremlin.md`) for

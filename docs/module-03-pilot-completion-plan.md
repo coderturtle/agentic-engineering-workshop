@@ -140,6 +140,24 @@ session that authored `AGENT.md`/`module.yaml`, but it *was* orchestrated by a s
 this plan document, which itself describes the exercise — note that nuance rather than claim a
 purer independence than actually held).
 
+## Addendum, 2026-07-11: what Phase A actually demonstrated (independent critical review)
+
+`docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md` (Finding 2) flags a
+distinction this plan did not draw: Phase A's fresh-agent evidence (and the earlier Codex/devstral
+Module 04 spikes) has been treated as closing the "genuinely fresh, uninvolved attempt" gap, but an
+autonomous agent completing the exercise cold is not a proxy for a cold *learner*. It demonstrates
+that every module-03 gate can be fully satisfied with **zero human learning occurring** — the agent
+designed the boundary, implemented the feature, wrote the notes, and (in the dry-run convention)
+would self-grade. Per this plan's own source document's stated criterion
+(`docs/agent-native-interaction-plan.md` §6: "if the pilot can't demonstrate the human still did
+the load-bearing thinking, it has *disproven* the feature for that module, a valid and useful pilot
+outcome, don't paper over it"), Phase A's result so far leans toward that disproof for agent-driven
+attempts, not away from it. **This changes what Phase C should weigh**: Phase A is real evidence
+about harness portability and read/write isolation, but it is not evidence that the agent-native
+pilot teaches a human anything — that question stays entirely open, gated on Phase B and,
+more fundamentally, on whether any human learner ever attempts this module at all (see
+`docs/risks.md` RISK-0007).
+
 ## Phase B: the human-confirmation exercise (human-only, not agent-executable)
 
 Once Phase A produces real evidence, **coderturtle** reviews it: the harness config, both (or
