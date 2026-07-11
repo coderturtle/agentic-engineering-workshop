@@ -1450,3 +1450,147 @@ against `main`, build output matches pre-audit page count and content).
 ### Mind-palace updated
 
 No - out of scope; no authorization sought or given.
+
+## 2026-07-11 - Independent fable-model critical review of the harness hypothesis
+
+User asked to run a fable subagent for a critical review of the workshop, the central "harness is
+the classroom" hypothesis, and any gaps not yet examined, and to update the plan accordingly. Ran
+a `general-purpose` agent on the `fable` model (a different model family from every prior review
+pass in this project, deliberately, per RISK-0004's own residual note about model monoculture) with
+no involvement in any prior session, instructed to read the repo cold and re-derive whether prior
+findings hold up rather than trust them secondhand.
+
+### What changed
+
+- `docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md` (new) - the full report:
+  verdict, seven ranked findings, and eight prioritized recommended actions.
+- `docs/workshop-design.md` - the hypothesis statement corrected: was framed as "a hypothesis this
+  workshop is testing"; now honestly framed as "a hypothesis this workshop has not yet been able to
+  test," since nothing run so far involves a human learner or a written-guide comparison.
+- `docs/module-03-pilot-completion-plan.md` - new addendum narrowing what Phase A's fresh-agent
+  evidence actually proves (harness portability/isolation, not human learning), per the pilot's own
+  stated disproof criterion in `docs/agent-native-interaction-plan.md` §6.
+- `runs/2026-07-08-module-03-second-harness-spike/retro.md` - corrected a factual overclaim (an
+  "independently" characterization of Codex's honesty about its own unenforced sandboxing, when the
+  honesty was actually specified in the orchestrating prompt) and annotated why phase 1's prompt
+  design staged a weak reset-and-resume demonstration rather than merely observing one.
+- `docs/risks.md` / `.hekton/risk-register.yaml` - two new risks (RISK-0007: the hypothesis has no
+  test, no planned test, and the shipped product has no sensor to collect the data; RISK-0008: all
+  ten Workshop Review Panel runs are one model family reviewing its own work). Also fixed unrelated
+  drift the same pass surfaced: RISK-0002 (GitHub push credential) had sat marked "Open" in
+  `docs/risks.md` for over a week after actually being fixed 2026-07-03 - re-verified `origin/main`
+  matches local `main` before closing it; RISK-0002 and RISK-0003 were missing from
+  `.hekton/risk-register.yaml` entirely (present only in the Markdown file).
+- `docs/next-actions.md` - new top status section summarizing the review and six prioritized
+  backlog items.
+- `docs/decisions.md` - new 2026-07-11 ADR row recording the review and the doc corrections made
+  from it.
+
+### Decisions Made
+
+- Ran the review on a different model family (fable) specifically to get signal a same-family
+  review panel structurally cannot produce, per RISK-0004's own residual note.
+- Accepted the review's central reframing rather than treating it as overreach: the fresh-agent
+  evidence (Codex, devstral) collected so far actually satisfies the agent-native pilot's own
+  stated *disproof* criterion for human learning, not confirmation of it - nobody had drawn that
+  conclusion until this review, and it changes what Phase C should weigh.
+- Corrected the retro's factual overclaim and the stale RISK-0002 status directly rather than
+  logging them as backlog items only, since both are factual record-accuracy issues the project's
+  own convention treats as immediate fixes (see e.g. Module 01's negative-control rewrite).
+- Did not fabricate additional findings or rewrite historical retros wholesale - the review
+  explicitly confirmed several things as adequate (the hedged prose, RISK-0004's own narrative, the
+  2026-07-08 read-boundary finding), and those were left untouched.
+
+### Risks
+
+- RISK-0007 (new, open): the harness hypothesis has no test, no planned test, and the shipped
+  product has no sensor to collect the data a test would need. Highest-priority open item in this
+  project as of this session.
+- RISK-0008 (new, open): the review-panel apparatus is a single-model-family echo (Claude reviewing
+  Claude-authored content), with only one narrow cross-family exception (the qwen judging spike).
+- RISK-0002: closed (was stale-Open; actually fixed 2026-07-03, re-verified 2026-07-11).
+- RISK-0004: unchanged in status, but its residual note is now the direct ancestor of RISK-0008.
+
+### Next Actions
+
+- See `docs/next-actions.md`'s new top status section: design/run a minimum-viable pedagogy test;
+  do Phase B before further agent-side evidence work; make the fixture-adequacy decision as one
+  aggregated call; run a non-Claude review-panel pass; add a learner-feedback channel; fix the
+  remaining human-facing doc decay (`docs/human-understanding-check.md`, `docs/depth-decision.md`,
+  `docs/project-walkthrough.md`, missing `docs/walkthroughs/` entries).
+
+### Validation
+
+Re-verified the review's RISK-0002 finding directly (`git remote -v`, `git log origin/main`,
+`git status -sb`) before closing it, rather than trusting the subagent's claim. Did not
+independently re-verify every other finding line-by-line (the report's own citations were checked
+spot-fashion against the files it names), consistent with treating this as a genuine second
+opinion, not a rubber stamp.
+
+### Mind-palace updated
+
+No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
+false`).
+
+## 2026-07-11 - Learner-feedback channel built (RISK-0007 partial mitigation)
+
+Follow-up to the same day's critical review. User asked to think through how to track random
+learners in a public GitHub repo with no backend, and to send that specific question to a second,
+independent `fable` subagent rather than just running with the first brainstorm. That pass reacted
+critically to the brainstorm rather than validating it, and its recommendation was implemented
+directly.
+
+### What changed
+
+- `.github/ISSUE_TEMPLATE/attempt-report.yml` (new) - a GitHub issue form: module attempted,
+  harness/model, outcome (completed gate / partial / abandoned), detail, approx time spent, a
+  "load-bearing or theatre" question, a trial-volunteer opt-in checkbox plus optional contact, and
+  free text. Intro text states plainly what the data can and can't prove and that nothing in the
+  repo phones home.
+- `README.md` - new "Did you try a module?" section linking the template; the existing hypothesis
+  sentence (was "a bet, not proven pedagogy") updated to match `docs/workshop-design.md`'s same-day
+  correction ("a bet we haven't yet built a way to actually test"), closing a cross-document drift
+  the same day's own edits would otherwise have left stale.
+- `docs/next-actions.md` - the learner-feedback backlog item checked off with what was built and,
+  as important, what was deliberately not built.
+- `docs/risks.md` / `.hekton/risk-register.yaml` - RISK-0007 updated from "not yet mitigated" to
+  "partially mitigated," explicit that the controlled trial (not this channel) is what actually
+  closes it.
+- `docs/decisions.md` - new 2026-07-11 ADR row.
+
+### Decisions Made
+
+- Dropped two pieces of the original brainstorm on the second fable pass's recommendation: a CLI
+  helper (reads as covert tracking to this audience for negligible friction savings) and a
+  published clone-count denominator (maintainer-private, bot-swamped, not a usable rate).
+- Added a field the original brainstorm didn't have: a trial-volunteer opt-in, so the sensor feeds
+  the real controlled-trial recommendation instead of substituting for it.
+- Fixed the README hypothesis-wording drift in the same pass rather than leaving it for a future
+  session to rediscover, consistent with this project's own established practice of catching
+  cross-document inconsistency immediately once found.
+
+### Risks
+
+- RISK-0007: status changed from "not yet mitigated" to "partially mitigated." Still open - the
+  minimum-viable pedagogy test remains undesigned and is the only thing that actually answers the
+  hypothesis.
+
+### Next Actions
+
+- The controlled trial (written-guide control, 4-6 real practitioners, randomized, transfer task
+  plus blind explain-back) is still the highest-priority open item from the 2026-07-11 critical
+  review, unaffected by this session's work.
+- Watch whether any `attempt-report` issues actually arrive; zero is itself ambiguous (no organic
+  learners vs. no one bothering to report) and should be read as such, not over-interpreted either
+  way.
+
+### Validation
+
+Manually reviewed the issue-form YAML for valid GitHub Issue Forms syntax (dropdown/input/textarea/
+checkboxes types, required fields) - not validated against a live GitHub render, since that would
+require pushing the branch; flagged here rather than assumed clean.
+
+### Mind-palace updated
+
+No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
+false`).
