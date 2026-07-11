@@ -15,6 +15,30 @@ risks:
     reviewed_date: 2026-07-03
     links:
       - "docs/risks.md"
+  - id: RISK-0002
+    title: "GitHub push blocked: SSH alias/Keychain credential authenticated as wrong account"
+    category: infra
+    likelihood: certain
+    impact: medium
+    status: closed
+    owner: coderturtle
+    mitigation: "Fixed 2026-07-03 (docs/next-actions.md 'Immediate' section); main pushed and merged via PRs since. Re-verified 2026-07-11: origin/main matches local main. This entry was missing from risk-register.yaml entirely (drift from docs/risks.md, which also incorrectly still showed it Open) until caught by the 2026-07-11 independent critical review."
+    raised_date: 2026-07-03
+    reviewed_date: 2026-07-11
+    links:
+      - "docs/risks.md"
+  - id: RISK-0003
+    title: "labs/hekton-cli-lab's only branch has substantial uncommitted WIP from a prior session, no remote fallback"
+    category: process
+    likelihood: low
+    impact: low
+    status: open
+    owner: coderturtle
+    mitigation: "Avoided for this project's own commit-signature change via an isolated git worktree branched from the last real commit, not the dirty tree. Whoever owns the WIP in that other lab should commit or discard it before its branches are reconciled. This entry was missing from risk-register.yaml entirely (drift from docs/risks.md) until caught by the 2026-07-11 independent critical review."
+    raised_date: 2026-07-03
+    reviewed_date: 2026-07-11
+    links:
+      - "docs/risks.md"
   - id: RISK-0004
     title: "Every module's rubric/diagnosis was self-validated, not independently checked"
     category: quality
@@ -57,3 +81,29 @@ risks:
     reviewed_date: 2026-07-08
     links:
       - "docs/risks.md"
+  - id: RISK-0007
+    title: "The harness hypothesis has no test, no planned test, and the shipped product has no sensor to collect the data a test needs"
+    category: quality
+    likelihood: certain
+    impact: high
+    status: open
+    owner: coderturtle
+    mitigation: "Not yet mitigated. Independent fable-model critical review (docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md, Finding 1 and 2): every run to date validates mechanism (exercise completability, rubric discrimination, manifest parseability, isolation), not the pedagogical claim that harness-driven exercise teaches better than a written guide; zero human learners have ever attempted a module, and the self-paced/local-grading format has no telemetry or submission channel to change that. Fresh-agent evidence (Codex, devstral) actually cuts against the hypothesis per the pilot's own stated criterion (agent-native-interaction-plan.md section 6), since it shows every gate can be satisfied with zero human learning. Recommended: design and run a minimum-viable pedagogy test (written-guide control, 4-6 real practitioners, randomized, transfer task plus blind explain-back); reword docs/workshop-design.md's hypothesis language honestly in the meantime."
+    raised_date: 2026-07-11
+    reviewed_date: 2026-07-11
+    links:
+      - "docs/risks.md"
+      - "docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md"
+  - id: RISK-0008
+    title: "Workshop Review Panel is a single-model-family echo (all Claude), with one narrow cross-family exception"
+    category: quality
+    likelihood: certain
+    impact: medium
+    status: open
+    owner: coderturtle
+    mitigation: "Not yet mitigated. Same critical review, Finding 5: all ten review-panel runs execute on the model family that authored the reviewed content (confirmed via runs/run-*.yaml engine field); seven personas are seven prompts sharing one set of model-level blind spots, not seven independent reviewers. The one cross-family check (qwen2.5:14b judging panel, RISK-0004) is a narrow grading spike, not a content review. Recommended: run one review-panel pass on a non-Claude model family and record the model-monoculture limitation in the panel's own definition."
+    raised_date: 2026-07-11
+    reviewed_date: 2026-07-11
+    links:
+      - "docs/risks.md"
+      - "docs/review-panel/2026-07-11-harness-hypothesis-critical-review.md"
