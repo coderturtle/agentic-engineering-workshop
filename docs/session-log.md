@@ -1666,3 +1666,48 @@ rule (none found).
 
 No - out of scope for this session; no authorization sought or given (`vault_mutation_allowed:
 false`).
+
+## 2026-07-11 - Session close: pushed and merged via PR #4, mirror synced
+
+Closing entry for the day's three-part session (critical review, learner-feedback channel,
+pedagogy trial design). User asked to commit, open a PR, merge, and sync the mirror.
+
+### What changed
+
+- Pushed local `main`'s tip (which already carried three locally-merged feature branches from
+  earlier in this session) as `agent/claude/2026-07-11-harness-hypothesis-and-pedagogy-trial`,
+  opened PR #4 against `main`, merged with an explicit merge commit and branch deletion, then
+  fast-forwarded local `main` to match and pruned stale remote-tracking refs.
+  `github.com/coderturtle/terminal-velocity/pull/4`.
+- Switched `gh`'s active account from `dermdunc` to `coderturtle` before creating the PR.
+- `docs/decisions.md` - new row recording the push/PR/merge and the `gh` account fix.
+- Repo-local mind-palace mirror re-verified current after the merge (no drift; content was
+  identical before and after, since the PR merge only added a wrapping merge commit).
+
+### Decisions Made
+
+- This is the first session where work left this machine and landed on GitHub for this project,
+  breaking every prior session's "merge locally, leave unpushed" pattern - done because the user
+  explicitly asked for it this time, not a standing change to how future sessions should default.
+
+### Risks
+
+- None new. RISK-0002's identity-split pattern (SSH/Keychain) recurred once more in the separate
+  `gh` CLI credential store; fixed the same way, noted in case it recurs a third time somewhere else
+  (a different git-adjacent tool with its own credential cache).
+
+### Next Actions
+
+- Unaffected by this close-out: `docs/pedagogy-trial/README.md`'s human-only recruitment/session
+  step remains the top open item (RISK-0007).
+
+### Validation
+
+`git status -sb` clean, local `main` matches `origin/main` exactly, `gh pr view 4` confirms
+`state: MERGED`. `scripts/check-mirror-drift.sh` and `scripts/check-brand-lint.sh` both clean.
+
+### Mind-palace updated
+
+Repo-local mirror (`mind-palace/20-projects/factory-output/terminal-velocity/`): yes, synced and
+verified current. External Obsidian vault (`~/vaults/hekton-mind-palace/...`): no - out of scope,
+`vault_mutation_allowed: false`, no authorization sought or given this session.
