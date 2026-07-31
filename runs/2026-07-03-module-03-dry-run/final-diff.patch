@@ -1,6 +1,6 @@
-diff -ru --ex /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/cli.py
---- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py	2026-07-03 19:26:32
-+++ /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/cli.py	2026-07-03 20:41:54
+diff -ru --ex <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py <hekton>/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/cli.py
+--- <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py	2026-07-03 19:26:32
++++ <hekton>/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/cli.py	2026-07-03 20:41:54
 @@ -6,7 +6,7 @@
  import csv
  import sys
@@ -39,9 +39,9 @@ diff -ru --ex /Users/hekton/Development/hekton/factory-output/terminal-velocity/
  
      if result.errors:
          print(f"\n{len(result.errors)} row(s) skipped:", file=sys.stderr)
-diff -ru --ex /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/grouping.py
---- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py	2026-07-03 20:26:36
-+++ /Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/grouping.py	2026-07-03 20:28:09
+diff -ru --ex <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py <hekton>/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/grouping.py
+--- <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py	2026-07-03 20:26:36
++++ <hekton>/factory-output/terminal-velocity/runs/2026-07-03-module-03-dry-run/harness-work/receipts/grouping.py	2026-07-03 20:28:09
 @@ -88,12 +88,30 @@
  
  

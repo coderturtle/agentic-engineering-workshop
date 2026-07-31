@@ -175,6 +175,6 @@ Per step, all read-only/local until the human-gated deploy:
 
 - `README.md`, `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`
 - `~/hekton/gremlins/workshop/workshop-gremlin.md`
-- `/Users/hekton/Development/hekton/labs/blog-factory-lab/site-starters/astro-blog/astro.config.mjs`
-- `/Users/hekton/Development/hekton/labs/blog-factory-lab/site-starters/astro-blog/src/content/config.ts`
-- `/Users/hekton/Development/hekton/labs/blog-factory-lab/templates/brand-style-layer-template.md`
+- `<hekton>/labs/blog-factory-lab/site-starters/astro-blog/astro.config.mjs`
+- `<hekton>/labs/blog-factory-lab/site-starters/astro-blog/src/content/config.ts`
+- `<hekton>/labs/blog-factory-lab/templates/brand-style-layer-template.md`
