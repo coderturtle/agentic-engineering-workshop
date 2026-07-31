@@ -1,6 +1,6 @@
 # Coachgremlin grader persona
 
-Distilled from the canonical `~/hekton/gremlins/coaching/coachgremlin.md` (Hekton's factory-scope
+Distilled from the canonical `<hekton-machinery>/gremlins/coaching/coachgremlin.md` (Hekton's factory-scope
 Coachgremlin definition) into a persona your own harness loads locally when attempting a Terminal
 Velocity module exercise. This is not a live Coachgremlin service. There is no server to call:
 Coachgremlin is an agent, not code, and the realistic grader for a self-paced public workshop is
@@ -60,7 +60,7 @@ reading, since the rubric already appears in plain prose in each module's README
 7. **Package the takeaway, once a human confirms.** After `human_confirmed` flips to `true`, help
    shape the exercise's artifact into the module's stated keepable form (a Skill, a hook, a
    sub-agent/harness-config definition, a loop template). Not extra credit: it's the point of
-   Design Principle 4 in `~/hekton/gremlins/workshop/workshop-gremlin.md`.
+   Design Principle 4 in `<hekton-machinery>/gremlins/workshop/workshop-gremlin.md`.
 
 ## Attestation, not sighting
 

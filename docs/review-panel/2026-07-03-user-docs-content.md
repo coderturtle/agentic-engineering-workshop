@@ -36,7 +36,7 @@ Module 02's takeaway was a "Skill" in two documents and a "checklist" in the thi
 
 ### 5. modules/README.md referenced a path on the maintainer's local machine, unresolvable for anyone who cloned the repo (End-User/Learner)
 
-`~/hekton/gremlins/workshop/workshop-lifecycle.md` is outside this repository entirely. A learner following that reference from a fresh clone gets nothing.
+`<hekton-machinery>/gremlins/workshop/workshop-lifecycle.md` is outside this repository entirely. A learner following that reference from a fresh clone gets nothing.
 
 **Status: fixed in this pass** — removed; the substantive point (why takeaways are a standing principle) didn't need the external citation to stand on its own.
 
@@ -99,7 +99,7 @@ The site's `sample-attempt-preview.md` blob link targets `main`; the file only e
 - Condensed `modules/README.md`'s Content status blockquote from a 250+ word internal-review narration to two sentences.
 - Corrected the "diagnose/compose all four layers" claim to an honest two-of-four scope note in `README.md`, `modules/README.md`, and `site/index.astro`.
 - Aligned the "what you keep" wording for Modules 02 and 03 across all three documents.
-- Removed the unresolvable `~/hekton` path reference from `modules/README.md`.
+- Removed the unresolvable `<hekton-machinery>` path reference from `modules/README.md`.
 - Hedged the site's unhedged outcome claim per `docs/brand.md`'s own rule.
 - Corrected "not cherry-picked" to the accurate, available claim, and disclosed the gaming attempt that exists alongside the featured transcript.
 - Added the real GitHub Pages URL to README's "Build in public" section.

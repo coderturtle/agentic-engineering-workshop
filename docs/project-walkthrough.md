@@ -15,7 +15,7 @@ Practitioners who already use agents daily plateau on "get a plausible answer on
 ## What we have built so far
 
 - The five-module arc (prompt, context, harness, loop, synthesis capstone), the brand voice and hard rules, and a published Astro site scaffold (not yet live).
-- Two purpose-built teaching agents: Workshop Gremlin (builds a workshop, runs a handful of times) and Coachgremlin (teaches a learner through it, runs continuously per learner). They stay separate by design; see `~/hekton/gremlins/workshop/workshop-lifecycle.md`.
+- Two purpose-built teaching agents: Workshop Gremlin (builds a workshop, runs a handful of times) and Coachgremlin (teaches a learner through it, runs continuously per learner). They stay separate by design; see `<hekton-machinery>/gremlins/workshop/workshop-lifecycle.md`.
 - A shared, deliberately-broken practice tool (`fixtures/receipts/`, a small command-line expense summarizer with one seeded bug) that every module's exercise runs against, so a learner isn't relearning a new toy problem five times.
 - All five modules now have a real exercise, checklist, stop condition, and packaged takeaway, not a placeholder. Loop engineering (04) went first, as Coachgremlin's actual first real run; prompt, context, harness, and the capstone followed the same day.
 - Coachgremlin's first real, end-to-end run (2026-07-03): built a real good-faith attempt and a real cheating attempt at Module 04's exercise, graded both, found and fixed a real hole in the grading checklist, and packaged a reusable takeaway (a loop template) validated against an unrelated second bug. See `runs/2026-07-03-module-04-dry-run/`.

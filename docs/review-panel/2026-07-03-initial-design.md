@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-03
 **Scope:** `README.md`, `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`, `docs/implementation-plan.md` — design docs only; no module content exists yet.
-**Run:** first-ever test run of the Workshop Review Panel (`~/hekton/gremlins/workshop/workshop-review-panel.md`), run before the Gremlin was added to the Workshop Gremlin's roster. Seven personas reviewed independently and in parallel (no persona saw another's critique before writing its own).
+**Run:** first-ever test run of the Workshop Review Panel (`<hekton-machinery>/gremlins/workshop/workshop-review-panel.md`), run before the Gremlin was added to the Workshop Gremlin's roster. Seven personas reviewed independently and in parallel (no persona saw another's critique before writing its own).
 
 This report is the synthesis. Full per-persona critiques are preserved in `docs/review-panel/2026-07-03-personas/` for anyone who wants the original phrasing rather than the paraphrase.
 

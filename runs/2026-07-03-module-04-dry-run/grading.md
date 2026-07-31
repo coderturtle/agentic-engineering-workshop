@@ -1,6 +1,6 @@
 # Coachgremlin's first real dry run: Module 04 core, graded
 
-Per `docs/coachgremlin-implementation-plan.md` §5. Two attempts run against the same ticket (`modules/04-loop-engineering/README.md`'s Ticket-to-PR-Ready core exercise, against `fixtures/receipts/`): a deliberately good one (`attempt-good/`) and a deliberately weak, rubric-gaming one (`attempt-gaming/`). Graded here against the rubric authored in that module's README, following Coachgremlin's Workflow steps 3-6 (`~/hekton/gremlins/coaching/coachgremlin.md`).
+Per `docs/coachgremlin-implementation-plan.md` §5. Two attempts run against the same ticket (`modules/04-loop-engineering/README.md`'s Ticket-to-PR-Ready core exercise, against `fixtures/receipts/`): a deliberately good one (`attempt-good/`) and a deliberately weak, rubric-gaming one (`attempt-gaming/`). Graded here against the rubric authored in that module's README, following Coachgremlin's Workflow steps 3-6 (`<hekton-machinery>/gremlins/coaching/coachgremlin.md`).
 
 ## Step 3: Observe the attempt
 
@@ -59,4 +59,4 @@ Validated per plan §7's bar ("drop the packaged artifact into a different task 
 
 ## Human Gate
 
-This grading is Coachgremlin's recommendation, not a certified completion. `human_confirmed: false` in `runs/run-20260703-AEW-001.yaml`, per Coachgremlin's Human Gate (`~/hekton/gremlins/coaching/coachgremlin.md`): it never certifies completion with external consequence without a human confirming the rubric result.
+This grading is Coachgremlin's recommendation, not a certified completion. `human_confirmed: false` in `runs/run-20260703-AEW-001.yaml`, per Coachgremlin's Human Gate (`<hekton-machinery>/gremlins/coaching/coachgremlin.md`): it never certifies completion with external consequence without a human confirming the rubric result.
