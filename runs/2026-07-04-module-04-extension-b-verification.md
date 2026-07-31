@@ -2,7 +2,7 @@
 
 ## Method
 
-The "Docs Consistency Loop" (`~/hekton/gremlins/workshop/workshop-lifecycle.md`'s "Dogfooding"
+The "Docs Consistency Loop" (`<hekton-machinery>/gremlins/workshop/workshop-lifecycle.md`'s "Dogfooding"
 section) already exists in this repo as `scripts/check-brand-lint.sh`, wired into
 `.git/hooks/pre-push` by `scripts/setup-hooks.sh`. That is the event-driven loop this extension
 teaches: the same bounded, externally-verified loop shape as the Ticket-to-PR-Ready core exercise

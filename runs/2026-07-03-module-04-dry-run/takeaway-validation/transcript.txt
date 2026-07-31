@@ -12,7 +12,7 @@ test_top_n_words_returns_n_items (test_word_stats.TopNWordsTests.test_top_n_word
 FAIL: test_top_n_words_handles_ties_alphabetically (test_word_stats.TopNWordsTests.test_top_n_words_handles_ties_alphabetically)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-04-dry-run/takeaway-validation/test_word_stats.py", line 13, in test_top_n_words_handles_ties_alphabetically
+  File "<hekton>/factory-output/terminal-velocity/runs/2026-07-03-module-04-dry-run/takeaway-validation/test_word_stats.py", line 13, in test_top_n_words_handles_ties_alphabetically
     self.assertEqual(top_n_words(text, 2), ["a", "b"])
     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: Lists differ: ['a'] != ['a', 'b']
@@ -28,7 +28,7 @@ First extra element 1:
 FAIL: test_top_n_words_returns_n_items (test_word_stats.TopNWordsTests.test_top_n_words_returns_n_items)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/hekton/Development/hekton/factory-output/terminal-velocity/runs/2026-07-03-module-04-dry-run/takeaway-validation/test_word_stats.py", line 9, in test_top_n_words_returns_n_items
+  File "<hekton>/factory-output/terminal-velocity/runs/2026-07-03-module-04-dry-run/takeaway-validation/test_word_stats.py", line 9, in test_top_n_words_returns_n_items
     self.assertEqual(top_n_words(text, 2), ["a", "b"])
     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: Lists differ: ['a'] != ['a', 'b']

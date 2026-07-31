@@ -42,7 +42,7 @@ authoring.
    2026-07-04 (`docs/decisions.md`).
    ```bash
    SCRATCH=$(mktemp -d /tmp/module-03-pilot-attempt-XXXXXX)
-   cp -r /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/* "$SCRATCH/"
+   cp -r <hekton>/factory-output/terminal-velocity/fixtures/receipts/* "$SCRATCH/"
    cd "$SCRATCH" && git init -q && git add -A && git -c user.email=pilot@local -c user.name=pilot commit -q -m "seed"
    ```
 2. Confirm `codex` is available and authenticated: `codex doctor` (see this session's own
@@ -63,7 +63,7 @@ codex exec \
   "$(cat <<'PROMPT'
 Read modules/03-harness-engineering/AGENT.md, module.yaml, and README.md (but NOT the
 "Takeaway" section of README.md -- skip it, it names a reference solution) from the
-terminal-velocity repo at /Users/hekton/Development/hekton/factory-output/terminal-velocity.
+terminal-velocity repo at <hekton>/factory-output/terminal-velocity.
 Follow AGENT.md's instructions exactly, working only in this directory (a scratch copy of the
 receipts fixture). Design a bounded harness/specialist boundary appropriate to your own tool
 (state explicitly what mechanism you are using and what it does and does not enforce -- your
@@ -102,7 +102,7 @@ codex exec \
   "Resume work in this directory. Read .receipts-category-progress.md for the current state and
 reasoning, then finish and verify the --by-category feature per that file and
 modules/03-harness-engineering/README.md's task description (terminal-velocity repo at
-/Users/hekton/Development/hekton/factory-output/terminal-velocity). Run the tests yourself." \
+<hekton>/factory-output/terminal-velocity). Run the tests yourself." \
   < /dev/null \
   > /tmp/module-03-phase2-events.jsonl 2>&1
 ```

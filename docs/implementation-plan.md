@@ -1,6 +1,6 @@
 # Implementation Plan — Deliverables/Branding + Build-log/Pages Publisher
 
-> Produced by an Opus-run planning pass (2026-07-03), reviewing `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`, the canonical `~/hekton/gremlins/workshop/workshop-gremlin.md` definition, and `blog-factory-lab`'s Astro starter. Scope: the Workshop Gremlin's **Deliverables & branding** and **Build-log / Pages publisher** steps. Produces a real, buildable skeleton up to "ready to deploy." Out of scope (do not do here): the final workshop name (separate naming pass), module *content*/exercises/rubrics (later Coachgremlin runs), and the first live Pages deploy (human-confirmed gate).
+> Produced by an Opus-run planning pass (2026-07-03), reviewing `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`, the canonical `<hekton-machinery>/gremlins/workshop/workshop-gremlin.md` definition, and `blog-factory-lab`'s Astro starter. Scope: the Workshop Gremlin's **Deliverables & branding** and **Build-log / Pages publisher** steps. Produces a real, buildable skeleton up to "ready to deploy." Out of scope (do not do here): the final workshop name (separate naming pass), module *content*/exercises/rubrics (later Coachgremlin runs), and the first live Pages deploy (human-confirmed gate).
 >
 > **Rename-safety note:** this plan was written before the naming pass, using the working title "Prompt → Loop" and a placeholder slug. The naming pass has since completed — the final name is **Terminal Velocity** (`terminal-velocity`) — and this file's rename-dependent spots (flagged inline as `RENAME-DEPENDENT`, e.g. the Astro `site`/`base` config in §4d) have been mechanically updated to the real slug. The quarantine discipline below is what made that a same-day find-replace instead of a scramble.
 
@@ -143,7 +143,7 @@ The repo root `.gitignore` already ignores `node_modules/`, `dist/`, `build/`. A
 
 ## 5. Sequencing
 
-Ordered by the Gremlin's own handoff contracts (`~/hekton/gremlins/workshop/workshop-gremlin.md` §Handoff Contracts): module shape must be decided before the site nav can mirror it; branding seeds both README and site.
+Ordered by the Gremlin's own handoff contracts (`<hekton-machinery>/gremlins/workshop/workshop-gremlin.md` §Handoff Contracts): module shape must be decided before the site nav can mirror it; branding seeds both README and site.
 
 1. **Module skeleton (§1)** — first; everything else references the module arc/nav. No dependencies. *(This is also the handoff artifact Coachgremlin later consumes.)*
 2. **Brand layer `docs/brand.md` (§3)** — second; README and site both read from it. Name-agnostic, so it does not wait on the naming pass. Can run **in parallel** with §1.
@@ -174,7 +174,7 @@ Per step, all read-only/local until the human-gated deploy:
 ## Critical files referenced
 
 - `README.md`, `docs/workshop-design.md`, `docs/workshop-gremlin-design.md`
-- `~/hekton/gremlins/workshop/workshop-gremlin.md`
-- `/Users/hekton/Development/hekton/labs/blog-factory-lab/site-starters/astro-blog/astro.config.mjs`
-- `/Users/hekton/Development/hekton/labs/blog-factory-lab/site-starters/astro-blog/src/content/config.ts`
-- `/Users/hekton/Development/hekton/labs/blog-factory-lab/templates/brand-style-layer-template.md`
+- `<hekton-machinery>/gremlins/workshop/workshop-gremlin.md`
+- `<hekton>/labs/blog-factory-lab/site-starters/astro-blog/astro.config.mjs`
+- `<hekton>/labs/blog-factory-lab/site-starters/astro-blog/src/content/config.ts`
+- `<hekton>/labs/blog-factory-lab/templates/brand-style-layer-template.md`

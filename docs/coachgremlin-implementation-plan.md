@@ -1,6 +1,6 @@
 # Content-Building Plan: Coachgremlin's First Authoring Pass Across Terminal Velocity
 
-> Produced by an Opus-run research/planning pass (2026-07-03), reading `~/hekton/gremlins/coaching/coachgremlin.md`, `~/hekton/gremlins/workshop/workshop-lifecycle.md`, all five module READMEs plus `modules/README.md`, `docs/workshop-design.md`, `docs/review-panel/2026-07-03-initial-design.md`, `docs/agent-native-interaction-plan.md`, `docs/brand.md`, and `runs/.schema.yaml`. This is a plan, not an implementation — nothing here has been built or authored into the modules yet.
+> Produced by an Opus-run research/planning pass (2026-07-03), reading `<hekton-machinery>/gremlins/coaching/coachgremlin.md`, `<hekton-machinery>/gremlins/workshop/workshop-lifecycle.md`, all five module READMEs plus `modules/README.md`, `docs/workshop-design.md`, `docs/review-panel/2026-07-03-initial-design.md`, `docs/agent-native-interaction-plan.md`, `docs/brand.md`, and `runs/.schema.yaml`. This is a plan, not an implementation — nothing here has been built or authored into the modules yet.
 
 **Status:** plan, not implementation. Read-only pass.
 **Scope:** author real exercise specs, rubrics, stop conditions, and takeaway-packaging instructions for all five modules, replacing the `_(rubric + terminal state defined per exercise by Coachgremlin)_` placeholders. Recommend and scope Coachgremlin's first real run.
@@ -10,7 +10,7 @@ A note on where this doc lives: it is a working `docs/` planning file and so is 
 
 ## 1. Coachgremlin's Workflow, as the frame everything hangs off
 
-From `~/hekton/gremlins/coaching/coachgremlin.md`, the six-step Workflow (step 6 added earlier today, still unproven):
+From `<hekton-machinery>/gremlins/coaching/coachgremlin.md`, the six-step Workflow (step 6 added earlier today, still unproven):
 
 1. **Frame the exercise**: a bounded, real, harness-driven task. State the stop condition and the takeaway form up front.
 2. **Set the rubric**: 3 to 6 observable, scored criteria, shared before the attempt.
@@ -260,7 +260,7 @@ Aggregate gate: the Workshop Review Panel re-run (Section 6, step 7) is the whol
 
 ## Critical files referenced
 
-- `~/hekton/gremlins/coaching/coachgremlin.md` (the six-step Workflow this pass authors content against, and the Human Gate the dry run must not violate)
+- `<hekton-machinery>/gremlins/coaching/coachgremlin.md` (the six-step Workflow this pass authors content against, and the Human Gate the dry run must not violate)
 - `modules/04-loop-engineering/README.md` (the first-real-run module; its gate, takeaway, and Ticket-to-PR-Ready pointer are the raw material for Section 5)
 - `docs/workshop-design.md` (arc reasoning, loop taxonomy, sourced patterns, stable-goal-vs-moving-target rule that every module's spec draws on)
 - `docs/review-panel/2026-07-03-initial-design.md` (the "Deferred to the content-building phase" constraints this plan must satisfy)

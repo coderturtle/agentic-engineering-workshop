@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-03
 **Scope:** `modules/01-prompt-engineering/README.md`, `fixtures/receipts/variants/unimplemented/SPEC.md`, `.claude/commands/spec-impl.md`, `runs/2026-07-03-module-01-dry-run/` — real, authored module content, not a design doc.
-**Run:** the Workshop Review Panel's (`~/hekton/gremlins/workshop/workshop-review-panel.md`) first run against real module content. The prior run (`2026-07-03-initial-design.md`) only had design docs to work with, before any exercise existed; this run was explicitly logged as a follow-up action, triggered here by the project owner reading Module 01 and describing it as "probably good but not very digestible." Seven personas reviewed independently and in parallel (no persona saw another's critique before writing its own).
+**Run:** the Workshop Review Panel's (`<hekton-machinery>/gremlins/workshop/workshop-review-panel.md`) first run against real module content. The prior run (`2026-07-03-initial-design.md`) only had design docs to work with, before any exercise existed; this run was explicitly logged as a follow-up action, triggered here by the project owner reading Module 01 and describing it as "probably good but not very digestible." Seven personas reviewed independently and in parallel (no persona saw another's critique before writing its own).
 
 This report is the synthesis. Full per-persona critiques are preserved in `docs/review-panel/2026-07-03-module-01-personas/` for anyone who wants the original phrasing rather than the paraphrase.
 

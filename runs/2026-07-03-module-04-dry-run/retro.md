@@ -31,7 +31,7 @@ Yes. `runs/run-20260703-AEW-001.yaml` records this as `status: done` (the dry ru
 Two artifacts, both real edits made during this run, not just findings written down:
 
 1. `modules/04-loop-engineering/README.md`'s rubric: criterion 4 now names the test-file boundary explicitly as a hard rule, not an inferred one; criterion 3 states that self-modified verification doesn't count as external, whatever the transcript shows.
-2. `~/hekton/gremlins/coaching/coachgremlin.md`: added a line to the Workflow's "observe" and "give feedback" steps, and a Completion Checklist item, generalizing this run's lesson past Module 04 specifically: before trusting a green terminal state on any verification-loop exercise, check which files the diff touches, not just whether the check suite passed. See that file's own session log / decisions for the exact diff (edited in `~/hekton`, outside this project's repo, per Coachgremlin being a cross-project Gremlin).
+2. `<hekton-machinery>/gremlins/coaching/coachgremlin.md`: added a line to the Workflow's "observe" and "give feedback" steps, and a Completion Checklist item, generalizing this run's lesson past Module 04 specifically: before trusting a green terminal state on any verification-loop exercise, check which files the diff touches, not just whether the check suite passed. See that file's own session log / decisions for the exact diff (edited in `<hekton-machinery>`, outside this project's repo, per Coachgremlin being a cross-project Gremlin).
 
 ## Toward Coachgremlin's Review Trigger
 

@@ -10,11 +10,11 @@ This is the internal/agent-facing doc. Learners should read the top-level `READM
 This repo has two goals:
 
 1. **Ship a workshop** teaching how prompt engineering, context engineering, harness engineering, and loop engineering fit together as of today, for practitioners already using coding agents daily, taught by running every exercise through a real harness rather than reading about it.
-2. **Extract the reusable machinery** for building future workshops: a **Workshop Gremlin** (deterministic scaffolding, naming, review panel, deliverables/branding, build-log publishing) and **Coachgremlin** (the reusable, harness-native teaching agent), both added to the Hekton factory (`~/hekton/gremlins/`) for reuse beyond this one workshop.
+2. **Extract the reusable machinery** for building future workshops: a **Workshop Gremlin** (deterministic scaffolding, naming, review panel, deliverables/branding, build-log publishing) and **Coachgremlin** (the reusable, harness-native teaching agent), both added to the Hekton factory (`<hekton-machinery>/gremlins/`) for reuse beyond this one workshop.
 
 ## Implementation Status
 
-- 2026-07-03 — Scaffolded as factory-output. Both design tracks complete: see [Workshop Design](workshop-design.md) (the workshop itself, a four-module arc plus synthesis capstone) and [Workshop Gremlin Design](workshop-gremlin-design.md) (the reusable machinery). Gremlin definitions live at `~/hekton/gremlins/workshop/workshop-gremlin.md`, `~/hekton/gremlins/coaching/coachgremlin.md`, and `~/hekton/gremlins/workshop/workshop-review-panel.md`.
+- 2026-07-03 — Scaffolded as factory-output. Both design tracks complete: see [Workshop Design](workshop-design.md) (the workshop itself, a four-module arc plus synthesis capstone) and [Workshop Gremlin Design](workshop-gremlin-design.md) (the reusable machinery). Gremlin definitions live at `<hekton-machinery>/gremlins/workshop/workshop-gremlin.md`, `<hekton-machinery>/gremlins/coaching/coachgremlin.md`, and `<hekton-machinery>/gremlins/workshop/workshop-review-panel.md`.
 - Naming pass complete (Terminal Velocity). First [Workshop Review Panel](review-panel/2026-07-03-initial-design.md) run complete against the design docs, findings applied.
 - [Implementation Plan](implementation-plan.md) executing now: module skeleton, brand layer, README rework, build-log/Pages site.
 

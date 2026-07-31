@@ -1,7 +1,7 @@
 Only in /tmp/module-03-pilot-attempt-l59CcI: .codex-receipts-category-specialist.md
 Only in /tmp/module-03-pilot-attempt-l59CcI: .receipts-category-progress.md
-diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/README.md /tmp/module-03-pilot-attempt-l59CcI/README.md
---- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/README.md	2026-07-04 17:28:17
+diff -ru --exclude=__pycache__ <hekton>/factory-output/terminal-velocity/fixtures/receipts/README.md /tmp/module-03-pilot-attempt-l59CcI/README.md
+--- <hekton>/factory-output/terminal-velocity/fixtures/receipts/README.md	2026-07-04 17:28:17
 +++ /tmp/module-03-pilot-attempt-l59CcI/README.md	2026-07-08 09:34:00
 @@ -15,3 +15,9 @@
  cd fixtures/receipts
@@ -13,8 +13,8 @@ diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/t
 +| Harness | Specialist boundary used here | Enforcement |
 +|---|---|---|
 +| Codex CLI | `.codex-receipts-category-specialist.md` plus `.receipts-category-progress.md` define a task-scoped receipts category specialist. | Unenforced custom-instructions-scoped prompt text only. It does not provide path-level sandboxing; this scratch fixture's filesystem sandbox is broader than `receipts/`, so scope must be verified from observed edits and commands. |
-diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py /tmp/module-03-pilot-attempt-l59CcI/receipts/cli.py
---- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py	2026-07-04 17:28:17
+diff -ru --exclude=__pycache__ <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py /tmp/module-03-pilot-attempt-l59CcI/receipts/cli.py
+--- <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/cli.py	2026-07-04 17:28:17
 +++ /tmp/module-03-pilot-attempt-l59CcI/receipts/cli.py	2026-07-08 09:34:00
 @@ -6,7 +6,7 @@
  import csv
@@ -54,8 +54,8 @@ diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/t
  
      if result.errors:
          print(f"\n{len(result.errors)} row(s) skipped:", file=sys.stderr)
-diff -ru --exclude=__pycache__ /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py /tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py
---- /Users/hekton/Development/hekton/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py	2026-07-04 17:28:17
+diff -ru --exclude=__pycache__ <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py /tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py
+--- <hekton>/factory-output/terminal-velocity/fixtures/receipts/receipts/grouping.py	2026-07-04 17:28:17
 +++ /tmp/module-03-pilot-attempt-l59CcI/receipts/grouping.py	2026-07-08 09:36:07
 @@ -88,7 +88,7 @@
  
